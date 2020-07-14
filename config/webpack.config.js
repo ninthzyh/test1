@@ -361,7 +361,7 @@ module.exports = function (webpackEnv) {
         'public': paths.appPublic,
         'img': paths.appImg,
         'store': paths.appStore,
-        'untils': paths.appUntils,
+        'pages':paths.appPages,
         'assets': paths.appAssets,
         'route': paths.appRoute,
         // CesiumJS module name

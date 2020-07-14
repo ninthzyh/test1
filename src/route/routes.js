@@ -1,6 +1,6 @@
 import Index from '../pages/Index'
 import React from "react";
-import Manager from '../pages/manager/Index'
+import Manager from '../pages/manager/widget/Index'
 import { Redirect } from "react-router-dom";
 
 const routes = [
