@@ -9,22 +9,22 @@ const routes = [
     exact: true,
     render: () => <Redirect to={"/index/credit"} />
   },
-  {
-    path: "/manager",
-    component: Manager
-  },
-  {
-    path: "/credit",
-    component: Manager
-  },
-  {
-    path: "/credit",
-    component: Manager
-  },
-  {
-    path: "/affairs",
-    component: Manager
-  },
+  // {
+  //   path: "/manager",
+  //   component: Manager
+  // },
+  // {
+  //   path: "/credit",
+  //   component: Manager
+  // },
+  // {
+  //   path: "/credit",
+  //   component: Manager
+  // },
+  // {
+  //   path: "/affairs",
+  //   component: Manager
+  // },
   {
     path: "/index",
     component: Index,
@@ -39,6 +39,18 @@ const routes = [
       },
       {
         path: "/index/society",
+        component: Manager
+      },
+      {
+        path: "/index/manager",
+        component: Manager
+      },
+      {
+        path: "/index/emergency",
+        component: Manager
+      },
+      {
+        path: "/index/traffic",
         component: Manager
       }
     ]

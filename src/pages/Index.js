@@ -23,7 +23,6 @@ class Home extends React.Component {
       <Header hasMenu={true}></Header>
 
       <Content style={{ height: '100%' }} id="Content">
-
         {renderRoutes(route.children)}
       </Content>
 

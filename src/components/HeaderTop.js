@@ -51,6 +51,9 @@ class HeaderTop extends Component {
                     style={{ lineHeight: '64px' }}
                 >
                     {/* <Menu.Item key="1"><NavLink to="/home/cesium/index"><span className={HeaderStyle.headerIcon + ' ' + HeaderStyle.home}></span>首页</NavLink></Menu.Item>                    */}
+                    <Menu.Item key="2"><NavLink target="_blank" to="/index/manager">城市管理</NavLink></Menu.Item>
+                    <Menu.Item key="3"><NavLink target="_blank" to="/index/traffic">交通出行</NavLink></Menu.Item>
+                    <Menu.Item key="4"><NavLink target="_blank" to="/index/emergency">城市应急</NavLink></Menu.Item>
                     <Menu.Item key="2"><NavLink target="_blank" to="/index/credit">信用体系</NavLink></Menu.Item>
                     <Menu.Item key="3"><NavLink target="_blank" to="/index/affairs">后台管理</NavLink></Menu.Item>
                     <Menu.Item key="4"><NavLink target="_blank" to="/index/society">社会民生</NavLink></Menu.Item>
