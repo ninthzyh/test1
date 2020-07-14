@@ -46,7 +46,7 @@ class HeaderTop extends Component {
                     theme="dark"
                     mode="horizontal"
                     className={HeaderStyle.menu}
-                    defaultSelectedKeys={['1']}
+                    defaultSelectedKeys={['2']}
                     inlineIndent="30"
                     style={{ lineHeight: '64px' }}
                 >
@@ -54,9 +54,9 @@ class HeaderTop extends Component {
                     <Menu.Item key="2"><NavLink target="_blank" to="/index/manager">城市管理</NavLink></Menu.Item>
                     <Menu.Item key="3"><NavLink target="_blank" to="/index/traffic">交通出行</NavLink></Menu.Item>
                     <Menu.Item key="4"><NavLink target="_blank" to="/index/emergency">城市应急</NavLink></Menu.Item>
-                    <Menu.Item key="2"><NavLink target="_blank" to="/index/credit">信用体系</NavLink></Menu.Item>
-                    <Menu.Item key="3"><NavLink target="_blank" to="/index/affairs">后台管理</NavLink></Menu.Item>
-                    <Menu.Item key="4"><NavLink target="_blank" to="/index/society">社会民生</NavLink></Menu.Item>
+                    <Menu.Item key="5"><NavLink target="_blank" to="/index/credit">信用体系</NavLink></Menu.Item>
+                    <Menu.Item key="6"><NavLink target="_blank" to="/index/affairs">后台管理</NavLink></Menu.Item>
+                    <Menu.Item key="7"><NavLink target="_blank" to="/index/society">社会民生</NavLink></Menu.Item>
                 </Menu> : null
             }
         </Header>
