@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import TrafficStyle from '../Traffic.module.scss'
 
 class Index extends Component {
     constructor(props) {
@@ -6,7 +7,9 @@ class Index extends Component {
         this.state = {  }
     }
     render() { 
-        return ( <></> );
+        return ( <div className={TrafficStyle.page}>
+hello
+        </div> );
     }
 }
  

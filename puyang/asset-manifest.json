@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/puyang/static/css/main.91f8a4a4.chunk.css",
+    "main.js": "/puyang/static/js/main.9c63a382.chunk.js",
+    "main.js.map": "/puyang/static/js/main.9c63a382.chunk.js.map",
+    "runtime-main.js": "/puyang/static/js/runtime-main.2c8e4243.js",
+    "runtime-main.js.map": "/puyang/static/js/runtime-main.2c8e4243.js.map",
+    "static/css/2.794b01c6.chunk.css": "/puyang/static/css/2.794b01c6.chunk.css",
+    "static/js/2.47a6ac0f.chunk.js": "/puyang/static/js/2.47a6ac0f.chunk.js",
+    "static/js/2.47a6ac0f.chunk.js.map": "/puyang/static/js/2.47a6ac0f.chunk.js.map",
+    "index.html": "/puyang/index.html",
+    "precache-manifest.ec264b62ac153e5edf5e5281933a1baa.js": "/puyang/precache-manifest.ec264b62ac153e5edf5e5281933a1baa.js",
+    "service-worker.js": "/puyang/service-worker.js",
+    "static/css/2.794b01c6.chunk.css.map": "/puyang/static/css/2.794b01c6.chunk.css.map",
+    "static/css/main.91f8a4a4.chunk.css.map": "/puyang/static/css/main.91f8a4a4.chunk.css.map",
+    "static/media/home.svg": "/puyang/static/media/home.8d322dd4.svg",
+    "static/media/iconfont.css": "/puyang/static/media/iconfont.cdf15a8d.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2c8e4243.js",
+    "static/css/2.794b01c6.chunk.css",
+    "static/js/2.47a6ac0f.chunk.js",
+    "static/css/main.91f8a4a4.chunk.css",
+    "static/js/main.9c63a382.chunk.js"
+  ]
+}

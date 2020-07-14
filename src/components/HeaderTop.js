@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import HeaderStyle from './Header.module.scss'
-import { Layout, Menu, Icon, Avatar, Modal } from 'antd';
+import { Layout, Menu, Icon, Modal } from 'antd';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types'
 const { Header } = Layout;
@@ -39,7 +39,6 @@ class HeaderTop extends Component {
         // const { PayIncrease, PayDecrease } = this.props;
         return <Header className={HeaderStyle.header}>
             <div className={HeaderStyle.title} ><NavLink to="/home"><span className={HeaderStyle.logoIcon + ' ' + HeaderStyle.logo}></span>濮阳市</NavLink></div>
-            <Avatar className={HeaderStyle.avatar} style={{ backgroundColor: '#1890ff' }} icon="user" onClick={this.confirm} />
 
             {this.props.hasMenu ?
                 <Menu

@@ -69,7 +69,7 @@ const resolveModule = (resolveFn, filePath) => {
 module.exports = {
   dotenv: resolveApp('.env'),
   appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
+  appBuild: resolveApp('puyang'),
   appPublic: resolveApp('public'),
   appImg: resolveApp('public/img'),
   appHtml: resolveApp('public/index.html'),

@@ -1,8 +1,8 @@
 {
-  "name": "my-app",
+  "name": "puyang",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/citySimulate",
+  "homepage": "/puyang",
   "dependencies": {
     "@ant-design/dark-theme": "^1.0.3",
     "@babel/core": "7.6.0",

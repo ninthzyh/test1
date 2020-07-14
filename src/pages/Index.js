@@ -14,7 +14,6 @@ class Home extends React.Component {
     }
   }
   componentWillUnmount() {
-    console.dir("home unmount")
   }
 
   render() {

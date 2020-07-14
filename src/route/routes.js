@@ -1,13 +1,18 @@
 import Index from '../pages/Index'
 import React from "react";
 import Manager from '../pages/manager/widget/Index'
+import Affairs from '../pages/affairs/widget/Index'
+import Credit from '../pages/credit/widget/Index'
+import Society from '../pages/society/widget/Index'
+import Emergency from '../pages/emergency/widget/Index'
+import Traffic from '../pages/traffic/widget/Index'
 import { Redirect } from "react-router-dom";
 
 const routes = [
   {
     path: "/",
     exact: true,
-    render: () => <Redirect to={"/index/credit"} />
+    render: () => <Redirect to={"/index/manager"} />
   },
   // {
   //   path: "/manager",
@@ -31,11 +36,11 @@ const routes = [
     children: [
       {
         path: "/index/affairs",
-        component: Manager
+        component: Affairs
       },
       {
         path: "/index/credit",
-        component: Manager
+        component: Credit
       },
       {
         path: "/index/society",
@@ -47,11 +52,11 @@ const routes = [
       },
       {
         path: "/index/emergency",
-        component: Manager
+        component: Emergency
       },
       {
         path: "/index/traffic",
-        component: Manager
+        component: Traffic
       }
     ]
   }
