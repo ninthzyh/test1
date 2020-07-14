@@ -1,0 +1,79 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "36137",
+      "name": "摄像机",
+      "font_class": "shexiangji",
+      "unicode": "f0035",
+      "unicode_decimal": 983093
+    },
+    {
+      "icon_id": "704936",
+      "name": "vector-polyline",
+      "font_class": "vectorpolyline",
+      "unicode": "eb50",
+      "unicode_decimal": 60240
+    },
+    {
+      "icon_id": "936869",
+      "name": "茶水饮料",
+      "font_class": "chashuiyinliao",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "1133212",
+      "name": "remove",
+      "font_class": "remove",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "5218608",
+      "name": "安全出口",
+      "font_class": "anquanchukou",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "5634005",
+      "name": "draw-polygon",
+      "font_class": "draw-polygon",
+      "unicode": "efa7",
+      "unicode_decimal": 61351
+    },
+    {
+      "icon_id": "7715023",
+      "name": "layers",
+      "font_class": "layers",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "8760123",
+      "name": "line-chart",
+      "font_class": "line-chart",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "9278048",
+      "name": "会议室",
+      "font_class": "icon_huiyishi",
+      "unicode": "e655",
+      "unicode_decimal": 58965
+    },
+    {
+      "icon_id": "10549653",
+      "name": "GIS应用",
+      "font_class": "GISyingyong",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    }
+  ]
+}
