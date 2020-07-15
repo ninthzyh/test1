@@ -37,13 +37,11 @@ class Index extends Component {
                 <div style={!show ? {display: 'none'} : {}} className={`${AffairsStyle.page} ${show ? 'animate__animated animate__backInLeft' : 'animate__animated animate__backOutLeft'}`}>
                     <div className={AffairsStyle.leftWrapper}>
                         <div className={AffairsStyle.item}><One/></div>
-                        <div className={AffairsStyle.item}>
-                            <Two />
-                        </div>
+                        <div className={AffairsStyle.item}><Two /></div>
                         <div className={AffairsStyle.item}><Three /></div>
                     </div>
                     <div className={AffairsStyle.rightWrapper}>
-                        <div className={AffairsStyle.itemRight}>1</div>
+                        <div className={AffairsStyle.itemRight}><Four /></div>
                         <div className={AffairsStyle.itemRight}><Fives /></div>
                         <div className={AffairsStyle.itemRight}><SixChart /></div>
                     </div>
@@ -51,9 +49,7 @@ class Index extends Component {
                 <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.page} ${show ? 'animate__animated animate__backOutLeft' : 'animate__animated animate__backInLeft'}`}>
                     <div className={AffairsStyle.leftWrapper}>
                         <div className={AffairsStyle.item}><Seven/></div>
-                        <div className={AffairsStyle.item}>
-                            <Two />
-                        </div>
+                        <div className={AffairsStyle.item}><Eight /></div>
                         <div className={AffairsStyle.item}>3</div>
                     </div>
                     <div className={AffairsStyle.rightWrapper}>
