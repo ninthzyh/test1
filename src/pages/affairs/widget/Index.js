@@ -29,7 +29,7 @@ class Index extends Component {
                         <div className={AffairsStyle.item}><Three /></div>
                     </div>
                     <div className={AffairsStyle.rightWrapper}>
-                        <div className={AffairsStyle.itemRight}>1</div>
+                        <div className={AffairsStyle.itemRight}><Four /></div>
                         <div className={AffairsStyle.itemRight}><Fives /></div>
                         <div className={AffairsStyle.itemRight}><SixChart /></div>
                     </div>
