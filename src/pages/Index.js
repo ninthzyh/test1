@@ -19,10 +19,10 @@ class Home extends React.Component {
 
   render() {
     const route = this.state.route;
-    return <Layout className="layout" style={{ height: '100%', minHeight: '900px' }}>
+    return <Layout className="layout" style={{ height: '100%'}}>
       <Header hasMenu={true} />
 
-      <Content style={{ height: '100%' }} id="Content">
+      <Content style={{ height: 'calc(100% - 128px)' }} id="Content">
         {renderRoutes(route.children)}
       </Content>
       <Footer />

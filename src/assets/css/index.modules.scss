@@ -12,7 +12,7 @@ $text-color:rgb(128, 0, 96);
     height: 100%;
     z-index: 2;
     position: relative;
-    min-height: 900px;
+    // min-height: 900px;
     .wrapper {
         flex: 0 1 420px;
     }
@@ -22,6 +22,10 @@ $text-color:rgb(128, 0, 96);
         padding: 10px;
         height: 35%;
         margin-bottom: 10px;
+    }
+    .itemRight{
+        @extend .item;
+        background: linear-gradient(90deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.66) 48%, rgba(17, 17, 17, 0.9) 100%);
     }
 }
 

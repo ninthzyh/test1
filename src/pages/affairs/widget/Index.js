@@ -21,9 +21,9 @@ class Index extends Component {
                         <div className={AffairsStyle.item}>3</div>
                     </div>
                     <div className={AffairsStyle.wrapper}>
-                        <div className={AffairsStyle.item}>1</div>
-                        <div className={AffairsStyle.item}>2</div>
-                        <div className={AffairsStyle.item}>3</div>
+                        <div className={AffairsStyle.itemRight}>1</div>
+                        <div className={AffairsStyle.itemRight}>2</div>
+                        <div className={AffairsStyle.itemRight}>3</div>
                     </div>
                 </div>
             </div>);

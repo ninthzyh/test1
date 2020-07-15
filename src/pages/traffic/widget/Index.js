@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import TrafficStyle from '../Traffic.module.scss'
-import Two from '../../affairs/widget/Two';
 import OneMap from '../mapController';
 class Index extends Component {
     constructor(props) {
@@ -15,7 +14,6 @@ class Index extends Component {
                     <div className={TrafficStyle.wrapper}>
                         <div className={TrafficStyle.item}>1</div>
                         <div className={TrafficStyle.item}>
-                            <Two />
                         </div>
                         <div className={TrafficStyle.item}>3</div>
                     </div>
