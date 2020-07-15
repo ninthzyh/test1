@@ -17,7 +17,7 @@ class SixChart extends Component {
         <div className={SixChartStyle.title}>
           <span className={SixChartStyle.title1}>本年度(2020年) 已收到来信</span>
           <span className={SixChartStyle.title2}>36件</span>
-          <span className={SixChartStyle.title3}>,已办理</span>
+          <span className={SixChartStyle.title3}>，已办理</span>
           <span className={SixChartStyle.title4}>31件</span>
         </div>
         <div className={SixChartStyle.bottem}>
