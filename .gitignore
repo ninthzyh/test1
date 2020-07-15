@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 .vscode
 
+/src/assets/fonts/NotoSansHans-Bold.ttf
+/src/assets/fonts/NotoSansHans-Medium.ttf
+/src/assets/fonts/NotoSansHans-Regular.ttf
