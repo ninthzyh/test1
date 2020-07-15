@@ -1,0 +1,41 @@
+@import 'assets/css/index.modules.scss';
+
+.icon {
+    background-image: url('/img/Group.png');
+    background-repeat: no-repeat;
+    width: 23px;
+    height: 10px;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+.headerWrapper {
+    display: flex;
+    line-height: 48px;
+    .titleWrapper {
+        flex: 1 0 200px;
+        border-bottom: 1px solid;
+        margin-right: 10px;
+        border-image: linear-gradient(to left, #6cf5b0, #6dfafe, #2ba6ff) 1;
+        >div{
+            display: inline-block;
+        }
+        .title {
+            color: #fff;
+        }
+    }
+
+    .rightIconWrapper {
+        border-bottom: 1px solid #CACCD2;
+        text-align: center;
+        width: 25px;
+        .rightIcon {
+            display: inline-block;
+            background-image: url('/img/Shape.png');
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 10px;
+            
+        }
+    }
+}

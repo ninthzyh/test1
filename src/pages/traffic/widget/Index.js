@@ -10,14 +10,14 @@ class Index extends Component {
     render() {
         return (
             <div className={TrafficStyle.page}>
-                <div>
+                <div className={TrafficStyle.wrapper}>
                     <div className={TrafficStyle.item}>1</div>
                     <div className={TrafficStyle.item}>
                         <LineChart />
                     </div>
                     <div className={TrafficStyle.item}>3</div>
                 </div>
-                <div>
+                <div className={TrafficStyle.wrapper}>
                     <div className={TrafficStyle.item}>1</div>
                     <div className={TrafficStyle.item}>2</div>
                     <div className={TrafficStyle.item}>3</div>
