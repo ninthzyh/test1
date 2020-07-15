@@ -1,22 +1,15 @@
 import React, { Component } from 'react'
 import AffairsStyle from '../Affairs.module.scss'
-<<<<<<< HEAD
 import OneMap from '../mapController';
 import One from './One.js';
 import Two from './Two';
 import Seven from './Seven';
 import Three from './serviceNumber/Three';
 import 'animate.css';
-=======
-import OneMap from '../mapController'
-import Two from './Two'
-import One from './One.js'
-import Three from './serviceNumber/Three'
 import Fives from './Fives.js'
 import SixChart from './sixChart/SixChart';
 import Eight from './Eight';
 import Four from './Four/Four.js'
->>>>>>> 690970638bfc00018a39a891737ead8a90bae821
 class Index extends Component {
     constructor(props) {
         super(props);
