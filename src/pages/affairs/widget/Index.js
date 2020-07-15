@@ -7,11 +7,12 @@ import Three from './serviceNumber/Three'
 import Fives from './Fives.js'
 import SixChart from './sixChart/SixChart';
 import Four from './Four/Four.js'
+import FourChart from './Four/FourChart/FourChart.js'
 class Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      show: 'one',
+      show: 'two',
     }
   }
   render() {
@@ -54,7 +55,9 @@ class Index extends Component {
               <div className={AffairsStyle.item}>3</div>
             </div>
             <div className={AffairsStyle.wrapper}>
-              <div className={AffairsStyle.itemRight}>1</div>
+              <div className={AffairsStyle.itemRight}>
+								<FourChart/>
+							</div>
               <div className={AffairsStyle.itemRight}>2</div>
               <div className={AffairsStyle.itemRight}>3</div>
             </div>
