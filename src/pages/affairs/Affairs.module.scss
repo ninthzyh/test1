@@ -1,12 +1,15 @@
 @import 'assets/css/index.modules.scss';
 
-
+.container{
+    height: 100%;
+}
 .page{
     // color: $text-color;
     display: flex;
     justify-content: space-between;
     padding: 50px 20px;
     height: 100%;
+    z-index: 9999999;
     .item{
         width: 310px;
         height: 33%;
