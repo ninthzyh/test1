@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import HeaderStyle from './Header.module.scss'
-import { Layout, Menu, Icon, Modal } from 'antd';
+import { Layout, Menu, Icon, Avatar, Modal } from 'antd';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types'
 const { Header } = Layout;
