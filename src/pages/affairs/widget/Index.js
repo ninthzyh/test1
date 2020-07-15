@@ -18,7 +18,7 @@ class Index extends Component {
             <div>
                 <div className={AffairsStyle.item}>1</div>
                 <div className={AffairsStyle.item}>2</div>
-                <div className={AffairsStyle.item}>3</div>
+                <div className={AffairsStyle.item}>3jdslkfjksldkjflsdjflskdjfsldfjl</div>
             </div>
         </div>);
     }
