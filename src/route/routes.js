@@ -12,7 +12,7 @@ const routes = [
   {
     path: "/",
     exact: true,
-    render: () => <Redirect to={"/index/manager"} />
+    render: () => <Redirect to={"/index/affairs"} />
   },
   // {
   //   path: "/manager",

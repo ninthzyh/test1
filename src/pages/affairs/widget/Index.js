@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import AffairsStyle from '../Affairs.module.scss'
+<<<<<<< HEAD
 import OneMap from '../mapController';
 import One from './One.js';
 import Two from './Two';
 import Seven from './Seven';
 import Three from './serviceNumber/Three';
 import 'animate.css';
+=======
+import OneMap from '../mapController'
+import Two from './Two'
+import One from './One.js'
+import Three from './serviceNumber/Three'
+import Fives from './Fives.js'
+import SixChart from './sixChart/SixChart';
+import Eight from './Eight';
+import Four from './Four/Four.js'
+>>>>>>> 690970638bfc00018a39a891737ead8a90bae821
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -26,33 +37,33 @@ class Index extends Component {
     };
 
     render() {
-        const {show} = this.state;
+        const { show } = this.state;
         return (
             <div className={AffairsStyle.container}>
                 <OneMap></OneMap>
                 <div style={!show ? {display: 'none'} : {}} className={`${AffairsStyle.page} ${show ? 'animate__animated animate__backInLeft' : 'animate__animated animate__backOutLeft'}`}>
-                    <div className={AffairsStyle.wrapper}>
+                    <div className={AffairsStyle.leftWrapper}>
                         <div className={AffairsStyle.item}><One/></div>
                         <div className={AffairsStyle.item}>
                             <Two />
                         </div>
-                        <div className={AffairsStyle.item}><Three/></div>
+                        <div className={AffairsStyle.item}><Three /></div>
                     </div>
-                    <div className={AffairsStyle.wrapper}>
+                    <div className={AffairsStyle.rightWrapper}>
                         <div className={AffairsStyle.itemRight}>1</div>
-                        <div className={AffairsStyle.itemRight}>2</div>
-                        <div className={AffairsStyle.itemRight}>3</div>
+                        <div className={AffairsStyle.itemRight}><Fives /></div>
+                        <div className={AffairsStyle.itemRight}><SixChart /></div>
                     </div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.page} ${show ? 'animate__animated animate__backOutLeft' : 'animate__animated animate__backInLeft'}`}>
-                    <div className={AffairsStyle.wrapper}>
+                    <div className={AffairsStyle.leftWrapper}>
                         <div className={AffairsStyle.item}><Seven/></div>
                         <div className={AffairsStyle.item}>
                             <Two />
                         </div>
                         <div className={AffairsStyle.item}>3</div>
                     </div>
-                    <div className={AffairsStyle.wrapper}>
+                    <div className={AffairsStyle.rightWrapper}>
                         <div className={AffairsStyle.itemRight}>13212312</div>
                         <div className={AffairsStyle.itemRight}>2</div>
                         <div className={AffairsStyle.itemRight}>3</div>
@@ -62,4 +73,4 @@ class Index extends Component {
     }
 }
 
-export default Index;
+export default Index

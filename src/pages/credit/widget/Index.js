@@ -11,17 +11,17 @@ class Index extends Component {
             <div className={CreditStyle.container}>
                 <OneMap></OneMap>
                 <div className={CreditStyle.page}>
-                    <div>
+                    <div className={CreditStyle.wrapper}>
                         <div className={CreditStyle.item}>1</div>
                         <div className={CreditStyle.item}>
 
                         </div>
                         <div className={CreditStyle.item}>3</div>
                     </div>
-                    <div>
-                        <div className={CreditStyle.item}>4</div>
-                        <div className={CreditStyle.item}>5</div>
-                        <div className={CreditStyle.item}>6</div>
+                    <div  className={CreditStyle.wrapper}>
+                        <div className={CreditStyle.itemRight}>4</div>
+                        <div className={CreditStyle.itemRight}>5</div>
+                        <div className={CreditStyle.itemRight}>6</div>
                     </div>
                 </div>
             </div>);
