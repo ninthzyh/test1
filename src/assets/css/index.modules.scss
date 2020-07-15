@@ -12,6 +12,7 @@ $text-color:rgb(128, 0, 96);
     height: 100%;
     z-index: 2;
     position: relative;
+    min-height: 900px;
     .wrapper {
         flex: 0 1 420px;
     }
