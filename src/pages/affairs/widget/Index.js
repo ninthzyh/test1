@@ -20,7 +20,7 @@ class Index extends Component {
         return (
             <div className={AffairsStyle.container}>
                 <OneMap></OneMap>
-                {show === 'one' ? <div className={AffairsStyle.page}>
+                {show === 'one1' ? <div className={AffairsStyle.page}>
                     <div className={AffairsStyle.leftWrapper}>
                         <div className={AffairsStyle.item}><One /></div>
                         <div className={AffairsStyle.item}>
