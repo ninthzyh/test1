@@ -14,15 +14,19 @@
  */
 import React, { Component } from 'react'
 import { Progress  } from 'antd';
+import IconFont from '../../../../components/ChartHeader/ChartHeader.js'
+import {fourList} from './fourData.js'
 import './four.scss'
-
+console.log(fourList)
 /**
  * title:组件声明区域
  */
 class Four extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {}
+		this.state = {
+			list:fourList
+		}
 	}
 	componentDidMount(){
 		
@@ -31,36 +35,48 @@ class Four extends Component {
 		return (
 			<div className='currentAffairsWrap'>
 				<div className='header'>
-					<div className="headerContent">
-						<div className='leftChildrenContent'>
-							<img className='icon'></img>
-							<h5 className='title'>当日办事渠道排行</h5>
-						</div>
-						<img className='iconRight'></img>
-					</div>
-					<div className="headerEmbellishLine">
-						<div className="leftLine"></div>
-						<div className="rightLine"></div>
-					</div>
+					<IconFont title={this.state.list.title}/>
 				</div>
 				<div className='content'>
 					<div className='contentHeader'>
-						<span></span>
+						{
+							this.state.list.header.map((item,index)=>{
+								return <span key={`${index}`}>{item}</span>
+							})
+						}
 					</div>
 					<div className='infoShowWrap'>
-						<div className='infoShow'>
-							<div className='infoTxt'>
-								<div className='rankingDitchWrap'>
-									<span></span>
-									<span></span>
-								</div>
-								<span>12.5</span>
-							</div>
-							<div className='progress'></div>
-						</div>
+						{
+							this.state.list.children.map((item,index)=>{
+								return (
+									<div className='infoShow' key={`${index}`}>
+										<div className='infoTxt'>
+											<div className='rankingDitchWrap'>
+												<span className='ranking'>{index+1}</span>
+												<span className='ditch'>{item.ditch}</span>
+											</div>
+											<span className='proportion'>{item.proportion + '%'}</span>
+										</div>
+										<div className='progress'>
+											<Progress 
+												strokeColor={{
+													'0%': '#596AFF',
+													'100%': '#34F4EA',
+												}}
+												strokeWidth={8}
+												percent={item.proportion} 
+												showInfo={false} 
+										/>
+										</div>
+									</div>
+								)
+							})
+						}
 					</div>
 				</div>
 			</div>
 		)
 	}
 }
+
+export default Four

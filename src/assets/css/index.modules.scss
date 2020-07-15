@@ -1,9 +1,45 @@
 $primary-text-color:white;
 $text-color:rgb(128, 0, 96);
 
-.active{
-    display: block;
+
+.container{
+    height: 100%;
 }
-.hidden{
-    display: none;
+.page{
+    // color: $text-color;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px;
+    height: 100%;
+    z-index: 9999999;
+    .item{
+        width: 420px;
+        height: 35%;
+        // min-height: 310px;
+        background:rgba(0,0,0,1);
+        padding: 10px;
+        border: 1px solid red;
+    }
+}
+
+// line
+.title{
+
+}
+.content{
+    height: 200px;
+}
+.radioButton{
+    background: #65B3FA !important;
+    border-radius: 4px;
+    outline: none;
+    color: #fff;
+    border-color: #65B3FA;
+    border: 0;
+}
+.active{
+    background-color: #fff !important;
+    color: #313131;
+    border-color: #313131;
+    border: 0;
 }
