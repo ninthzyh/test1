@@ -3,6 +3,7 @@ import { Layout } from 'antd';
 import { renderRoutes } from 'react-router-config'
 import { connect } from 'react-redux';
 import Header from 'src/components/HeaderTop'
+import Footer from 'src/components/Footer'
 
 const { Content } = Layout;
 class Home extends React.Component {
@@ -19,12 +20,12 @@ class Home extends React.Component {
   render() {
     const route = this.state.route;
     return <Layout className="layout" style={{ height: '100%' }}>
-      <Header hasMenu={true}></Header>
+      <Header hasMenu={true} />
 
       <Content style={{ height: '100%' }} id="Content">
         {renderRoutes(route.children)}
       </Content>
-
+      <Footer />
     </Layout>
   }
 }
