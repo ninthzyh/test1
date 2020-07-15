@@ -4,6 +4,7 @@ import { renderRoutes } from 'react-router-config'
 import { connect } from 'react-redux';
 import Header from 'src/components/HeaderTop'
 import Footer from 'src/components/Footer'
+import OneMap from './mapController';
 
 const { Content } = Layout;
 class Home extends React.Component {
@@ -20,12 +21,13 @@ class Home extends React.Component {
   render() {
     const route = this.state.route;
     return <Layout className="layout" style={{ height: '100%' }}>
-      <Header hasMenu={true}/>
+      <Header hasMenu={true} />
 
       <Content style={{ height: '100%' }} id="Content">
+        <OneMap></OneMap>
         {renderRoutes(route.children)}
       </Content>
-        <Footer/>
+      <Footer />
     </Layout>
   }
 }
