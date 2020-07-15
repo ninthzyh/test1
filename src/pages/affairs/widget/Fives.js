@@ -1,77 +1,157 @@
 import React, { Component } from 'react'
-import ReactEcharts from 'echarts-for-react'
-import TrafficStyle from '../Affairs.module.scss'
+import echarts from 'echarts'
 import ChartHeader from '../../../components/ChartHeader/ChartHeader'
+import style from './serviceNumber/Three.module.scss'
 
 export default class Fives extends Component {
   constructor(props) {
     super(props)
     this.state = {}
   }
-  getOption = () => {
-    let option = {
-      color: ['#00FFFF', '#FF5B00', '#FFE000', '#006CED'],
-      graphic: {
-        type: 'text',
-        left: 'center',
-        top: '60%',
-        style: {
-          text: '死亡率8%',
-          fill: '#00FFFF',
-        },
+  componentDidMount() {
+    let number = [
+      {
+        name: '轻症\n500人\n50%',
+        value: 50,
       },
-      series: [
+      {
+        name: '重症\n100人\n10%',
+        value: 10,
+      },
+      {
+        name: '治愈\n350人\n35%',
+        value: 35,
+      },
+      {
+        name: '死亡\n50人\n5%',
+        value: 5,
+      },
+    ]
+
+    let data = []
+    let color = ['#00FFFF', '#FF5B00', '#FFE000', '#006CED']
+    for (let i = 0; i < number.length; i++) {
+      data.push(
         {
-          type: 'pie',
-          hoverAnimation: false,
-          radius: ['62%', '67%'],
-          center: ['50%', '65%'],
+          value: number[i].value,
+          name: number[i].name,
           itemStyle: {
             normal: {
-              borderWidth: 10,
-              borderColor: 'rgba(0, 0, 0, 0)',
-            },
-            emphasis: {
-              borderWidth: 10,
-              shadowBlur: 10,
-              shadowOffsetX: 0,
-              shadowColor: 'rgba(0, 0, 0, 0.8)',
+              borderWidth: 1,
+              shadowBlur: 20,
+              borderColor: color[i],
+              shadowColor: color[i],
             },
           },
-          roundCap: true,
-          label: {
-            formatter: '{b} {c}人 {d}%',//{b}\n{c}人\n{d}%
-            color: '#fff',
-          },
-          data: [
-            { value: 100, name: '重症' },
-            { value: 320, name: '治愈' },
-            { value: 80, name: '死亡' },
-            { value: 500, name: '轻症' },
-          ],
-          barGap: '-100%',
-          z: 2,
         },
-      ],
+        {
+          value: 2,
+          name: '',
+          itemStyle: {
+            normal: {
+              label: {
+                show: false,
+              },
+              labelLine: {
+                show: false,
+              },
+              color: 'rgba(0, 0, 0, 0)',
+              borderColor: 'rgba(0, 0, 0, 0)',
+              borderWidth: 0,
+            },
+          },
+        }
+      )
     }
-    return option
-  }
-  //初始化
-  componentDidMount() {
-    console.log(this.refs.box)
+    let seriesOption = [
+      {
+        name: '',
+        type: 'pie',
+        clockWise: false,
+        radius: [50, 60],
+        center: ['50%', '55%'],
+        hoverAnimation: false,
+        itemStyle: {
+          normal: {
+            label: {
+              show: true,
+              fontsize: 8,
+              position: 'outer',
+              color: '#ddd',
+              formatter: function (params) {
+                let percent = 0
+                let total = 0
+                for (let i = 0; i < number.length; i++) {
+                  total += number[i].value
+                }
+                percent = ((params.value / total) * 100).toFixed(0)
+                if (params.name !== '') {
+                  return params.name
+                } else {
+                  return ''
+                }
+              },
+            },
+            labelLine: {
+              length: 20,
+              length2: 10,
+              show: true,
+              color: '#00ffff',
+            },
+          },
+        },
+        data: data,
+      },
+    ]
+    // 基于准备好的dom，初始化echarts实例
+    let myChart = echarts.init(document.getElementById('epidemicTrends'))
+    // 绘制图表
+    myChart.setOption({
+      color: color,
+      title: {
+        text: '死亡率2.53%',
+        top: '40%',
+        textAlign: 'center',
+        left: '49%',
+        textStyle: {
+          color: '#00ffff',
+          fontSize: 10,
+          fontWeight: '400',
+        },
+      },
+      grid: {
+        top: '50%',
+      },
+      graphic: {
+        elements: [
+          {
+            type: 'image',
+            z: 3,
+            style: {
+              width: 200,
+              height: 200,
+            },
+            left: 'center',
+            top: 'center',
+            position: [50, 50],
+          },
+        ],
+      },
+      tooltip: {
+        show: false,
+      },
+      toolbox: {
+        show: false,
+      },
+      series: seriesOption,
+    })
+    window.onresize = myChart.onresize
   }
   render() {
     return (
-      <div ref="box">
-        <ChartHeader title="本地疫情趋势分析" />
-        <div className={TrafficStyle.content}>
-          <ReactEcharts
-            option={this.getOption()}
-            notMerge={true}
-            lazyUpdate={true}
-            style={{ height: '100%', width: '100%' }}
-          />
-        </div>
+      <div className={style.serviceNumber}>
+        <ChartHeader />
+        <div id="epidemicTrends" className={style.content}></div>
       </div>
     )
   }
