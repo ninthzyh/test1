@@ -6,7 +6,7 @@ import Two from './Two';
 import Seven from './Seven';
 import Three from './serviceNumber/Three';
 import 'animate.css';
-import Fives from './Fives.js'
+import Fives from './Fives/Fives.js'
 import SixChart from './sixChart/SixChart';
 import Eight from './Eight';
 import Four from './Four/Four.js'

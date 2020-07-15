@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import echarts from 'echarts'
-import ChartHeader from '../../../components/ChartHeader/ChartHeader'
-import style from './serviceNumber/Three.module.scss'
+import style from './Fives.module.scss'
+import ChartHeader from '../../../../components/ChartHeader/ChartHeader'
 
 export default class Fives extends Component {
   constructor(props) {
@@ -149,8 +149,8 @@ export default class Fives extends Component {
   }
   render() {
     return (
-      <div className={style.serviceNumber}>
-        <ChartHeader />
+      <div className={style.epidemicTrends}>
+        <ChartHeader title="本地疫情趋势分析" />
         <div id="epidemicTrends" className={style.content}></div>
       </div>
     )
