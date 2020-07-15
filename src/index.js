@@ -11,15 +11,18 @@ import routes from 'route/routes';
 import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 import store from 'store/index'
+import ScaleBox from 'react-scale-box';
 
 
 ReactDOM.render(
     <Provider store={store}>
-        <HashRouter>
-            <Switch>
-                {renderRoutes(routes)}
-            </Switch>
-        </HashRouter>
+        {/* <ScaleBox width={1920} height={1200}> */}
+            <HashRouter>
+                <Switch>
+                    {renderRoutes(routes)}
+                </Switch>
+            </HashRouter>
+        {/* </ScaleBox> */}
     </Provider>
     , document.getElementById('root'));
 
