@@ -12,7 +12,7 @@ class Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      show: 'two',
+      show: 'one',
     }
   }
   render() {
