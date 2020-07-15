@@ -1,1 +1,28 @@
 @import 'assets/css/index.modules.scss';
+/*当日疫情*/
+.oneContainer {
+    width: 100%;
+    height: 100%;
+    .infoItemBox {
+        width: 100%;
+        height: calc(100% - 49px);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        .infoItem {
+            width: 40%;
+            text-align: center;
+            .itemNumber {
+                line-height: 50px;
+                font-size: 32px;
+            }
+            .itemName {
+                font-size: 20px;
+                line-height: 23px;
+                color: $primary-text-color;
+            }
+        }
+        
+    }
+}
