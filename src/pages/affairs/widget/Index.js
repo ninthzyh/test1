@@ -7,6 +7,7 @@ import Three from './serviceNumber/Three'
 import Fives from './Fives.js'
 import SixChart from './sixChart/SixChart';
 import Eight from './Eight';
+import Four from './Four/Four.js'
 class Index extends Component {
     constructor(props) {
         super(props);
