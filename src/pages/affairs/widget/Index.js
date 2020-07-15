@@ -5,6 +5,7 @@ import Two from './Two'
 import One from './One.js'
 import Three from './serviceNumber/Three'
 import Fives from './Fives.js'
+import SixChart from './sixChart/SixChart';
 class Index extends Component {
   constructor(props) {
     super(props)
@@ -35,7 +36,7 @@ class Index extends Component {
               <div className={AffairsStyle.itemRight}>
                 <Fives />
               </div>
-              <div className={AffairsStyle.itemRight}>3</div>
+              <div className={AffairsStyle.itemRight}><SixChart/></div>
             </div>
           </div>
         ) : (
