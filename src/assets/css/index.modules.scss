@@ -6,40 +6,38 @@ $text-color:rgb(128, 0, 96);
     height: 100%;
 }
 .page{
-    // color: $text-color;
     display: flex;
     justify-content: space-between;
     padding: 50px 20px;
     height: 100%;
-    z-index: 9999999;
-    .item{
-        width: 420px;
-        height: 35%;
-        // min-height: 310px;
-        background:rgba(0,0,0,1);
+    z-index: 2;
+    position: relative;
+    .wrapper {
+        flex: 0 1 420px;
+    }
+
+    .item {
+        background: linear-gradient(90deg, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.66) 52%, rgba(17, 17, 17, 0) 100%);
         padding: 10px;
-        border: 1px solid red;
+        height: 35%;
+        margin-bottom: 10px;
     }
 }
 
 // line
-.title{
+.icon {
+    background-image: url('/img/Group.png');
+    background-repeat: no-repeat;
+    width: 23px;
+    height: 10px;
+    float: left;
+    margin: 6px;
+}
 
-}
-.content{
-    height: 200px;
-}
-.radioButton{
-    background: #65B3FA !important;
-    border-radius: 4px;
-    outline: none;
+.title {
     color: #fff;
-    border-color: #65B3FA;
-    border: 0;
 }
-.active{
-    background-color: #fff !important;
-    color: #313131;
-    border-color: #313131;
-    border: 0;
+
+.content {
+    height: 100%;
 }
