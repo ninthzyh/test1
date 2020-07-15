@@ -4361,7 +4361,7 @@ ecc-jsbn@~0.1.1:
 
 echarts-for-react@^2.0.16:
   version "2.0.16"
-  resolved "https://registry.npm.taobao.org/echarts-for-react/download/echarts-for-react-2.0.16.tgz#8134a53dff90882c1e6a95c45ceab21e00f6c9f5"
+  resolved "https://registry.npm.taobao.org/echarts-for-react/download/echarts-for-react-2.0.16.tgz?cache=0&sync_timestamp=1589891133735&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fecharts-for-react%2Fdownload%2Fecharts-for-react-2.0.16.tgz#8134a53dff90882c1e6a95c45ceab21e00f6c9f5"
   integrity sha1-gTSlPf+QiCweapXEXOqyHgD2yfU=
   dependencies:
     fast-deep-equal "^2.0.1"

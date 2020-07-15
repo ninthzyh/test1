@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactEcharts from "echarts-for-react";
-import TrafficStyle from '../Traffic.module.scss'
-import ChartHeader from '../../../components/ChartHeader/ChartHeader';
+import AffairsStyle from '../Affairs.module.scss'
+import ChartHeader from 'components/ChartHeader/ChartHeader';
 
-export default class LineChart extends Component {
+export default class Two extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -125,11 +125,11 @@ export default class LineChart extends Component {
 
     getClassName = (type) => {
         const { radioButton } = this.state;
-        return radioButton === type ? TrafficStyle.radioButton && TrafficStyle.active : TrafficStyle.radioButton;
+        return radioButton === type ? AffairsStyle.radioButton && AffairsStyle.active : AffairsStyle.radioButton;
     }
     render() {
         return (
-            <div>
+            <>
                 <ChartHeader title='服务人次年度趋势图' />
                 {/* <div>
                     <button className={this.getClassName("diagosis")} onClick={() => this.btn('diagosis')}>确诊</button>
@@ -137,16 +137,16 @@ export default class LineChart extends Component {
                     <button className={this.getClassName("death")} onClick={() => this.btn('death')}>死亡</button>
                     <button className={this.getClassName("now")} onClick={() => this.btn('now')}>现有</button>
                 </div> */}
-                <div className={TrafficStyle.content}>
+                <div className={AffairsStyle.content}>
                     <ReactEcharts
                         option={this.getOption()}
                         notMerge={true}
                         lazyUpdate={true}
-                        style={{ width: '100%', height: '100%' }} />
+                        style={{ width: '100%', height: '77%' }} />
                 </div>
 
 
-            </div>
+            </>
 
         )
     }

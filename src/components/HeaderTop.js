@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import HeaderStyle from './Header.module.scss'
-import { Layout, Menu, Icon, Avatar, Modal } from 'antd';
+import { Layout, Menu, Icon, Modal } from 'antd';
 import { connect } from 'react-redux';
 // import PropTypes from 'prop-types'
-const { Header } = Layout;
-const { SubMenu } = Menu;
 
 class HeaderTop extends Component {
     constructor(props) {
         super(props);
+        var today = new Date(),
+            date = today.getFullYear() + '年' + (today.getMonth() + 1) + '月' + today.getDate() + '日',
+            week = "星期" + ["日", "一", "二", "三", "四", "五", "六"][today.getDay()];
         this.state = {
             route: props.route,
-
+            date: date,
+            week: week,
         }
     }
     componentDidMount() {
@@ -36,29 +38,19 @@ class HeaderTop extends Component {
     };
 
     render() {
-        // const { PayIncrease, PayDecrease } = this.props;
-        return <Header className={HeaderStyle.header}>
-            <div className={HeaderStyle.title} ><NavLink to="/home"><span className={HeaderStyle.logoIcon + ' ' + HeaderStyle.logo}></span>濮阳市</NavLink></div>
+        const { PayIncrease, PayDecrease } = this.props;
+        return (<div className={HeaderStyle.HeaderPage}>
+            <div className={HeaderStyle.leftBox} ><span className={HeaderStyle.logoBox}></span></div>
+            <div className={HeaderStyle.rightBox} >
+                <span className={HeaderStyle.weatherpicBox}></span>
+                <span className={HeaderStyle.dateBox}>{this.state.date}</span>
+                <span className={HeaderStyle.weekBox}>{this.state.week}</span>
+                <span className={HeaderStyle.temperatureBox}>{global.weather.temperature}</span>
+                <span className={HeaderStyle.weatherBox}>{global.weather.weathername}</span>
+            </div> 
+            {<div className={HeaderStyle.headLine} ></div> }
 
-            {this.props.hasMenu ?
-                <Menu
-                    theme="dark"
-                    mode="horizontal"
-                    className={HeaderStyle.menu}
-                    defaultSelectedKeys={['2']}
-                    inlineIndent="30"
-                    style={{ lineHeight: '64px' }}
-                >
-                    {/* <Menu.Item key="1"><NavLink to="/home/cesium/index"><span className={HeaderStyle.headerIcon + ' ' + HeaderStyle.home}></span>首页</NavLink></Menu.Item>                    */}
-                    <Menu.Item key="2"><NavLink target="_blank" to="/index/manager">城市管理</NavLink></Menu.Item>
-                    <Menu.Item key="3"><NavLink target="_blank" to="/index/traffic">交通出行</NavLink></Menu.Item>
-                    <Menu.Item key="4"><NavLink target="_blank" to="/index/emergency">城市应急</NavLink></Menu.Item>
-                    <Menu.Item key="5"><NavLink target="_blank" to="/index/credit">信用体系</NavLink></Menu.Item>
-                    <Menu.Item key="6"><NavLink target="_blank" to="/index/affairs">城市政务</NavLink></Menu.Item>
-                    <Menu.Item key="7"><NavLink target="_blank" to="/index/society">社会民生</NavLink></Menu.Item>
-                </Menu> : null
-            }
-        </Header>
+        </div>);
     }
 }
 const mapStateToProps = (state) => {
