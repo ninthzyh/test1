@@ -45,59 +45,71 @@ export default class FiveChart extends Component {
     )
   }
 
- getOption = (Times, counts) => { 
-  return {
-    grid: {
-      top: '5%' ,
-      left: '8%',
-      right:'1%',
-      bottom: 16,
-    },
-    xAxis: {
-      type: 'category',
-      axisLabel: {
-        show: true,
-        textStyle: {
+  getOption = (Times, counts) => {
+    return {
+      grid: {
+        top: '5%',
+        left: '15%',
+        right: '4%',
+        bottom: 16,
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      xAxis: {
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          textStyle: {
             color: "rgba(255,255,255,1)",
             fontSize: 11,
+          },
         },
         axisLine: {
           lineStyle: {
-              type: 'solid',  
-              color: 'rgba(255,0 ,0 ,1)',
-              width: 1, //这里是为了突出显示加上的  
+            color: 'rgba(155,155,155,0.45)',
+            width: 1,    
           }
-      }
-    },
-      data: Times
-    },
-    yAxis: {
-      type: 'value',
-      axisLabel: {
-        show: true,
-        textStyle: {
+        },
+        data: Times
+      },
+      yAxis: {
+        axisTick: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          textStyle: {
             color: "rgba(255,255,255,1)",
             fontSize: 11,
+          },
+        },
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(155,155,155,0.45)',
+            width: 1,  
+          }
+        },
+        splitLine: {
+          show: true,
+          lineStyle: {
+            type: 'solid',
+            width: 1,
+            color: "rgba(155,155,155,0.45)",
+          }
         }
-      },
-      splitLine: {
-        show: true,
-        lineStyle: {
-          type: 'solid',         
-          width: 1 ,
-          color:"rgba(155,155,155,0.45)",
-        }
-      }
 
-    },
-    series: [{
-      type: 'line',
-      symbol: "none",//不显示折线上圆圈点
-      lineStyle: { color: "rgba(64,253,251,1)", width: 2},
-      data: counts
-    }]
-  };
-}
+      },
+      series: [{
+        type: 'line',
+        symbol: "none",//不显示折线上圆圈点
+        lineStyle: { color: "rgba(64,253,251,1)", width: 2 },
+        data: counts
+      }]
+    };
+  }
 
   render() {
     return (
@@ -107,7 +119,7 @@ export default class FiveChart extends Component {
           {this.showInfo()}
         </div>
         <div className={FiveChartStyle.chart}>
-        <ReactEcharts  style={{ width: '100%', height: '100%' }}  option={this.getOption(this.state.TimesData, this.state.countsData)} />
+          <ReactEcharts style={{ width: '100%', height: '100%' }} option={this.getOption(this.state.TimesData, this.state.countsData)} />
         </div>
       </div>
     );
