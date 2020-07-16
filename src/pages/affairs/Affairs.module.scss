@@ -1,4 +1,10 @@
 @import 'assets/css/index.modules.scss';
+$nineliImg: '/img/affairs/invoice.png',
+'/img/affairs/social.png',
+'/img/affairs/tax.png';
+$eightliImg: '/img/affairs/statistic.png',
+'/img/affairs/marry.png',
+'/img/affairs/divorce.png';
 
 /*当日疫情*/
 .oneContainer {
@@ -32,45 +38,79 @@
     }
 }
 
+
 .iconWrapper {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
 
-    .iconText {
-        color: #fff;
-        margin-top: 20px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+    .itemImg {
+        width: 33%;
 
-    .iconNum {
-        @extend .iconText;
-        font-size: 30px;
-        font-weight: bold;
-        font-family: fantasy;
-        color: #05DEFF;
+        .iconText {
+            color: #fff;
+            margin-top: 3px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
 
-        &:hover {
-            color: #FC2709;
-            cursor: pointer;
+        .iconNum {
+            @extend .iconText;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: fantasy;
+            color: #05DEFF;
+
+            &:hover {
+                color: #FC2709;
+                cursor: pointer;
+            }
         }
     }
 
-    .imgItem {
-        margin-top: 10px;
+    @each $img in $nineliImg {
+        $i: index($nineliImg, $img);
+
+        .nineImg#{$i} {
+            margin-top: 10px;
+            background-image: url($img);
+            width: 66px;
+            height: 66px;
+            background-repeat: no-repeat;
+            display: inline-block;
+        }
     }
+
+    @each $img in $eightliImg {
+        $i: index($eightliImg, $img);
+
+        .eightImg#{$i} {
+            margin-top: 10px;
+            background-image: url($img);
+            width: 66px;
+            height: 66px;
+            background-repeat: no-repeat;
+            display: inline-block
+        }
+    }
+
 }
 
 .serviceWrapper {
     display: flex;
     font-size: 12px;
     margin: 40px 5px;
-    .before{
+
+    .before {
         flex: 1 0 120px;
         color: #ffffff;
         margin-right: 2px;
-        .number{
+
+        .number {
             width: 18px;
             border-radius: 50%;
             display: inline-block;
@@ -81,48 +121,56 @@
             margin-right: 10px;
         }
     }
-    .progress{
+
+    .progress {
         margin-top: -4px;
         margin-right: 5px;
-        .ant-progress-inner{
-            background-color: rgba(0,0,0,0);
+
+        .ant-progress-inner {
+            background-color: rgba(0, 0, 0, 0);
         }
     }
-    .after{
+
+    .after {
         flex: 1 0 50px;
         color: #05DEFF;
-        .img{
+
+        .img {
             width: 12px;
             margin-left: 5px;
         }
     }
 }
 
-.twelveBox{
+.twelveBox {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+
     .infoItem {
         width: 40%;
-        margin-top:-15%;
+        margin-top: -15%;
         text-align: center;
-        .itemPic{
-            height:100%;
+
+        .itemPic {
+            height: 100%;
         }
+
         .itemNumber {
-            font-size:36px;
-            font-family:Impact;
-            font-weight:400;
-            color:rgba(5,222,255,1);
+            font-size: 36px;
+            font-family: Impact;
+            font-weight: 400;
+            color: rgba(5, 222, 255, 1);
         }
+
         .itemName {
             font: size 14px;
-            font-family:Microsoft YaHei;
-            font-weight:400;
-            color:rgba(254,254,254,1);
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(254, 254, 254, 1);
         }
     }
 

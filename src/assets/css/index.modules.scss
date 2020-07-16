@@ -23,7 +23,8 @@ $text-color:rgb(128, 0, 96);
     .item {
         background: linear-gradient(90deg, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.66) 52%, rgba(17, 17, 17, 0) 100%);
         padding: 10px;
-        height: 34%;
+        height: 33.333%;
+        // margin-bottom: 10px;
     }
     .itemRight{
         @extend .item;
@@ -35,5 +36,5 @@ $text-color:rgb(128, 0, 96);
 
 
 .content {
-    height: 100%;
+    height: calc(100% - 68px);
 }

@@ -110,12 +110,12 @@ export default class Fives extends Component {
       color: color,
       title: {
         text: '死亡率2.53%',
-        top: '40%',
+        top: '50%',
         textAlign: 'center',
         left: '49%',
         textStyle: {
           color: '#00ffff',
-          fontSize: 10,
+          fontSize: 14,
           fontWeight: '400',
         },
       },

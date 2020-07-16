@@ -5,6 +5,8 @@ import FiveChart from './fiveChart/FiveChart';
 import One from './One/One.js'
 import Six from "./Six";
 import Four from './four/Four'
+import Three from './Three/Three.js'
+import RedAndBlockList from './redAndBlockList/RedAndBlockList.js'
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -15,15 +17,15 @@ class Index extends Component {
             <div className={CreditStyle.container}>
                 <div className={CreditStyle.leftWrapper}>
                     <div className={CreditStyle.item}>
-											<One/>
-										</div>
-                    <div className={CreditStyle.item}>
-
+                        <One />
                     </div>
-                    <div className={CreditStyle.item}>3</div>
+                    <div className={CreditStyle.item}>
+                        <Three />
+                    </div>
+                    <div className={CreditStyle.item}><RedAndBlockList /></div>
                 </div>
-                <div  className={CreditStyle.rightWrapper}>
-                    <div className={CreditStyle.itemRight}><Four/></div>
+                <div className={CreditStyle.rightWrapper}>
+                    <div className={CreditStyle.itemRight}><Four /></div>
                     <div className={CreditStyle.itemRight}><FiveChart /></div>
                     <div className={CreditStyle.itemRight}><Six /></div>
                 </div>

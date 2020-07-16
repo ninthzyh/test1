@@ -1,0 +1,100 @@
+@charset 'utf-8';
+/* reset */
+html,body,div,h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ol,ul,li,fieldset,form,label,input,legend,table,caption,tbody,tfoot,thead,tr,th,td,textarea,article,aside,audio,canvas,figure,footer,header,mark,menu,nav,section,time,video{margin:0;padding:0;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}
+body{font-size:14px;line-height:1;font-family:"Microsoft YaHei","Helvetica Neue","Helvetica",Arial,sans-serif;background-color:#fff;color:#333;}
+article,aside,dialog,figure,footer,header,hgroup,nav,section,blockquote{display:block;}
+ul,ol{list-style:none;}
+img{border:0 none;vertical-align:top;}
+table{border-collapse:collapse;border-spacing:0;}
+strong,em,i{font-style:normal;font-weight:normal;}
+ins{text-decoration:underline;}
+del{text-decoration:line-through;}
+mark{background:none;}
+input::-ms-clear{display:none !important;}
+input,select,textarea,button{vertical-align:middle;outline:none;border:0;}
+input{border-radius:0;box-shadow:none;}
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+button{-webkit-appearance:none;}
+textarea{-webkit-appearance:none;overflow-y:auto;overflow-x:hidden;resize:none;}
+/* 如果需要去除掉select元素的默认样式，放开下面的注释即可 */
+select{appearance:none;-ms-appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+select::-ms-expand{display:none;}
+a:link,a:visited{text-decoration:none;color:#333;}
+a:hover,a:active{text-decoration:none;}
+/*本页样式*/
+.RedAndBlockList{
+    width:100%;
+    height:100%;
+    box-sizing:border-box;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    .topNav{
+        padding-right:10px;
+        ul {
+            overflow: hidden;
+            margin-bottom:10px;
+            margin-top:10px;
+            li{
+                font-size:10px;
+                float:right;
+                width:70px;
+                height:25px;
+                text-align:center;
+                line-height:25px;
+                border-radius:40px;
+                margin-left:5px;
+                cursor: pointer;
+            }
+        }
+    }
+    .conentBox{
+        // height:200px;
+        flex:1;
+        overflow: hidden;
+        position: relative;
+        padding:0px 10px;
+        ul{
+            li{
+                font-size:12px;
+                .companyName{
+                    color:hsla(188, 100%, 51%, 1);
+                    line-height:20px;
+                }
+                .jieshao{
+                    color:hsla(0, 0%, 100%, 1);
+                    line-height:20px;
+                }
+                .time{
+                    color:hsla(0, 0%, 100%, 1);
+                    line-height:20px;
+                }
+                .incentive{
+                    color:#333;
+                    line-height:20px;
+                }
+            }
+        }
+        .showdow{
+            position:absolute;
+            z-index:-1;
+            left:0px;
+            right:0px;
+            bottom:0px;
+            top:0px;
+            background:linear-gradient(to bottom,rgba(255, 255, 255, 0) 20%,rgba(17,17,17,0.4) 100%);
+            opacity:0.8;
+        }
+    }
+    .activeBtn{
+        border:1px solid hsla(188, 100%, 51%, 1)!important;
+        color:hsla(188, 100%, 51%, 1)!important;
+    }
+    .defaultBtn{
+        border:1px solid hsla(184, 40%, 43%, 1)!important;
+        color:hsla(184, 40%, 43%, 1)!important;
+    }
+}

@@ -4,20 +4,18 @@ import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 import { Col, Row } from 'antd';
 
 const img = [
-    ['/img/affairs/statistic.png','1'], ['/img/affairs/marry.png','1'], ['/img/affairs/divorce.png','1']
+    {title: '综合窗口统计出证区',num: 34},
+    { title: '结婚登记', num: 10 },
+    { title: '离婚登记', num: 20 }
 ]
 export default class extends Component {
     iconList = () => {
         return img.map((itemImg, itemIndex) => {
-            return <Col span={8} key={itemIndex}>
-            {console.log(itemImg)}
-                {itemImg.map((item, index) => {
-                    return <div key={index}>
-                        <img src={item} />
-                        <div></div>
-                    </div>
-                })}
-            </Col>
+            return <div className={AffairsStyle.itemImg} key={itemIndex}>
+                <div className={AffairsStyle[`eightImg${itemIndex+1}`]}></div>
+                <div className={AffairsStyle.iconText}>{itemImg.title}</div>
+                <div className={AffairsStyle.iconNum}>{itemImg.num}</div>
+            </div>
         })
     }
     render() {
@@ -25,9 +23,7 @@ export default class extends Component {
             <ChartHeader title='民政局' />
             <div className={AffairsStyle.content}>
                 <div className={AffairsStyle.iconWrapper}>
-                    <Row>
-                        {this.iconList()}
-                    </Row>
+                    {this.iconList()}
                 </div>
 
             </div>
