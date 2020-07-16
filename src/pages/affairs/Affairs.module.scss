@@ -36,13 +36,97 @@
     text-align: center;
     margin-top: 20px;
 
-    .arc {
-        .circle {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            box-shadow: 0 0 0 2px #006CED;
-            margin: auto;
+    .iconText {
+        color: #fff;
+        margin-top: 20px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .iconNum {
+        @extend .iconText;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: fantasy;
+        color: #05DEFF;
+
+        &:hover {
+            color: #FC2709;
+            cursor: pointer;
         }
     }
+
+    .imgItem {
+        margin-top: 10px;
+    }
+}
+
+.serviceWrapper {
+    display: flex;
+    font-size: 12px;
+    margin: 40px 5px;
+    .before{
+        flex: 1 0 120px;
+        color: #ffffff;
+        margin-right: 2px;
+        .number{
+            width: 18px;
+            border-radius: 50%;
+            display: inline-block;
+            text-align: center;
+            background-color: #05D9F9;
+            color: #000000;
+            font-weight: 700;
+            margin-right: 10px;
+        }
+    }
+    .progress{
+        margin-top: -4px;
+        margin-right: 5px;
+        .ant-progress-inner{
+            background-color: rgba(0,0,0,0);
+        }
+    }
+    .after{
+        flex: 1 0 50px;
+        color: #05DEFF;
+    }
+}
+
+.twelveBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    .infoItem {
+        width: 40%;
+        margin-top:-15%;
+        text-align: center;
+        .itemCircle{
+            width:45px;
+            height:45px;
+            margin-left:38%;
+            border:1px solid rgba(0,108,237,1);        
+            border-radius:50%; 
+        }
+        .itemPic{
+            height:100%;
+        }
+        .itemNumber {
+            font-size:28px;
+            font-family:Impact;
+            font-weight:400;
+            color:rgba(5,222,255,1);
+        }
+        .itemName {
+            font: size 14px;
+            font-family:Microsoft YaHei;
+            font-weight:400;
+            color:rgba(254,254,254,1);
+        }
+    }
+
 }

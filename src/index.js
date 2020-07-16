@@ -6,23 +6,19 @@ import './index.css';
 import 'public/config';
 import * as serviceWorker from './serviceWorker';
 import { Switch, HashRouter } from 'react-router-dom';
-// import {hashHistory} from 'react-router'
 import routes from 'route/routes';
 import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
 import store from 'store/index'
-import ScaleBox from 'react-scale-box';
 
 
 ReactDOM.render(
     <Provider store={store}>
-        {/* <ScaleBox width={1920} height={1200}> */}
             <HashRouter>
                 <Switch>
                     {renderRoutes(routes)}
                 </Switch>
             </HashRouter>
-        {/* </ScaleBox> */}
     </Provider>
     , document.getElementById('root'));
 

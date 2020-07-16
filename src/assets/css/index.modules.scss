@@ -4,24 +4,20 @@ $text-color:rgb(128, 0, 96);
 
 .container{
     height: 100%;
-}
-.page{
-    // display: flex;
-    justify-content: space-between;
-    padding: 50px 20px;
-    height: 100%;
-    
-    z-index: 2;
-    position: relative;
+    overflow: hidden;
     .leftWrapper {
+        z-index: 2;
         height: 100%;
         width: 23%;
         float: left;
+        position: relative;
     }
     .rightWrapper {
+        z-index: 2;
         height: 100%;
         width: 23%;
         float: right;
+        position: relative;
     }
 
     .item {
@@ -34,6 +30,7 @@ $text-color:rgb(128, 0, 96);
         background: linear-gradient(90deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.66) 48%, rgba(17, 17, 17, 0.9) 100%);
     }
 }
+
 
 
 
