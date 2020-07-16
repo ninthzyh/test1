@@ -29,6 +29,7 @@
 					color: #FFFFFF;
 					font-weight: normal;
 					margin: 0;
+					margin-top: 4px;
 				}
 				span{
 					font-size: 12px;
@@ -84,6 +85,7 @@
 				h5{
 					font-size: 7px;
 					color: #FFFFFF;
+					margin-top: 5px;
 				}
 			}
 			.dataViewOne{
@@ -97,7 +99,7 @@
 						transform-origin: center;
 						transform: rotate(180deg);
 						position: relative;
-						top: 4px;
+						top: 3.5px;
 					}
 				}
 				.rightProgressOne{
@@ -105,17 +107,17 @@
 					border-left: 1px solid  #756E9F;
 					.rightDataProgressOne{
 						position: relative;
-						top: -1px;
+						top: 0px;
 					}
 				}
 			}
 		}
 	}
-	.ant-progress-inner{
+	.dataViewOne .ant-progress-inner{
 		border-radius: 0 8px 8px 0 !important;
 		background: rgba(0,0,0,0);
 	}
-	.ant-progress-success-bg, .ant-progress-bg{
+	.dataViewOne .ant-progress-success-bg, .ant-progress-bg{
 		border-radius: 0 8px 8px 0 !important;
 	}
 }
