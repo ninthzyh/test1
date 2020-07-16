@@ -1,0 +1,66 @@
+.fourContainer {
+    padding: 19px 25px 0 25px;
+    height: 100%;
+    .middleBox {
+        display: flex;
+        height: calc(100% - 49px);
+        align-items: center;
+        position: relative;
+    }
+    .listItem {
+        display: flex;
+        align-items: center;
+        .name {
+            padding: 0 5px;
+            height: 26px;
+            background:rgba(0,145,255,0.22);
+            border-radius:4px;
+            display: inline-block;
+            font-size: 16px;
+            color: rgba(255,255,255,1);
+            text-align: center;
+            margin-right: 10px;
+            line-height: 26px;
+        }
+        .count {
+            font-size: 36px;
+            font-weight: bold;
+            color: rgba(5,222,255,1);
+            display: inline-block;
+        }
+        .item {
+            font-size: 18px;
+            color: rgba(5,222,255,1);
+            display: inline-block;
+        }
+    }
+    .echart {
+    }
+    .box1 {
+        height: 50px;
+        padding: 5px 20px;
+        box-shadow: rgba(244,119,27,0.5)  0px 0px 10px 1px inset;
+        border-radius: 50%;
+        position: relative;
+        width: 80%;
+        left: 10%;
+        top: -20px;
+        .box2 {
+            padding: 5px 20px;
+            height: 30px;
+            border-radius: 50%;
+            box-shadow: rgba(244,119,27,0.5)  0px 0px 7px 1px inset;
+            position: relative;
+            top:5px;
+            .box3 {
+                position: relative;
+                top:5px;
+                // width: 100%;
+                height: 10px;
+                border-radius: 50%;
+                box-shadow: rgba(244,119,27,0.5)  0px 0px 5px 1px inset;
+                // box-shadow: 5px 5px 5px;
+            }
+        }
+    }
+}

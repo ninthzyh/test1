@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import EmergencyStyle from '../Emergency.module.scss'
 import OneMap from '../mapController';
-import CreditStyle from "../../credit/Credit.module.scss";
-import Six from "../../credit/widget/Six";
 
 class Index extends Component {
     constructor(props) {
@@ -13,17 +11,17 @@ class Index extends Component {
         return (
             <div className={EmergencyStyle.container}>
                 <OneMap></OneMap>
-                <div className={CreditStyle.leftWrapper}>
-                    <div className={CreditStyle.item}>1</div>
-                    <div className={CreditStyle.item}>
+                <div className={EmergencyStyle.leftWrapper}>
+                    <div className={EmergencyStyle.item}>1</div>
+                    <div className={EmergencyStyle.item}>
 
                     </div>
-                    <div className={CreditStyle.item}>3</div>
+                    <div className={EmergencyStyle.item}>3</div>
                 </div>
-                <div  className={CreditStyle.rightWrapper}>
-                    <div className={CreditStyle.itemRight}>4</div>
-                    <div className={CreditStyle.itemRight}>5</div>
-                    <div className={CreditStyle.itemRight}><Six /></div>
+                <div  className={EmergencyStyle.rightWrapper}>
+                    <div className={EmergencyStyle.itemRight}>4</div>
+                    <div className={EmergencyStyle.itemRight}>5</div>
+                    <div className={EmergencyStyle.itemRight}></div>
                 </div>
             </div>);
 

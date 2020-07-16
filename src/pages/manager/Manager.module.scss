@@ -1,3 +1,71 @@
 @import 'assets/css/index.modules.scss';
 
+.average {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
 
+    .left {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+        .treeImg {
+            background-image: url(/img/manager/tree.png);
+            background-position: center center;
+            height: 60px;
+            background-repeat: no-repeat;
+        }
+
+        .treeText {
+            color: #fff;
+        }
+
+        .treeNum {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: fantasy;
+            color: #05DEFF;
+        }
+
+        .treeUnit {
+            @extend .treeNum;
+            font-size: 20px;
+        }
+    }
+
+    .right {
+        width: 45%;
+    }
+}
+.sixContainer{
+  height: 100%;
+  .six{
+    display: flex;
+    height: calc(100% - 50px);
+    flex-direction: column;
+    justify-content: space-around;
+    .container{
+      display: flex;
+      line-height: 33px;
+      font-weight: 700;
+      padding: 10px 0;
+      .imgContainer{
+        flex: 1 0 138px;
+        img{
+          margin-right: 5px;
+        }
+      }
+      .title{
+        color: #ffffff;
+        padding: 0 10px;
+        flex: 1 0 76px;
+      }
+      .rate{
+        color:#40FDFB;
+        flex: 1 0 30px;
+      }
+    }
+  }
+}
