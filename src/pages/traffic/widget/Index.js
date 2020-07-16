@@ -18,9 +18,9 @@ class Index extends Component {
                         <div className={TrafficStyle.item}>3</div>
                     </div>
                     <div className={TrafficStyle.wrapper}>
-                        <div className={TrafficStyle.item}>4</div>
-                        <div className={TrafficStyle.item}>5</div>
-                        <div className={TrafficStyle.item}>6</div>
+                        <div className={TrafficStyle.itemRight}>4</div>
+                        <div className={TrafficStyle.itemRight}>5</div>
+                        <div className={TrafficStyle.itemRight}>6</div>
                     </div>
                 </div>
                 

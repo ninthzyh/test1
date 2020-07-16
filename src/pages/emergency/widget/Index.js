@@ -12,17 +12,17 @@ class Index extends Component {
             <div className={EmergencyStyle.container}>
                 <OneMap></OneMap>
                 <div className={EmergencyStyle.page}>
-                    <div>
+                    <div className={EmergencyStyle.wrapper}>
                         <div className={EmergencyStyle.item}>1</div>
                         <div className={EmergencyStyle.item}>
 
                         </div>
                         <div className={EmergencyStyle.item}>3</div>
                     </div>
-                    <div>
-                        <div className={EmergencyStyle.item}>4</div>
-                        <div className={EmergencyStyle.item}>5</div>
-                        <div className={EmergencyStyle.item}>6</div>
+                    <div className={EmergencyStyle.wrapper}>
+                        <div className={EmergencyStyle.itemRight}>4</div>
+                        <div className={EmergencyStyle.itemRight}>5</div>
+                        <div className={EmergencyStyle.itemRight}>6</div>
                     </div>
                 </div>
             </div>);

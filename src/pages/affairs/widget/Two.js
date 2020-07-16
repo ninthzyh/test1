@@ -142,7 +142,7 @@ export default class Two extends Component {
                         option={this.getOption()}
                         notMerge={true}
                         lazyUpdate={true}
-                        style={{ width: '100%', height: '77%' }} />
+                        style={{ width: '100%', height: '100%' }} />
                 </div>
 
 

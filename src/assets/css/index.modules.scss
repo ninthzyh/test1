@@ -6,22 +6,28 @@ $text-color:rgb(128, 0, 96);
     height: 100%;
 }
 .page{
-    display: flex;
+    // display: flex;
     justify-content: space-between;
     padding: 50px 20px;
     height: 100%;
+    
     z-index: 2;
     position: relative;
-    // min-height: 900px;
-    .wrapper {
-        flex: 0 1 420px;
+    .leftWrapper {
+        height: 100%;
+        width: 23%;
+        float: left;
+    }
+    .rightWrapper {
+        height: 100%;
+        width: 23%;
+        float: right;
     }
 
     .item {
         background: linear-gradient(90deg, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.66) 52%, rgba(17, 17, 17, 0) 100%);
         padding: 10px;
         height: 35%;
-        margin-bottom: 10px;
     }
     .itemRight{
         @extend .item;

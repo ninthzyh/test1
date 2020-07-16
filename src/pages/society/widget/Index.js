@@ -12,17 +12,17 @@ class Index extends Component {
             <div className={SocietyStyle.container}>
                 <OneMap></OneMap>
                 <div className={SocietyStyle.page}>
-                    <div>
+                    <div className={SocietyStyle.wrapper}>
                         <div className={SocietyStyle.item}>1</div>
                         <div className={SocietyStyle.item}>
 
                         </div>
                         <div className={SocietyStyle.item}>3</div>
                     </div>
-                    <div>
-                        <div className={SocietyStyle.item}>4</div>
-                        <div className={SocietyStyle.item}>5</div>
-                        <div className={SocietyStyle.item}>6</div>
+                    <div className={SocietyStyle.wrapper}>
+                        <div className={SocietyStyle.itemRight}>4</div>
+                        <div className={SocietyStyle.itemRight}>5</div>
+                        <div className={SocietyStyle.itemRight}>6</div>
                     </div>
                 </div>
             </div>);
