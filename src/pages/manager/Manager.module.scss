@@ -1,3 +1,39 @@
 @import 'assets/css/index.modules.scss';
 
+.average {
+    display: flex;
+    justify-content: space-around;
 
+    .left {
+        width: 45%;
+        justify-content: center;
+        display: flex;
+
+        .treeImg {
+            background-image: url(/img/manager/tree.png);
+            width: 60px;
+            height: 60px;
+            background-repeat: no-repeat;
+        }
+
+        .treeText {
+            color: #fff;
+        }
+
+        .treeNum {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: fantasy;
+            color: #05DEFF;
+        }
+
+        .treeUnit {
+            @extend .treeNum;
+            font-size: 20px;
+        }
+    }
+
+    .right {
+        width: 45%;
+    }
+}
