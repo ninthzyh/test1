@@ -1,0 +1,23 @@
+@import './index.scss';
+.FooterPage{
+    background: linear-gradient(90deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.3) 60%, rgba(17, 17, 17, 1) 100%);
+    height: 70px;
+    z-index: 2;
+    .FooterListBox{
+        display: flex;
+        justify-content: center;
+        li{
+            display: inline-block;
+            color:#CACCD2;
+            font-size:16px;
+            .FooterVerLine{
+                display: inline-block;
+                margin:0 30px;
+                width:1px;
+                height:24px;
+                background-color:#CACCD2;
+                vertical-align: middle;
+            }
+        }
+    }
+}
