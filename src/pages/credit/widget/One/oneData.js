@@ -11,14 +11,19 @@ export const oneList = {
 		
 	}],
 	options: {
+		title: {
+			text: '交错正负轴标签',
+			subtext: 'From ExcelHome',
+			sublink: 'http://e.weibo.com/1341556070/AjwF2AgQm'
+		},
 		tooltip: {
 			trigger: 'axis',
-			axisPointer: {
-				type: 'shadow'
+			axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+					type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
 			}
 		},
 		legend: {
-			data: ['利润', '支出', '收入']
+			data: ['红榜', '黑帮']
 		},
 		grid: {
 			left: '3%',
@@ -27,42 +32,37 @@ export const oneList = {
 			containLabel: true
 		},
 		xAxis: [{
-			type: 'value'
+			type: 'value',
+			axisTick: {
+				show: true
+			}
 		}],
 		yAxis: [{
 			type: 'category',
 			axisTick: {
 				show: false
 			},
-			data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+			data: ['税务局', '市场监管局', '人行', '文广局', '住建局', '农业农村局', '房地产管理局','法院']
 		}],
-		series: [{
-				name: '利润',
-				type: 'bar',
-				label: {
-					show: true,
-					position: 'inside'
-				},
-				data: [200, 170, 240, 244, 200, 220, 210]
-			},
+		series: [
 			{
-				name: '收入',
+				name: '红榜',
 				type: 'bar',
 				stack: '总量',
 				label: {
 					show: true
 				},
-				data: [320, 302, 341, 374, 390, 450, 420]
+				data: [2, 6, 1, 2, 4, 2, 1,0]
 			},
 			{
-				name: '支出',
+				name: '黑榜',
 				type: 'bar',
 				stack: '总量',
 				label: {
 					show: true,
 					position: 'left'
 				},
-				data: [-120, -132, -101, -134, -190, -230, -210]
+				data: [-1, -2, -1, -1, 0, 0, 0,-19]
 			}
 		]
 	}
