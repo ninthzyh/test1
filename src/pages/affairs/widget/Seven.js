@@ -3,6 +3,8 @@ import {Progress} from 'antd';
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 import AffairsStyle from '../Affairs.module.scss';
 import '../../../assets/css/antd.rewrite.scss';
+import up from 'img/affairs/up.svg';
+import decline from 'img/affairs/decline.svg';
 
 
 export default class RowBar extends Component {
@@ -13,17 +15,20 @@ export default class RowBar extends Component {
                 {
                     title:'档案查询',
                     proportion:'1,034',
-                    percent: 80
+                    percent: 80,
+                    img:up
                 },
                 {
                     title:'住房公积金',
                     proportion:564,
-                    percent: 67
+                    percent: 67,
+                    img:decline
                 },
                 {
                     title:'房产局综合受理',
                     proportion:134,
-                    percent: 50
+                    percent: 50,
+                    img:decline
                 }
             ]
         }
@@ -44,7 +49,8 @@ export default class RowBar extends Component {
                         strokeWidth={6}
                         percent={item.percent}
                         showInfo={false} />
-                        <div className={AffairsStyle.after}>{item.proportion}</div>
+                        <div className={AffairsStyle.after}>{item.proportion}
+                            <img className={AffairsStyle.img} src={item.img} /></div>
                 </div>))}
             </>
         )
