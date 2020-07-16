@@ -71,7 +71,7 @@ class One extends Component {
 												<Progress
 													strokeColor={'#F7517F'}
 													strokeWidth={8}
-													percent={80} 
+													percent={item.redAnnouncement} 
 													showInfo={false} 
 												/>
 											)
@@ -87,7 +87,7 @@ class One extends Component {
 												<Progress
 													strokeColor={'#6648FF'}
 													strokeWidth={8}
-													percent={80} 
+													percent={item.blackAnnouncement} 
 													showInfo={false} 
 												/>
 											)

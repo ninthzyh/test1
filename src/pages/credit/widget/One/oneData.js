@@ -27,18 +27,18 @@ export const oneList = {
 	option: [
 		{
 			name:'税务局',
-			redAnnouncement:2,
-			blackAnnouncement:1
+			redAnnouncement:90,
+			blackAnnouncement:10
 		},
 		{
 			name:'市场监管局',
-			redAnnouncement:2,
-			blackAnnouncement:1
+			redAnnouncement:66,
+			blackAnnouncement:0
 		},
 		{
 			name:'房地产管理局',
-			redAnnouncement:2,
-			blackAnnouncement:1
+			redAnnouncement:23,
+			blackAnnouncement:60
 		}
 	]
 }
