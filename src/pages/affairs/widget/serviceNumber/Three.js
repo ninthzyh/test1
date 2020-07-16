@@ -73,11 +73,20 @@ export default class Three extends Component {
                             // percent = ((params.value / total) * 100).toFixed(0);
                             if (params.name !== '') {
                                 let length = params.name.length;
-                                return params.name.slice(0,5)+ '\n' + params.name.slice(5-length);
+                                return '{b| ' + params.name.slice(0,5) + '}'+ '\n' + '{b| ' + params.name.slice(5-length) + '}';
                             } else {
                                 return '';
                             }
                         },
+                        rich: {
+                            b: {
+                                fontSize: 12,
+                                lineHeight: 16,
+                                color: 'rgba(255,255,255,1)',
+                                fontFamily:'NotoSansHans-Regular'
+                            }
+    
+                        }
                     },
                     labelLine: {
                         length: 20,
@@ -100,9 +109,10 @@ export default class Three extends Component {
                 textAlign: "center",
                 left: "49%",
                 textStyle: {
-                    color: '#00ffff',
-                    fontSize: 15,
-                    fontWeight: '400'
+                    color: "rgba(120,242,255,1)",
+                    fontSize: 20,
+                    lineHeight:24,
+                    fontFamily:"NotoSansHans-Medium"
                 }
             },
             grid:{

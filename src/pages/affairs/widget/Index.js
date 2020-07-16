@@ -12,6 +12,7 @@ import Eight from './Eight';
 import Four from './Four/Four.js'
 import FourChart from './Four/FourChart/FourChart.js'
 import Eleven from './humanSocialBureau/Eleven';
+import Twelve from './Twelve.js';
 import Nine from './Nine';
 class Index extends Component {
     constructor(props) {
@@ -39,7 +40,7 @@ class Index extends Component {
         const { show } = this.state;
         return (
             <div className={AffairsStyle.container}>
-                {/* <OneMap/> */}
+                <OneMap/>
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
                     <div className={AffairsStyle.item}><One/></div>
                     <div className={AffairsStyle.item}><Two /></div>
@@ -58,7 +59,7 @@ class Index extends Component {
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
                     <div className={AffairsStyle.itemRight}><FourChart/></div>
                     <div className={AffairsStyle.itemRight}><Eleven/></div>
-                    <div className={AffairsStyle.itemRight}>3</div>
+                    <div className={AffairsStyle.itemRight}><Twelve/></div>
                 </div>
             </div>);
     }

@@ -5,11 +5,11 @@ import {StaticMap} from 'react-map-gl';
 import mapboxgl  from 'mapbox-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
-import DeckGL from '@deck.gl/react';
+import DeckGL, {FlyToInterpolator} from 'deck.gl';
 import {GeoJsonLayer, PathLayer} from '@deck.gl/layers';
 import PolylineLayer from '../../components/polyline-layer/polyline-layer';
-// import ArcLayerExt from '../../components/arc-layer/arc-layer-ext';
-// import ScanLayer from '../../components/scan-layer/scan-layer';
+import ArcLayerExt from '../../components/arc-layer/arc-layer-ext';
+import ScanLayer from '../../components/scan-layer/scan-layer';
 import cityData from '../../assets/json/PuYang_City.geojson';
 import roadData from '../../assets/json/PuYang_Roads.json';
 import buildData from '../../assets/json/PuYang_Buildings.geojson';
@@ -28,17 +28,14 @@ const ambientLight = new AmbientLight({
 const pointLight = new PointLight({
   color: [255, 255, 255],
   intensity: 2.0,
-  position: [114.9125, 35.9860, 8000]
+  position: [114.9125, 35.9860, 5000]
 });
 const pointLightRight = new PointLight({
   color: [255, 255, 255],
   intensity: 2.0,
-  position: [115.1525, 35.8060, 8000]
+  position: [115.1525, 35.8060, 5000]
 });
-// const directionalLight = new DirectionalLight({
-//   color: [255, 0, 0],
-//   position: []
-// })
+
 
 const lightingEffect = new LightingEffect({
   ambientLight, 
@@ -52,7 +49,10 @@ const material = {
 };
 
 const DEFAULT_THEME = {
-  buildingColor: [74, 80, 87],
+  // buildingColor: [74, 80, 87],
+    // buildingColor: [121, 133, 147],
+  // buildingColor: [150, 134, 109],
+  buildingColor: [135, 124, 107],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   arcColor: [255, 78, 1],
@@ -62,30 +62,69 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.015,
-  latitude: 35.705,
-  zoom: 12,
-  pitch: 45,
+  longitude: 115.055,
+  latitude: 35.755,
+  zoom: 11,
+  pitch: 0,
   bearing: 0 //方位
 };
+
+const viewStates = [
+  {
+    longitude: 115.027,
+    latitude: 35.693,
+    zoom: 16,
+    pitch: 60,
+    bearing: 30,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
+    longitude: 115.007,
+    latitude: 35.703,
+    zoom: 16,
+    pitch: 60,
+    bearing: 40,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
+    longitude: 115.017,
+    latitude: 35.733,
+    zoom: 16,
+    pitch: 60,
+    bearing: 45,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  }
+];
+var index_viewState = 0;
 
 export default class OneMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: 0,
-      opacity:1,
+      initViewState: INITIAL_VIEW_STATE,
+      timer: 5000
     };
   }
   componentWillMount () {
-    // fetch(DATA_URL.CITY)
-    // .then(res => {res.json();debugger;})
-    // .then(json => console.log(json));
     this.setState({cityData, buildData, roadData, countyData,arcData});
   }
 //组件第一次渲染后调用
   componentDidMount() {
-    // this._animate();
+    setInterval(() => {
+      if (index_viewState > viewStates.length-1){
+        index_viewState = 0;
+      }
+      this.setState({initViewState: viewStates[index_viewState]});
+      index_viewState += 1;
+    },12000);
+    setTimeout(()=>{
+      this.setState({
+        initViewState: viewStates[(viewStates.length-1).toString()]
+      })
+    },5000);
   }
 //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -102,19 +141,19 @@ export default class OneMap extends Component {
     } = this.props;
 
     return [
-        new PathLayer({
-            id: 'pathlayer',
-            data:this.state.roadData,
-            getPath: d =>d.geometry.coordinates[0],
-            getWidth: 4,
-            getColor: theme.arcColor,
-            opacity: 0.2
-        }),
+        // new PathLayer({
+        //     id: 'pathlayer',
+        //     data:this.state.roadData,
+        //     getPath: d =>d.geometry.coordinates[0],
+        //     getWidth: 4,
+        //     getColor: theme.arcColor,
+        //     opacity: 0.2
+        // }),
         new PolylineLayer({
             id: 'path',
             data: this.state.roadData,
             getPath: d => d.geometry.coordinates[0],
-            image: imgUrl + '/path.png',
+            image: imgUrl + '/path2.png',
             getWidth: 4,
             speed: 1.2,
         }),
@@ -126,6 +165,7 @@ export default class OneMap extends Component {
         //     getSourceColor: theme.arcColor,
         //     getTargetColor: theme.arcColor,
         //     getWidth: 2,
+        //     getHeight: 0.7,
         //     opacity: 0.2
         // }),
         // new ArcLayerExt({
@@ -134,9 +174,23 @@ export default class OneMap extends Component {
         //     getSourcePosition: d => d.from,
         //     getTargetPosition: d => d.to,
         //     getWidth: 2,
-        //     image: imgUrl,
+        //     getHeight: 0.7,
+        //     image: imgUrl + '/arc.png',
         //     speed: 1
         // }),
+        new GeoJsonLayer({
+          id: 'building-layer',
+          data: this.state.buildData,
+          stroked: true,
+          filled: true,
+          extruded: true,
+          lineWidthMinPixels: 2,
+          elevationScale: 1,
+          getElevation: d => d.properties.height,
+          getFillColor: theme.buildingColor,
+          material: theme.material,
+          opacity: 0.6
+        }),
         // new ScanLayer({
         //     id:'pointone',
         //     data:[
@@ -149,19 +203,7 @@ export default class OneMap extends Component {
         //     speed: 6,
         //     getBlendColor: [0, 255, 0]
         // }),
-        new GeoJsonLayer({
-            id: 'building-layer',
-            data: this.state.buildData,
-            stroked: true,
-            filled: true,
-            extruded: true,
-            lineWidthMinPixels: 2,
-            elevationScale: 1,
-            getElevation: d => d.properties.height,
-            getFillColor: theme.buildingColor,
-            material: theme.material,
-            opacity: 0.6
-        }),
+
         // new GeoJsonLayer({
         //   id: 'city-layer',
         //   data:this.state.cityData,
@@ -213,7 +255,7 @@ export default class OneMap extends Component {
       <DeckGL
         layers={this._renderLayers()}
         effects={theme.effects}
-        initialViewState={INITIAL_VIEW_STATE}
+        initialViewState={this.state.initViewState}
         viewState={viewState}
         controller={true}
       >

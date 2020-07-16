@@ -1,0 +1,44 @@
+/**
+ * @Auto: 王小祥
+ * @Date: 2020/7/16
+ * @Description: 信用模块-当日疫情服务-样式设置模块
+ * @LastEditors: 王小祥
+ * @LastEditTime: 2020/7/16
+ */
+
+.currentAffairsWrapOne{
+	width: 500px;
+	height: 400px;
+	font-size: 20px;
+	position: relative;
+	z-index: 1000;
+	border: 1px solid red;
+	.headerOne{
+		width: 100%;
+	}
+	.contentOne{
+		margin-top: 7px;
+		.contentHeaderOne{
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			.headerTitleOne{
+				width: 70px;
+				text-align: center;
+				border: 1px solid red;
+				h5{
+					font-size: 7px;
+					color: #FFFFFF;
+					font-weight: normal;
+				}
+				span{
+					font-size: 12px;
+					color: #FA6767;
+					border: 1px solid white;
+					margin: 0;
+				}
+			}
+		}
+	}
+}
