@@ -29,13 +29,13 @@ export default class Three extends Component {
           },
         },
         axisLabel: {
-          interval: 2,
+          interval: 0,
           textStyle: {
             color: '#fff',
             width: '0.5',
           },
         },
-        data: ['2020年第一季度', '', ''],
+        data: ['', '2020年第一季度', ''],
       },
       yAxis: {
         type: 'value',
