@@ -61,14 +61,14 @@ export default class extends Component {
     }
     getList = () => {
         return leftChart.map((item, index) => {
-            return <div key={index}>
+            return <div className={ManagerStyle.left} key={index}>
                 <div className={ManagerStyle.treeImg}></div>
-                <div className={ManagerStyle.treeText}>{item.title}</div>
-                <div className={ManagerStyle.treeNum}>
+                <p className={ManagerStyle.treeText}>{item.title}</p>
+                <p className={ManagerStyle.treeNum}>
                     {item.num}
                     <span className={ManagerStyle.treeUnit}>{item.unit}</span>
                     <sup className={ManagerStyle.treeUnit}>{item.sup}</sup>
-                </div>
+                </p>
             </div>
         })
     }
@@ -77,9 +77,7 @@ export default class extends Component {
             <ChartHeader title='园林绿化' />
             <div className={ManagerStyle.content}>
                 <div className={ManagerStyle.average}>
-                    <div className={ManagerStyle.left}>
-                        {this.getList()}
-                    </div>
+                    {this.getList()}
                     <div className={ManagerStyle.right}>
                         <ReactEcharts
                             option={this.getOption()}

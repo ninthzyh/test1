@@ -3,15 +3,17 @@
 .average {
     display: flex;
     justify-content: space-around;
+    height: 100%;
 
     .left {
         width: 45%;
-        justify-content: center;
         display: flex;
-
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
         .treeImg {
             background-image: url(/img/manager/tree.png);
-            width: 60px;
+            background-position: center center;
             height: 60px;
             background-repeat: no-repeat;
         }
