@@ -41,13 +41,15 @@ $eightliImg: '/img/affairs/statistic.png',
 
 .iconWrapper {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-around;
     height: 100%;
 
     .itemImg {
         width: 33%;
+
         .iconText {
             color: #fff;
             margin-top: 20px;
@@ -79,7 +81,7 @@ $eightliImg: '/img/affairs/statistic.png',
             width: 66px;
             height: 66px;
             background-repeat: no-repeat;
-                display: inline-block;
+            display: inline-block;
         }
     }
 
@@ -132,34 +134,43 @@ $eightliImg: '/img/affairs/statistic.png',
     .after {
         flex: 1 0 50px;
         color: #05DEFF;
+
+        .img {
+            width: 12px;
+            margin-left: 5px;
+        }
     }
 }
 
-.twelveBox{
+.twelveBox {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+
     .infoItem {
         width: 40%;
-        margin-top:-15%;
+        margin-top: -15%;
         text-align: center;
-        .itemPic{
-            height:100%;
+
+        .itemPic {
+            height: 100%;
         }
+
         .itemNumber {
-            font-size:36px;
-            font-family:Impact;
-            font-weight:400;
-            color:rgba(5,222,255,1);
+            font-size: 36px;
+            font-family: Impact;
+            font-weight: 400;
+            color: rgba(5, 222, 255, 1);
         }
+
         .itemName {
             font: size 14px;
-            font-family:Microsoft YaHei;
-            font-weight:400;
-            color:rgba(254,254,254,1);
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(254, 254, 254, 1);
         }
     }
 
