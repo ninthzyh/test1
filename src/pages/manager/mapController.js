@@ -235,14 +235,14 @@ export default class OneMap extends Component {
   _onLoad(e) {
     console.dir(e);
     map = e.target;
-    mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
-    map.addControl(new MapboxLanguage({
-        defaultLanguage: 'zh'
-    }));
-    // e.target.setLayoutProperty('country-label', 'text-field', [
-    //   'get',
-    //   'name_zh'
-    //   ]);
+//     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
+//     map.addControl(new MapboxLanguage({
+//         defaultLanguage: 'zh'
+//     }));
+    map.setLayoutProperty('country-label', 'text-field', [
+      'get',
+      'name_zh'
+      ]);
   }
 
   render() {
