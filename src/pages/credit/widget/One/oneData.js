@@ -36,26 +36,6 @@ export const oneList = {
 			blackAnnouncement:1
 		},
 		{
-			name:'人行',
-			redAnnouncement:2,
-			blackAnnouncement:1
-		},
-		{
-			name:'文广局',
-			redAnnouncement:2,
-			blackAnnouncement:1
-		},
-		{
-			name:'住建局',
-			redAnnouncement:2,
-			blackAnnouncement:1
-		},
-		{
-			name:'农业农村局',
-			redAnnouncement:2,
-			blackAnnouncement:1
-		},
-		{
 			name:'房地产管理局',
 			redAnnouncement:2,
 			blackAnnouncement:1
