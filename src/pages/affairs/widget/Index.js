@@ -18,7 +18,7 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: false,
+            show: true,
         }
     }
     componentDidMount() {
@@ -41,7 +41,7 @@ class Index extends Component {
         return (
             <div className={AffairsStyle.container}>
                 <OneMap/>
-                {/* <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
+                <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
                     <div className={AffairsStyle.item}><One/></div>
                     <div className={AffairsStyle.item}><Two /></div>
                     <div className={AffairsStyle.item}><Three /></div>
@@ -60,7 +60,7 @@ class Index extends Component {
                     <div className={AffairsStyle.itemRight}><FourChart/></div>
                     <div className={AffairsStyle.itemRight}><Eleven/></div>
                     <div className={AffairsStyle.itemRight}><Twelve/></div>
-                </div> */}
+                </div>
             </div>);
     }
 }
