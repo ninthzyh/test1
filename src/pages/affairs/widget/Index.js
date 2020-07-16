@@ -12,11 +12,8 @@ import Eight from './Eight';
 import Four from './Four/Four.js'
 import FourChart from './Four/FourChart/FourChart.js'
 import Eleven from './humanSocialBureau/Eleven';
-<<<<<<< HEAD
 import Twelve from './Twelve.js';
-=======
 import Nine from './Nine';
->>>>>>> 0eac85b518ba46d30f73705c32e417e197bdf1e7
 class Index extends Component {
     constructor(props) {
         super(props);
