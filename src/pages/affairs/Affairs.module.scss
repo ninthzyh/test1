@@ -1,4 +1,10 @@
 @import 'assets/css/index.modules.scss';
+$nineliImg: '/img/affairs/invoice.png',
+'/img/affairs/social.png',
+'/img/affairs/tax.png';
+$eightliImg: '/img/affairs/statistic.png',
+'/img/affairs/marry.png',
+'/img/affairs/divorce.png';
 
 /*当日疫情*/
 .oneContainer {
@@ -32,45 +38,75 @@
     }
 }
 
+
 .iconWrapper {
     text-align: center;
     margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
 
-    .iconText {
-        color: #fff;
-        margin-top: 20px;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+    .itemImg {
+        width: 33%;
+        .iconText {
+            color: #fff;
+            margin-top: 20px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
 
-    .iconNum {
-        @extend .iconText;
-        font-size: 30px;
-        font-weight: bold;
-        font-family: fantasy;
-        color: #05DEFF;
+        .iconNum {
+            @extend .iconText;
+            font-size: 30px;
+            font-weight: bold;
+            font-family: fantasy;
+            color: #05DEFF;
 
-        &:hover {
-            color: #FC2709;
-            cursor: pointer;
+            &:hover {
+                color: #FC2709;
+                cursor: pointer;
+            }
         }
     }
 
-    .imgItem {
-        margin-top: 10px;
+    @each $img in $nineliImg {
+        $i: index($nineliImg, $img);
+
+        .nineImg#{$i} {
+            margin-top: 10px;
+            background-image: url($img);
+            width: 66px;
+            height: 66px;
+            background-repeat: no-repeat;
+        }
     }
+
+    @each $img in $eightliImg {
+        $i: index($eightliImg, $img);
+
+        .eightImg#{$i} {
+            margin-top: 10px;
+            background-image: url($img);
+            width: 66px;
+            height: 66px;
+            background-repeat: no-repeat;
+        }
+    }
+
 }
 
 .serviceWrapper {
     display: flex;
     font-size: 12px;
     margin: 40px 5px;
-    .before{
+
+    .before {
         flex: 1 0 120px;
         color: #ffffff;
         margin-right: 2px;
-        .number{
+
+        .number {
             width: 18px;
             border-radius: 50%;
             display: inline-block;
@@ -81,14 +117,17 @@
             margin-right: 10px;
         }
     }
-    .progress{
+
+    .progress {
         margin-top: -4px;
         margin-right: 5px;
-        .ant-progress-inner{
-            background-color: rgba(0,0,0,0);
+
+        .ant-progress-inner {
+            background-color: rgba(0, 0, 0, 0);
         }
     }
-    .after{
+
+    .after {
         flex: 1 0 50px;
         color: #05DEFF;
     }
