@@ -14,7 +14,7 @@ class Manager extends React.Component {
     render() {
         return (
             <div className={ManagerStyle.container}>
-                <OneMap></OneMap>
+                {/* <OneMap></OneMap> */}
                 <div className={ManagerStyle.leftWrapper}>
                     <div className={ManagerStyle.item}><One /></div>
                     <div className={ManagerStyle.item}>

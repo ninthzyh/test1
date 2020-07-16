@@ -1,27 +1,69 @@
 @import 'assets/css/index.modules.scss';
 
-.six{
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  .container{
+.average {
     display: flex;
-    line-height: 33px;
-    font-weight: 700;
-    .imgContainer{
-      flex: 1 0 138px;
-      img{
-        margin-right: 5px;
+    justify-content: space-around;
+
+    .left {
+        width: 45%;
+        justify-content: center;
+        display: flex;
+
+        .treeImg {
+            background-image: url(/img/manager/tree.png);
+            width: 60px;
+            height: 60px;
+            background-repeat: no-repeat;
+        }
+
+        .treeText {
+            color: #fff;
+        }
+
+        .treeNum {
+            font-size: 30px;
+            font-weight: bold;
+            font-family: fantasy;
+            color: #05DEFF;
+        }
+
+        .treeUnit {
+            @extend .treeNum;
+            font-size: 20px;
+        }
+    }
+
+    .right {
+        width: 45%;
+    }
+}
+.sixContainer{
+  height: 100%;
+  .six{
+    display: flex;
+    height: calc(100% - 50px);
+    flex-direction: column;
+    justify-content: space-around;
+    .container{
+      display: flex;
+      line-height: 33px;
+      font-weight: 700;
+      padding: 10px 0;
+      .imgContainer{
+        flex: 1 0 138px;
+        img{
+          margin-right: 5px;
+        }
       }
-    }
-    .title{
-      color: #ffffff;
-      padding: 0 10px;
-      flex: 1 0 76px;
-    }
-    .rate{
-      color:#40FDFB;
-      flex: 1 0 100px;
+      .title{
+        color: #ffffff;
+        padding: 0 10px;
+        flex: 1 0 76px;
+      }
+      .rate{
+        color:#40FDFB;
+        flex: 1 0 30px;
+      }
     }
   }
 }
