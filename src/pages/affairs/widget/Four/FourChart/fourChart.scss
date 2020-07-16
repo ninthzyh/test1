@@ -1,0 +1,76 @@
+/**
+ * @Auto: 王小祥
+ * @Date: 2020/7/15
+ * @Description: 事务模块-当日办事渠道排行模块-样式设置模块
+ * @LastEditors: 王小祥
+ * @LastEditTime: 2020/7/15
+ */
+
+/**
+ * @currentAffairsWrap:当日办事渠道排行模块父级样式设置
+ */
+.currentAffairsWrap{
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+	position: relative;
+	z-index: 1000;
+	.header{
+		width: 100%;
+	}
+	.content{
+		margin-top: 15px;
+		.infoShowWrap{
+			width: 90%;
+			margin-left: 25px;
+			.infoShow{
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				margin-top: 24px;
+				.progress{
+					width: 300px;
+					margin-left: 34px;
+					margin-top: -4px;
+					display: flex;
+					justify-content: start;
+					align-items: center;
+					span{
+						color: #05DEFF;
+						font-size: 14px;
+						margin-left: 12px;
+					}
+				}
+				.infoTxt{
+					width: 100px;
+					font-size: 14px;
+					display: flex;
+					justify-content: start;
+					.ranking{
+						display: inline-block;
+						width: 14px;
+						height: 14px;
+						border-radius: 100%;
+						background: #05DEFF;
+						font-size: 10px;
+						color: #041B38;
+						line-height: 14px;
+						text-align: center;
+					}
+					.ditch{
+						margin-left: 13px;
+						font-size: 13px;
+						color: #FFFFFF;
+					}
+				}
+			}
+		}
+	}
+	.ant-progress-inner{
+		border-radius: 0 !important;
+		background: rgba(0,0,0,.5);
+	}
+	.ant-progress-success-bg, .ant-progress-bg{
+		border-radius: 0 !important;
+	}
+}

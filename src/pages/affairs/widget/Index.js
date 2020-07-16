@@ -10,6 +10,7 @@ import Fives from './Fives/Fives.js'
 import SixChart from './sixChart/SixChart';
 import Eight from './Eight';
 import Four from './Four/Four.js'
+import FourChart from './Four/FourChart/FourChart.js'
 import Eleven from './humanSocialBureau/Eleven';
 class Index extends Component {
     constructor(props) {
@@ -54,7 +55,7 @@ class Index extends Component {
                         <div className={AffairsStyle.item}>3</div>
                     </div>
                     <div className={AffairsStyle.rightWrapper}>
-                        <div className={AffairsStyle.itemRight}>13212312</div>
+                        <div className={AffairsStyle.itemRight}><FourChart/></div>
                         <div className={AffairsStyle.itemRight}><Eleven/></div>
                         <div className={AffairsStyle.itemRight}>3</div>
                     </div>
