@@ -122,7 +122,7 @@ export default class OneMap extends Component {
           }
         });
       }
-    }, 10000);
+    }, 1000);
 
 
   }
