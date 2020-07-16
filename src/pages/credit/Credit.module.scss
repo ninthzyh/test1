@@ -2,12 +2,16 @@
 
 
 .six{
-    .bg{
-      text-align: center;
-    }
+  height: 100%;
+  .bg{
+    text-align: center;
+    margin-top: 10px;
+  }
   .marquee{
     color:#ffffff;
-    line-height:10px;
+    font-size: 12px;
+    line-height:20px;
     opacity:0.6;
+    padding: 10px 5px;
   }
 }
