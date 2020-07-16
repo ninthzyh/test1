@@ -4,6 +4,7 @@ $text-color:rgb(128, 0, 96);
 
 .container{
     height: 100%;
+    overflow: hidden;
     .leftWrapper {
         z-index: 2;
         position: relative;
