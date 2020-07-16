@@ -33,7 +33,7 @@ export default class extends Component {
     }
     render() {
         return <>
-            <ChartHeader title='民政局' />
+            <ChartHeader title='税务局' />
             <div className={AffairsStyle.content}>
                 <div className={AffairsStyle.iconWrapper}>
                     <Row>

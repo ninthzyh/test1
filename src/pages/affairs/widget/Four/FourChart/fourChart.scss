@@ -30,15 +30,23 @@
 				margin-top: 24px;
 				.progress{
 					width: 300px;
+					margin: 0;
 					margin-left: 34px;
-					margin-top: -4px;
 					display: flex;
 					justify-content: start;
 					align-items: center;
+					// border: 1px solid red;
 					span{
 						color: #05DEFF;
 						font-size: 14px;
 						margin-left: 12px;
+						line-height: 14px;
+						// border: 1px solid red;
+					}
+					img{
+						width: 10px;
+						height: 13px;
+						margin-left: 4px;
 					}
 				}
 				.infoTxt{
@@ -46,6 +54,7 @@
 					font-size: 14px;
 					display: flex;
 					justify-content: start;
+					align-items: center;
 					.ranking{
 						display: inline-block;
 						width: 14px;
@@ -69,6 +78,8 @@
 	.ant-progress-inner{
 		border-radius: 0 !important;
 		background: rgba(0,0,0,.5);
+		position: relative;
+		top: -2px;
 	}
 	.ant-progress-success-bg, .ant-progress-bg{
 		border-radius: 0 !important;
