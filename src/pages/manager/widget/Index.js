@@ -1,6 +1,7 @@
 import React from 'react';
 import ManagerStyle from '../Manager.module.scss';
 import OneMap from '../mapController';
+import One from './One';
 
 
 class Manager extends React.Component {
@@ -13,8 +14,9 @@ class Manager extends React.Component {
         return (
             <div className={ManagerStyle.container}>
                 <OneMap></OneMap>
+                   
                 <div className={ManagerStyle.leftWrapper}>
-                    <div className={ManagerStyle.item}>1</div>
+                    <div className={ManagerStyle.item}><One /></div>
                     <div className={ManagerStyle.item}>
 
                     </div>
