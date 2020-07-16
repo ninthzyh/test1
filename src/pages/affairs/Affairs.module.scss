@@ -132,6 +132,10 @@ $eightliImg: '~img/affairs/statistic.png',
     .after {
         flex: 1 0 50px;
         color: #05DEFF;
+        .img{
+            width: 12px;
+            margin-left: 5px;
+        }
     }
 }
 
