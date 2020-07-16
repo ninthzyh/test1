@@ -1,5 +1,5 @@
 /* global window */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // import {render} from 'react-dom';
 import { MapboxLayer } from '@deck.gl/mapbox';
 import { StaticMap } from 'react-map-gl';
@@ -85,7 +85,11 @@ export default class OneMap extends Component {
     this.state = {
       time: 0,
       opacity: 1,
+      visitorCount: [836, 780, 712, 664, 590, 500, 436, 381, 313, 249, 180],
+      popupVisible: false
     };
+
+
   }
   componentWillMount() {
     // fetch(DATA_URL.CITY)
@@ -96,6 +100,31 @@ export default class OneMap extends Component {
   //组件第一次渲染后调用
   componentDidMount() {
     // this._animate();
+
+    setInterval(() => {
+      // 自定义起始数据
+      this.setState({
+        visitorCount: [836 + Math.round(Math.random() * 50), 785 + Math.round(Math.random() * 50), 712 + Math.round(Math.random() * 50), 664 + Math.round(Math.random() * 50),
+        590 + Math.round(Math.random() * 50), 500 + Math.round(Math.random() * 50), 436 + Math.round(Math.random() * 50), 381 + Math.round(Math.random() * 50), 313 + Math.round(Math.random() * 50), 
+        249+Math.round(Math.random() * 50), 180+Math.round(Math.random() * 50)],
+      });
+      if (map) {
+        map.on('zoom', () => {
+          console.log(map.getZoom());
+          if (map.getZoom() > 10) {
+            this.setState({
+              popupVisible: true
+            })
+          } else {
+            this.setState({
+              popupVisible: false
+            })
+          }
+        });
+      }
+    }, 10000);
+
+
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -135,7 +164,7 @@ export default class OneMap extends Component {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
         iconAtlas: 'http://localhost:3000/img/affairs/police2.png',
-        sizeScale: 2,
+        sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
         getSize: d => { return 10 },
@@ -147,9 +176,8 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        //iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
         iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
-        sizeScale: 2,
+        sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
         getSize: d => { return 10 },
@@ -211,9 +239,8 @@ export default class OneMap extends Component {
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'zh'
     }));
+
   }
-
-
 
   render() {
     const {
@@ -222,6 +249,47 @@ export default class OneMap extends Component {
       theme = DEFAULT_THEME
     } = this.props;
 
+    const displayContent = [
+      {
+        coor: [115.0195982, 35.75112835],
+        branch: '不动产',
+      },
+      {
+        coor: [115.0195982, 35.78112835],
+        branch: '公安',
+      },
+      {
+        coor: [115.0295982, 35.76212835],
+        branch: '民政',
+      },
+      {
+        coor: [115.01392, 35.76112],
+        branch: '工商',
+      }, {
+        coor: [115.064040, 35.756332],
+        branch: '人社',
+      },
+      {
+        coor: [115.08628, 35.76303],
+        branch: '税务',
+      },
+      {
+        coor: [115.02760, 35.75115],
+        branch: '违章处理',
+      },
+      {
+        coor: [115.01693, 35.70723],
+        branch: '建行',
+      },
+      {
+        coor: [115.0350982, 35.75612835],
+        branch: '公积金',
+      },
+      {
+        coor: [115.05605, 35.77294],
+        branch: '建行',
+      },
+    ]
 
     return (
 
@@ -243,147 +311,29 @@ export default class OneMap extends Component {
           mapboxApiAccessToken={MAPBOX_TOKEN}
           onLoad={this._onLoad}
         >
-          <Popup className={"popup1"}
-            longitude={115.0195982}
-            latitude={35.75112835}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>1</div>
-            <div className='font2'>不动产</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
+          {
+            this.state.popupVisible && <Fragment>
+              {displayContent.map((value, index) => {
+                console.log(value)
+                return <Popup className={`popup${index + 1}`}
+                  longitude={value.coor[0]}
+                  latitude={value.coor[1]}
+                  altitude={100}
+                  closeButton={false}
+                  visible={true}
+                  key={index}
+                >
+                  <div className='font'>{index + 1}</div>
+                  <div className='font2'>{value.branch}</div>
+                  <div>
+                    <div className='font3'>各部门日服务人次</div>
+                    <div className='font4'>{this.state.visitorCount[index]}</div>
+                  </div>
 
-          </Popup>
-          <Popup className={"popup2"}
-            longitude={115.0195982}
-            latitude={35.78112835}
-            altitude={100}
-            closeButton={false}
-            style={{ zIndex: 9999999 }}
-          >
-            <div className='font'>2</div>
-            <div className='font2'>公安</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>546</div>
-            </div>
-          </Popup>
-          <Popup className={"popup3"}
-            longitude={115.0295982}
-            latitude={35.76212835}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>3</div>
-            <div className='font2'>民政</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
-
-          </Popup>
-          <Popup className={"popup4"}
-            longitude={115.01392}
-            latitude={35.76112}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>4</div>
-            <div className='font2'>工商</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
-
-          </Popup>
-          <Popup className={"popup5"}
-            longitude={115.064040}
-            latitude={35.756332}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>5</div>
-            <div className='font2'>人社</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
-
-          </Popup>
-          <Popup className={"popup6"}
-            longitude={115.08628}
-            latitude={35.76303}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>6</div>
-            <div className='font2'>税务</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
-
-          </Popup>
-          <Popup className={"popup7"}
-            longitude={115.02760}
-            latitude={35.75115}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>7</div>
-            <div className='font2'>违章处理</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
-
-          </Popup>
-          <Popup className={"popup8"}
-            longitude={115.01693}
-            latitude={35.70723}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>8</div>
-            <div className='font2'>建行</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
-
-          </Popup>
-          <Popup className={"popup9"}
-            longitude={115.0350982}
-            latitude={35.75612835}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>9</div>
-            <div className='font2'>公积金</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
-
-          </Popup>
-          <Popup className={"popup10"}
-            longitude={115.05605}
-            latitude={35.77294}
-            altitude={100}
-            closeButton={false}
-          >
-            <div className='font'>10</div>
-            <div className='font2'>消防</div>
-            <div>
-              <div className='font3'>各部门日服务人次</div>
-              <div className='font4'>5464</div>
-            </div>
-
-          </Popup>
-
+                </Popup>
+              })}
+            </Fragment>
+          }
         </StaticMap>
       </DeckGL>
     );
