@@ -12,12 +12,16 @@ import Eight from './Eight';
 import Four from './Four/Four.js'
 import FourChart from './Four/FourChart/FourChart.js'
 import Eleven from './humanSocialBureau/Eleven';
+<<<<<<< HEAD
 import Twelve from './Twelve.js';
+=======
+import Nine from './Nine';
+>>>>>>> 0eac85b518ba46d30f73705c32e417e197bdf1e7
 class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: true,
+            show: false,
         }
     }
     componentDidMount() {
@@ -25,37 +29,37 @@ class Index extends Component {
     }
 
     showChange = () => {
-        setTimeout(()=>{
-            this.setState({
-                show: !this.state.show
-            }, this.showChange)
-        },5000)
+        // setTimeout(()=>{
+        //     this.setState({
+        //         show: !this.state.show
+        //     }, this.showChange)
+        // },5000)
     };
 
-    getOneClassName = (show) => !show ? 'animate__animated animate__backOutLeft' : 'animate__animated animate__backInLeft';
-    getTwoClassName = (show) => `${AffairsStyle.leftWrapper} ${show ? 'animate__animated animate__backOutLeft' : 'animate__animated animate__backInLeft'}`;
+    getClassName = (show,position) => `${AffairsStyle[`${position.toLowerCase()}Wrapper`]} ${show ? `animate__animated animate__backOut${position}` : `animate__animated animate__backIn${position}`}`;
+    // getTwoClassName = (show) => `${AffairsStyle.leftWrapper} ${show ? 'animate__animated animate__backOutLeft' : 'animate__animated animate__backInLeft'}`;
 
     render() {
         const { show } = this.state;
         return (
             <div className={AffairsStyle.container}>
-                <OneMap></OneMap>
-                <div style={!show ? {display: 'none'} : {}} className={`${AffairsStyle.leftWrapper} ${this.getOneClassName(show)}`}>
+                <OneMap/>
+                <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
                     <div className={AffairsStyle.item}><One/></div>
                     <div className={AffairsStyle.item}><Two /></div>
                     <div className={AffairsStyle.item}><Three /></div>
                 </div>
-                <div style={!show ? {display: 'none'} : {}} className={`${AffairsStyle.rightWrapper} ${this.getOneClassName(show)}`}>
+                <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Right')}>
                     <div className={AffairsStyle.itemRight}><Four /></div>
                     <div className={AffairsStyle.itemRight}><Fives /></div>
                     <div className={AffairsStyle.itemRight}><SixChart /></div>
                 </div>
-                <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.leftWrapper} ${this.getTwoClassName(show)}`}>
+                <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Left')}>
                     <div className={AffairsStyle.item}><Seven/></div>
                     <div className={AffairsStyle.item}><Eight /></div>
-                    <div className={AffairsStyle.item}>3</div>
+                    <div className={AffairsStyle.item}><Nine /></div>
                 </div>
-                <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.rightWrapper} ${this.getTwoClassName(show)}`}>
+                <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
                     <div className={AffairsStyle.itemRight}><FourChart/></div>
                     <div className={AffairsStyle.itemRight}><Eleven/></div>
                     <div className={AffairsStyle.itemRight}><Twelve/></div>

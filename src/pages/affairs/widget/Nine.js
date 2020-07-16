@@ -4,9 +4,9 @@ import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 import { Col, Row } from 'antd';
 
 const img = [
-    ['/img/affairs/statistic.png', '综合窗口统计出证区', '34'],
-    ['/img/affairs/marry.png', '结婚登记', '10'],
-    ['/img/affairs/divorce.png', '离婚登记', '20']
+    ['/img/affairs/invoice.png', '申报个人普票代开', '34'],
+    ['/img/affairs/social.png', '社保征收', '10'],
+    ['/img/affairs/tax.png', '新房契税征收', '2121']
 ]
 export default class extends Component {
     iconList = () => {
@@ -33,7 +33,7 @@ export default class extends Component {
     }
     render() {
         return <>
-            <ChartHeader title='民政局' />
+            <ChartHeader title='税务局' />
             <div className={AffairsStyle.content}>
                 <div className={AffairsStyle.iconWrapper}>
                     <Row>

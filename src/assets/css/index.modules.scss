@@ -4,19 +4,20 @@ $text-color:rgb(128, 0, 96);
 
 .container{
     height: 100%;
+    overflow: hidden;
     .leftWrapper {
         z-index: 2;
-        position: relative;
         height: 100%;
         width: 23%;
         float: left;
+        position: relative;
     }
     .rightWrapper {
         z-index: 2;
-        position: relative;
         height: 100%;
         width: 23%;
         float: right;
+        position: relative;
     }
 
     .item {
