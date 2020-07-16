@@ -17,7 +17,7 @@ class Manager extends React.Component {
         return (
             <div className={ManagerStyle.container}>
                 <OneMap></OneMap>
-                <div className={ManagerStyle.page}>
+                {/* <div className={ManagerStyle.page}>
                     <div className={ManagerStyle.wrapper}>
                         <div className={ManagerStyle.item}>1</div>
                         <div className={ManagerStyle.item}>
@@ -30,7 +30,7 @@ class Manager extends React.Component {
                         <div className={ManagerStyle.itemRight}>5</div>
                         <div className={ManagerStyle.itemRight}>6</div>
                     </div>
-                </div>
+                </div> */}
             </div>);
 
     }
