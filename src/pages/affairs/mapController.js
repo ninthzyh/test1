@@ -168,7 +168,7 @@ export default class OneMap extends Component {
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        image: imgUrl + '/path.png',
+        image:  'img/path.png',
         getWidth: 4,
         speed: 1.2,
       }),
