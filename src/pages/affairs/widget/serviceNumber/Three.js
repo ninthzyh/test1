@@ -65,12 +65,12 @@ export default class Three extends Component {
                         position: 'outer',
                         color: '#ddd',
                         formatter: function (params) {
-                            var percent = 0;
-                            var total = 0;
-                            for (var i = 0; i < number.length; i++) {
-                                total += number[i].value;
-                            }
-                            percent = ((params.value / total) * 100).toFixed(0);
+                            // var percent = 0;
+                            // var total = 0;
+                            // for (var i = 0; i < number.length; i++) {
+                            //     total += number[i].value;
+                            // }
+                            // percent = ((params.value / total) * 100).toFixed(0);
                             if (params.name !== '') {
                                 let length = params.name.length;
                                 return params.name.slice(0,5)+ '\n' + params.name.slice(5-length);
