@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import styles from './FarenRedList.module.scss'
 class FarenRedList extends Component {
     constructor(props) {
@@ -22,67 +23,67 @@ class FarenRedList extends Component {
         }
     }
     componentDidMount = () => {
-        // setTimeout(() => {
-        //     this.lunbo1()
-        // }, 2500)
+        setTimeout(() => {
+            this.lunbo1()
+        }, 2500)
     }
     componentWillUnmount = () => {
-        // let ticker1 = $("#ticker1");
-        // ticker1.children().stop();
-        // ticker1 = null;
-        // this.setState({
-        //     show: !this.state.show
-        // })
+        let ticker1 = $("#ticker1");
+        ticker1.children().stop();
+        ticker1 = null;
+        this.setState({
+            show: !this.state.show
+        })
     }
-    // animator = (currentItem) => {
-    //     let that = this
-    //     var distance = currentItem.height();
-    //     var duration = (distance + parseInt(currentItem.css("marginTop"))) / 0.025;
-    //     currentItem.stop().animate({ marginTop: -distance }, duration, "linear", function () {
-    //         currentItem.appendTo(currentItem.parent()).css("marginTop", 0);
-    //         that.animator(currentItem.parent().children(":first"));
-    //     });
-    // };
-    // lunbo1 = () => {
-    //     let that = this
-    //     //轮播滚动
-    //     let ticker1 = $("#ticker1");
-    //     ticker1.children().filter("li").each(function () {
-    //         var dt = $(this),
-    //             container = $("<div>");
-    //         dt.next().appendTo(container);
-    //         dt.prependTo(container);
-    //         container.appendTo(ticker1);
-    //     });
-    //     ticker1.css("overflow", "hidden");
+    animator = (currentItem) => {
+        let that = this
+        var distance = currentItem.height();
+        var duration = (distance + parseInt(currentItem.css("marginTop"))) / 0.025;
+        currentItem.stop().animate({ marginTop: -distance }, duration, "linear", function () {
+            currentItem.appendTo(currentItem.parent()).css("marginTop", 0);
+            that.animator(currentItem.parent().children(":first"));
+        });
+    };
+    lunbo1 = () => {
+        let that = this
+        //轮播滚动
+        let ticker1 = $("#ticker1");
+        ticker1.children().filter("li").each(function () {
+            var dt = $(this),
+                container = $("<div>");
+            dt.next().appendTo(container);
+            dt.prependTo(container);
+            container.appendTo(ticker1);
+        });
+        ticker1.css("overflow", "hidden");
 
-    //     that.animator(ticker1.children(":first"));
-    //     ticker1.mouseenter(function () {
-    //         ticker1.children().stop();
-    //     });
-    //     ticker1.mouseleave(function () {
-    //         that.animator(ticker1.children(":first"));
-    //     });
-    // }
+        that.animator(ticker1.children(":first"));
+        ticker1.mouseenter(function () {
+            ticker1.children().stop();
+        });
+        ticker1.mouseleave(function () {
+            that.animator(ticker1.children(":first"));
+        });
+    }
     render() {
         const { show } = this.state;
         return (
             <>
-                <ul id="ticker1" className={`${styles.ticker}`}>
-                    <marquee direction="up" scrollamount='3' behavior="scroll" loop='-1'>
-                        {
-                            this.state.data.map((item, index) => {
-                                return (
-                                    <li key={index}>
-                                        <div className={styles.companyName}><span>名称:</span><span>{item.companyName}</span></div>
-                                        <div className={styles.jieshao}><span>介绍:</span><span>{item.jieshao}</span></div>
-                                        <div className={styles.time}><span>发布时间:</span><span>{item.time}</span></div>
-                                        <div className={styles.incentive}><span>激励措施:</span><span>{item.incentive}</span></div>
-                                    </li>
-                                )
-                            })
-                        }
-                    </marquee>
+                <ul id="ticker1" className={`${styles.ticker}  ${show ? `animate__animated animate__slideInLeft` : `animate__animated animate__slideOutRight`}`}>
+                    {/* <marquee direction="up" scrollamount='3' behavior="scroll"> */}
+                    {
+                        this.state.data.map((item, index) => {
+                            return (
+                                <li key={index}>
+                                    <div className={styles.companyName}><span>名称:</span><span>{item.companyName}</span></div>
+                                    <div className={styles.jieshao}><span>介绍:</span><span>{item.jieshao}</span></div>
+                                    <div className={styles.time}><span>发布时间:</span><span>{item.time}</span></div>
+                                    <div className={styles.incentive}><span>激励措施:</span><span>{item.incentive}</span></div>
+                                </li>
+                            )
+                        })
+                    }
+                    {/* </marquee> */}
                 </ul>
             </>
         );
