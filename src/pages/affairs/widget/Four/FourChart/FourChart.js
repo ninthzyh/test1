@@ -58,6 +58,7 @@ class FourChart extends Component {
 												showInfo={false} 
 											/>
 											<span>{item.proportion}</span>
+											<img src={require(`../../../../../../${item.img}.svg`)}></img>
 										</div>
 									</div>
 								)

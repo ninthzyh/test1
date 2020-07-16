@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {Progress} from 'antd';
 import ChartHeader from 'components/ChartHeader/ChartHeader';
-import AffairsStyle from '../Affairs.module.scss'
+import AffairsStyle from '../Affairs.module.scss';
+import '../../../assets/css/antd.rewrite.scss';
 
 
 export default class RowBar extends Component {
@@ -11,7 +12,7 @@ export default class RowBar extends Component {
             progressData:[
                 {
                     title:'档案查询',
-                    proportion:1034,
+                    proportion:'1,034',
                     percent: 80
                 },
                 {
@@ -32,15 +33,15 @@ export default class RowBar extends Component {
         return (
             <>
                 <ChartHeader title='服务人次年度趋势图' />
-                {progressData.map((item, index)=>(<div className={AffairsStyle.serviceWrapper}>
+                {progressData.map((item, index)=>(<div key={index} className={AffairsStyle.serviceWrapper}>
                     <div className={AffairsStyle.before}><span className={AffairsStyle.number}>{index + 1}</span>{item.title}</div>
                     <Progress
                         strokeColor={{
-                            '0%': '#596AFF',
-                            '100%': '#34F4EA',
+                            '0%': '#0C97FC',
+                            '100%': '#18FFFF',
                         }}
                         className={AffairsStyle.progress}
-                        strokeWidth={8}
+                        strokeWidth={6}
                         percent={item.percent}
                         showInfo={false} />
                         <div className={AffairsStyle.after}>{item.proportion}</div>
