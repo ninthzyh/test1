@@ -1,0 +1,63 @@
+@import 'assets/css/index.modules.scss';
+
+.icon {
+  background-image: url('/img/Group.png');
+  background-repeat: no-repeat;
+  width: 23px;
+  height: 10px;
+  margin-right: 6px;
+  margin-left: 6px;
+}
+
+.headerWrapper {
+  display: flex;
+  line-height: 48px;
+  .titleWrapper {
+    flex: 1 0 200px;
+    border-bottom: 1px solid;
+    margin-right: 10px;
+    border-image: linear-gradient(to left, #6cf5b0, #6dfafe, #2ba6ff) 1;
+    > div {
+      display: inline-block;
+    }
+    .title1 {
+      width: 50%;
+      color: #fff;
+    }
+    .title2 {
+      color: #fff;
+    }
+  }
+
+  .rightIconWrapper {
+    border-bottom: 1px solid #caccd2;
+    text-align: center;
+    width: 25px;
+    .rightIcon {
+      display: inline-block;
+      background-image: url('/img/Shape.png');
+      background-repeat: no-repeat;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+.Three {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .content {
+    height: 80%;
+    .left {
+      width: 50%;
+      height: 100%;
+      float: left;
+    }
+    .right {
+      width: 50%;
+      height: 100%;
+      float: left;
+    }
+  }
+}
