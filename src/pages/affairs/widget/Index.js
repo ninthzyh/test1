@@ -49,12 +49,12 @@ class Index extends Component {
                     <div className={AffairsStyle.itemRight}><Fives /></div>
                     <div className={AffairsStyle.itemRight}><SixChart /></div>
                 </div>
-                <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.rightWrapper} ${this.getTwoClassName(show)}`}>
+                <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.leftWrapper} ${this.getTwoClassName(show)}`}>
                     <div className={AffairsStyle.item}><Seven/></div>
                     <div className={AffairsStyle.item}><Eight /></div>
                     <div className={AffairsStyle.item}>3</div>
                 </div>
-                <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.leftWrapper} ${this.getTwoClassName(show)}`}>
+                <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.rightWrapper} ${this.getTwoClassName(show)}`}>
                     <div className={AffairsStyle.itemRight}><FourChart/></div>
                     <div className={AffairsStyle.itemRight}><Eleven/></div>
                     <div className={AffairsStyle.itemRight}>3</div>
