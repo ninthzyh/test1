@@ -52,7 +52,18 @@ class One extends Component {
 							<span>18</span>
 						</div>
 					</div>
-					<div className='dataViewShowOne'></div>
+					<div className='dataViewShowOne'>
+						<div className='dataNameOne'>
+							<h5>税务局</h5>
+							<h5>市场监管局</h5>
+							<h5>银行</h5>
+						</div>
+						<div className='dataViewOne'>
+							<div className='leftProgress'></div>
+							<div className='lineOne'></div>
+							<div className='rightProgress'></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		)
