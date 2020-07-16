@@ -2,7 +2,7 @@ import React from 'react';
 import ManagerStyle from '../Manager.module.scss';
 import OneMap from '../mapController';
 import One from './One';
-
+import FiveChart from './fiveChart/FiveChart';
 
 class Manager extends React.Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class Manager extends React.Component {
                 </div>
                 <div  className={ManagerStyle.rightWrapper}>
                     <div className={ManagerStyle.itemRight}>4</div>
-                    <div className={ManagerStyle.itemRight}>5</div>
+                    <div className={ManagerStyle.itemRight}><FiveChart /></div>
                     <div className={ManagerStyle.itemRight}></div>
                 </div>
             </div>);
