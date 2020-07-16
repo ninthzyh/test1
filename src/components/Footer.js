@@ -7,19 +7,31 @@ const { Footer } = Layout;
 class FooterBottom extends Component {
     constructor(props) {
         super(props);
-        const data = ['疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '区块链'];
         this.state = {
-            data: data,
-
+            currentIndex: 0,
         }
+        this.setCurrentIndex = this.setCurrentIndex.bind(this)
     }
-
+    setCurrentIndex(event) {
+        this.setState({
+            currentIndex: parseInt(event.currentTarget.getAttribute('index'), 10)
+        })
+    }
     render() {
+        let footerData = ['疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控','疫情防控', '区块链'];
+        let itemList = [];
+        for(let i = 0; i < footerData.length; i++) {
+        itemList.push(<li key={i}
+                index={i} onClick={this.setCurrentIndex}
+                ><span className={FooterStyle.FooterList} className={this.state.currentIndex === i ? `${FooterStyle.FooterActive} ${FooterStyle.FooterList}` : FooterStyle.FooterList}>{footerData[i]}</span>   <span className={FooterStyle.FooterVerLine}></span></li>);
+        }
+        // return <ul className="category">{itemList}</ul>
         return (<Footer className={FooterStyle.FooterPage}>
             <ul className={FooterStyle.FooterListBox}>
-                {this.state.data.map((val,key) => {
-                    return (<li key={key}>{val}{val !== '区块链'?<span className={FooterStyle.FooterVerLine}></span>:''}</li>)
-                })}
+                {itemList}
+                {/* {this.state.data.map((val,key) => {
+                    return (<li key={key}>{val}<span className={FooterStyle.FooterVerLine}></span></li>)
+                })} */}
             </ul>
 
         </Footer>);

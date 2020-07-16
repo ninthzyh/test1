@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import TrafficStyle from '../Traffic.module.scss'
 import OneMap from '../mapController';
+import CreditStyle from "../../credit/Credit.module.scss";
+import Six from "../../credit/widget/Six";
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -10,20 +12,18 @@ class Index extends Component {
         return (
             <div className={TrafficStyle.container}>
                 <OneMap></OneMap>
-                <div className={TrafficStyle.page}>
-                    <div className={TrafficStyle.wrapper}>
-                        <div className={TrafficStyle.item}>1</div>
-                        <div className={TrafficStyle.item}>
-                        </div>
-                        <div className={TrafficStyle.item}>3</div>
+                <div className={CreditStyle.leftWrapper}>
+                    <div className={CreditStyle.item}>1</div>
+                    <div className={CreditStyle.item}>
+
                     </div>
-                    <div className={TrafficStyle.wrapper}>
-                        <div className={TrafficStyle.itemRight}>4</div>
-                        <div className={TrafficStyle.itemRight}>5</div>
-                        <div className={TrafficStyle.itemRight}>6</div>
-                    </div>
+                    <div className={CreditStyle.item}>3</div>
                 </div>
-                
+                <div  className={CreditStyle.rightWrapper}>
+                    <div className={CreditStyle.itemRight}>4</div>
+                    <div className={CreditStyle.itemRight}>5</div>
+                    <div className={CreditStyle.itemRight}><Six /></div>
+                </div>
             </div>);
 
     }
