@@ -33,21 +33,21 @@ class FourChart extends Component {
 	}
 	render(){
 		return (
-			<div className='currentAffairsWrap'>
-				<div className='header'>
+			<div className='currentAffairsWrapFourChart'>
+				<div className='headerFourChart'>
 					<IconFont title={this.state.list.title}/>
 				</div>
-				<div className='content'>
-					<div className='infoShowWrap'>
+				<div className='contentFourChart'>
+					<div className='infoShowWrapFourChart'>
 						{
 							this.state.list.children.map((item,index)=>{
 								return (
-									<div className='infoShow' key={`${index}`}>
-										<div className='infoTxt'>
-											<span className='ranking'>{index+1}</span>
-											<span className='ditch'>{item.ditch}</span>
+									<div className='infoShowFourChart' key={`${index}`}>
+										<div className='infoTxtFourChart'>
+											<span className='rankingFourChart'>{index+1}</span>
+											<span className='ditchFourChart'>{item.ditch}</span>
 										</div>
-										<div className='progress'>
+										<div className='progressFourChart'>
 											<Progress 
 												strokeColor={{
 													'0%': '#596AFF',

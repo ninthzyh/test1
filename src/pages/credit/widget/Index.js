@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CreditStyle from '../Credit.module.scss'
 import OneMap from '../mapController';
+import One from './One/One.js'
+// <OneMap></OneMap>
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -9,10 +11,12 @@ class Index extends Component {
     render() {
         return (
             <div className={CreditStyle.container}>
-                <OneMap></OneMap>
+                
                 <div className={CreditStyle.page}>
                     <div className={CreditStyle.wrapper}>
-                        <div className={CreditStyle.item}>1</div>
+                        <div className={CreditStyle.item}>
+													<One/>
+												</div>
                         <div className={CreditStyle.item}>
 
                         </div>
