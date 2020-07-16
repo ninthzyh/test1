@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ManagerStyle from '../Manager.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 import ReactEcharts from "echarts-for-react";
@@ -24,6 +24,7 @@ export default class extends Component {
                 backgroundStyle: {
                     borderWidth: 2,
                     borderColor: 'rgba(21,208,246,.28)',
+                    color:'rgba(21,208,246,0)',
                 },
                 color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                     offset: 1,
@@ -61,7 +62,7 @@ export default class extends Component {
     }
     getList = () => {
         return leftChart.map((item, index) => {
-            return <div key={index}>
+            return <Fragment key={index}>
                 <div className={ManagerStyle.treeImg}></div>
                 <div className={ManagerStyle.treeText}>{item.title}</div>
                 <div className={ManagerStyle.treeNum}>
@@ -69,7 +70,7 @@ export default class extends Component {
                     <span className={ManagerStyle.treeUnit}>{item.unit}</span>
                     <sup className={ManagerStyle.treeUnit}>{item.sup}</sup>
                 </div>
-            </div>
+            </Fragment>
         })
     }
     render() {
