@@ -18,15 +18,18 @@ import buildData from '../../assets/json/PuYang_Buildings.geojson';
 import countyData from '../../assets/json/PuYang_County.geojson';
 import arcData from '../../assets/json/PuYang_arc.json';
 import heatmapData from '../../assets/json/builidingCenter.json';
-import governmentData from '../../assets/json/Puyang_Government.json'
+import governmentData from '../../assets/json/Puyang_Government.json';
+import policeData from '../../assets/json/Puyang_Police.json'
 import { ShowGovernmentIcon } from '../../components/Popup/government/government_popup'
 import { Popup, Marker } from 'react-map-gl';
-import './ceshi.css'
+import './popup.css'
+
+
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
 const imgUrl = 'http://localhost:3000/img';
 var map;
-let deck;
+
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
   intensity: 1.0
@@ -88,7 +91,7 @@ export default class OneMap extends Component {
     // fetch(DATA_URL.CITY)
     // .then(res => {res.json();debugger;})
     // .then(json => console.log(json));
-    this.setState({ cityData, buildData, roadData, countyData, arcData, heatmapData, governmentData });
+    this.setState({ cityData, buildData, roadData, countyData, arcData, heatmapData, governmentData, policeData });
   }
   //组件第一次渲染后调用
   componentDidMount() {
@@ -131,13 +134,26 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
-        sizeScale: 7,
-        sizeUnits: 'meters',
+        //iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
+        iconAtlas: 'http://localhost:3000/img/affairs/police2.png',
+        sizeScale: 2,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
         getSize: d => { return 10 },
+      }),
 
+      new IconLayer({
+        id: 'police_icon',
+        data: this.state.policeData,
+        iconMapping: {
+          marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
+        },
+        //iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
+        iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
+        sizeScale: 2,
+        getIcon: d => 'marker',
+        getPosition: d => [d.coor[0], d.coor[1], 80],
+        getSize: d => { return 10 },
       }),
 
       new PathLayer({
@@ -185,34 +201,17 @@ export default class OneMap extends Component {
     ];
   }
 
-
-
   _onLoad(e) {
+
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = ''
+ 
     console.dir(e);
     map = e.target;
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'zh'
     }));
-    var popupOffsets = {
-      'bottom': [0, 300]
-    };
-    //ShowGovernmentIcon({ map, governmentData })
-    //let point = map.project([115.0195982, 35.75112835], 200);
-
-    // var popup2 = new Popup({
-    //   closeOnClick: false,
-    //   className: 'popup2',
-    //   offset: 50
-    // })
-    //   .addTo(map)
-    //   .setMaxWidth("400px")
-    //   .setLngLat([115.0195982, 35.75112835, 500])
-    //   .setHTML(`
-    //         <img class="image"  >
-    //         道路扬尘<br/> 负责人:付胜博 &nbsp&nbsp&nbsp   联系方式:18369183151 <br/>车牌号:26368789   &nbsp &nbsp &nbsp作业类型:雾炮车 <br/>
-    //             位置: `)
-    // map.addLayer(new MapboxLayer({ id: 'deck', deck }));
   }
 
 
@@ -224,9 +223,11 @@ export default class OneMap extends Component {
       theme = DEFAULT_THEME
     } = this.props;
 
+
     return (
+
       <DeckGL
-        ref={ref => { this._deck = ref && ref.deck; }}
+
         layers={this._renderLayers()}
         effects={theme.effects}
         initialViewState={INITIAL_VIEW_STATE}
@@ -243,15 +244,27 @@ export default class OneMap extends Component {
           mapboxApiAccessToken={MAPBOX_TOKEN}
           onLoad={this._onLoad}
         >
-        <Popup className={"Popup2"}
-          longitude={115.0195982}
-          latitude={35.75112835}
-          altitude={100}
-          closeButton={false}>
-          <div>
-            <p>{"Hello,DeckGL Popup"}</p >
-          </div>
-        </Popup>
+          <Popup className={"popup"}
+            longitude={115.0195982}
+            latitude={35.75112835}
+            altitude={100}
+            closeButton={false}
+          >
+            <div>
+              <p>{"Hello,DeckGL Popup"}</p >
+            </div>
+          </Popup>
+          <Popup className={"popup"}
+            longitude={115.0195982}
+            latitude={35.78112835}
+            altitude={100}
+            closeButton={false}
+            style={{ zIndex: 9999999 }}
+          >
+            <div>
+              <p>{"Hello,DeckGL Popup"}</p >
+            </div>
+          </Popup>
         </StaticMap>
       </DeckGL>
     );
