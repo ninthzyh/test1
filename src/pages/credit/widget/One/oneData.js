@@ -7,63 +7,38 @@
  */
 export const oneList = {
 	title: '当日疫情服务',
-	header: [{
-		
-	}],
-	options: {
-		title: {
-			text: '交错正负轴标签',
-			subtext: 'From ExcelHome',
-			sublink: 'http://e.weibo.com/1341556070/AjwF2AgQm'
+	header: [
+		{
+			name:'法人红名单',
+			number:18,
+			className:'redAnnouncedLegalPerson'
 		},
-		tooltip: {
-			trigger: 'axis',
-			axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-					type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
-			}
+		{
+			name:'法人黑名单',
+			number:18,
+			className:'blackAnnouncedLegalPerson'
 		},
-		legend: {
-			data: ['红榜', '黑帮']
+		{
+			name:'自然人黑名单',
+			number:18,
+			className:'blackAnnouncedPerson'
+		}
+	],
+	option: [
+		{
+			name:'税务局',
+			redAnnouncement:90,
+			blackAnnouncement:10
 		},
-		grid: {
-			left: '3%',
-			right: '4%',
-			bottom: '3%',
-			containLabel: true
+		{
+			name:'市场监管局',
+			redAnnouncement:66,
+			blackAnnouncement:0
 		},
-		xAxis: [{
-			type: 'value',
-			axisTick: {
-				show: true
-			}
-		}],
-		yAxis: [{
-			type: 'category',
-			axisTick: {
-				show: false
-			},
-			data: ['税务局', '市场监管局', '人行', '文广局', '住建局', '农业农村局', '房地产管理局','法院']
-		}],
-		series: [
-			{
-				name: '红榜',
-				type: 'bar',
-				stack: '总量',
-				label: {
-					show: true
-				},
-				data: [2, 6, 1, 2, 4, 2, 1,0]
-			},
-			{
-				name: '黑榜',
-				type: 'bar',
-				stack: '总量',
-				label: {
-					show: true,
-					position: 'left'
-				},
-				data: [-1, -2, -1, -1, 0, 0, 0,-19]
-			}
-		]
-	}
+		{
+			name:'房地产管理局',
+			redAnnouncement:23,
+			blackAnnouncement:60
+		}
+	]
 }

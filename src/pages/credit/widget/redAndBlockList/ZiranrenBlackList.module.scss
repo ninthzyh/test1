@@ -1,0 +1,22 @@
+@charset 'utf-8';
+.ticker{
+        li{
+            font-size:10px;
+            .companyName{
+                color:hsla(188, 100%, 51%, 1);
+                line-height:20px;
+            }
+            .jieshao{
+                color:hsla(0, 0%, 100%, 1);
+                line-height:20px;
+            }
+            .time{
+                color:hsla(0, 0%, 100%, 1);
+                line-height:20px;
+            }
+            .incentive{
+                color:hsla(0, 0%, 100%, 1);
+                line-height:20px;
+            }
+        }
+}

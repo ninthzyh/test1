@@ -1,7 +1,13 @@
 import React from 'react';
 import ManagerStyle from '../Manager.module.scss';
+<<<<<<< HEAD
 // import OneMap from '../mapController';
 import Six from "./Six";
+=======
+import OneMap from '../mapController';
+import One from './One';
+import FiveChart from './fiveChart/FiveChart';
+>>>>>>> 427f5329d722c3d29be3d2e4a4ce6e82c1f1f101
 
 class Manager extends React.Component {
     constructor(props) {
@@ -12,9 +18,9 @@ class Manager extends React.Component {
     render() {
         return (
             <div className={ManagerStyle.container}>
-                {/*<OneMap></OneMap>*/}
+                <OneMap></OneMap>
                 <div className={ManagerStyle.leftWrapper}>
-                    <div className={ManagerStyle.item}>1</div>
+                    <div className={ManagerStyle.item}><One /></div>
                     <div className={ManagerStyle.item}>
 
                     </div>
@@ -22,8 +28,10 @@ class Manager extends React.Component {
                 </div>
                 <div  className={ManagerStyle.rightWrapper}>
                     <div className={ManagerStyle.itemRight}>4</div>
-                    <div className={ManagerStyle.itemRight}>5</div>
+                    <div className={ManagerStyle.itemRight}><FiveChart /></div>
                     <div className={ManagerStyle.itemRight}><Six /></div>
+                    <div className={ManagerStyle.itemRight}></div>
+                    <div className={ManagerStyle.itemRight}></div>
                 </div>
             </div>);
 
