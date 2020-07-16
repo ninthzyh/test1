@@ -1,13 +1,9 @@
 import React from 'react';
 import ManagerStyle from '../Manager.module.scss';
-<<<<<<< HEAD
-// import OneMap from '../mapController';
 import Six from "./Six";
-=======
 import OneMap from '../mapController';
 import One from './One';
 import FiveChart from './fiveChart/FiveChart';
->>>>>>> 427f5329d722c3d29be3d2e4a4ce6e82c1f1f101
 
 class Manager extends React.Component {
     constructor(props) {
