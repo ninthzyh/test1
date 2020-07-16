@@ -18,7 +18,7 @@ import arcData from '../../assets/json/PuYang_arc.json';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
-const imgUrl = 'http://localhost:3000/img';
+const imgUrl = document.location.origin + '/img/';
 var map;
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -56,6 +56,7 @@ const DEFAULT_THEME = {
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   arcColor: [255, 78, 1],
+  borderColor: [61,169,125],
   material,
   effects: [lightingEffect]
 };
@@ -153,7 +154,7 @@ export default class OneMap extends Component {
             id: 'path',
             data: this.state.roadData,
             getPath: d => d.geometry.coordinates[0],
-            image: imgUrl + '/path2.png',
+            image: imgUrl + 'path2.png',
             getWidth: 4,
             speed: 1.2,
         }),
@@ -175,7 +176,7 @@ export default class OneMap extends Component {
         //     getTargetPosition: d => d.to,
         //     getWidth: 2,
         //     getHeight: 0.7,
-        //     image: imgUrl + '/arc.png',
+        //     image: imgUrl + 'arc.png',
         //     speed: 1
         // }),
         new GeoJsonLayer({
@@ -197,8 +198,8 @@ export default class OneMap extends Component {
         //       {position: [115.015, 35.7050], color: [200, 0, 0], radius: 1500}
         //     ],
         //     getPosition: d => d.position,
-        //     image: imgUrl + '/color.png',
-        //     imageNoise: imgUrl + '/depth.png',
+        //     image: imgUrl + 'color.png',
+        //     imageNoise: imgUrl + 'depth.png',
         //     getRadius: d => d.radius,
         //     speed: 6,
         //     getBlendColor: [0, 255, 0]
@@ -226,7 +227,7 @@ export default class OneMap extends Component {
             filled: false,
             extruded: false,
             lineWidthMinPixels: 2,
-            getLineColor: [255,255,0],
+            getLineColor: theme.borderColor,
             getLineWidth: 2,
         })
     ];
