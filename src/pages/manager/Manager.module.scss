@@ -1,27 +1,32 @@
 @import 'assets/css/index.modules.scss';
 
-.six{
-  display: flex;
+.sixContainer{
   height: 100%;
-  flex-direction: column;
-  .container{
+  .six{
     display: flex;
-    line-height: 33px;
-    font-weight: 700;
-    .imgContainer{
-      flex: 1 0 138px;
-      img{
-        margin-right: 5px;
+    height: calc(100% - 50px);
+    flex-direction: column;
+    justify-content: space-around;
+    .container{
+      display: flex;
+      line-height: 33px;
+      font-weight: 700;
+      padding: 10px 0;
+      .imgContainer{
+        flex: 1 0 138px;
+        img{
+          margin-right: 5px;
+        }
       }
-    }
-    .title{
-      color: #ffffff;
-      padding: 0 10px;
-      flex: 1 0 76px;
-    }
-    .rate{
-      color:#40FDFB;
-      flex: 1 0 100px;
+      .title{
+        color: #ffffff;
+        padding: 0 10px;
+        flex: 1 0 76px;
+      }
+      .rate{
+        color:#40FDFB;
+        flex: 1 0 30px;
+      }
     }
   }
 }
