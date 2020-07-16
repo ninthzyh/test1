@@ -39,29 +39,62 @@ class One extends Component {
 				</div>
 				<div className='contentOne'>
 					<div className='contentHeaderOne'>
-						<div className='headerTitleOne'>
-							<h5>法人红名单</h5>
-							<span>18</span>
-						</div>
-						<div className='headerTitleOne'>
-							<h5>法人红名单</h5>
-							<span>18</span>
-						</div>
-						<div className='headerTitleOne'>
-							<h5>法人红名单</h5>
-							<span>18</span>
-						</div>
+						{
+							this.state.list.header.map((item)=>{
+								return (
+									<div className='headerTitleOne'>
+										<h5>{item.name}</h5>
+										<span className={item.className}>{item.number}</span>
+									</div>
+								)
+							})
+						}
+					</div>
+					<div className='tipTitleOne'>
+						<span className='redAnnouncementOne'></span><span className='redkTxt'>红榜</span>
+						<span className='blackAnnouncementOne'></span><span className='blackTxt'>黑榜</span>
 					</div>
 					<div className='dataViewShowOne'>
 						<div className='dataNameOne'>
-							<h5>税务局</h5>
-							<h5>市场监管局</h5>
-							<h5>银行</h5>
+							{
+								this.state.list.option.map((item)=>{
+									return <h5>{item.name}</h5>
+								})
+							}
 						</div>
 						<div className='dataViewOne'>
-							<div className='leftProgress'></div>
-							<div className='lineOne'></div>
-							<div className='rightProgress'></div>
+							<div className='leftProgressOne'>
+								<div className='leftDataProgressOne'>
+									{
+										this.state.list.option.map((item)=>{
+											return (
+												<Progress
+													strokeColor={'#F7517F'}
+													strokeWidth={8}
+													percent={80} 
+													showInfo={false} 
+												/>
+											)
+										})
+									}
+								</div>
+							</div>
+							<div className='rightProgressOne'>
+								<div className='rightDataProgressOne'>
+									{
+										this.state.list.option.map((item)=>{
+											return (
+												<Progress
+													strokeColor={'#6648FF'}
+													strokeWidth={8}
+													percent={80} 
+													showInfo={false} 
+												/>
+											)
+										})
+									}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

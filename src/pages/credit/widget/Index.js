@@ -13,7 +13,6 @@ class Index extends Component {
     render() {
         return (
             <div className={CreditStyle.container}>
-                <OneMap></OneMap>
                 <div className={CreditStyle.leftWrapper}>
                     <div className={CreditStyle.item}>
 											<One/>
