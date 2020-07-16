@@ -12,6 +12,7 @@ import Eight from './Eight';
 import Four from './Four/Four.js'
 import FourChart from './Four/FourChart/FourChart.js'
 import Eleven from './humanSocialBureau/Eleven';
+import Twelve from './Twelve.js';
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -57,7 +58,7 @@ class Index extends Component {
                 <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.rightWrapper} ${this.getTwoClassName(show)}`}>
                     <div className={AffairsStyle.itemRight}><FourChart/></div>
                     <div className={AffairsStyle.itemRight}><Eleven/></div>
-                    <div className={AffairsStyle.itemRight}>3</div>
+                    <div className={AffairsStyle.itemRight}><Twelve/></div>
                 </div>
             </div>);
     }
