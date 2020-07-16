@@ -6,6 +6,7 @@ import ManagerStyle from '../Manager.module.scss';
 import OneMap from '../mapController';
 import CreditStyle from "../../credit/Credit.module.scss";
 import Six from "../../credit/widget/Six";
+import One from './One';
 
 const { Content } = Layout;
 
@@ -18,9 +19,9 @@ class Manager extends React.Component {
     render() {
         return (
             <div className={ManagerStyle.container}>
-                <OneMap></OneMap>
+                {/* <OneMap></OneMap> */}
                 <div className={CreditStyle.leftWrapper}>
-                    <div className={CreditStyle.item}>1</div>
+                    <div className={CreditStyle.item}><One /></div>
                     <div className={CreditStyle.item}>
 
                     </div>
