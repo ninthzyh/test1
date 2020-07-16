@@ -5,6 +5,7 @@ import FiveChart from './fiveChart/FiveChart';
 import One from './One/One.js'
 import Six from "./Six";
 import Four from './four/Four'
+import Three from './Three/Three.js'
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -19,7 +20,7 @@ class Index extends Component {
 											<One/>
 										</div>
                     <div className={CreditStyle.item}>
-
+            <Three />
                     </div>
                     <div className={CreditStyle.item}>3</div>
                 </div>
