@@ -1,79 +1,97 @@
 @import './index.scss';
-.layout {
-  height: 100%;
-}
-.title {
-  color: white;
-  font-size: 1.7em;
-  // width: 30%;
-  display: inline;
-  a{
-    color: $text-color
+
+.HeaderPage{
+  width:100%;
+  height:140px;
+  background:linear-gradient(180deg,rgba(17,17,17,0.92) 0%,rgba(17,17,17,0) 100%);
+  opacity:0.8;
+  z-index: 99; 
+  .leftBox{
+      float:left;
+      height:100%;
+      width:400px;
+      .logoBox{    
+          width:755px;
+          height:49px;
+          position:absolute;
+          left:40px;
+          top:31px; 
+          background:rgba(255,255,255,1);
+          opacity:1;
+          background:url('/img/header/logoIcon.png');   
+          }
   }
-}
-.header {
-  //   background-color: #0c2a53;
-  z-index: 99;
-}
-.menu {
-  //   a {
-  //     font-size: 1em;
-  //     color: white;
-  //   }
-  float: right;
-  display: inline;
-  width: 50%;
-}
-.avatar {
-  float: right;
-  margin-top: 15px;
-}
-.logoIcon,.headerIcon{
-  background: url("~img/header/headerIcon.png");
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-.logoIcon{
-  width: 34px;
-  height: 34px;
-}
-.headerIcon{
-  width: 19px;
-  height: 18px;
-}
-.logo{
-  background-position: -208px 0;
-}
-.home{
-  background-position:-109px 0;
-}
-.homeActive{
-  background-position:-71px 0;
-}
-.message{
-  background-position:-168px 0;
-}
-.messageActive{
-  background-position:-188px 0;
-}
-.model{
-  background-position:-17px 0;
-}
-.modelActive{
-  background-position:0 0;
-}
-.data{
-  background-position:-52px 0;
-}
+  .rightBox{
+      float:right;
+      position:relative;
+      height:100%;
+      .weatherpicBox{
+          float:left;
+          position:absolute;
+          right:154px;
+          top:15px; 
+          width:90px;
+          height:90px;
+          background:rgba(0,0,0,0);
+          opacity:1;
+          background:url('/img/header/weatherIcon.png');  
+          }
+      .dateBox{ 
+          position:absolute;
+          right:268px;
+          top: 75px; 
+          width:148px;
+          height:16px;
+          font-size:16px;
+          font-family:NotoSansHans-Regular;
+          line-height:21px;
+          color:rgba(217,217,217,1);
+          opacity:1;
+          }
+      .weekBox{ 
+          position:absolute;
+          right:268px;
+          top: 37px; 
+          width:123px;
+          height:40px;
+          font-size:30px;
+          font-family:NotoSansHans-Bold;
+          line-height:40px;
+          color:rgba(217,217,217,1);
+          opacity:1;
+          } 
+      .temperatureBox{ 
+          position:absolute;
+          right:60px;
+          top: 37px; 
+          width:70px;
+          height:43px;
+          font-size:32px;
+          font-family:NotoSansHans-Bold;
+          line-height:43px;
+          color:rgba(217,217,217,1);
+          opacity:1;
+          }  
+      .weatherBox{ 
+          position:absolute;
+          right:60px;
+          top: 75px; 
+          width:64px;
+          height:16px;
+          font-size:16px;
+          font-family:NotoSansHans-Regular;
+          line-height:21px;
+          color:rgba(217,217,217,1);
+          opacity:1;
+          }
 
-.dataActive{
-  background-position:-90px 0;
-}
-.synthesize{
-  background-position:-128px 0;
-}
-.synthesizeActive{
-  background-position:-148px 0;
-}
+  }
+  .headLine{
+    position:relative;
+    width:100%;
+    height:1px;
+    top:120px; 
+    background:linear-gradient(270deg,rgba(108,245,176,1) 0%,rgba(109,250,254,1) 44%,rgba(43,166,255,1) 94%,rgba(24,143,255,0) 100%);  
+  }
 
+}
