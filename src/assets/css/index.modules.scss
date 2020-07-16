@@ -6,7 +6,6 @@ $text-color:rgb(128, 0, 96);
     height: 100%;
     .leftWrapper {
         z-index: 2;
-        position: relative;
         height: 100%;
         width: 23%;
         float: left;
@@ -14,7 +13,6 @@ $text-color:rgb(128, 0, 96);
     }
     .rightWrapper {
         z-index: 2;
-        position: relative;
         height: 100%;
         width: 23%;
         float: right;
@@ -24,7 +22,7 @@ $text-color:rgb(128, 0, 96);
     .item {
         background: linear-gradient(90deg, rgba(17, 17, 17, 0.9) 0%, rgba(17, 17, 17, 0.66) 52%, rgba(17, 17, 17, 0) 100%);
         padding: 10px;
-        // margin-bottom: 10px;
+        height: 35%;
     }
     .itemRight{
         @extend .item;

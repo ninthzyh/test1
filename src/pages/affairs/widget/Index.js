@@ -17,7 +17,7 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: false,
+            show: true,
         }
     }
     componentDidMount() {
@@ -39,7 +39,7 @@ class Index extends Component {
         const { show } = this.state;
         return (
             <div className={AffairsStyle.container}>
-                <OneMap></OneMap>
+                {/* <OneMap></OneMap> */}
                 <div style={!show ? {display: 'none'} : {}} className={`${AffairsStyle.leftWrapper} ${this.getOneClassName(show)}`}>
                     <div className={AffairsStyle.item}><One/></div>
                     <div className={AffairsStyle.item}><Two /></div>
