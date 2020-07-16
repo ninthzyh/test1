@@ -38,20 +38,23 @@ export default class RowBar extends Component {
         return (
             <>
                 <ChartHeader title='服务人次年度趋势图' />
-                {progressData.map((item, index)=>(<div key={index} className={AffairsStyle.serviceWrapper}>
-                    <div className={AffairsStyle.before}><span className={AffairsStyle.number}>{index + 1}</span>{item.title}</div>
-                    <Progress
-                        strokeColor={{
-                            '0%': '#0C97FC',
-                            '100%': '#18FFFF',
-                        }}
-                        className={AffairsStyle.progress}
-                        strokeWidth={6}
-                        percent={item.percent}
-                        showInfo={false} />
+                <div className={AffairsStyle.serviceContainer}>
+                    {progressData.map((item, index)=>(<div key={index} className={AffairsStyle.serviceWrapper}>
+                        <div className={AffairsStyle.before}><span className={AffairsStyle.number}>{index + 1}</span>{item.title}</div>
+                        <Progress
+                            strokeColor={{
+                                '0%': '#0C97FC',
+                                '100%': '#18FFFF',
+                            }}
+                            className={AffairsStyle.progress}
+                            strokeWidth={6}
+                            percent={item.percent}
+                            showInfo={false} />
                         <div className={AffairsStyle.after}>{item.proportion}
                             <img className={AffairsStyle.img} src={item.img} /></div>
-                </div>))}
+                    </div>))}
+                </div>
+
             </>
         )
     }

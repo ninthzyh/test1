@@ -29,13 +29,13 @@ export default class Three extends Component {
           },
         },
         axisLabel: {
-          interval: 2,
+          interval: 0,
           textStyle: {
             color: '#fff',
             width: '0.5',
           },
         },
-        data: ['2020年第一季度', '', ''],
+        data: ['', '2020年第一季度', ''],
       },
       yAxis: {
         type: 'value',
@@ -161,7 +161,7 @@ export default class Three extends Component {
         <div className={style.headerWrapper}>
           <div className={style.titleWrapper}>
             <div className={style.icon}></div>
-            <div className={style.title1}>黑红帮季度趋势</div>
+            <div className={style.title1}>黑红榜季度趋势</div>
             <div className={style.title2}>法院判决年趋势</div>
           </div>
           <div className={style.rightIconWrapper} onClick={this.click}>

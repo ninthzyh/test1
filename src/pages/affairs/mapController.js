@@ -134,7 +134,6 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        //iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
         iconAtlas: 'http://localhost:3000/img/affairs/police2.png',
         sizeScale: 2,
         getIcon: d => 'marker',
@@ -169,7 +168,7 @@ export default class OneMap extends Component {
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        image: imgUrl + '/path.png',
+        image:  'img/path.png',
         getWidth: 4,
         speed: 1.2,
       }),
@@ -205,7 +204,7 @@ export default class OneMap extends Component {
 
     let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
     box.style.zIndex = ''
- 
+
     console.dir(e);
     map = e.target;
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
@@ -244,27 +243,147 @@ export default class OneMap extends Component {
           mapboxApiAccessToken={MAPBOX_TOKEN}
           onLoad={this._onLoad}
         >
-          <Popup className={"popup"}
+          <Popup className={"popup1"}
             longitude={115.0195982}
             latitude={35.75112835}
             altitude={100}
             closeButton={false}
           >
+            <div className='font'>1</div>
+            <div className='font2'>不动产</div>
             <div>
-              <p>{"Hello,DeckGL Popup"}</p >
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
             </div>
+
           </Popup>
-          <Popup className={"popup"}
+          <Popup className={"popup2"}
             longitude={115.0195982}
             latitude={35.78112835}
             altitude={100}
             closeButton={false}
             style={{ zIndex: 9999999 }}
           >
+            <div className='font'>2</div>
+            <div className='font2'>公安</div>
             <div>
-              <p>{"Hello,DeckGL Popup"}</p >
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>546</div>
             </div>
           </Popup>
+          <Popup className={"popup3"}
+            longitude={115.0295982}
+            latitude={35.76212835}
+            altitude={100}
+            closeButton={false}
+          >
+            <div className='font'>3</div>
+            <div className='font2'>民政</div>
+            <div>
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
+            </div>
+
+          </Popup>
+          <Popup className={"popup4"}
+            longitude={115.01392}
+            latitude={35.76112}
+            altitude={100}
+            closeButton={false}
+          >
+            <div className='font'>4</div>
+            <div className='font2'>工商</div>
+            <div>
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
+            </div>
+
+          </Popup>
+          <Popup className={"popup5"}
+            longitude={115.064040}
+            latitude={35.756332}
+            altitude={100}
+            closeButton={false}
+          >
+            <div className='font'>5</div>
+            <div className='font2'>人社</div>
+            <div>
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
+            </div>
+
+          </Popup>
+          <Popup className={"popup6"}
+            longitude={115.08628}
+            latitude={35.76303}
+            altitude={100}
+            closeButton={false}
+          >
+            <div className='font'>6</div>
+            <div className='font2'>税务</div>
+            <div>
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
+            </div>
+
+          </Popup>
+          <Popup className={"popup7"}
+            longitude={115.02760}
+            latitude={35.75115}
+            altitude={100}
+            closeButton={false}
+          >
+            <div className='font'>7</div>
+            <div className='font2'>违章处理</div>
+            <div>
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
+            </div>
+
+          </Popup>
+          <Popup className={"popup8"}
+            longitude={115.01693}
+            latitude={35.70723}
+            altitude={100}
+            closeButton={false}
+          >
+            <div className='font'>8</div>
+            <div className='font2'>建行</div>
+            <div>
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
+            </div>
+
+          </Popup>
+          <Popup className={"popup9"}
+            longitude={115.0350982}
+            latitude={35.75612835}
+            altitude={100}
+            closeButton={false}
+          >
+            <div className='font'>9</div>
+            <div className='font2'>公积金</div>
+            <div>
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
+            </div>
+
+          </Popup>
+          <Popup className={"popup10"}
+            longitude={115.05605}
+            latitude={35.77294}
+            altitude={100}
+            closeButton={false}
+          >
+            <div className='font'>10</div>
+            <div className='font2'>消防</div>
+            <div>
+              <div className='font3'>各部门日服务人次</div>
+              <div className='font4'>5464</div>
+            </div>
+
+          </Popup>
+
         </StaticMap>
       </DeckGL>
     );

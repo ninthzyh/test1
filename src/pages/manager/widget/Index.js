@@ -1,13 +1,9 @@
 import React from 'react';
-// import './index.css';
-import { Layout, Icon } from 'antd';
-import HomeImg from 'img/home/home.svg'
 import ManagerStyle from '../Manager.module.scss';
+import Six from "./Six";
 import OneMap from '../mapController';
-import Six from "../../credit/widget/Six";
 import One from './One';
-
-const { Content } = Layout;
+import FiveChart from './fiveChart/FiveChart';
 
 class Manager extends React.Component {
     constructor(props) {
@@ -28,8 +24,10 @@ class Manager extends React.Component {
                 </div>
                 <div  className={ManagerStyle.rightWrapper}>
                     <div className={ManagerStyle.itemRight}>4</div>
-                    <div className={ManagerStyle.itemRight}>5</div>
+                    <div className={ManagerStyle.itemRight}><FiveChart /></div>
                     <div className={ManagerStyle.itemRight}><Six /></div>
+                    <div className={ManagerStyle.itemRight}></div>
+                    <div className={ManagerStyle.itemRight}></div>
                 </div>
             </div>);
 
