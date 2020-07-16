@@ -15,10 +15,11 @@ import roadData from '../../assets/json/PuYang_Roads.json';
 import buildData from '../../assets/json/PuYang_Buildings.geojson';
 import countyData from '../../assets/json/PuYang_County.geojson';
 import arcData from '../../assets/json/PuYang_arc.json';
+import pathImg from '../../assets/images/path2.png';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
-const imgUrl = document.location.origin + '/img/';
+// const imgUrl = document.location.origin + '/img/';
 var map;
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -154,7 +155,7 @@ export default class OneMap extends Component {
             id: 'path',
             data: this.state.roadData,
             getPath: d => d.geometry.coordinates[0],
-            image: imgUrl + 'path2.png',
+            image: pathImg,
             getWidth: 4,
             speed: 1.2,
         }),
