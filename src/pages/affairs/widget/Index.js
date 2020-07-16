@@ -33,9 +33,9 @@ class Index extends Component {
     render() {
         const { show } = this.state;
         return (
-            <div className={AffairsStyle.container}>
+            <div className={AffairsStyle.page}>
                 <OneMap></OneMap>
-                <div style={!show ? {display: 'none'} : {}} className={`${AffairsStyle.page} ${show ? 'animate__animated animate__backInLeft' : 'animate__animated animate__backOutLeft'}`}>
+                {/* <div style={!show ? {display: 'none'} : {}} className={`${AffairsStyle.page} ${show ? 'animate__animated animate__backInLeft' : 'animate__animated animate__backOutLeft'}`}> */}
                     <div className={AffairsStyle.leftWrapper}>
                         <div className={AffairsStyle.item}><One/></div>
                         <div className={AffairsStyle.item}><Two /></div>
@@ -46,8 +46,8 @@ class Index extends Component {
                         <div className={AffairsStyle.itemRight}><Fives /></div>
                         <div className={AffairsStyle.itemRight}><SixChart /></div>
                     </div>
-                </div>
-                <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.page} ${show ? 'animate__animated animate__backOutLeft' : 'animate__animated animate__backInLeft'}`}>
+                {/* </div> */}
+                {/* <div style={show ? {display: 'none'} : {}} className={`${AffairsStyle.page} ${show ? 'animate__animated animate__backOutLeft' : 'animate__animated animate__backInLeft'}`}>
                     <div className={AffairsStyle.leftWrapper}>
                         <div className={AffairsStyle.item}><Seven/></div>
                         <div className={AffairsStyle.item}><Eight /></div>
@@ -58,7 +58,7 @@ class Index extends Component {
                         <div className={AffairsStyle.itemRight}><Eleven/></div>
                         <div className={AffairsStyle.itemRight}>3</div>
                     </div>
-                </div>
+                </div> */}
             </div>);
     }
 }

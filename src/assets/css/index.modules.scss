@@ -17,11 +17,13 @@ $text-color:rgb(128, 0, 96);
         height: 100%;
         width: 23%;
         float: left;
+        position: relative;
     }
     .rightWrapper {
         height: 100%;
         width: 23%;
         float: right;
+        position: relative;
     }
 
     .item {
