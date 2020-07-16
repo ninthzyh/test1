@@ -33,31 +33,31 @@ class Four extends Component {
 	}
 	render(){
 		return (
-			<div className='currentAffairsWrap'>
-				<div className='header'>
+			<div className='currentAffairsWrapFour'>
+				<div className='headerFour'>
 					<IconFont title={this.state.list.title}/>
 				</div>
-				<div className='content'>
-					<div className='contentHeader'>
+				<div className='contentFour'>
+					<div className='contentHeaderFour'>
 						{
 							this.state.list.header.map((item,index)=>{
 								return <span key={`${index}`}>{item}</span>
 							})
 						}
 					</div>
-					<div className='infoShowWrap'>
+					<div className='infoShowWrapFour'>
 						{
 							this.state.list.children.map((item,index)=>{
 								return (
-									<div className='infoShow' key={`${index}`}>
-										<div className='infoTxt'>
-											<div className='rankingDitchWrap'>
-												<span className='ranking'>{index+1}</span>
-												<span className='ditch'>{item.ditch}</span>
+									<div className='infoShowFour' key={`${index}`}>
+										<div className='infoTxtFour'>
+											<div className='rankingDitchWrapFour'>
+												<span className='rankingFour'>{index+1}</span>
+												<span className='ditchFour'>{item.ditch}</span>
 											</div>
-											<span className='proportion'>{item.proportion + '%'}</span>
+											<span className='proportionFour'>{item.proportion + '%'}</span>
 										</div>
-										<div className='progress'>
+										<div className='progressFour'>
 											<Progress 
 												strokeColor={{
 													'0%': '#596AFF',
