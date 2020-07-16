@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import SixChartStyle from './SixChart.module.scss'
-import CustomImg from 'img/affairs/custom2.svg'
+import React, { Component } from 'react';
+import SixChartStyle from './SixChart.module.scss';
+import CustomImg from 'img/affairs/custom2.svg';
 import ChartHeader from '../../../../components/ChartHeader/ChartHeader';
 
 class SixChart extends Component {

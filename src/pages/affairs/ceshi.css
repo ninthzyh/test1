@@ -1,0 +1,89 @@
+
+.mapboxgl-popup{
+  z-index:999999999;
+  position: relative !important;
+}
+.mapboxgl-popup-content {
+background:white !important;
+border-style: solid;
+border-width: 1.5px;
+border-color: #12B5AB;
+position: relative !important;
+}
+
+
+.popup2{
+color:white;
+width:270px;
+position:relative !important;
+z-index: 2000 !important;
+}
+
+
+.popup3{
+  color:white;
+  width:250px;
+}  
+.popup4{
+  color:white;
+  width:250px;
+}  
+
+.popup{
+ color:white;
+}   
+
+img.image{
+  width: 25px;
+  height:25px;
+  position:absolute;
+  top:-12.5px; 
+  left:-12.5px;
+}
+
+.dust_marker {
+  display: block;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  background: url("http://localhost:3000/icon/loc.png") no-repeat;
+  width:18px;
+  height:18px;
+  padding-left: 5px;
+  z-index: 10;
+}
+.dust_marker p {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius:50%;
+  animation: myanimation 1.0s infinite;
+  box-shadow: 0px 0px 10px rgb(217, 0, 0); 
+}  
+@keyframes myanimation{
+  10% {transform: scale(2);}  
+  20% {transform: scale(3);}  
+  30% {transform: scale(4);}  
+  40% {transform: scale(5);}  
+  50% {transform: scale(6);}  
+  60% {transform: scale(7);}  
+  70% {transform: scale(8);}  
+  80% {transform: scale(9);}  
+  90% {transform: scale(10);}  
+  100% {transform: scale(11);}  
+
+}
+
+ span.span{
+  padding:5px 5px 0px 5px;
+ }
+
+
+
+  
+
+
+
+
+
+

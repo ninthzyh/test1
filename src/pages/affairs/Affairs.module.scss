@@ -58,3 +58,33 @@
         margin-top: 10px;
     }
 }
+
+.serviceWrapper {
+    display: flex;
+    font-size: 12px;
+    .before{
+        flex: 1 0 120px;
+        color: #ffffff;
+        margin-right: 5px;
+        .number{
+            width: 18px;
+            border-radius: 50%;
+            display: inline-block;
+            text-align: center;
+            background-color: #05D9F9;
+            color: #000000;
+            margin-right: 10px;
+        }
+    }
+    .progress{
+        margin-top: -4px;
+        margin-right: 5px;
+        .ant-progress-inner{
+            background-color: rgba(0,0,0,0);
+        }
+    }
+    .after{
+        flex: 1 0 50px;
+        color: #05DEFF;
+    }
+}
