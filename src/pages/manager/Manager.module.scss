@@ -167,3 +167,54 @@ $threeliImg: '~img/manager/wellCover.png',
         }
     }
 }
+.SevenWrapper{
+    padding: 45px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    .itemImg {
+        width: 25%;
+        text-align: center;
+        div:first-child{
+            font-size:18px;
+            font-family:Source Han Sans SC;
+            font-weight:bold;
+        }
+        .color1{
+            font-size:60px;
+            color:rgba(248,112,182,1);
+        }
+        .color2{
+            color:rgba(121,209,245,1);
+        }
+        .color3{
+            color:rgba(251,241,127,1);
+        }
+        .color4{
+            color:rgba(107,240,132,1);
+        }
+        .title {
+            margin: 15px 0px;
+            font-size:9px;
+            font-family:Source Han Sans SC;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            opacity:0.7;
+        }
+        .day,.week{
+            margin-top: 10px;
+            font-size:6px;
+            font-family:Source Han Sans SC;
+            font-weight:400;
+            color:rgba(136,255,144,1);
+        }
+        .month{
+            margin-top: 10px;
+            font-size:6px;
+            font-family:Source Han Sans SC;
+            font-weight:400;
+            color:rgba(247,61,61,1);
+        }
+        
+    }
+}
