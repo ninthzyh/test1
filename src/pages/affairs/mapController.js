@@ -21,7 +21,7 @@ import heatmapData from '../../assets/json/builidingCenter.json';
 import governmentData from '../../assets/json/Puyang_Government.json';
 import policeData from '../../assets/json/Puyang_Police.json'
 import { ShowGovernmentIcon } from '../../components/Popup/government/government_popup'
-import { Popup,} from 'react-map-gl';
+import { Popup} from 'react-map-gl';
 import './popup.css'
 
 
@@ -72,11 +72,11 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.0195982,
-  latitude: 35.75112835,
-  zoom: 15,
-  pitch: 45,
-  bearing: 0 //方位
+  longitude: 115.0255982,
+  latitude: 35.75812835,
+  zoom: 14.5,
+  pitch: 60,
+  bearing: 25 //方位
 };
 
 export default class OneMap extends Component {
@@ -162,7 +162,7 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: 'http://localhost:3000/img/affairs/police2.png',
+        iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
         sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
@@ -175,7 +175,7 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
+        iconAtlas: 'http://localhost:3000/img/affairs/police2.png',
         sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
@@ -274,7 +274,7 @@ export default class OneMap extends Component {
       },
       {
         coor: [115.02760, 35.75115],
-        branch: '违章处理',
+        branch: '消防',
       },
       {
         coor: [115.01693, 35.70723],
@@ -311,7 +311,7 @@ export default class OneMap extends Component {
           onLoad={this._onLoad}
         >
           {
-            this.state.popupVisible && <Fragment>
+            true && <Fragment>
               {displayContent.map((value, index) => {
                 return <Popup className={`affairs popup${index + 1}`}
                   longitude={value.coor[0]}
