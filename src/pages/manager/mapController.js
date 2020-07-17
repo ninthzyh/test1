@@ -7,15 +7,17 @@ import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import DeckGL, {FlyToInterpolator} from 'deck.gl';
 import {GeoJsonLayer, PathLayer} from '@deck.gl/layers';
-import PolylineLayer from '../../components/polyline-layer/polyline-layer';
-import ArcLayerExt from '../../components/arc-layer/arc-layer-ext';
-import ScanLayer from '../../components/scan-layer/scan-layer';
-import cityData from '../../assets/json/PuYang_City.geojson';
-import roadData from '../../assets/json/PuYang_Roads.json';
-import buildData from '../../assets/json/PuYang_Buildings.geojson';
-import countyData from '../../assets/json/PuYang_County.geojson';
-import arcData from '../../assets/json/PuYang_arc.json';
-import pathImg from '../../assets/images/path2.png';
+import {H3HexagonLayer} from '@deck.gl/geo-layers';
+import PolylineLayer from 'components/polyline-layer/polyline-layer';
+import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
+import ScanLayer from 'components/scan-layer/scan-layer';
+import cityData from 'assets/json/PuYang_City.geojson';
+import roadData from 'assets/json/PuYang_Roads.json';
+import buildData from 'assets/json/PuYang_Buildings.geojson';
+import countyData from 'assets/json/PuYang_County.geojson';
+import arcData from 'assets/json/PuYang_arc.json';
+import hexagonData from 'assets/json/PuYangCity_WangGe.json';
+import pathImg from 'assets/images/path.png';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -50,10 +52,10 @@ const material = {
 };
 
 const DEFAULT_THEME = {
-  // buildingColor: [74, 80, 87],
+  buildingColor: [74, 80, 87],
     // buildingColor: [121, 133, 147],
   // buildingColor: [150, 134, 109],
-  buildingColor: [135, 124, 107],
+  // buildingColor: [135, 124, 107],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   arcColor: [255, 78, 1],
@@ -115,18 +117,18 @@ export default class OneMap extends Component {
   }
 //组件第一次渲染后调用
   componentDidMount() {
-    setInterval(() => {
-      if (index_viewState > viewStates.length-1){
-        index_viewState = 0;
-      }
-      this.setState({initViewState: viewStates[index_viewState]});
-      index_viewState += 1;
-    },12000);
-    setTimeout(()=>{
-      this.setState({
-        initViewState: viewStates[(viewStates.length-1).toString()]
-      })
-    },5000);
+    // setInterval(() => {
+    //   if (index_viewState > viewStates.length-1){
+    //     index_viewState = 0;
+    //   }
+    //   this.setState({initViewState: viewStates[index_viewState]});
+    //   index_viewState += 1;
+    // },12000);
+    // setTimeout(()=>{
+    //   this.setState({
+    //     initViewState: viewStates[(viewStates.length-1).toString()]
+    //   })
+    // },5000);
   }
 //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -143,22 +145,38 @@ export default class OneMap extends Component {
     } = this.props;
 
     return [
-        // new PathLayer({
-        //     id: 'pathlayer',
-        //     data:this.state.roadData,
-        //     getPath: d =>d.geometry.coordinates[0],
-        //     getWidth: 4,
-        //     getColor: theme.arcColor,
-        //     opacity: 0.2
-        // }),
-        new PolylineLayer({
-            id: 'path',
-            data: this.state.roadData,
-            getPath: d => d.geometry.coordinates[0],
-            image: pathImg,
-            getWidth: 4,
-            speed: 1.2,
-        }),
+
+      new H3HexagonLayer({
+        id: 'h3-hexagon-layer',
+        data: hexagonData,
+        pickable: true,
+        wireframe: false,
+        filled: true,
+        extruded: false,
+        elevationScale: 2,
+        getHexagon: d => d.hex,
+        getFillColor: d => [0, (1 - d.count / 500) * 191, 255],
+        getElevation: d => d.count,
+        getLineColor: d => [255,255,0],
+        getLineWidth: 3,
+        opacity: 0.5
+      }),
+      new PathLayer({
+        id: 'pathlayer',
+        data:this.state.roadData,
+        getPath: d =>d.geometry.coordinates[0],
+        getWidth: 4,
+        getColor: theme.arcColor,
+        opacity: 0.2
+      }),
+      new PolylineLayer({
+          id: 'path',
+          data: this.state.roadData,
+          getPath: d => d.geometry.coordinates[0],
+          image: pathImg,
+          getWidth: 4,
+          speed: 1.2,
+      }),
         // new ArcLayer({
         //     id:'arclayerext',
         //     data: this.state.arcData,
@@ -191,7 +209,7 @@ export default class OneMap extends Component {
           getElevation: d => d.properties.height,
           getFillColor: theme.buildingColor,
           material: theme.material,
-          opacity: 0.6
+          opacity: 0.3
         }),
         // new ScanLayer({
         //     id:'pointone',
@@ -242,7 +260,7 @@ export default class OneMap extends Component {
 //     }));
     map.setLayoutProperty('country-label', 'text-field', [
       'get',
-      'name_zh'
+      'name_cn'
       ]);
   }
 
