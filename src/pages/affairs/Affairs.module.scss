@@ -41,14 +41,17 @@ $eightliImg: '/img/affairs/statistic.png',
 
 .iconWrapper {
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     justify-content: space-around;
     height: 100%;
 
     .itemImg {
         width: 33%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
 
         .iconText {
             color: #fff;
@@ -76,12 +79,10 @@ $eightliImg: '/img/affairs/statistic.png',
         $i: index($nineliImg, $img);
 
         .nineImg#{$i} {
-            margin-top: 10px;
             background-image: url($img);
-            width: 66px;
             height: 66px;
             background-repeat: no-repeat;
-            display: inline-block;
+            background-position: center center;
         }
     }
 
@@ -89,58 +90,64 @@ $eightliImg: '/img/affairs/statistic.png',
         $i: index($eightliImg, $img);
 
         .eightImg#{$i} {
-            margin-top: 10px;
             background-image: url($img);
-            width: 66px;
             height: 66px;
             background-repeat: no-repeat;
-            display: inline-block
+            background-position: center center;
         }
     }
 
 }
 
-.serviceWrapper {
+.serviceContainer {
     display: flex;
-    font-size: 12px;
-    margin: 40px 5px;
+    flex-direction: column;
+    justify-content: space-around;
+    height: calc(100% - 50px);
 
-    .before {
-        flex: 1 0 120px;
-        color: #ffffff;
-        margin-right: 2px;
+    .serviceWrapper {
+        display: flex;
+        font-size: 12px;
 
-        .number {
-            width: 18px;
-            border-radius: 50%;
-            display: inline-block;
-            text-align: center;
-            background-color: #05D9F9;
-            color: #000000;
-            font-weight: 700;
-            margin-right: 10px;
+        .before {
+            flex: 1 0 120px;
+            color: #ffffff;
+            margin-right: 2px;
+
+            .number {
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                display: inline-block;
+                text-align: center;
+                background-color: #05D9F9;
+                color: #000000;
+                font-weight: 700;
+                margin-right: 10px;
+            }
         }
-    }
 
-    .progress {
-        margin-top: -4px;
-        margin-right: 5px;
+        .progress {
+            margin-top: -4px;
+            margin-right: 5px;
 
-        .ant-progress-inner {
-            background-color: rgba(0, 0, 0, 0);
+            .ant-progress-inner {
+                background-color: rgba(0, 0, 0, 0);
+            }
         }
-    }
 
-    .after {
-        flex: 1 0 50px;
-        color: #05DEFF;
+        .after {
+            flex: 1 0 50px;
+            color: #05DEFF;
 
-        .img {
-            width: 12px;
-            margin-left: 5px;
+            .img {
+                width: 12px;
+                margin-left: 5px;
+            }
         }
     }
 }
+
 
 .twelveBox {
     width: 100%;

@@ -9,14 +9,20 @@ export default class Three extends Component {
   }
   getBlackRedListOption = () => {
     let blackRedListOption = {
+      grid: {
+        top: '38%',
+        left: '15%',
+        right: '4%',
+        bottom: 18,
+      },
       color: ['#F7517F', '#6648FF'],
       legend: {
         data: ['红榜总数', '黑榜总数'],
         icon: 'line',
         itemWidth: 10,
         textStyle: {
-          fontSize: 12,
-          color: '#fff',
+          fontSize: 11,
+          color: 'rgba(255,255,255,1)',
         },
       },
       xAxis: {
@@ -29,13 +35,14 @@ export default class Three extends Component {
           },
         },
         axisLabel: {
-          interval: 2,
+          interval: 0,
           textStyle: {
-            color: '#fff',
+            color: 'rgba(255,255,255,1)',
+            fontSize: 11,
             width: '0.5',
           },
         },
-        data: ['2020年第一季度', '', ''],
+        data: ['', '2020年第一季度', ''],
       },
       yAxis: {
         type: 'value',
@@ -48,7 +55,8 @@ export default class Three extends Component {
         },
         axisLabel: {
           textStyle: {
-            color: '#fff',
+            color: 'rgba(255,255,255,1)',
+            fontSize: 11,
             width: '0.5',
           },
         },
@@ -80,14 +88,20 @@ export default class Three extends Component {
   }
   getCourtDecisionOption = () => {
     let courtDecisionOption = {
+      grid: {
+        top: '38%',
+        left: '15%',
+        right: '1%',
+        bottom: 18,
+      },
       color: ['#69F4FE', '#8948FF', '#FFC822'],
       legend: {
         data: ['经济纠纷判决', '土地或房产判决', '企业强制执行资产'],
         icon: 'line',
         itemWidth: 10,
         textStyle: {
-          fontSize: 12,
-          color: '#fff',
+          fontSize: 11,
+          color: 'rgba(255,255,255,1)',
         },
       },
       xAxis: {
@@ -102,7 +116,8 @@ export default class Three extends Component {
         },
         axisLabel: {
           textStyle: {
-            color: '#fff',
+            color: 'rgba(255,255,255,1)',
+            fontSize: 10,
             width: '0.5',
           },
         },
@@ -118,7 +133,8 @@ export default class Three extends Component {
         },
         axisLabel: {
           textStyle: {
-            color: '#fff',
+            color: 'rgba(255,255,255,1)',
+            fontSize: 11,
             width: '0.5',
           },
         },
@@ -161,7 +177,7 @@ export default class Three extends Component {
         <div className={style.headerWrapper}>
           <div className={style.titleWrapper}>
             <div className={style.icon}></div>
-            <div className={style.title1}>黑红帮季度趋势</div>
+            <div className={style.title1}>黑红榜季度趋势</div>
             <div className={style.title2}>法院判决年趋势</div>
           </div>
           <div className={style.rightIconWrapper} onClick={this.click}>
