@@ -15,6 +15,7 @@ class Index extends Component {
     render() {
         return (
             <div className={CreditStyle.container}>
+                <OneMap></OneMap>
                 <div className={CreditStyle.leftWrapper}>
                     <div className={CreditStyle.item}>
                         <One />
@@ -22,7 +23,7 @@ class Index extends Component {
                     <div className={CreditStyle.item}>
                         <Three />
                     </div>
-                    <div className={CreditStyle.item}><RedAndBlockList /></div>
+                    <div className={`${CreditStyle.item}  ${CreditStyle.noBottonPad}`}><RedAndBlockList /></div>
                 </div>
                 <div className={CreditStyle.rightWrapper}>
                     <div className={CreditStyle.itemRight}><Four /></div>
