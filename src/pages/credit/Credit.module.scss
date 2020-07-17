@@ -1,17 +1,21 @@
-@import 'assets/css/index.modules.scss';
+@import "assets/css/index.modules.scss";
 
-
-.six{
+.six {
   height: 100%;
-  .bg{
+  .bg {
     text-align: center;
     margin-top: 10px;
   }
-  .marquee{
-    color:#ffffff;
+  .marquee {
+    color: #ffffff;
     font-size: 12px;
-    line-height:20px;
-    opacity:0.6;
-    padding: 10px 5px;
+    line-height: 20px;
+    opacity: 0.6;
+    padding: 10px 20px;
+    div {
+      margin: 0 auto;
+      text-align: center;
+      width: 90%;
+    }
   }
 }

@@ -1,5 +1,6 @@
 @import './index.scss';
-
+$rightTop:25px;
+$rightBottom:65px;
 .HeaderPage{
   width:100%;
   height:100px;
@@ -39,7 +40,7 @@
       .dateBox{ 
           position:absolute;
           right:268px;
-          top: 75px; 
+          top: $rightBottom; 
           width:148px;
           height:16px;
           font-size:16px;
@@ -51,10 +52,11 @@
       .weekBox{ 
           position:absolute;
           right:268px;
-          top: 37px; 
+          top: $rightTop; 
           width:123px;
           height:40px;
-          font-size:30px;
+          font-size:28px;
+          font-weight: bold;
           font-family:NotoSansHans-Bold;
           line-height:40px;
           color:rgba(217,217,217,1);
@@ -63,19 +65,20 @@
       .temperatureBox{ 
           position:absolute;
           right:60px;
-          top: 37px; 
+          top: $rightTop; 
           width:70px;
-          height:43px;
-          font-size:32px;
+          height:40px;
+          font-size:28px;
+          font-weight: bold;
           font-family:NotoSansHans-Bold;
-          line-height:43px;
+          line-height:40px;
           color:rgba(217,217,217,1);
           opacity:1;
           }  
       .weatherBox{ 
           position:absolute;
           right:60px;
-          top: 75px; 
+          top:$rightBottom ; 
           width:64px;
           height:16px;
           font-size:16px;
