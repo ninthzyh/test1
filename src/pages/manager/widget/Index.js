@@ -4,7 +4,9 @@ import Six from "./Six";
 import OneMap from '../mapController';
 import One from './One';
 import FiveChart from './fiveChart/FiveChart';
-
+import Four from './four/Four'
+import Three from './Three';
+import { T } from 'antd/lib/upload/utils';
 class Manager extends React.Component {
     constructor(props) {
         super(props);
@@ -20,10 +22,10 @@ class Manager extends React.Component {
                     <div className={ManagerStyle.item}>
 
                     </div>
-                    <div className={ManagerStyle.item}>3</div>
+                    <div className={ManagerStyle.item}><Three/></div>
                 </div>
                 <div  className={ManagerStyle.rightWrapper}>
-                    <div className={ManagerStyle.itemRight}>4</div>
+                    <div className={ManagerStyle.itemRight}><Four/></div>
                     <div className={ManagerStyle.itemRight}><FiveChart /></div>
                     <div className={ManagerStyle.itemRight}><Six /></div>
                     <div className={ManagerStyle.itemRight}></div>

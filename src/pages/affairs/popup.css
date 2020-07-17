@@ -73,6 +73,7 @@ text-align: center;
   color:rgba(255,255,255,1);
 }
 .font3{
+padding-top:2px;
 width:97px;
 height:12px;
 font-size:12px;
@@ -81,9 +82,10 @@ font-weight:400;
 color:rgba(255,255,255,1);
 }
 .font4{
+padding-top:7px;
 width:54px;
 height:18px;
-font-size:22px;
+font-size:20px;
 font-family:PingFang SC;
 font-weight:500;
 color:rgba(243,229,71,1);

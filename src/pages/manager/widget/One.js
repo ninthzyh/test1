@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ManagerStyle from '../Manager.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 import ReactEcharts from "echarts-for-react";
@@ -15,44 +15,49 @@ const leftChart = [
 ]
 export default class extends Component {
     getOption = () => {
-        let option =  {
+        let option = {
             series: [{
                 type: 'liquidFill',
-                radius: '70%',
-                center: ['50%', '40%'],
+                radius: '100%',
                 data: [0.76, 0.76],
+                name: 'Liquid Fill',
                 backgroundStyle: {
-                    borderWidth: 2,
-                    borderColor: 'rgba(21,208,246,.28)',
+                    color: {
+                        type: 'radial',
+                        x: 0.5,
+                        y: 0.5,
+                        r: 0.5,
+                        colorStops: [
+                            {
+                                offset: 0, color: 'transparent' // 0% 处的颜色
+                            },
+                            {
+                                offset: 0.7, color: 'transparent' // 70% 处的颜色
+                            },
+                            {
+                                offset: 1, color: 'rgba(21, 208, 246,0.3)' // 100% 处的颜色
+                            }
+                        ],
+                        globalCoord: false // 缺省为 false
+                    },
+
                 },
-                color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
-                    offset: 1,
-                    color: 'rgba(73, 126, 255, 0.36)'
-                }, {
-                    offset: 0,
-                    color: 'rgba(135, 241, 244, 0.7)'
-                }]),
+                label: {
+                    position: ['50%', '37%'],
+                    formatter: function (v) {
+                        return '绿化率' + (v.data * 100).toFixed(0) + "%";
+                    },
+                    fontSize: 13,
+                    color: '#fff',
+                    align: 'center'
+                },
                 itemStyle: {
-                     shadowBlur: 0,
-                        color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
-                            offset: 1,
-                            color: 'rgba(135, 241, 244, 0.7)'
-                        }, {
-                            offset: 0,
-                            color: 'rgba(73, 192, 255, 0.7)'
-                        }]),
-                        opacity: 1,
+                    color: 'rgba(21, 208, 246,0.3)',
+                    borderWidth: '1px',
+                    borderColor: '#B16326'
                 },
                 outline: {
                     show: false
-                },
-                label: {
-                    fontSize: 15,
-                    formatter: function(v) {
-                        return '绿化率'+(v.data * 100).toFixed(0) + "%";
-                    },
-                    align: 'center',
-        
                 }
             }]
         };
@@ -84,6 +89,11 @@ export default class extends Component {
                             notMerge={true}
                             lazyUpdate={true}
                             style={{ width: '100%', height: '100%' }} />
+                        <div className={ManagerStyle.circleBig}>
+                            <div className={ManagerStyle.circleMid}>
+                                <div className={ManagerStyle.circleSmall}></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
