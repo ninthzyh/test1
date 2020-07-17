@@ -7,13 +7,10 @@ import Three from './Three';
 import Four from './four/Four'
 import FiveChart from './fiveChart/FiveChart';
 import Six from "./Six";
-<<<<<<< HEAD
 import Ten from "./Ten";
-=======
 import Nine  from './nine/Nine';
-import Twelve from './twelve/Twelve'
+import Twelve from './twelve/Twelve';
 import Seven from './Seven';
->>>>>>> 768901a899618b598b828551b62c66503ee1c5ae
 class Manager extends React.Component {
     constructor(props) {
         super(props);
