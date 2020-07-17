@@ -22,11 +22,11 @@ class Manager extends React.Component {
                 <div className={ManagerStyle.leftWrapper}>
                     <div className={ManagerStyle.item}><One /></div>
                     <div className={ManagerStyle.item}><Two /></div>
-                    <div className={ManagerStyle.item}>3</div>
+                    <div className={ManagerStyle.item}><Three/></div>
                     <div className={ManagerStyle.item}>
 
                     </div>
-                    <div className={ManagerStyle.item}><Three/></div>
+                    <div className={ManagerStyle.item}></div>
                 </div>
                 <div  className={ManagerStyle.rightWrapper}>
                     <div className={ManagerStyle.itemRight}><Four/></div>
