@@ -5,6 +5,13 @@ $threeliImg: '~img/manager/wellCover.png',
 '~img/manager/streetLamp.png',
 '~img/manager/sanitationCar.png',
 '~img/manager/other.png';
+$twoIcon: #f3d952,
+#FF764A,
+#C548FD,
+#05D9F9,
+#01d7f8,
+#02dafb;
+
 .average {
     display: flex;
     justify-content: space-around;
@@ -17,7 +24,9 @@ $threeliImg: '~img/manager/wellCover.png',
         flex-direction: column;
         justify-content: space-around;
         text-align: center;
-
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         .treeImg {
             background-image: url(~img/manager/tree.png);
             background-position: center center;
@@ -48,6 +57,7 @@ $threeliImg: '~img/manager/wellCover.png',
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
         .circleBig {
             height: 30%;
             padding: 5px 20px;
@@ -56,6 +66,7 @@ $threeliImg: '~img/manager/wellCover.png',
             width: 100%;
             top: -10%;
             position: relative;
+
             .circleMid {
                 padding: 5px 20px;
                 height: 80%;
@@ -110,7 +121,7 @@ $threeliImg: '~img/manager/wellCover.png',
             }
         }
     }
-  
+
 }
 .threeWrapper {
     height: 50%;
@@ -119,27 +130,33 @@ $threeliImg: '~img/manager/wellCover.png',
     margin-top: 10px;
     display: flex;
     justify-content: space-around;
+
     .itemImg {
         width: 80%;
-        div:first-child{
-            width:74px;
-            height:4px;
+
+        div:first-child {
+            width: 74px;
+            height: 4px;
             margin: 0 auto;
         }
-        .iconLine{
-            background:linear-gradient(90deg,rgba(34,136,255,0) 0%,rgba(34,136,255,0.99) 50%,rgba(34,136,255,0) 100%);
+
+        .iconLine {
+            background: linear-gradient(90deg, rgba(34, 136, 255, 0) 0%, rgba(34, 136, 255, 0.99) 50%, rgba(34, 136, 255, 0) 100%);
         }
-        .iconLine2{
-            background:linear-gradient(90deg,rgba(53,220,242,0) 0%,rgba(53,220,242,0.99) 50%,rgba(53,220,242,0) 100%);
+
+        .iconLine2 {
+            background: linear-gradient(90deg, rgba(53, 220, 242, 0) 0%, rgba(53, 220, 242, 0.99) 50%, rgba(53, 220, 242, 0) 100%);
         }
-        .iconLine3{
-            background:linear-gradient(90deg,rgba(255,204,102,0) 0%,rgba(255,204,102,0.99) 50%,rgba(255,204,102,0) 100%);
+
+        .iconLine3 {
+            background: linear-gradient(90deg, rgba(255, 204, 102, 0) 0%, rgba(255, 204, 102, 0.99) 50%, rgba(255, 204, 102, 0) 100%);
         }
+
         .iconText {
-            font-size:14px;
-            font-family:Microsoft YaHei;
-            font-weight:400;
-            color:rgba(255,255,255,1);
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
         }
 
         .iconNum {
@@ -149,7 +166,8 @@ $threeliImg: '~img/manager/wellCover.png',
             color:rgba(5,222,255,1);
 
         }
-        .iconUnit{
+
+        .iconUnit {
             font-size: 10px;
         }
     }
@@ -164,6 +182,65 @@ $threeliImg: '~img/manager/wellCover.png',
             height: 19px;
             background-repeat: no-repeat;
             display: inline-block
+        }
+    }
+
+}
+
+.serviceContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: calc(100% - 35px);
+    padding-top: 7px;
+
+    .serviceWrapper {
+        // display: flex;
+        font-size: 12px;
+
+        .before {
+            flex: 1 0 120px;
+            color: #ffffff;
+            margin-right: 2px;
+            display: flex;
+            justify-content: space-between;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            @each $c in $twoIcon {
+                $i: index($twoIcon, $c);
+
+                .number#{$i} {
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    display: inline-block;
+                    text-align: center;
+                    background-color: $c;
+                    color: #000000;
+                    font-weight: 700;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .progress {
+            margin-top: -4px;
+            margin-right: 5px;
+
+            .ant-progress-inner {
+                background-color: rgba(0, 0, 0, 0);
+            }
+        }
+
+        .after {
+            // flex: 1 0 50px;
+            color: #05DEFF;
+
+            .img {
+                width: 12px;
+                margin-left: 5px;
+            }
         }
     }
 }
