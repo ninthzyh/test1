@@ -42,7 +42,7 @@ class One extends Component {
 						{
 							this.state.list.header.map((item)=>{
 								return (
-									<div className='headerTitleOne'>
+									<div className='headerTitleOne' key={item.name}>
 										<h5>{item.name}</h5>
 										<span className={item.className}>{item.number}</span>
 									</div>
@@ -61,9 +61,9 @@ class One extends Component {
 									{
 										this.state.list.option.map((item)=>{
 											return (
-												<div className='leftDataProgressShowOne'>
+												<div className='leftDataProgressShowOne' key={item.name}>
 													<h5>{item.name}</h5>
-													<div className='progressDataShow' style={{width:item.redAnnouncement}}><span>{item.redAnnouncement}</span></div>
+													<div className='progressDataShow' style={{width:(item.redAnnouncement * 5)}}><span>{item.redAnnouncement}</span></div>
 												</div>
 											)
 										})
@@ -75,8 +75,8 @@ class One extends Component {
 									{
 										this.state.list.option.map((item)=>{
 											return (
-												<div className='leftDataProgressShowOne'>
-													<div className='progressDataShowRight' style={{width:item.blackAnnouncement}}><span>{item.blackAnnouncement}</span></div>
+												<div className='leftDataProgressShowOne' key={item.name}>
+													<div className='progressDataShowRight' style={{width:(item.blackAnnouncement * 5)}}><span>{item.blackAnnouncement}</span></div>
 												</div>
 											)
 										})

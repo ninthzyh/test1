@@ -7,8 +7,11 @@ import Three from './Three';
 import Four from './four/Four'
 import FiveChart from './fiveChart/FiveChart';
 import Six from "./Six";
+import Ten from "./Ten";
 import Nine  from './nine/Nine';
-import Twelve from './twelve/Twelve'
+import Twelve from './twelve/Twelve';
+import Seven from './Seven';
+
 class Manager extends React.Component {
     constructor(props) {
         super(props);
@@ -45,12 +48,12 @@ class Manager extends React.Component {
                     <div className={ManagerStyle.itemRight}><Six /></div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Left')}>
-                    <div className={ManagerStyle.item}><One /></div>
+                    <div className={ManagerStyle.item}><Seven /></div>
                     <div className={ManagerStyle.item}><Two /></div>
                     <div className={ManagerStyle.item}><Nine /></div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
-                    <div className={ManagerStyle.itemRight}><Four /></div>
+                    <div className={ManagerStyle.itemRight}><Ten /></div>
                     <div className={ManagerStyle.itemRight}><FiveChart /></div>
                     <div className={ManagerStyle.itemRight}><Twelve /></div>
                 </div>
