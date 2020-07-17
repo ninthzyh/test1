@@ -54,7 +54,7 @@ class FourChart extends Component {
 													'100%': '#34F4EA',
 												}}
 												strokeWidth={8}
-												percent={item.proportion}
+												percent={item.proportion/15}
 												showInfo={false} 
 											/>
 											<span>{item.proportion}</span>
