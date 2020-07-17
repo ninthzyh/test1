@@ -4,6 +4,8 @@ import OneMap from '../mapController';
 import One from './One';
 import Two from './Two/Two';
 import Three from './Three';
+import { T } from 'antd/lib/upload/utils';
+import Eleven from './Eleven';
 import Four from './four/Four'
 import FiveChart from './fiveChart/FiveChart';
 import Six from "./Six";
@@ -20,7 +22,7 @@ class Manager extends React.Component {
         }
     }
     componentDidMount() {
-        this.showChange();
+        // this.showChange();
     }
 
     showChange = () => {
@@ -54,7 +56,7 @@ class Manager extends React.Component {
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
                     <div className={ManagerStyle.itemRight}><Ten /></div>
-                    <div className={ManagerStyle.itemRight}><FiveChart /></div>
+                    <div className={ManagerStyle.itemRight}><Eleven /></div>
                     <div className={ManagerStyle.itemRight}><Twelve /></div>
                 </div>
             </div>);
