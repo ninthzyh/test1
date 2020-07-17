@@ -167,6 +167,7 @@ $eightliImg: '/img/affairs/statistic.png',
         }
 
         .itemNumber {
+            margin-top: 12%;
             font-size: 36px;
             font-family: Impact;
             font-weight: 400;
@@ -174,8 +175,9 @@ $eightliImg: '/img/affairs/statistic.png',
         }
 
         .itemName {
-            font: size 14px;
-            font-family: Microsoft YaHei;
+            margin-top: 12%;
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
             font-weight: 400;
             color: rgba(254, 254, 254, 1);
         }
