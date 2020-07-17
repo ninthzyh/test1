@@ -41,13 +41,13 @@ export default class Two extends Component {
         orient:'vertical',
         itemWidth:14,
         itemHeight:14,
-        itemGap: 18,
-        right:5,
+        itemGap: 15,
+        right:3,
         top: 0,
 
     },
     grid: {
-      top: 83,
+      top: 70,
       left: 28,
       right: 0,
       bottom: 20,
@@ -160,7 +160,7 @@ export default class Two extends Component {
           <span className={TwoChartStyle.title5}> 65辆</span>
         </div>
         <div className={TwoChartStyle.chart}>
-          <ReactEcharts style={{ width: '100%', height: '100%' ,top:-52}} option={this.getOption()} />
+          <ReactEcharts style={{ width: '100%', height: '100%' ,top:-48}} option={this.getOption()} />
         </div>
       </div>
     );
