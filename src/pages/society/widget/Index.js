@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SocietyStyle from '../Society.module.scss'
 import OneMap from '../mapController';
+import Five from './Five/Five.js'
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +11,7 @@ class Index extends Component {
         return (
             <div className={SocietyStyle.container}>
                 <OneMap>sadfsd</OneMap>
-                {/* <div className={SocietyStyle.leftWrapper}>
+                <div className={SocietyStyle.leftWrapper}>
                     <div className={SocietyStyle.item}>1</div>
                     <div className={SocietyStyle.item}>
 
@@ -19,9 +20,11 @@ class Index extends Component {
                 </div>
                 <div  className={SocietyStyle.rightWrapper}>
                     <div className={SocietyStyle.itemRight}>4</div>
-                    <div className={SocietyStyle.itemRight}>5</div>
+                    <div className={SocietyStyle.itemRight}>
+											<Five/>
+										</div>
                     <div className={SocietyStyle.itemRight}></div>
-                </div> */}
+                </div>
             </div>);
     }
 }
