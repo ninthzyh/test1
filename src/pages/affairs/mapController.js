@@ -22,7 +22,8 @@ import governmentData from '../../assets/json/Puyang_Government.json';
 import policeData from '../../assets/json/Puyang_Police.json'
 import { ShowGovernmentIcon } from '../../components/Popup/government/government_popup'
 import { Popup, Marker } from 'react-map-gl';
-import './popup.css'
+import './popup.css';
+import {changeMapboxLanguage} from '../../untils/MapUtils';
 
 
 // Set your mapbox token here
@@ -229,17 +230,10 @@ export default class OneMap extends Component {
   }
 
   _onLoad(e) {
-
     let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
     box.style.zIndex = ''
-
-    console.dir(e);
     map = e.target;
-    mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
-    map.addControl(new MapboxLanguage({
-      defaultLanguage: 'zh'
-    }));
-
+    changeMapboxLanguage(map);
   }
 
   render() {
