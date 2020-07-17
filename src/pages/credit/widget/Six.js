@@ -11,11 +11,7 @@ export default class extends Component {
             <div className={CreditStyle.six}>
                 <ChartHeader title='信用动态' />
                 <div className={CreditStyle.bg}>
-<<<<<<< HEAD
                     <img src="img/credit/news.png" width='74%' alt=""/>
-=======
-                    <img src="img/credit/news.png" width='80%' alt="" />
->>>>>>> 2736570e54c39b9c62d81fa603516105d84ed2ad
                 </div>
                 <div className={CreditStyle.marquee}>
                     <div>
