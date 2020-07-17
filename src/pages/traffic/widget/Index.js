@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import TrafficStyle from '../Traffic.module.scss'
 import OneMap from '../mapController';
 import Four from './Four/Four'
+import One from './one/One';
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ class Index extends Component {
             <div className={TrafficStyle.container}>
                 <OneMap></OneMap>
                 <div className={TrafficStyle.leftWrapper}>
-                    <div className={TrafficStyle.item}>1</div>
+                    <div className={TrafficStyle.item}><One/></div>
                     <div className={TrafficStyle.item}>
 
                     </div>
