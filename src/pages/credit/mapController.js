@@ -15,6 +15,8 @@ import roadData from 'assets/json/PuYang_Roads.json';
 import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
+import { Popup } from 'react-map-gl';
+import './creditPopup.css';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -62,11 +64,11 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.015,
-  latitude: 35.705,
-  zoom: 12,
-  pitch: 45,
-  bearing: 0 //方位
+  longitude:115.0295982,
+  latitude: 35.7552835,
+  zoom: 13.5,
+  pitch: 50,
+  bearing: -15 //方位
 };
 
 export default class OneMap extends Component {
@@ -118,37 +120,7 @@ export default class OneMap extends Component {
         getWidth: 4,
         speed: 1.2,
       }),
-      // new ArcLayer({
-      //     id:'arclayerext',
-      //     data: this.state.arcData,
-      //     getSourcePosition: d => d.from,
-      //     getTargetPosition: d => d.to,
-      //     getSourceColor: theme.arcColor,
-      //     getTargetColor: theme.arcColor,
-      //     getWidth: 2,
-      //     opacity: 0.2
-      // }),
-      // new ArcLayerExt({
-      //     id:'arclayerext',
-      //     data: this.state.arcData,
-      //     getSourcePosition: d => d.from,
-      //     getTargetPosition: d => d.to,
-      //     getWidth: 2,
-      //     image: imgUrl,
-      //     speed: 1
-      // }),
-      // new ScanLayer({
-      //     id:'pointone',
-      //     data:[
-      //       {position: [115.015, 35.7050], color: [200, 0, 0], radius: 1500}
-      //     ],
-      //     getPosition: d => d.position,
-      //     image: imgUrl + '/color.png',
-      //     imageNoise: imgUrl + '/depth.png',
-      //     getRadius: d => d.radius,
-      //     speed: 6,
-      //     getBlendColor: [0, 255, 0]
-      // }),
+
       new GeoJsonLayer({
         id: 'building-layer',
         data: this.state.buildData,
@@ -162,21 +134,6 @@ export default class OneMap extends Component {
         material: theme.material,
         opacity: 0.6
       }),
-      // new GeoJsonLayer({
-      //   id: 'city-layer',
-      //   data:this.state.cityData,
-      //   pickable: true,
-      //   stroked: true,
-      //   filled: false,
-      //   extruded: false,
-      //   lineWidthScale: 2,
-      //   lineWidthMinPixels: 2,
-      //   getFillColor: [160, 160, 180, 100],
-      //   getLineColor: [255,0,0],
-      //   getRadius: 100,
-      //   getLineWidth: 2,
-      //   // wireframe: true
-      // }),
       new GeoJsonLayer({
         id: 'county-Layer',
         data: this.state.countyData,
@@ -190,16 +147,15 @@ export default class OneMap extends Component {
     ];
   }
   _onLoad(e) {
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = ''
+
     console.dir(e);
     map = e.target;
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'zh'
     }));
-    // e.target.setLayoutProperty('country-label', 'text-field', [
-    //   'get',
-    //   'name_zh'
-    //   ]);
   }
 
   render() {
@@ -210,7 +166,7 @@ export default class OneMap extends Component {
     } = this.props;
 
     return (
-      <div style={{zIndex:'1'}}>
+      <div style={{ zIndex: '1' }}>
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
@@ -227,7 +183,52 @@ export default class OneMap extends Component {
             preventStyleDiffing={true}
             mapboxApiAccessToken={MAPBOX_TOKEN}
             onLoad={this._onLoad}
-          />
+          >
+            <Popup className={'credit creditPopup1'}
+              longitude={115.0105982}
+              latitude={35.75112835}
+              altitude={80}
+              closeButton={false}
+              visible={true}
+            >
+              <div className='title'> 市场监督</div>
+              <div className='underline' />
+              <div className='content'> 当日新增注册企业 <span className='number'> 3</span></div>
+              <div className='content'> 当日行政处罚次数 <span className='number'> 5</span></div>
+              <div className='content'> 当日食品加工企业 <span className='number'> 58</span></div>
+              <div className='content'> 当日注销企业数 <span className='number'> 1</span></div>
+              <div className='content'> 当日案件数 <span className='number'> 0</span></div>
+              <div className='content'> 版权变更办理数 <span className='number'> 4</span></div>
+            </Popup>
+            <Popup className={'credit creditPopup2'}
+              longitude={115.0295982}
+              latitude={35.7552835}
+              altitude={80}
+              closeButton={false}
+              visible={true}
+            >
+              <div className='title'> 税务局</div>
+              <div className='underline' />
+              <div className='content'> 当日行政处罚次数 <span className='number'> 5</span></div>
+              <div className='content'> 当日处罚金额 <span className='number'> 2000</span></div>
+              <div className='content'> 近一年处罚企业数 <span className='number'> 1</span></div>
+              <div className='content'> 欠税企业数 <span className='number'> 0</span></div>
+            </Popup>
+            <Popup className={'credit creditPopup3'}
+              longitude={115.0495982}
+              latitude={35.76142835}
+              altitude={80}
+              closeButton={false}
+              visible={true}
+            >
+              <div className='title'> 专利及知识产权局</div>
+              <div className='underline' />
+              <div className='content'> 近一年新增专利数<span className='number'>2459</span></div>
+              <div className='content'> 近一年新增商标数<span className='number'> 123</span></div>
+              <div className='content'> 近一月新增软著数 <span className='number'> 489</span></div>
+
+            </Popup>
+          </StaticMap>
         </DeckGL>
 
       </div>

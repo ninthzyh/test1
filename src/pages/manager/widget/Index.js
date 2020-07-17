@@ -7,7 +7,13 @@ import Three from './Three';
 import Four from './four/Four'
 import FiveChart from './fiveChart/FiveChart';
 import Six from "./Six";
+<<<<<<< HEAD
 import Ten from "./Ten";
+=======
+import Nine  from './nine/Nine';
+import Twelve from './twelve/Twelve'
+import Seven from './Seven';
+>>>>>>> 768901a899618b598b828551b62c66503ee1c5ae
 class Manager extends React.Component {
     constructor(props) {
         super(props);
@@ -44,14 +50,14 @@ class Manager extends React.Component {
                     <div className={ManagerStyle.itemRight}><Six /></div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Left')}>
-                    <div className={ManagerStyle.item}><One /></div>
+                    <div className={ManagerStyle.item}><Seven /></div>
                     <div className={ManagerStyle.item}><Two /></div>
-                    <div className={ManagerStyle.item}><Three/></div>
+                    <div className={ManagerStyle.item}><Nine /></div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
                     <div className={ManagerStyle.itemRight}><Ten /></div>
                     <div className={ManagerStyle.itemRight}><FiveChart /></div>
-                    <div className={ManagerStyle.itemRight}><Six /></div>
+                    <div className={ManagerStyle.itemRight}><Twelve /></div>
                 </div>
             </div>);
 
