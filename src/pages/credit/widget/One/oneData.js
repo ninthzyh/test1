@@ -36,7 +36,32 @@ export const oneList = {
 			blackAnnouncement:0
 		},
 		{
+			name:'银行',
+			redAnnouncement:23,
+			blackAnnouncement:60
+		},
+		{
+			name:'文广局',
+			redAnnouncement:23,
+			blackAnnouncement:60
+		},
+		{
+			name:'住建局',
+			redAnnouncement:23,
+			blackAnnouncement:60
+		},
+		{
+			name:'农业农村局',
+			redAnnouncement:23,
+			blackAnnouncement:60
+		},
+		{
 			name:'房地产管理局',
+			redAnnouncement:23,
+			blackAnnouncement:60
+		},
+		{
+			name:'法院',
 			redAnnouncement:23,
 			blackAnnouncement:60
 		}

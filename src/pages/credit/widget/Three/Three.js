@@ -21,8 +21,8 @@ export default class Three extends Component {
         icon: 'line',
         itemWidth: 10,
         textStyle: {
-          fontSize: 10,
-          color: '#fff',
+          fontSize: 11,
+          color: 'rgba(255,255,255,1)',
         },
       },
       xAxis: {
@@ -100,7 +100,7 @@ export default class Three extends Component {
         icon: 'line',
         itemWidth: 10,
         textStyle: {
-          fontSize: 10,
+          fontSize: 11,
           color: 'rgba(255,255,255,1)',
         },
       },

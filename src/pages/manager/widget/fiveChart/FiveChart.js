@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FiveChartStyle from './FiveChart.module.scss';
-import CustomImg from 'img/affairs/custom2.svg';
 import ChartHeader from '../../../../components/ChartHeader/ChartHeader';
 import ReactEcharts from 'echarts-for-react';
 import * as echarts from 'echarts'; //导入 echarts 模块
