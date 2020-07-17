@@ -15,6 +15,9 @@ export default class Three extends Component {
         right: '4%',
         bottom: 18,
       },
+      tooltip: {
+        trigger: 'axis',
+      },
       color: ['#F7517F', '#6648FF'],
       legend: {
         data: ['红榜总数', '黑榜总数'],
@@ -93,6 +96,9 @@ export default class Three extends Component {
         left: '15%',
         right: '1%',
         bottom: 18,
+      },
+      tooltip: {
+        trigger: 'axis',
       },
       color: ['#69F4FE', '#8948FF', '#FFC822'],
       legend: {
