@@ -23,7 +23,7 @@ class Index extends Component {
                     <div className={CreditStyle.item}>
                         <Three />
                     </div>
-                    <div className={CreditStyle.item}><RedAndBlockList /></div>
+                    <div className={`${CreditStyle.item}  ${CreditStyle.noBottonPad}`}><RedAndBlockList /></div>
                 </div>
                 <div className={CreditStyle.rightWrapper}>
                     <div className={CreditStyle.itemRight}><Four /></div>

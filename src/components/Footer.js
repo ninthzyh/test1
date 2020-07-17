@@ -18,7 +18,7 @@ class FooterBottom extends Component {
         })
     }
     render() {
-        let footerData = ['疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控', '疫情防控','疫情防控', '区块链'];
+        let footerData = ['疫情防控', '城市管理', '生态环境', '交通出行', '信用体系', '经济运行', '社会民生', '政府服务', '城市应急', '城市旅游', '区块链'];
         let itemList = [];
         for(let i = 0; i < footerData.length; i++) {
         itemList.push(<li key={i}

@@ -55,25 +55,16 @@ class One extends Component {
 						<span className='blackAnnouncementOne'></span><span className='blackTxt'>黑榜</span>
 					</div>
 					<div className='dataViewShowOne'>
-						<div className='dataNameOne'>
-							{
-								this.state.list.option.map((item)=>{
-									return <h5>{item.name}</h5>
-								})
-							}
-						</div>
 						<div className='dataViewOne'>
 							<div className='leftProgressOne'>
 								<div className='leftDataProgressOne'>
 									{
 										this.state.list.option.map((item)=>{
 											return (
-												<Progress
-													strokeColor={'#F7517F'}
-													strokeWidth={8}
-													percent={item.redAnnouncement} 
-													showInfo={false} 
-												/>
+												<div className='leftDataProgressShowOne'>
+													<h5>{item.name}</h5>
+													<div className='progressDataShow' style={{width:item.redAnnouncement}}><span>{item.redAnnouncement}</span></div>
+												</div>
 											)
 										})
 									}
@@ -84,12 +75,9 @@ class One extends Component {
 									{
 										this.state.list.option.map((item)=>{
 											return (
-												<Progress
-													strokeColor={'#6648FF'}
-													strokeWidth={8}
-													percent={item.blackAnnouncement} 
-													showInfo={false} 
-												/>
+												<div className='leftDataProgressShowOne'>
+													<div className='progressDataShowRight' style={{width:item.blackAnnouncement}}><span>{item.blackAnnouncement}</span></div>
+												</div>
 											)
 										})
 									}
