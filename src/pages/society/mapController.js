@@ -96,8 +96,6 @@ export default class OneMap extends Component {
 
   _renderLayers() {
     const {
-      // buildings = DATA_URL.BUILDINGS,
-      // trips = DATA_URL.TRIPS,
       theme = DEFAULT_THEME
     } = this.props;
 
@@ -118,37 +116,7 @@ export default class OneMap extends Component {
         getWidth: 4,
         speed: 1.2,
       }),
-      // new ArcLayer({
-      //     id:'arclayerext',
-      //     data: this.state.arcData,
-      //     getSourcePosition: d => d.from,
-      //     getTargetPosition: d => d.to,
-      //     getSourceColor: theme.arcColor,
-      //     getTargetColor: theme.arcColor,
-      //     getWidth: 2,
-      //     opacity: 0.2
-      // }),
-      // new ArcLayerExt({
-      //     id:'arclayerext',
-      //     data: this.state.arcData,
-      //     getSourcePosition: d => d.from,
-      //     getTargetPosition: d => d.to,
-      //     getWidth: 2,
-      //     image: imgUrl,
-      //     speed: 1
-      // }),
-      // new ScanLayer({
-      //     id:'pointone',
-      //     data:[
-      //       {position: [115.015, 35.7050], color: [200, 0, 0], radius: 1500}
-      //     ],
-      //     getPosition: d => d.position,
-      //     image: imgUrl + '/color.png',
-      //     imageNoise: imgUrl + '/depth.png',
-      //     getRadius: d => d.radius,
-      //     speed: 6,
-      //     getBlendColor: [0, 255, 0]
-      // }),
+    
       new GeoJsonLayer({
         id: 'building-layer',
         data: this.state.buildData,
@@ -162,21 +130,7 @@ export default class OneMap extends Component {
         material: theme.material,
         opacity: 0.6
       }),
-      // new GeoJsonLayer({
-      //   id: 'city-layer',
-      //   data:this.state.cityData,
-      //   pickable: true,
-      //   stroked: true,
-      //   filled: false,
-      //   extruded: false,
-      //   lineWidthScale: 2,
-      //   lineWidthMinPixels: 2,
-      //   getFillColor: [160, 160, 180, 100],
-      //   getLineColor: [255,0,0],
-      //   getRadius: 100,
-      //   getLineWidth: 2,
-      //   // wireframe: true
-      // }),
+   
       new GeoJsonLayer({
         id: 'county-Layer',
         data: this.state.countyData,
@@ -190,6 +144,10 @@ export default class OneMap extends Component {
     ];
   }
   _onLoad(e) {
+
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = ''
+    
     console.dir(e);
     map = e.target;
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');

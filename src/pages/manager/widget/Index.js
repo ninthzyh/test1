@@ -30,7 +30,7 @@ class Manager extends React.Component {
             this.setState({
                 show: !this.state.show
             }, this.showChange)
-        },5000)
+        },window.interval)
     };
     getClassName = (show,position) => `${ManagerStyle[`${position.toLowerCase()}Wrapper`]} ${show ? `animate__animated animate__backOut${position}` : `animate__animated animate__backIn${position}`}`;
 
@@ -38,7 +38,7 @@ class Manager extends React.Component {
         const { show } = this.state;
         return (
             <div className={ManagerStyle.container}>
-                {/* <OneMap/> */}
+                <OneMap/>
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
                     <div className={ManagerStyle.item}><One /></div>
                     <div className={ManagerStyle.item}><Two /></div>

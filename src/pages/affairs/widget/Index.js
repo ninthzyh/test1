@@ -26,11 +26,11 @@ class Index extends Component {
     }
 
     showChange = () => {
-        // setTimeout(()=>{
-        //     this.setState({
-        //         show: !this.state.show
-        //     }, this.showChange)
-        // },5000)
+        setTimeout(()=>{
+            this.setState({
+                show: !this.state.show
+            }, this.showChange)
+        },window.interval)
     };
 
     getClassName = (show,position) => `${AffairsStyle[`${position.toLowerCase()}Wrapper`]} ${show ? `animate__animated animate__backOut${position}` : `animate__animated animate__backIn${position}`}`;

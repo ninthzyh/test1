@@ -4,6 +4,10 @@ global.weather = {
     weathername: '晴间多云',
 };
 
+// 图标变化时间间隔 单位：毫秒
+window.interval = 5000
+
+// 导航路径
 window.menubar = [
     {
         name: '疫情防控',
@@ -12,7 +16,7 @@ window.menubar = [
     }, {
         name: '城市管理',
         type: 'inner',
-        path: '/#/index/mananger',
+        path: '/#/index/manager',
     }, {
         name: '生态环境',
         type: 'outer',
