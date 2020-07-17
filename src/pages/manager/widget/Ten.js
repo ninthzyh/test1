@@ -183,7 +183,7 @@ export default class Ten extends Component {
             <div className={ManagerStyle.content}>
                 <ReactEcharts
                     option={this.getOption()}
-                    style={{ width: '100%', height: '100%' , top: '5%'}} />
+                    style={{ width: '100%', height: '112%' , top: '5%'}} />
             </div>
 
 

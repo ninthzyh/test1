@@ -11,8 +11,9 @@ import FiveChart from './fiveChart/FiveChart';
 import Six from "./Six";
 import Ten from "./Ten";
 import Nine  from './nine/Nine';
-import Twelve from './twelve/Twelve'
+import Twelve from './twelve/Twelve';
 import Seven from './Seven';
+
 class Manager extends React.Component {
     constructor(props) {
         super(props);
