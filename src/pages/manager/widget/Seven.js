@@ -9,7 +9,6 @@ const countUpProps = {
     decimals: 0,
     useEasing: true,
     useGrouping: true,
-    separator: ','
     }
 
 const list = [
