@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
 import SocietyStyle from '../Society.module.scss'
 import OneMap from '../mapController';
+import Eight from './Eight';
 import 'animate.css';
 class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: true,
+            show: false,
         }
     }
     componentDidMount() {
-        this.showChange();
+        // this.showChange();
     }
 
     showChange = () => {
@@ -40,7 +41,7 @@ class Index extends Component {
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
                     <div className={SocietyStyle.itemRight}>7</div>
-                    <div className={SocietyStyle.itemRight}>8</div>
+                    <div className={SocietyStyle.itemRight}><Eight /></div>
                     <div className={SocietyStyle.itemRight}>9</div>
                 </div>
             </div>);
