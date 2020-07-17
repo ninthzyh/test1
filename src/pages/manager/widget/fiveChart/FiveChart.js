@@ -44,10 +44,11 @@ export default class FiveChart extends Component {
       xAxis: {
         type: 'category',
         axisLine: {
-          lineStyle: {
-            color: '#134C78',
-            width: 1,    
-          }
+          // lineStyle: {
+          //   color: '#134C78',
+          //   width: 1,    
+          // },
+          show: false
         },
         axisTick: {
           show: false
@@ -67,10 +68,11 @@ export default class FiveChart extends Component {
         min : 0,
         interval : 22, //刻度间隔
         axisLine: {
-          lineStyle: {
-            color: '#134C78',
-            width: 1,    
-          }
+          // lineStyle: {
+          //   color: '#134C78',
+          //   width: 1,    
+          // },
+          show: false
         },
         axisLabel: {
           show: true,
