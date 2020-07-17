@@ -9,6 +9,7 @@ import FiveChart from './fiveChart/FiveChart';
 import Six from "./Six";
 import Nine  from './nine/Nine';
 import Twelve from './twelve/Twelve'
+import Seven from './Seven';
 class Manager extends React.Component {
     constructor(props) {
         super(props);
@@ -45,7 +46,7 @@ class Manager extends React.Component {
                     <div className={ManagerStyle.itemRight}><Six /></div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Left')}>
-                    <div className={ManagerStyle.item}><One /></div>
+                    <div className={ManagerStyle.item}><Seven /></div>
                     <div className={ManagerStyle.item}><Two /></div>
                     <div className={ManagerStyle.item}><Nine /></div>
                 </div>

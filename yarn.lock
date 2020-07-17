@@ -3563,6 +3563,11 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.2.0, cosmiconfig@^5.2.1:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
+countup.js@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.npm.taobao.org/countup.js/download/countup.js-1.9.3.tgz#ce3e50cd7160441e478f07da31895edcc0f1c9dd"
+  integrity sha1-zj5QzXFgRB5HjwfaMYle3MDxyd0=
+
 create-ecdh@^4.0.0:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/create-ecdh/-/create-ecdh-4.0.3.tgz#c9111b6f33045c4697f144787f9254cdc77c45ff"
@@ -10161,6 +10166,15 @@ react-color@^2.17.3:
     prop-types "^15.5.10"
     reactcss "^1.2.0"
     tinycolor2 "^1.4.1"
+
+react-countup@^4.3.3:
+  version "4.3.3"
+  resolved "https://registry.npm.taobao.org/react-countup/download/react-countup-4.3.3.tgz#143a8d854d47290b73d6915eac20a12d839153c2"
+  integrity sha1-FDqNhU1HKQtz1pFerCChLYORU8I=
+  dependencies:
+    countup.js "^1.9.3"
+    prop-types "^15.7.2"
+    warning "^4.0.3"
 
 react-day-picker@^7.2.4:
   version "7.4.8"
