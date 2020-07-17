@@ -19,6 +19,7 @@ import { ColumnLayer } from 'deck.gl';
 import medicalData from '../../assets/json/PuYang_medical.json';
 import shoppingData from '../../assets/json/PuYang_Shopping.json';
 import cateringData from '../../assets/json/PuYang_Catering.json';
+import graduationData from '../../assets/json/PuYang_Graduation.json';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -85,7 +86,7 @@ export default class OneMap extends Component {
     // fetch(DATA_URL.CITY)
     // .then(res => {res.json();debugger;})
     // .then(json => console.log(json));
-    this.setState({ cityData, buildData, roadData, countyData, arcData, medicalData ,shoppingData,cateringData});
+    this.setState({ cityData, buildData, roadData, countyData, arcData, medicalData, shoppingData, cateringData, graduationData });
   }
   //组件第一次渲染后调用
   componentDidMount() {
@@ -108,11 +109,23 @@ export default class OneMap extends Component {
         id: 'puyang_medical',
         data: this.state.medicalData,
         diskResolution: 4,
-        radius: 100,
+        radius: 20,
         extruded: true,
         elevationScale: 5,
-        getPosition: d =>d.coor,
-        getFillColor: [255,255,0],
+        getPosition: d => d.coor,
+        getFillColor: [255, 255, 0],
+        getElevation: 100,
+
+      }),
+      new ColumnLayer({
+        id: 'puyang_graduation',
+        data: this.state.graduationData,
+        diskResolution: 4,
+        radius: 20,
+        extruded: true,
+        elevationScale: 5,
+        getPosition: d => d.coor,
+        getFillColor: [255, 23, 340],
         getElevation: 100,
 
       }),
@@ -121,23 +134,23 @@ export default class OneMap extends Component {
         id: 'puyang_shopping',
         data: this.state.shoppingData,
         diskResolution: 4,
-        radius: 100,
+        radius: 20,
         extruded: true,
         elevationScale: 5,
-        getPosition: d =>d.coor,
-        getFillColor: [255,0,0],
+        getPosition: d => d.coor,
+        getFillColor: [255, 0, 0],
         getElevation: 100,
 
       }),
       new ColumnLayer({
-        id: 'catering_shopping',
+        id: 'puyang_catering',
         data: this.state.cateringData,
         diskResolution: 4,
-        radius: 100,
+        radius: 20,
         extruded: true,
         elevationScale: 5,
-        getPosition: d =>d.coor,
-        getFillColor: [0,0,255],
+        getPosition: d => d.coor,
+        getFillColor: [0, 0, 255],
         getElevation: 100,
 
       }),

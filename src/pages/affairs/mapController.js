@@ -74,7 +74,7 @@ const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
   longitude: 115.055,
   latitude: 35.755,
-  zoom: 11,
+  zoom: 12,
   pitch: 0,
   bearing: 0 //方位
 };
@@ -221,7 +221,8 @@ export default class OneMap extends Component {
       });
       if (map) {
         map.on('zoom', () => {
-          if (map.getZoom() > 11) {
+          console.log(map.getZoom())
+          if (map.getZoom() > 12) {
             this.setState({
               popupVisible: true
             })
@@ -419,7 +420,7 @@ export default class OneMap extends Component {
           onLoad={this._onLoad}
         >
           {
-            true && <Fragment>
+            this.state.popupVisible && <Fragment>
               {displayContent.map((value, index) => {
                 return <Popup className={`affairs popup${index + 1}`}
                   longitude={value.coor[0]}
