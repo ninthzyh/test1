@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SocietyStyle from '../Society.module.scss'
 import OneMap from '../mapController';
 import Eight from './Eight';
+import Two from './Two/Two.js'
 import 'animate.css';
 class Index extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class Index extends Component {
                 <OneMap/>
                 <div className={SocietyStyle.leftWrapper}>
                     <div className={SocietyStyle.item}>1</div>
-                    <div className={SocietyStyle.item}>2</div>
+                    <div className={SocietyStyle.item}><Two /></div>
                     <div className={SocietyStyle.item}>3</div>
                 </div>
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Right')}>
