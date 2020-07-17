@@ -63,7 +63,7 @@ class One extends Component {
 											return (
 												<div className='leftDataProgressShowOne' key={item.name}>
 													<h5>{item.name}</h5>
-													<div className='progressDataShow' style={{width:item.redAnnouncement}}><span>{item.redAnnouncement}</span></div>
+													<div className='progressDataShow' style={{width:(item.redAnnouncement * 5)}}><span>{item.redAnnouncement}</span></div>
 												</div>
 											)
 										})
@@ -76,7 +76,7 @@ class One extends Component {
 										this.state.list.option.map((item)=>{
 											return (
 												<div className='leftDataProgressShowOne' key={item.name}>
-													<div className='progressDataShowRight' style={{width:item.blackAnnouncement}}><span>{item.blackAnnouncement}</span></div>
+													<div className='progressDataShowRight' style={{width:(item.blackAnnouncement * 5)}}><span>{item.blackAnnouncement}</span></div>
 												</div>
 											)
 										})
