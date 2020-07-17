@@ -197,6 +197,8 @@ $twoIcon: #f3d952,
     .serviceWrapper {
         // display: flex;
         font-size: 12px;
+        height: 100%;
+        overflow: hidden;
 
         .before {
             flex: 1 0 120px;
