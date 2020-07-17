@@ -23,7 +23,7 @@ class Manager extends React.Component {
         }
     }
     componentDidMount() {
-        // this.showChange();
+        this.showChange();
     }
 
     showChange = () => {
@@ -33,7 +33,7 @@ class Manager extends React.Component {
             }, this.showChange)
         }, window.interval)
     };
-    getClassName = (show, position) => `${ManagerStyle[`${position.toLowerCase()}Wrapper`]} ${show ? `animate__animated animate__backOut${position}` : `animate__animated animate__backIn${position}`}`;
+    getClassName = (show, position) => `${ManagerStyle[`${position.toLowerCase()}Wrapper`]} ${show ? `animate__animated animate__slideIn${position}` : `animate__animated animate__slideIn${position}`}`;
 
     render() {
         const { show } = this.state;
