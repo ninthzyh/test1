@@ -10,17 +10,17 @@ export const fourList = {
 	children:[
 		{
 			ditch:'违章处理',
-			proportion:80,
+			proportion:1034,
 			img:'img/affairs/up'
 		},
 		{
 			ditch:'刻章备案',
-			proportion:50,
+			proportion:564,
 			img:'img/affairs/decline'
 		},
 		{
 			ditch:'消防处理',
-			proportion:25,
+			proportion:134,
 			img:'img/affairs/decline'
 		}
 	]
