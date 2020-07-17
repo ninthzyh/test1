@@ -1,5 +1,6 @@
 import React from 'react';
 import ManagerStyle from '../Manager.module.scss';
+import ChartHeader from 'components/ChartHeader/ChartHeader';
 
 class Manager extends React.Component {
     data=[{
@@ -28,7 +29,9 @@ class Manager extends React.Component {
     };
     render() {
         return (
-            <div className={ManagerStyle.six}>
+            <div className={ManagerStyle.sixContainer}>
+                <ChartHeader title='服务人次年度趋势图' />
+                <div className={ManagerStyle.six}>
                 {
                     this.data.map((item,  index)=><div key={item.title} className={ManagerStyle.container}>
                         <div className={ManagerStyle.title}>{item.title}</div>
@@ -37,6 +40,7 @@ class Manager extends React.Component {
                         <div className={ManagerStyle.rate}>{item.rate}%</div>
                     </div>)
                 }
+                </div>
             </div>);
 
     }
