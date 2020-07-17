@@ -70,6 +70,7 @@ class One extends Component {
 									}
 								</div>
 							</div>
+							<div className='middleLineOne'></div>
 							<div className='rightProgressOne'>
 								<div className='rightDataProgressOne'>
 									{
