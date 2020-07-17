@@ -99,7 +99,7 @@ export default class Three extends Component {
             data: data
         }];
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(this.container);
+        var myChart = echarts.init(document.getElementById('serviceNumber'));
         // 绘制图表
         myChart.setOption({
             color: color,
@@ -146,7 +146,7 @@ export default class Three extends Component {
         return (
             <div className={AffairsStyle.serviceNumber}>
                  <ChartHeader title='特色服务总量' />
-                <div ref={this.container} className={AffairsStyle.content}></div>
+                <div id="serviceNumber" className={AffairsStyle.content}></div>
             </div>);
     }
 }
