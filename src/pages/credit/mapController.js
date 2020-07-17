@@ -15,7 +15,11 @@ import roadData from 'assets/json/PuYang_Roads.json';
 import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
+import companyData from '../../assets/json/PuYang_Company.json';
+import placeData from '../../assets/json/PuYang_Place.json';
+import governmentData from '../../assets/json/Puyang_Government.json';
 import { Popup } from 'react-map-gl';
+import { IconLayer } from 'deck.gl';
 import './creditPopup.css';
 
 // Set your mapbox token here
@@ -64,7 +68,7 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude:115.0295982,
+  longitude: 115.0295982,
   latitude: 35.7552835,
   zoom: 13.5,
   pitch: 50,
@@ -80,15 +84,9 @@ export default class OneMap extends Component {
     };
   }
   componentWillMount() {
-    // fetch(DATA_URL.CITY)
-    // .then(res => {res.json();debugger;})
-    // .then(json => console.log(json));
-    this.setState({ cityData, buildData, roadData, countyData, arcData });
+    this.setState({ cityData, buildData, roadData, countyData, arcData, companyData, placeData ,governmentData});
   }
-  //组件第一次渲染后调用
-  componentDidMount() {
-    // this._animate();
-  }
+
   //组件从DOM中移除之前调用
   componentWillUnmount() {
     if (this._animationFrame) {
@@ -98,8 +96,6 @@ export default class OneMap extends Component {
 
   _renderLayers() {
     const {
-      // buildings = DATA_URL.BUILDINGS,
-      // trips = DATA_URL.TRIPS,
       theme = DEFAULT_THEME
     } = this.props;
 
@@ -143,7 +139,43 @@ export default class OneMap extends Component {
         lineWidthMinPixels: 2,
         getLineColor: [255, 255, 0],
         getLineWidth: 2,
-      })
+      }),
+      new IconLayer({
+        id: 'company_icon',
+        data: this.state.companyData,
+        iconMapping: {
+          marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
+        },
+        iconAtlas: 'http://localhost:3000/img/credit/company.png',
+        sizeScale: 2,
+        getIcon: d => 'marker',
+        getPosition: d => [d.coor[0], d.coor[1], 80],
+        getSize: d => { return 10 },
+      }),
+      // new IconLayer({
+      //   id: 'place_icon',
+      //   data: this.state.placeData,
+      //   iconMapping: {
+      //     marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
+      //   },
+      //   iconAtlas: 'http://localhost:3000/img/credit/place.png',
+      //   sizeScale: 2,
+      //   getIcon: d => 'marker',
+      //   getPosition: d => [d.coor[0], d.coor[1], 80],
+      //   getSize: d => { return 10 },
+      // }),
+      new IconLayer({
+        id: 'government_icon',
+        data: this.state.governmentData,
+        iconMapping: {
+          marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
+        },
+        iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
+        sizeScale: 2,
+        getIcon: d => 'marker',
+        getPosition: d => [d.coor[0], d.coor[1], 80],
+        getSize: d => { return 10 },
+      }),
     ];
   }
   _onLoad(e) {
