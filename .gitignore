@@ -26,3 +26,4 @@ yarn-error.log*
 /src/assets/fonts/NotoSansHans-Bold.ttf
 /src/assets/fonts/NotoSansHans-Medium.ttf
 /src/assets/fonts/NotoSansHans-Regular.ttf
+/src/assets/css/borderAnimate.scss

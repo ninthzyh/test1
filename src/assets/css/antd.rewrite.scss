@@ -1,7 +1,10 @@
-.ant-progress-inner{
+.ant-progress-inner {
   border-radius: 0 !important;
-  background: rgba(0,0,0,0);
+  background: linear-gradient(90deg, rgba(89, 106, 255, .1) 0%, rgba(52, 244, 234, .1) 100%);
+
 }
-.ant-progress-success-bg, .ant-progress-bg{
+
+.ant-progress-success-bg,
+.ant-progress-bg {
   border-radius: 0 !important;
 }

@@ -7,6 +7,7 @@ import Six from "./Six";
 import Four from './four/Four'
 import Three from './Three/Three.js'
 import RedAndBlockList from './redAndBlockList/RedAndBlockList.js'
+import 'animate.css';
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -16,8 +17,8 @@ class Index extends Component {
         return (
             <div className={CreditStyle.container}>
                 <OneMap></OneMap>
-                <div className={CreditStyle.leftWrapper}>
-                    <div className={CreditStyle.item}>
+                <div className={`animate__animated animate__slideInLeft ${CreditStyle.leftWrapper}`}>
+                    <div  className={CreditStyle.item}>
                         <One />
                     </div>
                     <div className={CreditStyle.item}>
@@ -25,8 +26,8 @@ class Index extends Component {
                     </div>
                     <div className={`${CreditStyle.item}  ${CreditStyle.noBottonPad}`}><RedAndBlockList /></div>
                 </div>
-                <div className={CreditStyle.rightWrapper}>
-                    <div className={CreditStyle.itemRight}><Four /></div>
+                <div  className={['animate__animated animate__slideInRight', CreditStyle.rightWrapper].join(" ")}>
+                    <div  className={CreditStyle.itemRight}><Four /></div>
                     <div className={CreditStyle.itemRight}><FiveChart /></div>
                     <div className={CreditStyle.itemRight}><Six /></div>
                 </div>
