@@ -6,7 +6,7 @@
 
 .FooterPage{
     background: linear-gradient(90deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.3) 60%, rgba(17, 17, 17, 1) 100%);
-    height: vw(70);
+    height: vw(50);
     z-index: 2;
     padding:0;
     .FooterListBox{
@@ -15,19 +15,28 @@
         justify-content: center;
         height: 100%;
         align-items: center;
+        a{
+            color:#CACCD2;
+        }
+        a:active{
+            color:rgba(5, 222, 255, 1);
+        }
         li{
             display: inline-block;
             color:#CACCD2;
-            font-size:vw(24);
+            font-size:vw(16);
             height: 100%;
-            line-height: vw(70);
+            line-height: vw(50);
+            &:hover{
+             cursor: pointer;   
+            }
             &:last-child{
                 .FooterVerLine{
                     width:0;
                 }
             }
             .FooterList{
-                padding:0 vw(8) 0 vw(10);
+                margin:0 vw(18);
             }
             .FooterVerLine{
                 display: inline-block;
@@ -40,7 +49,6 @@
         .FooterActive{
             display: inline-block;
             color:rgba(5, 222, 255, 1);
-            padding-left: vw(10);
             background:url('/img/footer/activeBg.png') no-repeat;
             background-size: 100% 100%;
             height:100%;

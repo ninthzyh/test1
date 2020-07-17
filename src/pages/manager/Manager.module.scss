@@ -5,19 +5,30 @@ $threeliImg: '~img/manager/wellCover.png',
 '~img/manager/streetLamp.png',
 '~img/manager/sanitationCar.png',
 '~img/manager/other.png';
+$twoIcon: #f3d952,
+#FF764A,
+#C548FD,
+#05D9F9,
+#01d7f8,
+#02dafb;
+
 .average {
     display: flex;
     justify-content: space-around;
     height: 100%;
+    padding-top: 10px;
 
     .left {
-        width: 45%;
+        width: 26%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         text-align: center;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         .treeImg {
-            background-image: url(/img/manager/tree.png);
+            background-image: url(~img/manager/tree.png);
             background-position: center center;
             height: 60px;
             background-repeat: no-repeat;
@@ -38,80 +49,125 @@ $threeliImg: '~img/manager/wellCover.png',
             @extend .treeNum;
             font-size: 20px;
         }
+
     }
 
     .right {
-        width: 45%;
-    }
-}
-.sixContainer{
-  height: 100%;
-  .six{
-    display: flex;
-    height: calc(100% - 50px);
-    flex-direction: column;
-    justify-content: space-around;
-    .container{
-      display: flex;
-      line-height: 33px;
-      font-weight: 700;
-      padding: 10px 0;
-      .imgContainer{
-        flex: 1 0 138px;
-        img{
-          margin-right: 5px;
+        width: 26%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .circleBig {
+            height: 30%;
+            padding: 5px 20px;
+            box-shadow: rgba(21, 208, 246, 0.5) 0px 0px 10px 1px inset;
+            border-radius: 50%;
+            width: 100%;
+            top: -10%;
+            position: relative;
+
+            .circleMid {
+                padding: 5px 20px;
+                height: 80%;
+                border-radius: 80%;
+                position: relative;
+                box-shadow: rgba(21, 208, 246, 0.5) 0px 0px 7px 1px inset;
+
+                .circleSmall {
+                    top: 5px;
+                    height: 50%;
+                    border-radius: 60%;
+                    position: relative;
+                    box-shadow: rgba(21, 208, 246, 0.5) 0px 0px 5px 1px inset;
+                }
+            }
         }
-      }
-      .title{
-        color: #ffffff;
-        padding: 0 10px;
-        flex: 1 0 76px;
-      }
-      .rate{
-        color:#40FDFB;
-        flex: 1 0 30px;
-      }
     }
-  }
 }
-.iconWrapper {
+
+.sixContainer {
+    height: 100%;
+
+    .six {
+        display: flex;
+        height: calc(100% - 50px);
+        flex-direction: column;
+        justify-content: space-around;
+
+        .container {
+            display: flex;
+            line-height: 33px;
+            font-weight: 700;
+            padding: 10px 0;
+
+            .imgContainer {
+                flex: 1 0 138px;
+
+                img {
+                    margin-right: 5px;
+                }
+            }
+
+            .title {
+                color: #ffffff;
+                padding: 0 10px;
+                flex: 1 0 76px;
+            }
+
+            .rate {
+                color: #40FDFB;
+                flex: 1 0 30px;
+            }
+        }
+    }
+
+}
+.threeWrapper {
+    height: 50%;
     text-align: center;
+    padding: 10px 0;
     margin-top: 10px;
-    margin-bottom: 20px;
     display: flex;
     justify-content: space-around;
+
     .itemImg {
         width: 80%;
-        div:first-child{
-            width:74px;
-            height:4px;
+
+        div:first-child {
+            width: 74px;
+            height: 4px;
             margin: 0 auto;
         }
-        .iconLine{
-            background:linear-gradient(90deg,rgba(34,136,255,0) 0%,rgba(34,136,255,0.99) 50%,rgba(34,136,255,0) 100%);
+
+        .iconLine {
+            background: linear-gradient(90deg, rgba(34, 136, 255, 0) 0%, rgba(34, 136, 255, 0.99) 50%, rgba(34, 136, 255, 0) 100%);
         }
-        .iconLine2{
-            background:linear-gradient(90deg,rgba(53,220,242,0) 0%,rgba(53,220,242,0.99) 50%,rgba(53,220,242,0) 100%);
+
+        .iconLine2 {
+            background: linear-gradient(90deg, rgba(53, 220, 242, 0) 0%, rgba(53, 220, 242, 0.99) 50%, rgba(53, 220, 242, 0) 100%);
         }
-        .iconLine3{
-            background:linear-gradient(90deg,rgba(255,204,102,0) 0%,rgba(255,204,102,0.99) 50%,rgba(255,204,102,0) 100%);
+
+        .iconLine3 {
+            background: linear-gradient(90deg, rgba(255, 204, 102, 0) 0%, rgba(255, 204, 102, 0.99) 50%, rgba(255, 204, 102, 0) 100%);
         }
+
         .iconText {
-            font-size:14px;
-            font-family:Microsoft YaHei;
-            font-weight:400;
-            color:rgba(255,255,255,1);
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
         }
 
         .iconNum {
-            @extend .iconText;
             font-size:24px;
             font-family:Arial;
             font-weight:bold;
             color:rgba(5,222,255,1);
 
         }
-        .iconUnit{
+
+        .iconUnit {
             font-size: 10px;
         }
     }
@@ -120,7 +176,7 @@ $threeliImg: '~img/manager/wellCover.png',
         $i: index($threeliImg, $img);
 
         .threeImg#{$i} {
-            margin-top: 10px;
+            margin-top: 5px;
             background-image: url($img);
             width: 20px;
             height: 19px;
@@ -129,4 +185,117 @@ $threeliImg: '~img/manager/wellCover.png',
         }
     }
 
+}
+
+.serviceContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: calc(100% - 35px);
+    padding: 7px 25px 0 25px;
+
+    .serviceWrapper {
+        // display: flex;
+        font-size: 12px;
+        height: 100%;
+        overflow: hidden;
+
+        .before {
+            flex: 1 0 120px;
+            color: #ffffff;
+            margin-right: 2px;
+            display: flex;
+            justify-content: space-between;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            @each $c in $twoIcon {
+                $i: index($twoIcon, $c);
+
+                .number#{$i} {
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 50%;
+                    display: inline-block;
+                    text-align: center;
+                    background-color: $c;
+                    color: #000000;
+                    font-weight: 700;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .progress {
+            margin-top: -4px;
+            margin-right: 5px;
+
+            .ant-progress-inner {
+                background-color: rgba(0, 0, 0, 0);
+            }
+        }
+
+        .after {
+            // flex: 1 0 50px;
+            color: #05DEFF;
+
+            .img {
+                width: 12px;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+.sevenContent{
+    height: calc(100% - 40px);
+    .sevenWrapper{
+        padding: 20px 0px 0px;
+        display: flex;
+        justify-content: space-around;
+        height: 100%;
+        text-align: center;
+        .itemImg {
+            width: 25%;
+            div:first-child{
+                font-size:35px;
+                font-family:Source Han Sans SC;
+                font-weight:bold;
+            }
+            .color1{
+                color:rgba(248,112,182,1);
+            }
+            .color2{
+                color:rgba(121,209,245,1);
+            }
+            .color3{
+                color:rgba(251,241,127,1);
+            }
+            .color4{
+                color:rgba(107,240,132,1);
+            }
+            .title {
+                margin: 15px 0px;
+                font-size:9px;
+                font-family:Source Han Sans SC;
+                font-weight:400;
+                color:rgba(255,255,255,1);
+                opacity:0.7;
+            }
+            .day,.week{
+                margin-top: 10px;
+                font-size:6px;
+                font-family:Source Han Sans SC;
+                font-weight:400;
+                color:rgba(136,255,144,1);
+            }
+            .month{
+                margin-top: 10px;
+                font-size:6px;
+                font-family:Source Han Sans SC;
+                font-weight:400;
+                color:rgba(247,61,61,1);
+            }
+            
+        }
+    }
 }

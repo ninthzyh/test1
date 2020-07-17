@@ -9,54 +9,63 @@ export default class Three extends Component {
   }
   getBlackRedListOption = () => {
     let blackRedListOption = {
+      grid: {
+        top: '32%',
+        left: '15%',
+        right: '4%',
+        bottom: 18,
+      },
+      tooltip: {
+        trigger: 'axis',
+      },
       color: ['#F7517F', '#6648FF'],
       legend: {
         data: ['红榜总数', '黑榜总数'],
         icon: 'line',
         itemWidth: 10,
         textStyle: {
-          fontSize: 12,
-          color: '#fff',
+          fontSize: 11,
+          color: 'rgba(255,255,255,1)',
         },
       },
       xAxis: {
         type: 'category',
-        axisLine: {
-          lineStyle: {
-            type: 'solid',
-            color: '#fff',
-            width: '0.5',
-          },
-        },
         axisLabel: {
           interval: 0,
+          show: true,
           textStyle: {
-            color: '#fff',
-            width: '0.5',
+            color: 'rgba(255,255,255,1)',
+            fontSize: 11,
+          },
+        },
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(155,155,155,0.45)',
+            width: 1,
           },
         },
         data: ['', '2020年第一季度', ''],
       },
       yAxis: {
         type: 'value',
-        axisLine: {
-          lineStyle: {
-            type: 'solid',
-            color: '#fff',
-            width: '0.5',
+        axisLabel: {
+          show: true,
+          textStyle: {
+            color: 'rgba(255,255,255,1)',
+            fontSize: 11,
           },
         },
-        axisLabel: {
-          textStyle: {
-            color: '#fff',
-            width: '0.5',
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(155,155,155,0.45)',
+            width: 1,
           },
         },
         splitLine: {
           show: true,
           lineStyle: {
             type: 'solid',
-            width: 1,
+            width: 0.5,
             color: 'rgba(155,155,155,0.45)',
           },
         },
@@ -80,53 +89,62 @@ export default class Three extends Component {
   }
   getCourtDecisionOption = () => {
     let courtDecisionOption = {
+      grid: {
+        top: '32%',
+        left: '15%',
+        right: '1%',
+        bottom: 18,
+      },
+      tooltip: {
+        trigger: 'axis',
+      },
       color: ['#69F4FE', '#8948FF', '#FFC822'],
       legend: {
         data: ['经济纠纷判决', '土地或房产判决', '企业强制执行资产'],
         icon: 'line',
         itemWidth: 10,
         textStyle: {
-          fontSize: 12,
-          color: '#fff',
+          fontSize: 11,
+          color: 'rgba(255,255,255,1)',
         },
       },
       xAxis: {
         type: 'category',
         data: ['2018', '2019', '2020'],
-        axisLine: {
-          lineStyle: {
-            type: 'solid',
-            color: '#fff',
-            width: '0.5',
+        axisLabel: {
+          show: true,
+          textStyle: {
+            color: 'rgba(255,255,255,1)',
+            fontSize: 11,
           },
         },
-        axisLabel: {
-          textStyle: {
-            color: '#fff',
-            width: '0.5',
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(155,155,155,0.45)',
+            width: 1,
           },
         },
       },
       yAxis: {
         type: 'value',
-        axisLine: {
-          lineStyle: {
-            type: 'solid',
-            color: '#fff',
-            width: '0.5',
+        axisLabel: {
+          show: true,
+          textStyle: {
+            color: 'rgba(255,255,255,1)',
+            fontSize: 11,
           },
         },
-        axisLabel: {
-          textStyle: {
-            color: '#fff',
-            width: '0.5',
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(155,155,155,0.45)',
+            width: 1,
           },
         },
         splitLine: {
           show: true,
           lineStyle: {
             type: 'solid',
-            width: 1,
+            width: 0.5,
             color: 'rgba(155,155,155,0.45)',
           },
         },

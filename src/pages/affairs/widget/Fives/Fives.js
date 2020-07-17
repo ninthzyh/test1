@@ -104,7 +104,7 @@ export default class Fives extends Component {
       },
     ]
     // 基于准备好的dom，初始化echarts实例
-    let myChart = echarts.init(document.getElementById('epidemicTrends'))
+    let myChart = echarts.init(this.refs.epidemicTrends)
     // 绘制图表
     myChart.setOption({
       color: color,
@@ -151,7 +151,7 @@ export default class Fives extends Component {
     return (
       <div className={style.epidemicTrends}>
         <ChartHeader title="本地疫情趋势分析" />
-        <div id="epidemicTrends" className={style.content}></div>
+        <div ref="epidemicTrends" className={style.content}></div>
       </div>
     )
   }
