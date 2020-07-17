@@ -7,14 +7,13 @@
 .mapboxgl-popup-tip {
   border: none !important
 }
-.mapboxgl-popup-content { 
-  width:222px;
+.affairs .mapboxgl-popup-content { 
+width:222px;
 height:58px; 
 padding: 10px 0px 15px !important;
 opacity:1;
 border-radius:4px;
 display: flex;
-align-items: center;
 }
 
 .popup1 .mapboxgl-popup-content{
@@ -49,9 +48,10 @@ background:url("../../../public/img/affairs/top1.png") no-repeat;
 }
 
 
-.mapboxgl-popup-content div
+.affairs div
 {
-	flex:1;
+  flex:1;
+  align-items: center;
 }
 
 .font{

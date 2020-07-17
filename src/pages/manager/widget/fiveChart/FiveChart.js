@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import FiveChartStyle from './FiveChart.module.scss';
-import CustomImg from 'img/affairs/custom2.svg';
 import ChartHeader from '../../../../components/ChartHeader/ChartHeader';
 import ReactEcharts from 'echarts-for-react';
 import * as echarts from 'echarts'; //导入 echarts 模块
@@ -44,10 +43,11 @@ export default class FiveChart extends Component {
       xAxis: {
         type: 'category',
         axisLine: {
-          lineStyle: {
-            color: '#134C78',
-            width: 1,    
-          }
+          // lineStyle: {
+          //   color: '#134C78',
+          //   width: 1,    
+          // },
+          show: false
         },
         axisTick: {
           show: false
@@ -67,10 +67,11 @@ export default class FiveChart extends Component {
         min : 0,
         interval : 22, //刻度间隔
         axisLine: {
-          lineStyle: {
-            color: '#134C78',
-            width: 1,    
-          }
+          // lineStyle: {
+          //   color: '#134C78',
+          //   width: 1,    
+          // },
+          show: false
         },
         axisLabel: {
           show: true,

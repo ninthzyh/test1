@@ -1,0 +1,83 @@
+
+
+
+.credit .mapboxgl-popup-content{
+
+padding: 10px 0px 15px !important;
+opacity:1;
+border-radius:4px;
+background:url("../../../public/img/credit/marketFrame.png") no-repeat;
+}
+.creditPopup1 .mapboxgl-popup-content{
+width:281px;
+height:333px; 
+background:url("../../../public/img/credit/marketFrame.png") no-repeat;
+}
+.creditPopup2 .mapboxgl-popup-content{
+width:264px;
+height:296px; 
+background:url("../../../public/img/credit/revenueFrame.png") no-repeat;
+}
+.creditPopup3 .mapboxgl-popup-content{
+width:264px;
+height:296px;
+background:url("../../../public/img/credit/patentFrame.png") no-repeat;
+}
+.title{
+  width:auto;
+  height:20px;
+  font-size:20px;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(0,238,255,1);
+  padding: 0px  0px 30px 20px;
+ 
+}
+.creditPopup1 .underline{
+margin-left: 20px;
+width:234px;
+height:1px;
+background:rgba(5,221,255,1);
+}
+.creditPopup2 .underline{
+margin-left: 20px;
+width:216px;
+height:1px;
+background:rgba(5,221,255,1);
+}
+.creditPopup3 .underline{
+margin-left: 20px;
+width:216px;
+height:1px;
+background:rgba(5,221,255,1);
+}
+.creditPopup1 .content{
+padding: 5px  0px 15px 20px;
+}
+.creditPopup2 .content{
+padding: 5px  0px 15px 20px;
+}
+.creditPopup3 .content{
+padding: 5px  0px 21px 20px;
+}
+.content{
+width:auto;
+height:12px;
+font-size:12px;
+font-family:PingFang SC;
+font-weight:400;
+color:rgba(255,255,255,1);
+line-height:24px;
+}
+.number{
+padding-left: 30px;
+position:absolute;
+left: 120px;
+width:9px;
+height:12px;
+font-size:16px;
+font-family:PingFang SC;
+font-weight:400;
+color:rgba(105,244,254,1);
+line-height:24px;
+}
