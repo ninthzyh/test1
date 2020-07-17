@@ -23,7 +23,7 @@ class Manager extends React.Component {
     getPeople = (people, num) => {
         const result = [];
         for (let i=1;i<=6;i++){
-            result.push(i<=people? <img src={`img/manager/people${num+1}.png`} alt="" key={i} />:<img src={`img/manager/people${num+4}.png`} alt="" key={i} />)
+            result.push(i<=people? <img key={i} src={`img/manager/people${num+1}.png`} alt=""/>:<img key={i} src={`img/manager/people${num+4}.png`} alt=""/>)
         }
         return result;
     };
