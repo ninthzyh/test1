@@ -4,31 +4,25 @@ import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 import { Col, Row } from 'antd';
 
 const img = [
-    ['/img/affairs/invoice.png', '申报个人普票代开', '34'],
-    ['/img/affairs/social.png', '社保征收', '10'],
-    ['/img/affairs/tax.png', '新房契税征收', '2121']
+    {
+        title: '申报个人普票代开',
+        num: 34
+    }, {
+        title: '社保征收',
+        num: 10
+    }, {
+        title: '新房契税征收',
+        num: 2121
+    }
 ]
 export default class extends Component {
     iconList = () => {
         return img.map((itemImg, itemIndex) => {
-            return <Col span={8} key={itemIndex}>
-
-                {itemImg.map((item, index) => {
-                    if (item.lastIndexOf('.') !== -1) {
-                        return <div key={index}>
-                            <img className={AffairsStyle.imgItem} src={item} />
-                        </div>
-                    } else {
-                        if (isNaN(item)) {
-                            return <div className={AffairsStyle.iconText}>{item}</div>
-                        } else {
-                            return <div className={AffairsStyle.iconNum}>{item}</div>
-                        }
-
-                    }
-
-                })}
-            </Col>
+            return <div className={AffairsStyle.itemImg} key={itemIndex}>
+                <div className={AffairsStyle[`nineImg${itemIndex + 1}`]} ></div>
+                <div className={AffairsStyle.iconText}>{itemImg.title}</div>
+                <div className={AffairsStyle.iconNum}>{itemImg.num}</div>
+            </div>
         })
     }
     render() {
@@ -36,9 +30,7 @@ export default class extends Component {
             <ChartHeader title='税务局' />
             <div className={AffairsStyle.content}>
                 <div className={AffairsStyle.iconWrapper}>
-                    <Row>
-                        {this.iconList()}
-                    </Row>
+                    {this.iconList()}
                 </div>
 
             </div>

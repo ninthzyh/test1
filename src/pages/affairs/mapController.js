@@ -1,5 +1,5 @@
 /* global window */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // import {render} from 'react-dom';
 import { MapboxLayer } from '@deck.gl/mapbox';
 import { StaticMap } from 'react-map-gl';
@@ -85,7 +85,11 @@ export default class OneMap extends Component {
     this.state = {
       time: 0,
       opacity: 1,
+      visitorCount: [836, 780, 712, 664, 590, 500, 436, 381, 313, 249, 180],
+      popupVisible: false
     };
+
+
   }
   componentWillMount() {
     // fetch(DATA_URL.CITY)
@@ -96,6 +100,31 @@ export default class OneMap extends Component {
   //组件第一次渲染后调用
   componentDidMount() {
     // this._animate();
+
+    setInterval(() => {
+      // 自定义起始数据
+      this.setState({
+        visitorCount: [836 + Math.round(Math.random() * 50), 785 + Math.round(Math.random() * 50), 712 + Math.round(Math.random() * 50), 664 + Math.round(Math.random() * 50),
+        590 + Math.round(Math.random() * 50), 500 + Math.round(Math.random() * 50), 436 + Math.round(Math.random() * 50), 381 + Math.round(Math.random() * 50), 313 + Math.round(Math.random() * 50), 
+        249+Math.round(Math.random() * 50), 180+Math.round(Math.random() * 50)],
+      });
+      if (map) {
+        map.on('zoom', () => {
+          console.log(map.getZoom());
+          if (map.getZoom() > 10) {
+            this.setState({
+              popupVisible: true
+            })
+          } else {
+            this.setState({
+              popupVisible: false
+            })
+          }
+        });
+      }
+    }, 1000);
+
+
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -134,9 +163,8 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        //iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
         iconAtlas: 'http://localhost:3000/img/affairs/police2.png',
-        sizeScale: 2,
+        sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
         getSize: d => { return 10 },
@@ -148,9 +176,8 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        //iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
         iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
-        sizeScale: 2,
+        sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
         getSize: d => { return 10 },
@@ -169,7 +196,7 @@ export default class OneMap extends Component {
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        image: imgUrl + '/path.png',
+        image:  'img/path.png',
         getWidth: 4,
         speed: 1.2,
       }),
@@ -205,16 +232,15 @@ export default class OneMap extends Component {
 
     let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
     box.style.zIndex = ''
- 
+
     console.dir(e);
     map = e.target;
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'zh'
     }));
+
   }
-
-
 
   render() {
     const {
@@ -223,6 +249,47 @@ export default class OneMap extends Component {
       theme = DEFAULT_THEME
     } = this.props;
 
+    const displayContent = [
+      {
+        coor: [115.0195982, 35.75112835],
+        branch: '不动产',
+      },
+      {
+        coor: [115.0195982, 35.78112835],
+        branch: '公安',
+      },
+      {
+        coor: [115.0295982, 35.76212835],
+        branch: '民政',
+      },
+      {
+        coor: [115.01392, 35.76112],
+        branch: '工商',
+      }, {
+        coor: [115.064040, 35.756332],
+        branch: '人社',
+      },
+      {
+        coor: [115.08628, 35.76303],
+        branch: '税务',
+      },
+      {
+        coor: [115.02760, 35.75115],
+        branch: '违章处理',
+      },
+      {
+        coor: [115.01693, 35.70723],
+        branch: '建行',
+      },
+      {
+        coor: [115.0350982, 35.75612835],
+        branch: '公积金',
+      },
+      {
+        coor: [115.05605, 35.77294],
+        branch: '建行',
+      },
+    ]
 
     return (
 
@@ -244,27 +311,29 @@ export default class OneMap extends Component {
           mapboxApiAccessToken={MAPBOX_TOKEN}
           onLoad={this._onLoad}
         >
-          <Popup className={"popup"}
-            longitude={115.0195982}
-            latitude={35.75112835}
-            altitude={100}
-            closeButton={false}
-          >
-            <div>
-              <p>{"Hello,DeckGL Popup"}</p >
-            </div>
-          </Popup>
-          <Popup className={"popup"}
-            longitude={115.0195982}
-            latitude={35.78112835}
-            altitude={100}
-            closeButton={false}
-            style={{ zIndex: 9999999 }}
-          >
-            <div>
-              <p>{"Hello,DeckGL Popup"}</p >
-            </div>
-          </Popup>
+          {
+            this.state.popupVisible && <Fragment>
+              {displayContent.map((value, index) => {
+                console.log(value)
+                return <Popup className={`popup${index + 1}`}
+                  longitude={value.coor[0]}
+                  latitude={value.coor[1]}
+                  altitude={100}
+                  closeButton={false}
+                  visible={true}
+                  key={index}
+                >
+                  <div className='font'>{index + 1}</div>
+                  <div className='font2'>{value.branch}</div>
+                  <div>
+                    <div className='font3'>各部门日服务人次</div>
+                    <div className='font4'>{this.state.visitorCount[index]}</div>
+                  </div>
+
+                </Popup>
+              })}
+            </Fragment>
+          }
         </StaticMap>
       </DeckGL>
     );

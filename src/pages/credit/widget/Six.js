@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import CreditStyle from '../Credit.module.scss'
+import CreditStyle from '../Credit.module.scss';
+import ChartHeader from 'components/ChartHeader/ChartHeader';
 export default class extends Component {
     constructor(props) {
         super(props);
@@ -8,12 +9,16 @@ export default class extends Component {
     render() {
         return (
             <div className={CreditStyle.six}>
+                <ChartHeader title='信用动态'/>
                 <div className={CreditStyle.bg}>
-                    <img src="/img/credit/news.png" width={'80%'} alt=""/>
+                    <img src="img/credit/news.png" width='70%' alt=""/>
                 </div>
-                <marquee direction='up'>
-                    <p>7月15日，全市文化旅游大会召开，深入学习贯彻习近平总书记视察河 南重要讲话和关于文化旅游融合发展的重要指示精神，认真贯彻省委十 届十一次全会暨省委工作会议精神，全面落实全省文化旅游大会精神， 动员全市上下坚定文化自信、抢抓战略机遇，发挥自身优势、主动担当</p>
-                </marquee>
+                <div className={CreditStyle.marquee}>
+                    <marquee direction='up' scrollamount='3' height='20%'>
+                        <p>7月15日，全市文化旅游大会召开，深入学习贯彻习近平总书记视察河 南重要讲话和关于文化旅游融合发展的重要指示精神，认真贯彻省委十 届十一次全会暨省委工作会议精神，全面落实全省文化旅游大会精神， 动员全市上下坚定文化自信、抢抓战略机遇，发挥自身优势、主动担当</p>
+                    </marquee>
+                </div>
+
             </div>);
     }
 }

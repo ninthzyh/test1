@@ -4,7 +4,12 @@ import AffairsStyle from '../Affairs.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 
 export default class Two extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            radioButton: 'diagosis',
+        }
+    }
     getOption = () => {
         let option = {
 
@@ -112,10 +117,26 @@ export default class Two extends Component {
         };
         return option
     }
+    btn = (type) => {
+        this.setState({
+            radioButton: type,
+        })
+    }
+
+    getClassName = (type) => {
+        const { radioButton } = this.state;
+        return radioButton === type ? AffairsStyle.radioButton && AffairsStyle.active : AffairsStyle.radioButton;
+    }
     render() {
         return (
             <>
                 <ChartHeader title='服务人次年度趋势图' />
+                {/* <div>
+                    <button className={this.getClassName("diagosis")} onClick={() => this.btn('diagosis')}>确诊</button>
+                    <button className={this.getClassName("cure")} onClick={() => this.btn('cure')}>治愈</button>
+                    <button className={this.getClassName("death")} onClick={() => this.btn('death')}>死亡</button>
+                    <button className={this.getClassName("now")} onClick={() => this.btn('now')}>现有</button>
+                </div> */}
                 <div className={AffairsStyle.content}>
                     <ReactEcharts
                         option={this.getOption()}

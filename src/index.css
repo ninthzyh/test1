@@ -29,4 +29,6 @@ i{
   width: 14px;
   height: 16px;
 }
-
+.mapboxgl-control-container {
+  display: none;
+}
