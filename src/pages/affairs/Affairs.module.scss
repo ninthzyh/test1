@@ -5,6 +5,9 @@ $nineliImg: '/img/affairs/invoice.png',
 $eightliImg: '/img/affairs/statistic.png',
 '/img/affairs/marry.png',
 '/img/affairs/divorce.png';
+$elevenliImg: '/img/affairs/eleven1.png',
+'/img/affairs/eleven2.png',
+'/img/affairs/eleven3.png';
 
 /*当日疫情*/
 .oneContainer {
@@ -96,6 +99,16 @@ $eightliImg: '/img/affairs/statistic.png',
             background-position: center center;
         }
     }
+    @each $img in $elevenliImg {
+        $i: index($elevenliImg, $img);
+
+        .elevenImg#{$i} {
+            background-image: url($img);
+            height: 66px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
 
 }
 
@@ -167,6 +180,7 @@ $eightliImg: '/img/affairs/statistic.png',
         }
 
         .itemNumber {
+            margin-top: 12%;
             font-size: 36px;
             font-family: Impact;
             font-weight: 400;
@@ -174,8 +188,9 @@ $eightliImg: '/img/affairs/statistic.png',
         }
 
         .itemName {
-            font: size 14px;
-            font-family: Microsoft YaHei;
+            margin-top: 12%;
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
             font-weight: 400;
             color: rgba(254, 254, 254, 1);
         }
