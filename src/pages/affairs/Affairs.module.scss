@@ -5,6 +5,9 @@ $nineliImg: '/img/affairs/invoice.png',
 $eightliImg: '/img/affairs/statistic.png',
 '/img/affairs/marry.png',
 '/img/affairs/divorce.png';
+$elevenliImg: '/img/affairs/eleven1.png',
+'/img/affairs/eleven2.png',
+'/img/affairs/eleven3.png';
 
 /*当日疫情*/
 .oneContainer {
@@ -90,6 +93,16 @@ $eightliImg: '/img/affairs/statistic.png',
         $i: index($eightliImg, $img);
 
         .eightImg#{$i} {
+            background-image: url($img);
+            height: 66px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+    @each $img in $elevenliImg {
+        $i: index($elevenliImg, $img);
+
+        .elevenImg#{$i} {
             background-image: url($img);
             height: 66px;
             background-repeat: no-repeat;

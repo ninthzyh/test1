@@ -8,6 +8,7 @@ import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
 import DeckGL, {FlyToInterpolator} from 'deck.gl';
 import { GeoJsonLayer, PathLayer, } from '@deck.gl/layers';
 import { HeatmapLayer, IconLayer } from 'deck.gl';
+<<<<<<< HEAD
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
 // import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
 // import ScanLayer from 'components/scan-layer/scan-layer';
@@ -23,6 +24,24 @@ import policeIcon from 'img/affairs/police2.png';
 import governIcon from 'img/affairs/govern.png';
 import { Popup} from 'react-map-gl';
 import './popup.css';
+=======
+import PolylineLayer from '../../components/polyline-layer/polyline-layer';
+// import ArcLayerExt from '../../components/arc-layer/arc-layer-ext';
+// import ScanLayer from '../../components/scan-layer/scan-layer';
+import cityData from '../../assets/json/PuYang_City.geojson';
+import roadData from '../../assets/json/PuYang_Roads.json';
+import buildData from '../../assets/json/PuYang_Buildings.geojson';
+import countyData from '../../assets/json/PuYang_County.geojson';
+import arcData from '../../assets/json/PuYang_arc.json';
+import heatmapData from '../../assets/json/builidingCenter.json';
+import governmentData from '../../assets/json/Puyang_Government.json';
+import policeData from '../../assets/json/Puyang_Police.json'
+import { ShowGovernmentIcon } from '../../components/Popup/government/government_popup'
+import { Popup, Marker } from 'react-map-gl';
+import {changeMapboxLanguage} from '../../untils/MapUtils';
+import './popup.css'
+
+>>>>>>> de19f2e9641ed9f47bc08e4c420bd6705c2effbc
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -342,6 +361,7 @@ export default class OneMap extends Component {
   }
 
   _onLoad(e) {
+<<<<<<< HEAD
      let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode;
     box.style.zIndex = '';
     map = e.target;
@@ -353,6 +373,12 @@ export default class OneMap extends Component {
       'get',
       'name_zh'
       ]);
+=======
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = ''
+    map = e.target;
+    changeMapboxLanguage(map);
+>>>>>>> de19f2e9641ed9f47bc08e4c420bd6705c2effbc
   }
 
   render() {

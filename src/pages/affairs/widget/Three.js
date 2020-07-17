@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import echarts from 'echarts';
-import style from './Three.module.scss';
-import ChartHeader from '../../../../components/ChartHeader/ChartHeader';
+import AffairsStyle from '../Affairs.module.scss'
+import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 
 export default class Three extends Component {
     constructor(props) {
@@ -99,7 +99,7 @@ export default class Three extends Component {
             data: data
         }];
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('serviceNumber'));
+        var myChart = echarts.init(this.container);
         // 绘制图表
         myChart.setOption({
             color: color,
@@ -144,9 +144,9 @@ export default class Three extends Component {
     }
     render() {
         return (
-            <div className={style.serviceNumber}>
+            <div className={AffairsStyle.serviceNumber}>
                  <ChartHeader title='特色服务总量' />
-                <div id="serviceNumber" className={style.content}></div>
+                <div ref={this.container} className={AffairsStyle.content}></div>
             </div>);
     }
 }
