@@ -21,7 +21,7 @@ import heatmapData from '../../assets/json/builidingCenter.json';
 import governmentData from '../../assets/json/Puyang_Government.json';
 import policeData from '../../assets/json/Puyang_Police.json'
 import { ShowGovernmentIcon } from '../../components/Popup/government/government_popup'
-import { Popup, Marker } from 'react-map-gl';
+import { Popup,} from 'react-map-gl';
 import './popup.css'
 
 
@@ -110,7 +110,6 @@ export default class OneMap extends Component {
       });
       if (map) {
         map.on('zoom', () => {
-          console.log(map.getZoom());
           if (map.getZoom() > 10) {
             this.setState({
               popupVisible: true
@@ -314,11 +313,10 @@ export default class OneMap extends Component {
           {
             this.state.popupVisible && <Fragment>
               {displayContent.map((value, index) => {
-                console.log(value)
-                return <Popup className={`popup${index + 1}`}
+                return <Popup className={`affairs popup${index + 1}`}
                   longitude={value.coor[0]}
                   latitude={value.coor[1]}
-                  altitude={100}
+                  altitude={80}
                   closeButton={false}
                   visible={true}
                   key={index}
