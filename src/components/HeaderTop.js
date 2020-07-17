@@ -45,8 +45,8 @@ class HeaderTop extends Component {
                 <span className={HeaderStyle.weatherpicBox}></span>
                 <span className={HeaderStyle.dateBox}>{this.state.date}</span>
                 <span className={HeaderStyle.weekBox}>{this.state.week}</span>
-                <span className={HeaderStyle.temperatureBox}>{global.weather.temperature}C</span>
-                <span className={HeaderStyle.weatherBox}>{global.weather.weathername}</span>
+                <span className={HeaderStyle.temperatureBox}>{window.weather.temperature}</span>
+                <span className={HeaderStyle.weatherBox}>{window.weather.weathername}</span>
             </div> 
             {<div className={HeaderStyle.headLine} ></div> }
 

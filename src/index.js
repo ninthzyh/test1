@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './assets/fonts/iconfont.css'
 import './index.css';
-//全局配置对象
-import 'public/config';
 import * as serviceWorker from './serviceWorker';
 import { Switch, HashRouter } from 'react-router-dom';
 import routes from 'route/routes';
