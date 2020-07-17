@@ -25,7 +25,7 @@ class Home extends React.Component {
       <Content style={{ height: '100%' }} id="Content">
         {renderRoutes(route.children)}
       </Content>
-      <Footer />
+      <Footer history={this.props.history} />
     </Layout>
   }
 }

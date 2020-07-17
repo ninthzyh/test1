@@ -388,7 +388,7 @@ export default class OneMap extends Component {
       },
       {
         coor: [115.02760, 35.75115],
-        branch: '违章处理',
+        branch: '消防',
       },
       {
         coor: [115.01693, 35.70723],
@@ -425,13 +425,12 @@ export default class OneMap extends Component {
           onLoad={this._onLoad}
         >
           {
-            this.state.popupVisible && <Fragment>
+            true && <Fragment>
               {displayContent.map((value, index) => {
-                console.log(value)
-                return <Popup className={`popup${index + 1}`}
+                return <Popup className={`affairs popup${index + 1}`}
                   longitude={value.coor[0]}
                   latitude={value.coor[1]}
-                  altitude={100}
+                  altitude={80}
                   closeButton={false}
                   visible={true}
                   key={index}

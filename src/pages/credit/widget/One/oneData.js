@@ -15,55 +15,55 @@ export const oneList = {
 		},
 		{
 			name:'法人黑名单',
-			number:18,
+			number:14,
 			className:'blackAnnouncedLegalPerson'
 		},
 		{
 			name:'自然人黑名单',
-			number:18,
+			number:9,
 			className:'blackAnnouncedPerson'
 		}
 	],
 	option: [
 		{
 			name:'税务局',
-			redAnnouncement:90,
-			blackAnnouncement:10
+			redAnnouncement:2,
+			blackAnnouncement:1
 		},
 		{
 			name:'市场监管局',
-			redAnnouncement:66,
-			blackAnnouncement:0
+			redAnnouncement:6,
+			blackAnnouncement:2
 		},
 		{
 			name:'银行',
-			redAnnouncement:23,
-			blackAnnouncement:60
+			redAnnouncement:1,
+			blackAnnouncement:1
 		},
 		{
 			name:'文广局',
-			redAnnouncement:23,
-			blackAnnouncement:60
+			redAnnouncement:2,
+			blackAnnouncement:1
 		},
 		{
 			name:'住建局',
-			redAnnouncement:23,
-			blackAnnouncement:60
+			redAnnouncement:4,
+			blackAnnouncement:''
 		},
 		{
 			name:'农业农村局',
-			redAnnouncement:23,
-			blackAnnouncement:60
+			redAnnouncement:2,
+			blackAnnouncement:''
 		},
 		{
 			name:'房地产管理局',
-			redAnnouncement:23,
-			blackAnnouncement:60
+			redAnnouncement:1,
+			blackAnnouncement:''
 		},
 		{
 			name:'法院',
-			redAnnouncement:23,
-			blackAnnouncement:60
+			redAnnouncement:'',
+			blackAnnouncement:19
 		}
 	]
 }

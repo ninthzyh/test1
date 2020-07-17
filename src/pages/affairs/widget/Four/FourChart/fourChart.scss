@@ -30,7 +30,7 @@
 				.progressFourChart{
 					width: 300px;
 					margin: 0;
-					margin-left: 34px;
+					margin-left: 20px;
 					display: flex;
 					justify-content: start;
 					align-items: center;
@@ -40,6 +40,9 @@
 						font-size: 14px;
 						margin-left: 12px;
 						line-height: 14px;
+						display: inline-block;
+						width: 50px;
+						text-align: right;
 						// border: 1px solid red;
 					}
 					img{
@@ -62,8 +65,9 @@
 						background: #05DEFF;
 						font-size: 10px;
 						color: #041B38;
-						line-height: 14px;
-						text-align: center;
+						line-height: 12px;
+						text-align: left;
+						text-indent: 2.5px;
 					}
 					.ditchFourChart{
 						margin-left: 13px;

@@ -19,7 +19,7 @@ export default class extends Component {
             series: [{
                 type: 'liquidFill',
                 radius: '100%',
-                data: [0.76, 0.76],
+                data: [0.5, 0.5],
                 name: 'Liquid Fill',
                 backgroundStyle: {
                     color: {
@@ -44,9 +44,7 @@ export default class extends Component {
                 },
                 label: {
                     position: ['50%', '37%'],
-                    formatter: function (v) {
-                        return '绿化率' + (v.data * 100).toFixed(0) + "%";
-                    },
+                    formatter: '绿化率50%',
                     fontSize: 13,
                     color: '#fff',
                     align: 'center'

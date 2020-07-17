@@ -42,7 +42,7 @@ class One extends Component {
 						{
 							this.state.list.header.map((item)=>{
 								return (
-									<div className='headerTitleOne'>
+									<div className='headerTitleOne' key={item.name}>
 										<h5>{item.name}</h5>
 										<span className={item.className}>{item.number}</span>
 									</div>
@@ -55,41 +55,30 @@ class One extends Component {
 						<span className='blackAnnouncementOne'></span><span className='blackTxt'>黑榜</span>
 					</div>
 					<div className='dataViewShowOne'>
-						<div className='dataNameOne'>
-							{
-								this.state.list.option.map((item)=>{
-									return <h5>{item.name}</h5>
-								})
-							}
-						</div>
 						<div className='dataViewOne'>
 							<div className='leftProgressOne'>
 								<div className='leftDataProgressOne'>
 									{
 										this.state.list.option.map((item)=>{
 											return (
-												<Progress
-													strokeColor={'#F7517F'}
-													strokeWidth={8}
-													percent={item.redAnnouncement} 
-													showInfo={false} 
-												/>
+												<div className='leftDataProgressShowOne' key={item.name}>
+													<h5>{item.name}</h5>
+													<div className='progressDataShow' style={{width:(item.redAnnouncement * 5)}}><span>{item.redAnnouncement}</span></div>
+												</div>
 											)
 										})
 									}
 								</div>
 							</div>
+							<div className='middleLineOne'></div>
 							<div className='rightProgressOne'>
 								<div className='rightDataProgressOne'>
 									{
 										this.state.list.option.map((item)=>{
 											return (
-												<Progress
-													strokeColor={'#6648FF'}
-													strokeWidth={8}
-													percent={item.blackAnnouncement} 
-													showInfo={false} 
-												/>
+												<div className='leftDataProgressShowOne' key={item.name}>
+													<div className='progressDataShowRight' style={{width:(item.blackAnnouncement * 5)}}><span>{item.blackAnnouncement}</span></div>
+												</div>
 											)
 										})
 									}

@@ -18,7 +18,7 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: true,
+            show: false,
         }
     }
     componentDidMount() {
@@ -26,11 +26,11 @@ class Index extends Component {
     }
 
     showChange = () => {
-        // setTimeout(()=>{
-        //     this.setState({
-        //         show: !this.state.show
-        //     }, this.showChange)
-        // },5000)
+        setTimeout(()=>{
+            this.setState({
+                show: !this.state.show
+            }, this.showChange)
+        },window.interval)
     };
 
     getClassName = (show,position) => `${AffairsStyle[`${position.toLowerCase()}Wrapper`]} ${show ? `animate__animated animate__backOut${position}` : `animate__animated animate__backIn${position}`}`;
@@ -40,7 +40,7 @@ class Index extends Component {
         const { show } = this.state;
         return (
             <div className={AffairsStyle.container}>
-                {/* <OneMap/> */}
+                <OneMap/>
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
                     <div className={AffairsStyle.item}><One/></div>
                     <div className={AffairsStyle.item}><Two /></div>

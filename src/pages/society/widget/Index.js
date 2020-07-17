@@ -9,8 +9,8 @@ class Index extends Component {
     render() {
         return (
             <div className={SocietyStyle.container}>
-                <OneMap></OneMap>
-                <div className={SocietyStyle.leftWrapper}>
+                <OneMap>sadfsd</OneMap>
+                {/* <div className={SocietyStyle.leftWrapper}>
                     <div className={SocietyStyle.item}>1</div>
                     <div className={SocietyStyle.item}>
 
@@ -21,9 +21,8 @@ class Index extends Component {
                     <div className={SocietyStyle.itemRight}>4</div>
                     <div className={SocietyStyle.itemRight}>5</div>
                     <div className={SocietyStyle.itemRight}></div>
-                </div>
+                </div> */}
             </div>);
-
     }
 }
 
