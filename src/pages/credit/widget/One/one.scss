@@ -79,7 +79,7 @@
 			display: flex;
 			justify-content: start;
 			align-items: stretch;
-			height: 140px;
+			height: 130px;
 			.dataViewOne{
 				width: 100%;
 				height: 100%;
@@ -94,7 +94,7 @@
 						// transform: rotate(180deg);
 						height: 100%;
 						.leftDataProgressShowOne{
-							height: 18px;
+							height: 16px;
 							display: flex;
 							justify-content: space-between;
 							align-items: center;
@@ -102,6 +102,8 @@
 							h5{
 								color: #FFFFFF;
 								margin-left: 13px;
+								font-size: 7px;
+								font-weight: normal;
 							}
 							.progressDataShow{
 								width: 0;
@@ -136,7 +138,7 @@
 					.rightDataProgressOne{
 						height: 100%;
 						.leftDataProgressShowOne{
-							height: 18px;
+							height: 16px;
 							display: flex;
 							justify-content: space-between;
 							align-items: center;

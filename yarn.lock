@@ -10169,8 +10169,8 @@ react-color@^2.17.3:
 
 react-countup@^4.3.3:
   version "4.3.3"
-  resolved "https://registry.npm.taobao.org/react-countup/download/react-countup-4.3.3.tgz#143a8d854d47290b73d6915eac20a12d839153c2"
-  integrity sha1-FDqNhU1HKQtz1pFerCChLYORU8I=
+  resolved "https://registry.yarnpkg.com/react-countup/-/react-countup-4.3.3.tgz#143a8d854d47290b73d6915eac20a12d839153c2"
+  integrity sha512-pWnxpwdPNRyJFha/YKKbyc4RLAw8PzmULdgCziGIgw6vxhT1VdccrvQgj38HBSoM2qF/MoLmn4M2klvDWVIdaw==
   dependencies:
     countup.js "^1.9.3"
     prop-types "^15.7.2"
