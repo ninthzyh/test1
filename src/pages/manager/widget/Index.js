@@ -7,6 +7,7 @@ import FiveChart from './fiveChart/FiveChart';
 import Four from './four/Four'
 import Three from './Three';
 import { T } from 'antd/lib/upload/utils';
+import Eleven from './Eleven';
 class Manager extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +21,7 @@ class Manager extends React.Component {
                 <div className={ManagerStyle.leftWrapper}>
                     <div className={ManagerStyle.item}><One /></div>
                     <div className={ManagerStyle.item}>
-
+<Eleven />
                     </div>
                     <div className={ManagerStyle.item}><Three/></div>
                 </div>
