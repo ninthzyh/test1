@@ -15,6 +15,10 @@ import roadData from 'assets/json/PuYang_Roads.json';
 import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
+import { ColumnLayer } from 'deck.gl';
+import medicalData from '../../assets/json/PuYang_medical.json';
+import shoppingData from '../../assets/json/PuYang_Shopping.json';
+import cateringData from '../../assets/json/PuYang_Catering.json';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -81,7 +85,7 @@ export default class OneMap extends Component {
     // fetch(DATA_URL.CITY)
     // .then(res => {res.json();debugger;})
     // .then(json => console.log(json));
-    this.setState({ cityData, buildData, roadData, countyData, arcData });
+    this.setState({ cityData, buildData, roadData, countyData, arcData, medicalData ,shoppingData,cateringData});
   }
   //组件第一次渲染后调用
   componentDidMount() {
@@ -100,6 +104,43 @@ export default class OneMap extends Component {
     } = this.props;
 
     return [
+      new ColumnLayer({
+        id: 'puyang_medical',
+        data: this.state.medicalData,
+        diskResolution: 4,
+        radius: 100,
+        extruded: true,
+        elevationScale: 5,
+        getPosition: d =>d.coor,
+        getFillColor: [255,255,0],
+        getElevation: 100,
+
+      }),
+
+      new ColumnLayer({
+        id: 'puyang_shopping',
+        data: this.state.shoppingData,
+        diskResolution: 4,
+        radius: 100,
+        extruded: true,
+        elevationScale: 5,
+        getPosition: d =>d.coor,
+        getFillColor: [255,0,0],
+        getElevation: 100,
+
+      }),
+      new ColumnLayer({
+        id: 'catering_shopping',
+        data: this.state.cateringData,
+        diskResolution: 4,
+        radius: 100,
+        extruded: true,
+        elevationScale: 5,
+        getPosition: d =>d.coor,
+        getFillColor: [0,0,255],
+        getElevation: 100,
+
+      }),
       new PathLayer({
         id: 'pathlayer',
         data: this.state.roadData,
@@ -116,7 +157,7 @@ export default class OneMap extends Component {
         getWidth: 4,
         speed: 1.2,
       }),
-    
+
       new GeoJsonLayer({
         id: 'building-layer',
         data: this.state.buildData,
@@ -130,7 +171,7 @@ export default class OneMap extends Component {
         material: theme.material,
         opacity: 0.6
       }),
-   
+
       new GeoJsonLayer({
         id: 'county-Layer',
         data: this.state.countyData,
@@ -147,7 +188,7 @@ export default class OneMap extends Component {
 
     let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
     box.style.zIndex = ''
-    
+
     console.dir(e);
     map = e.target;
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
@@ -168,7 +209,7 @@ export default class OneMap extends Component {
     } = this.props;
 
     return (
-      <div style={{zIndex:'1'}}>
+      <div style={{ zIndex: '1' }}>
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
