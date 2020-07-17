@@ -30,6 +30,9 @@ $text-color:rgb(128, 0, 96);
         @extend .item;
         background: linear-gradient(90deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.66) 48%, rgba(17, 17, 17, 0.9) 100%);
     }
+    .noBottonPad{
+        padding-bottom:0px;
+    }
 }
 
 
