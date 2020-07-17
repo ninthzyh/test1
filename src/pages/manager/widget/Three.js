@@ -38,10 +38,10 @@ export default class extends Component {
         return <>
             <ChartHeader title='城市部件统计' />
             <div className={ManagerStyle.content}>
-                <div className={ManagerStyle.iconWrapper}>
+                <div className={ManagerStyle.threeWrapper}>
                     {this.iconList()}
                 </div>
-                <div className={ManagerStyle.iconWrapper}>
+                <div className={ManagerStyle.threeWrapper}>
                     {this.iconList2()}
                 </div>
 
