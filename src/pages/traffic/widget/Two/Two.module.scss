@@ -1,0 +1,132 @@
+@charset 'utf-8';
+.TrafficAccidentPage{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    // position: relative;
+    // :global(.swiper-container){
+    //     position: absolute;
+    //     left:0px;right:0px;
+    //     bottom:0px;top:0px;
+    //     margin:auto;
+    // }
+    .container{
+        margin:15px 50px;
+        height:100%;
+        background: rgba(4, 18, 34, 1);
+        padding:10px;
+        position: relative;
+    }
+    
+    .imageborder {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+    }
+
+    .imageborder1 {
+        top: 0;
+        left: 0;
+        border-left: 2px solid rgba(0, 143, 252, 1);
+        border-top: 2px solid rgba(0, 143, 252, 1);
+    }
+		
+    .imageborder2{
+        top: 0;
+        right: -1px;
+        border-right: 2px solid rgba(0, 143, 252, 1);
+        border-top: 2px solid rgba(0, 143, 252, 1);
+    }
+		
+    .imageborder3{
+        bottom: 0;
+        left: 0;
+        border-bottom: 2px solid rgba(0, 143, 252, 1);
+        border-left: 2px solid rgba(0, 143, 252, 1);
+    }
+		
+    .imageborder4 {
+        bottom: 0;
+        right: -1px;
+        border-right: 2px solid rgba(0, 143, 252, 1);
+        border-bottom: 2px solid rgba(0, 143, 252, 1);
+    }
+   .headerBox{
+       overflow: hidden;
+        .headerLeft{
+            color:red;
+            float:left;
+            font-size:10px;
+            overflow: hidden;
+            .iconImg{
+                display: inline-block;
+                width:20px;
+                height:15px;
+                float:left;
+                img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+            span:nth-child(2){
+                float:left;
+                height:20px;
+                line-height:20px;
+                margin-left:10px;
+            }
+        }
+        .headerRight{
+            color:red;
+            float:right;
+            font-size:10px;
+            height:20px;
+            line-height:20px;
+        }
+   }
+   .content{
+       overflow: hidden;
+       display: flex;
+        .imgBox{
+            width:60%;
+            height:90px;
+            float:left;
+            padding:10px 0px;
+            box-sizing: border-box;
+            img{
+                width:100%;
+                height:100%;
+            }
+        }
+        .traficDes{
+            padding:5px;
+            box-sizing: border-box;
+            flex:1;
+            color:rgba(239, 247, 253, 1);
+            font-size:10px;
+            line-height:20px;
+            p{
+                margin:0px;
+                padding:0px;
+                overflow: hidden;
+                text-overflow:ellipsis;
+                white-space: nowrap;
+            }
+        }
+   }
+   .swiperBtn{
+    width: 15px;
+	height:15px;
+	top: 60%;
+	outline: none;
+   }
+   :global(.swiper-button-prev){
+        // background:url('../../../../../public/img/traffic/next.png') no-repeat!important;
+        background-size: 15px 15px;
+        left: 5%;
+ }
+   :global(.swiper-button-next){
+    //   background:url('../../../../../public/img/traffic/next.png') no-repeat!important;
+      background-size: 15px 15px;
+      right: 5%;
+   }
+}
