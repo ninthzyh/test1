@@ -3,6 +3,7 @@ import SocietyStyle from '../Society.module.scss'
 import OneMap from '../mapController';
 import Eight from './Eight';
 import Two from './Two/Two.js'
+import Three from './Three/Three.js'
 import 'animate.css';
 import Six from './Six.js'
 class Index extends Component {
@@ -34,12 +35,12 @@ class Index extends Component {
                 <div className={SocietyStyle.leftWrapper}>
                     <div className={SocietyStyle.item}>1</div>
                     <div className={SocietyStyle.item}><Two /></div>
-                    <div className={SocietyStyle.item}>3</div>
+                    <div className={SocietyStyle.item}><Three /></div>
                 </div>
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Right')}>
                     <div className={SocietyStyle.itemRight}>4</div>
                     <div className={SocietyStyle.itemRight}>5</div>
-                    <div className={SocietyStyle.itemRight}><six/></div>
+                    <div className={SocietyStyle.itemRight}><Six/></div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
                     <div className={SocietyStyle.itemRight}>7</div>
