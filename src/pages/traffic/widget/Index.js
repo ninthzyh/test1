@@ -4,6 +4,7 @@ import OneMap from '../mapController';
 import Four from './Four/Four'
 import One from './one/One';
 import Six from './Six';
+import Five from './Five';
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +23,7 @@ class Index extends Component {
                 </div>
                 <div  className={TrafficStyle.rightWrapper}>
                     <div className={TrafficStyle.itemRight}><Four/></div>
-                    <div className={TrafficStyle.itemRight}>5</div>
+                    <div className={TrafficStyle.itemRight}><Five/></div>
                     <div className={TrafficStyle.itemRight}>
                         <Six />
                     </div>
