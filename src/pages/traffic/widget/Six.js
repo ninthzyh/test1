@@ -1,40 +1,47 @@
 import React, { Component } from 'react';
 import ReactEcharts from "echarts-for-react";
-import AffairsStyle from '../Affairs.module.scss'
+import AffairsStyle from '../../affairs/Affairs.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 
-export default class Two extends Component {
+export default class extends Component {
 
     getOption = () => {
         let option = {
-
             tooltip: {
                 trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    label: {
-                        backgroundColor: '#6a7985'
-                    }
-                }
             },
             grid: {
                 bottom: '10%',
                 top: '20%'
             },
+            legend:{
+                top:'5%',
+                right: 0,
+                data:[{
+                    name: '当日公交车客流',
+                    icon: 'line',
+                    textStyle:{
+                        color: '#9FCEFF',
+                    }
+                },{
+                    name:'当日出租车客流',
+                    icon: 'line',
+                    textStyle:{
+                        color: '#9FCEFF',
+                    }
+                }],
+            },
             xAxis: [{
                 type: 'category',
-                data: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+                data: ['','4:00', '8:00', '12:00', '20:00', '20:00'],
+                boundaryGap: false,
                 axisLine: {
                     show: true,
                     lineStyle: {
-                        color: "rgba(255,255,255,.1)",
                         width: 1,
+                         color: "rgba(255,255,255,1)",
                         type: "solid"
                     },
-                },
-
-                axisTick: {
-                    show: false,
                 },
                 axisLabel: {
                     interval: 0,
@@ -47,8 +54,7 @@ export default class Two extends Component {
                 },
             }],
             yAxis: [{
-                name: '数量',
-                nameTextStyle: {//y轴上方单位的颜色
+                nameTextStyle: {
                     color: '#4B8CD3'
                 },
                 type: 'value',
@@ -58,9 +64,6 @@ export default class Two extends Component {
                         color: "rgba(255,255,255,1)",
                         fontSize: '12',
                     },
-                },
-                axisTick: {
-                    show: false,
                 },
                 axisLine: {
                     show: true,
@@ -79,34 +82,45 @@ export default class Two extends Component {
             series: [
 
                 {
-                    name: '每月出行次数',
+                    name: '当日公交车客流',
                     type: 'line',
+                    symbolSize: 0,
                     areaStyle: {
-                        // 线性渐变，前四个参数分别是 x0, y0, x2, y2, 范围从 0 - 1，相当于在图形包围盒中的百分比，如果 globalCoord 为 `true`，则该四个值是绝对的像素位置
                         color: {
-                            type: 'linear',
-                            x: 0,
-                            y: 0,
-                            x2: 0,
-                            y2: 1,
                             colorStops: [{
-                                offset: 0, color: 'rgba(52,244,235,0.72)'// 0% 处的颜色
+                                offset: 0, color: 'rgba(71,200,255,0.38)'
                             }, {
-                                offset: 1, color: 'rgba(52,244,235,0)' // 100% 处的颜色
+                                offset: 1, color: 'rgba(71,200,255,0.12)' 
                             }],
-                            global: false // 缺省为 false
                         }
                     },
                     lineStyle: {
-                        color: '#34F4EB',
+                        color: '#47C8FF',
                     },
                     itemStyle: {
                         color: '#34F4EB',
-                        opacity: 1,
-                        barBorderRadius: 5,
                     },
-                    barWidth: '35%', //柱子宽度
-                    data: [500, 600, 780, 930, 1050, 1000, 900, 820, 780, 810, 800, 810],
+                    data: [50,48, 90, 80, 150, 120],
+                },{
+                    name: '当日出租车客流',
+                    type: 'line',
+                    symbolSize: 0,
+                    areaStyle: {
+                        color: {
+                            colorStops: [{
+                                offset: 0, color: 'rgba(38, 2, 155,0.38)'
+                            }, {
+                                offset: 1, color: 'rgba(38, 2, 155,0.12)' 
+                            }],
+                        }
+                    },
+                    lineStyle: {
+                        color: '#26029B',
+                    },
+                    itemStyle: {
+                        color: '#26029B',
+                    },
+                    data: [100,90, 150, 140, 210, 90],
                 }
             ]
         };

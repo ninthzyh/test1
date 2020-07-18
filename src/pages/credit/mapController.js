@@ -84,7 +84,8 @@ export default class OneMap extends Component {
     };
   }
   componentWillMount() {
-    this.setState({ cityData, buildData, roadData, countyData, arcData, companyData, placeData ,governmentData});
+    document.oncontextmenu = () => false;
+    this.setState({ cityData, buildData, roadData, countyData, arcData, companyData, placeData, governmentData });
   }
 
   //组件从DOM中移除之前调用
