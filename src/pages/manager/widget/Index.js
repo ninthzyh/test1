@@ -4,7 +4,7 @@ import OneMap from '../mapController';
 import One from './One';
 import Two from './Two/Two';
 import Three from './Three';
-import { T } from 'antd/lib/upload/utils';
+// import { T } from 'antd/lib/upload/utils';
 import Eleven from './Eleven';
 import Four from './four/Four'
 import FiveChart from './fiveChart/FiveChart';

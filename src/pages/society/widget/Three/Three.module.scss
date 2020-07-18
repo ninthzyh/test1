@@ -1,0 +1,36 @@
+.Three {
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  .content {
+    height: 80%;
+    width: 100%;
+    .top {
+      width: 100%;
+      height: 50%;
+      padding: 0 15px 0 15px;
+      .box {
+        width: 100%;
+        height: 100%;
+        margin: 10% auto;
+        .svgContainer {
+          display: inline-block;
+          position: relative;
+          width: 90%;
+          vertical-align: middle;
+          overflow: hidden;
+        }
+        .nameBox {
+          margin-top: 7%;
+          text-align: center;
+          color: #fff;
+          font-size: 11px;
+        }
+      }
+    }
+    .bottom {
+      width: 100%;
+      height: 50%;
+    }
+  }
+}

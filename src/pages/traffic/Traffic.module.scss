@@ -23,3 +23,43 @@
     border: 0;
     display: inline-block;
 }
+
+.three{
+    height: calc(100% - 40px);
+    .threeWrapper{
+        display: flex;
+        justify-content: space-around;
+        height: 100%;
+        .infoItem {
+            margin: 55px 5px 10px;
+            width: 206px;
+            height:80%;
+            .header{
+              padding: 5px;
+              height: 15%;
+              background:rgba(17,54,97,1);
+              border:1px solid rgba(20,238,255,1);
+              opacity:0.5;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .camera{
+                float: left;
+                width:13px;
+                height:13px;
+              }
+              .name{
+                float:right;
+                font-size:14px;
+                font-family:Microsoft YaHei;
+                font-weight:400;
+                color:rgba(237,237,237,1);
+              }
+            } 
+            .pic{
+                height:145px; 
+            }
+        }
+    }
+  }
+  

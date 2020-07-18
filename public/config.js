@@ -1,6 +1,6 @@
 
-global.weather = {
-    temperature: '32°',
+window.weather = {
+    temperature: '32°C',
     weathername: '晴间多云',
 };
 
