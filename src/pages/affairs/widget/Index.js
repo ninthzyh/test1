@@ -4,21 +4,21 @@ import OneMap from '../mapController';
 import One from './One.js';
 import Two from './Two';
 import Seven from './Seven';
-import Three from './serviceNumber/Three';
+import Three from './Three';
 import 'animate.css';
 import Fives from './Fives/Fives.js'
 import SixChart from './sixChart/SixChart';
 import Eight from './Eight';
 import Four from './Four/Four.js'
 import FourChart from './Four/FourChart/FourChart.js'
-import Eleven from './humanSocialBureau/Eleven';
+import Eleven from './Eleven';
 import Twelve from './Twelve.js';
 import Nine from './Nine';
 class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: false,
+            show: true,
         }
     }
     componentDidMount() {

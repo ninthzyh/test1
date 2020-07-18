@@ -1,5 +1,5 @@
 /* global window */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 // import {render} from 'react-dom';
 import { StaticMap } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
@@ -9,12 +9,19 @@ import DeckGL from '@deck.gl/react';
 import { GeoJsonLayer, PathLayer } from '@deck.gl/layers';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
 // import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
-// import ScanLayer from 'components/scan-layer/scan-layer';
 import cityData from 'assets/json/PuYang_City.geojson';
 import roadData from 'assets/json/PuYang_Roads.json';
 import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
+import ScanLayer from 'components/scan-layer/scan-layer';
+import ScatterpointLayer from 'components/scatterpoint-layer/scatterpoint-layer';
+import { HeatmapLayer, IconLayer } from 'deck.gl';
+import pointEmeData from 'assets/json/PuYang_Emergency_Point.json';
+import lineEmeData from 'assets/json/PuYang_Emergency_Line.json';
+import bufferEmeData from 'assets/json/PuYang_Emergency_Building.json'
+import { Popup} from 'react-map-gl';
+import './popup.css'
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -59,12 +66,23 @@ const DEFAULT_THEME = {
   material,
   effects: [lightingEffect]
 };
-
+const scanColors = {
+  Hospital:[0, 255, 0],
+  Police: [30 ,144 ,255],
+  Firecontrol: [0, 255 , 255],
+  Resident: [	255, 255, 0]
+};
+const scatterPointColors = {
+  Hospital:[0, 255,0],
+  Police: [30 ,144 ,255],
+  Firecontrol: [0, 255 , 255],
+  Resident: [	255, 255, 0]
+};
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.015,
-  latitude: 35.705,
-  zoom: 12,
+  longitude: 115.0336,
+  latitude: 35.768,
+  zoom: 13,
   pitch: 45,
   bearing: 0 //方位
 };
@@ -78,10 +96,8 @@ export default class OneMap extends Component {
     };
   }
   componentWillMount() {
-    // fetch(DATA_URL.CITY)
-    // .then(res => {res.json();debugger;})
-    // .then(json => console.log(json));
-    this.setState({ cityData, buildData, roadData, countyData, arcData });
+    document.oncontextmenu = () => false;
+    this.setState({ cityData, buildData, roadData, countyData, arcData, pointEmeData, lineEmeData, bufferEmeData });
   }
   //组件第一次渲染后调用
   componentDidMount() {
@@ -102,6 +118,36 @@ export default class OneMap extends Component {
     } = this.props;
 
     return [
+      new PathLayer({
+        id: 'pathEmergency',
+        data: this.state.lineEmeData,
+        getPath: d => d.geometry.paths[0],
+        getWidth: 40,
+        getColor: theme.arcColor,
+        opacity: 0.2
+      }),
+      new PolylineLayer({
+        id: 'lineEmergency',
+        data: this.state.lineEmeData,
+        getPath: d => d.geometry.paths[0],
+        image: imgUrl + '/path.png',
+        getWidth: 80,
+        speed: 2.2,
+      }),
+      // new HeatmapLayer({
+      //   id: 'heatmaplayer',
+      //   data: this.state.bufferEmeData,
+      //   intensity: 1.5,
+      //   radiusPixels: 80,
+      //   colorRange: [[1, 152, 189],
+      //   [73, 227, 206],
+      //   [216, 254, 181],
+      //   [254, 237, 177],
+      //   [254, 173, 84],
+      //   [209, 55, 78]],
+      //   getPosition: d => [d.geometry.x, d.geometry.y],
+      //   getWeight: d => d.attributes.pNumber,
+      // }),      
       new PathLayer({
         id: 'pathlayer',
         data: this.state.roadData,
@@ -137,18 +183,17 @@ export default class OneMap extends Component {
       //     image: imgUrl,
       //     speed: 1
       // }),
-      // new ScanLayer({
-      //     id:'pointone',
-      //     data:[
-      //       {position: [115.015, 35.7050], color: [200, 0, 0], radius: 1500}
-      //     ],
-      //     getPosition: d => d.position,
-      //     image: imgUrl + '/color.png',
-      //     imageNoise: imgUrl + '/depth.png',
-      //     getRadius: d => d.radius,
-      //     speed: 6,
-      //     getBlendColor: [0, 255, 0]
-      // }),
+      new ScatterpointLayer({
+        id:'pointone',
+        data: this.state.pointEmeData,
+        getPosition: d => [d.geometry.x, d.geometry.y],
+        getLineWidth: 50,
+        getRadius: 500,
+        getLineColor: d => scatterPointColors[d.attributes.Type],
+        speed: 5.0,
+        // stroked: true,
+        // filled: false
+      }),
       new GeoJsonLayer({
         id: 'building-layer',
         data: this.state.buildData,
@@ -162,6 +207,16 @@ export default class OneMap extends Component {
         material: theme.material,
         opacity: 0.6
       }),
+      new ScanLayer({
+        id:'pointoneEme',
+        data:this.state.pointEmeData,
+        getPosition: d => [d.geometry.x, d.geometry.y],
+        image: imgUrl + '/color.png',
+        imageNoise: imgUrl + '/depth.png',
+        getRadius: 500,
+        speed: 8,
+        getBlendColor: d => scanColors[d.attributes.Type],
+    }),
       // new GeoJsonLayer({
       //   id: 'city-layer',
       //   data:this.state.cityData,
@@ -190,6 +245,9 @@ export default class OneMap extends Component {
     ];
   }
   _onLoad(e) {
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = ''
+
     console.dir(e);
     map = e.target;
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
@@ -227,7 +285,24 @@ export default class OneMap extends Component {
             preventStyleDiffing={true}
             mapboxApiAccessToken={MAPBOX_TOKEN}
             onLoad={this._onLoad}
-          />
+            >
+            {
+              <Fragment>
+                {this.state.pointEmeData.map((value, index) => {
+                  return <Popup className={`emergency popupEmergency${index + 1}`}
+                    longitude={value.geometry.x}
+                    latitude={value.geometry.y}
+                    altitude={80}
+                    closeButton={false}
+                    visible={true}
+                    key={index}
+                  >
+                    <div className='fontEmergency'>{value.attributes.Name}</div>
+                  </Popup>
+                })}              
+              </Fragment>
+            }      
+            </StaticMap>  
         </DeckGL>
 
       </div>

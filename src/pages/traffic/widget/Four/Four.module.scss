@@ -1,0 +1,53 @@
+
+.fourContainer {
+    width: 100%;
+    height: 100%;
+
+    .infoItemBox {
+        // width: calc(100% - 25px);
+        // height: calc(100% - 49px);
+        width: 100%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .infoItem {
+            width: 45%;
+            text-align: left;
+
+            .itemPic{
+                width: 56px;
+                height: 56px;  
+                float: left;
+            }
+
+            .itemName {
+                text-indent:16px;
+                font-size:14px;
+                font-family:"Adobe Heiti Std";
+                font-weight:normal;
+                color:rgba(255,255,255,1);
+            }
+
+            .itemNumber {  
+                text-indent:16px;
+                font-size:36px;
+                font-family:Arial;
+                font-weight:bold;
+                color:rgba(5,222,255,1);    
+                margin-top: 14px;            
+            }
+
+            .itemUnit {
+                display:inline;
+                font-size:14px;
+                font-family:Arial;
+                font-weight:bold;
+                color:rgba(5,222,255,1);
+            }
+        }
+
+    }
+}

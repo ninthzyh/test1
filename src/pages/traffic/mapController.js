@@ -1,20 +1,22 @@
 /* global window */
 import React, { Component } from 'react';
-// import {render} from 'react-dom';
 import { StaticMap } from 'react-map-gl';
-import mapboxgl from 'mapbox-gl';
-import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
+import { HeatmapLayer, IconLayer } from 'deck.gl';
 import DeckGL from '@deck.gl/react';
-import { GeoJsonLayer, PathLayer } from '@deck.gl/layers';
+import { GeoJsonLayer, PathLayer, ArcLayer } from '@deck.gl/layers';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
-// import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
-// import ScanLayer from 'components/scan-layer/scan-layer';
+import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
+import ScatterpointLayer from 'components/scatterpoint-layer/scatterpoint-layer';
+import { changeMapboxLanguage } from '../../untils/MapUtils';
 import cityData from 'assets/json/PuYang_City.geojson';
 import roadData from 'assets/json/PuYang_Roads.json';
 import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
+import targetPos from 'assets/json/PuYang_TargetPositions.json';
+import roadHeatmap from 'assets/json/PuYang_Road_Points.geojson';
+import governmentData from '../../assets/json/Puyang_Government.json';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -35,10 +37,6 @@ const pointLightRight = new PointLight({
   intensity: 2.0,
   position: [115.1525, 35.8060, 8000]
 });
-// const directionalLight = new DirectionalLight({
-//   color: [255, 0, 0],
-//   position: []
-// })
 
 const lightingEffect = new LightingEffect({
   ambientLight,
@@ -55,18 +53,19 @@ const DEFAULT_THEME = {
   buildingColor: [74, 80, 87],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
-  arcColor: [255, 78, 1],
+  arcColor: [255, 255, 255],
+  pathColor: [255, 0, 0],
   material,
   effects: [lightingEffect]
 };
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.015,
-  latitude: 35.705,
+  longitude: 115.04135933966147,
+  latitude: 35.76466549083701,
   zoom: 12,
-  pitch: 45,
-  bearing: 0 //方位
+  pitch: 60,
+  bearing: -60 //方位
 };
 
 export default class OneMap extends Component {
@@ -81,7 +80,8 @@ export default class OneMap extends Component {
     // fetch(DATA_URL.CITY)
     // .then(res => {res.json();debugger;})
     // .then(json => console.log(json));
-    this.setState({ cityData, buildData, roadData, countyData, arcData });
+    document.oncontextmenu = () => false;
+    this.setState({ cityData, buildData, roadData, countyData, arcData, targetPos, roadHeatmap, governmentData });
   }
   //组件第一次渲染后调用
   componentDidMount() {
@@ -106,49 +106,44 @@ export default class OneMap extends Component {
         id: 'pathlayer',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        getWidth: 4,
-        getColor: theme.arcColor,
-        opacity: 0.2
+        getWidth: 5,
+        getColor: theme.pathColor,
+        opacity: 1.0
       }),
       new PolylineLayer({
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
         image: imgUrl + '/path.png',
-        getWidth: 4,
-        speed: 1.2,
+        getWidth: 5,
+        speed: 5,
       }),
-      // new ArcLayer({
-      //     id:'arclayerext',
-      //     data: this.state.arcData,
-      //     getSourcePosition: d => d.from,
-      //     getTargetPosition: d => d.to,
-      //     getSourceColor: theme.arcColor,
-      //     getTargetColor: theme.arcColor,
-      //     getWidth: 2,
-      //     opacity: 0.2
-      // }),
-      // new ArcLayerExt({
-      //     id:'arclayerext',
-      //     data: this.state.arcData,
-      //     getSourcePosition: d => d.from,
-      //     getTargetPosition: d => d.to,
-      //     getWidth: 2,
-      //     image: imgUrl,
-      //     speed: 1
-      // }),
-      // new ScanLayer({
-      //     id:'pointone',
-      //     data:[
-      //       {position: [115.015, 35.7050], color: [200, 0, 0], radius: 1500}
-      //     ],
-      //     getPosition: d => d.position,
-      //     image: imgUrl + '/color.png',
-      //     imageNoise: imgUrl + '/depth.png',
-      //     getRadius: d => d.radius,
-      //     speed: 6,
-      //     getBlendColor: [0, 255, 0]
-      // }),
+      new ArcLayerExt({
+        id: 'arclayerext',
+        data: this.state.arcData,
+        getSourcePosition: d => d.from,
+        getTargetPosition: d => d.to,
+        getWidth: 3,
+        image: imgUrl + "/path4.png",
+        speed: 3
+      }),
+      new HeatmapLayer({
+        id: 'heatmaplayer',
+        data: this.state.roadHeatmap,
+        intensity: 2,
+        radiusPixels: 20,
+        colorRange: [[255, 255, 174], [255, 218, 110], [255, 179, 63], [255, 141, 46], [243, 57, 11], [191, 0, 32]],
+        getPosition: d => d.geometry.coordinates,
+        getWeight: d => { return Math.floor(Math.random() * (500 - 300 + 1) + 300) },
+      }),
+      new ScatterpointLayer({
+        data: this.state.targetPos,
+        getRadius: 1500,
+        getPosition: d => d.position,
+        speed: 4.0,
+        getColor: [255, 255, 0],
+        getLineWidth: 60
+      }),
       new GeoJsonLayer({
         id: 'building-layer',
         data: this.state.buildData,
@@ -162,21 +157,6 @@ export default class OneMap extends Component {
         material: theme.material,
         opacity: 0.6
       }),
-      // new GeoJsonLayer({
-      //   id: 'city-layer',
-      //   data:this.state.cityData,
-      //   pickable: true,
-      //   stroked: true,
-      //   filled: false,
-      //   extruded: false,
-      //   lineWidthScale: 2,
-      //   lineWidthMinPixels: 2,
-      //   getFillColor: [160, 160, 180, 100],
-      //   getLineColor: [255,0,0],
-      //   getRadius: 100,
-      //   getLineWidth: 2,
-      //   // wireframe: true
-      // }),
       new GeoJsonLayer({
         id: 'county-Layer',
         data: this.state.countyData,
@@ -190,16 +170,8 @@ export default class OneMap extends Component {
     ];
   }
   _onLoad(e) {
-    console.dir(e);
     map = e.target;
-    mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
-    map.addControl(new MapboxLanguage({
-      defaultLanguage: 'zh'
-    }));
-    // e.target.setLayoutProperty('country-label', 'text-field', [
-    //   'get',
-    //   'name_zh'
-    //   ]);
+    changeMapboxLanguage(map);
   }
 
   render() {
@@ -210,7 +182,7 @@ export default class OneMap extends Component {
     } = this.props;
 
     return (
-      <div style={{zIndex:'1'}}>
+      <div style={{ zIndex: '1' }}>
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
