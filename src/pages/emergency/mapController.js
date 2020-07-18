@@ -97,7 +97,7 @@ const scanImgs = {
   Weather: weatherImg,
 };
 const scanImgsTwo = [hospitalImg, firecontrolImg, policeImg, hospitalImg, weatherImg, policeImg, residentImg];
- 
+
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置
   longitude: 115.0336,
@@ -145,139 +145,40 @@ export default class OneMap extends Component {
       // trips = DATA_URL.TRIPS,
       theme = DEFAULT_THEME,
     } = this.props;
-
-    return [
+    const baseLayers = [
       new PathLayer({
-        id: "pathEmergency",
-        data: this.state.lineEmeData,
-        getPath: (d) => d.geometry.paths[0],
-        getWidth: 40,
+        id: 'pathlayer',
+        data: this.state.roadData,
+        getPath: d => d.geometry.coordinates[0],
+        getWidth: 4,
         getColor: theme.arcColor,
-        opacity: 0.2,
+        opacity: 0.2
       }),
-      new PolylineLayer({
-        id: "lineEmergency",
-        data: this.state.lineEmeData,
-        getPath: (d) => d.geometry.paths[0],
-        image: pathImg,
-        getWidth: 80,
-        speed: 2.2,
-      }),
-      // new HeatmapLayer({
-      //   id: 'heatmaplayer',
-      //   data: this.state.bufferEmeData,
-      //   intensity: 1.5,
-      //   radiusPixels: 80,
-      //   colorRange: [[1, 152, 189],
-      //   [73, 227, 206],
-      //   [216, 254, 181],
-      //   [254, 237, 177],
-      //   [254, 173, 84],
-      //   [209, 55, 78]],
-      //   getPosition: d => [d.geometry.x, d.geometry.y],
-      //   getWeight: d => d.attributes.pNumber,
+      // new PolylineLayer({
+      //   id: 'path',
+      //   data: this.state.roadData,
+      //   getPath: d => d.geometry.coordinates[0],
+      //   // image: imgUrl + '/path.png',
+      //   getWidth: 4,
+      //   speed: 1.2,
       // }),
-      new PathLayer({
-        id: "pathlayer",
-        data: this.state.roadData,
-        getPath: (d) => d.geometry.coordinates[0],
-        getWidth: 4,
-        getColor: theme.arcColor,
-        opacity: 0.2,
-      }),
-      new PolylineLayer({
-        id: "path",
-        data: this.state.roadData,
-        getPath: (d) => d.geometry.coordinates[0],
-        image: pathImg,
-        getWidth: 4,
-        speed: 1.2,
-      }),
-      new ScatterpointLayer({
-        id: "pointone",
-        data: this.state.pointEmeData,
-        getPosition: (d) => [d.geometry.x, d.geometry.y],
-        getLineWidth: 50,
-        getRadius: 500,
-        getLineColor: (d) => scatterPointColors[d.attributes.Type],
-        speed: 5.0,
-        // stroked: true,
-        // filled: false
-      }),
+
       new GeoJsonLayer({
-        id: "building-layer",
+        id: 'building-layer',
         data: this.state.buildData,
         stroked: true,
         filled: true,
         extruded: true,
         lineWidthMinPixels: 2,
         elevationScale: 1,
-        getElevation: (d) => d.properties.height,
+        getElevation: d => d.properties.height,
         getFillColor: theme.buildingColor,
         material: theme.material,
         opacity: 0.6,
       }),
-      
-      this.state.pointEmeData.map((value, index) => {
-        console.log(value)
-        console.log(`pointEme${index + 1}`)
-        console.log(scanImgsTwo[index])
-        return (
-          new ScanLayer({
-            id: `pointEme${index + 1}`,
-            data: value,
-            getPosition: (d) => [d.geometry.x, d.geometry.y],
-            image: scanImgsTwo[index],
-            imageNoise: depthImg,
-            getRadius: 500,
-            speed: 8,
-            getBlendColor: (d) => scanColors[d.attributes.Type],
-          })
-        )
-      }),
-      // new ScanLayer({
-      //   id: "pointoneEme",
-      //   data: this.state.pointEmeData,
-      //   getPosition: (d) => [d.geometry.x, d.geometry.y],
-      //   image: () =>this.state.pointEmeData((item)=> {
-         
-      //     switch (item.attributes.Type) {
-      //       case "Police":
-      //         return policeImg;
-      //       case "Resident":
-      //         return residentImg;
-      //       case "Firecontrol":
-      //         return firecontrolImg;
-      //       case " Hospital":
-      //         return hospitalImg;
-      //       case "Weather":
-      //         return weatherImg;
-      //     }
-      //   })
-       
-      //   ,
-      //   imageNoise: depthImg,
-      //   getRadius: 500,
-      //   speed: 8,
-      //   getBlendColor: (d) => scanColors[d.attributes.Type],
-      // }),
-      // new GeoJsonLayer({
-      //   id: 'city-layer',
-      //   data:this.state.cityData,
-      //   pickable: true,
-      //   stroked: true,
-      //   filled: false,
-      //   extruded: false,
-      //   lineWidthScale: 2,
-      //   lineWidthMinPixels: 2,
-      //   getFillColor: [160, 160, 180, 100],
-      //   getLineColor: [255,0,0],
-      //   getRadius: 100,
-      //   getLineWidth: 2,
-      //   // wireframe: true
-      // }),
+
       new GeoJsonLayer({
-        id: "county-Layer",
+        id: 'county-Layer',
         data: this.state.countyData,
         stroked: true,
         filled: false,
@@ -285,8 +186,168 @@ export default class OneMap extends Component {
         lineWidthMinPixels: 2,
         getLineColor: [255, 255, 0],
         getLineWidth: 2,
-      }),
-    ];
+      })
+    ]
+    this.state.pointEmeData.map((value, index) => {
+      console.log(value)
+      console.log(`pointEme${index + 1}`)
+      console.log(scanImgsTwo[index])
+      baseLayers.push(
+        new ScanLayer({
+          id: `pointEme${index + 1}`,
+          data: [value],
+          getPosition: (d) => [d.geometry.x, d.geometry.y],
+          image: scanImgsTwo[index],
+          imageNoise: depthImg,
+          getRadius: 500,
+          speed:0.8,
+          getBlendColor: (d) => scanColors[d.attributes.Type],
+        })
+      )
+       
+    })
+    return baseLayers
+    // return [
+    //   new PathLayer({
+    //     id: "pathEmergency",
+    //     data: this.state.lineEmeData,
+    //     getPath: (d) => d.geometry.paths[0],
+    //     getWidth: 40,
+    //     getColor: theme.arcColor,
+    //     opacity: 0.2,
+    //   }),
+    //   new PolylineLayer({
+    //     id: "lineEmergency",
+    //     data: this.state.lineEmeData,
+    //     getPath: (d) => d.geometry.paths[0],
+    //     image: pathImg,
+    //     getWidth: 80,
+    //     speed: 2.2,
+    //   }),
+    //   // new HeatmapLayer({
+    //   //   id: 'heatmaplayer',
+    //   //   data: this.state.bufferEmeData,
+    //   //   intensity: 1.5,
+    //   //   radiusPixels: 80,
+    //   //   colorRange: [[1, 152, 189],
+    //   //   [73, 227, 206],
+    //   //   [216, 254, 181],
+    //   //   [254, 237, 177],
+    //   //   [254, 173, 84],
+    //   //   [209, 55, 78]],
+    //   //   getPosition: d => [d.geometry.x, d.geometry.y],
+    //   //   getWeight: d => d.attributes.pNumber,
+    //   // }),
+    //   new PathLayer({
+    //     id: "pathlayer",
+    //     data: this.state.roadData,
+    //     getPath: (d) => d.geometry.coordinates[0],
+    //     getWidth: 4,
+    //     getColor: theme.arcColor,
+    //     opacity: 0.2,
+    //   }),
+    //   new PolylineLayer({
+    //     id: "path",
+    //     data: this.state.roadData,
+    //     getPath: (d) => d.geometry.coordinates[0],
+    //     image: pathImg,
+    //     getWidth: 4,
+    //     speed: 1.2,
+    //   }),
+    //   new ScatterpointLayer({
+    //     id: "pointone",
+    //     data: this.state.pointEmeData,
+    //     getPosition: (d) => [d.geometry.x, d.geometry.y],
+    //     getLineWidth: 50,
+    //     getRadius: 500,
+    //     getLineColor: (d) => scatterPointColors[d.attributes.Type],
+    //     speed: 5.0,
+    //     // stroked: true,
+    //     // filled: false
+    //   }),
+    //   new GeoJsonLayer({
+    //     id: "building-layer",
+    //     data: this.state.buildData,
+    //     stroked: true,
+    //     filled: true,
+    //     extruded: true,
+    //     lineWidthMinPixels: 2,
+    //     elevationScale: 1,
+    //     getElevation: (d) => d.properties.height,
+    //     getFillColor: theme.buildingColor,
+    //     material: theme.material,
+    //     opacity: 0.6,
+    //   }),
+
+    //   this.state.pointEmeData.map((value, index) => {
+    //     console.log(value)
+    //     console.log(`pointEme${index + 1}`)
+    //     console.log(scanImgsTwo[index])
+    //     return (
+    //       new ScanLayer({
+    //         id: `pointEme${index + 1}`,
+    //         data: value,
+    //         getPosition: (d) => [d.geometry.x, d.geometry.y],
+    //         image: scanImgsTwo[index],
+    //         imageNoise: depthImg,
+    //         getRadius: 500,
+    //         speed: 8,
+    //         getBlendColor: (d) => scanColors[d.attributes.Type],
+    //       })
+    //     )
+    //   }),
+    //   // new ScanLayer({
+    //   //   id: "pointoneEme",
+    //   //   data: this.state.pointEmeData,
+    //   //   getPosition: (d) => [d.geometry.x, d.geometry.y],
+    //   //   image: () =>this.state.pointEmeData((item)=> {
+
+    //   //     switch (item.attributes.Type) {
+    //   //       case "Police":
+    //   //         return policeImg;
+    //   //       case "Resident":
+    //   //         return residentImg;
+    //   //       case "Firecontrol":
+    //   //         return firecontrolImg;
+    //   //       case " Hospital":
+    //   //         return hospitalImg;
+    //   //       case "Weather":
+    //   //         return weatherImg;
+    //   //     }
+    //   //   })
+
+    //   //   ,
+    //   //   imageNoise: depthImg,
+    //   //   getRadius: 500,
+    //   //   speed: 8,
+    //   //   getBlendColor: (d) => scanColors[d.attributes.Type],
+    //   // }),
+    //   // new GeoJsonLayer({
+    //   //   id: 'city-layer',
+    //   //   data:this.state.cityData,
+    //   //   pickable: true,
+    //   //   stroked: true,
+    //   //   filled: false,
+    //   //   extruded: false,
+    //   //   lineWidthScale: 2,
+    //   //   lineWidthMinPixels: 2,
+    //   //   getFillColor: [160, 160, 180, 100],
+    //   //   getLineColor: [255,0,0],
+    //   //   getRadius: 100,
+    //   //   getLineWidth: 2,
+    //   //   // wireframe: true
+    //   // }),
+    //   new GeoJsonLayer({
+    //     id: "county-Layer",
+    //     data: this.state.countyData,
+    //     stroked: true,
+    //     filled: false,
+    //     extruded: false,
+    //     lineWidthMinPixels: 2,
+    //     getLineColor: [255, 255, 0],
+    //     getLineWidth: 2,
+    //   }),
+    // ];
   }
   _onLoad(e) {
     let box = document.getElementsByClassName("mapboxgl-map")[0].parentNode;
