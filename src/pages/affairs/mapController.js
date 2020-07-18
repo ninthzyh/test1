@@ -20,7 +20,7 @@ import arcData from 'assets/json/PuYang_arc.json';
 import heatmapData from 'assets/json/builidingCenter.json';
 import governmentData from 'assets/json/Puyang_Government.json';
 import policeData from 'assets/json/Puyang_Police.json';
-import policeIcon from 'img/affairs/police2.png';
+import policeIcon from 'img/affairs/police.png';
 import governIcon from 'img/affairs/govern.png';
 import pathIcon from 'img/path.png';
 import { Popup } from 'react-map-gl';

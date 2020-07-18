@@ -76,7 +76,7 @@ void main(void) {
   // gl_FragColor = xposure(_fColor,_lum,time);
   vec2 flow = fract(textureCoord - vec2(time * speed, time * speed));
   vec4 noiseMap = texture2D(depthTexture,flow);
-  vec2 noiseUV =  fract(textureCoord - vec2(noiseMap.r,noiseMap.g) * 0.8);
+  vec2 noiseUV =  fract(textureCoord - vec2(noiseMap.r,noiseMap.b) * 0.7);
   gl_FragColor = texture2D(colorTexture,noiseUV) * vBlendColor;
 
   gl_FragColor.a *= inCircle;

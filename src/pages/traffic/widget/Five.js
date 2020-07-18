@@ -117,7 +117,7 @@ export default class Five extends Component {
         ],
         grid: {
             bottom: '3%',
-            top: '33%',
+            top: '36%',
             right:'5%',
             left:'1%',
             containLabel: true
@@ -126,7 +126,7 @@ export default class Five extends Component {
         color: ['#47C8FF', '#2C00BB', '#FFC900','#00FF5A', '#FF00FF', '#FA0029'],
         xAxis: {
             type: 'category',
-            boundaryGap: true,       
+            boundaryGap: false,       
             axisLabel: { 
                 interval: 1,//0代表显示所有x轴标签显示
                 textStyle: {

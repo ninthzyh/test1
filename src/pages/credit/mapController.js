@@ -15,9 +15,13 @@ import roadData from 'assets/json/PuYang_Roads.json';
 import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
-import companyData from '../../assets/json/PuYang_Company.json';
-import placeData from '../../assets/json/PuYang_Place.json';
-import governmentData from '../../assets/json/Puyang_Government.json';
+import companyData from 'assets/json/PuYang_Company.json';
+import placeData from 'assets/json/PuYang_Place.json';
+import governmentData from 'assets/json/Puyang_Government.json';
+
+import companyIcon from 'img/credit/company.png';
+import governIcon from 'img/credit/govern.png';
+
 import { Popup } from 'react-map-gl';
 import { IconLayer } from 'deck.gl';
 import './creditPopup.css';
@@ -147,31 +151,19 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: 'http://localhost:3000/img/credit/company.png',
+        iconAtlas: companyIcon,
         sizeScale: 2,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
         getSize: d => { return 10 },
       }),
-      // new IconLayer({
-      //   id: 'place_icon',
-      //   data: this.state.placeData,
-      //   iconMapping: {
-      //     marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
-      //   },
-      //   iconAtlas: 'http://localhost:3000/img/credit/place.png',
-      //   sizeScale: 2,
-      //   getIcon: d => 'marker',
-      //   getPosition: d => [d.coor[0], d.coor[1], 80],
-      //   getSize: d => { return 10 },
-      // }),
       new IconLayer({
         id: 'government_icon',
         data: this.state.governmentData,
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: 'http://localhost:3000/img/affairs/govern.png',
+        iconAtlas: governIcon,
         sizeScale: 2,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
