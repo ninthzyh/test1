@@ -127,20 +127,19 @@ export default class Three extends Component {
             <Row>
               {this.state.data.map((item, index) => {
                 return (
-                  <Col span={6}>
+                  <Col span={6} key={index}>
                     <div className={style.box}>
                       <div className={style.svgContainer}>
                         <svg
                           version="1.1"
                           viewBox="0 0 200 200"
                           preserveAspectRatio="xMinYMin meet"
-                          class="svg-content"
                         >
                           <circle
                             fill="none"
                             stroke={item.color}
-                            stroke-width="15"
-                            stroke-miterlimit="10"
+                            strokeWidth="15"
+                            strokeMiterlimit="10"
                             cx="100"
                             cy="100"
                             r="80"
@@ -150,8 +149,8 @@ export default class Three extends Component {
                             x="50%"
                             y="45%"
                             fill={item.color}
-                            font-size="40"
-                            text-anchor="middle"
+                            fontSize="40"
+                            textAnchor="middle"
                           >
                             {item.num}
                           </text>
@@ -159,8 +158,8 @@ export default class Three extends Component {
                             x="50%"
                             y="65%"
                             fill={item.color}
-                            font-size="30"
-                            text-anchor="middle"
+                            fontSize="30"
+                            textAnchor="middle"
                           >
                             {item.unit}
                           </text>

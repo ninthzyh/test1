@@ -79,12 +79,6 @@ export default class extends Component {
               fontsize: 8,
               position: 'outer',
               formatter: function (params) {
-                let percent = 0
-                let total = 0
-                for (let i = 0; i < number.length; i++) {
-                  total += number[i].value
-                }
-                percent = ((params.value / total) * 100).toFixed(0)
                 if (params.name !== '') {
                   return params.name
                 } else {
