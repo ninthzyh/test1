@@ -10,7 +10,7 @@ class Index extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: false,
+            show: true,
         }
     }
     componentDidMount() {
