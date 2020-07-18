@@ -8,25 +8,25 @@ class Four extends Component {
         this.state = {
             infoList:[
                 {
-                    pic:"img/traffic/four1.png",
+                    pic:require("img/traffic/four1.png"),
                     name:"社会公共停车位",
                     count: 8769,
                     unit:"个"
                 },
                 {
-                    pic:"img/traffic/four2.png",
+                    pic:require("img/traffic/four2.png"),
                     name:"充电桩",
                     count: 124,
                     unit:"个"
                 },
                 {
-                    pic:"img/traffic/four3.png",
+                    pic:require("img/traffic/four3.png"),
                     name:"平均停车时长",
                     count: 24,
                     unit:"h"
                 },
                 {
-                    pic:"img/traffic/four4.png",
+                    pic:require("img/traffic/four4.png"),
                     name:"建筑配建停车场",
                     count: 98,
                     unit:"个"

@@ -10,23 +10,30 @@ export const fiveList = {
 				type: 'cross'
 			}
 		},
-		xAxis: [{
-			type: 'category',
-			axisTick: {
-				show: true
+		xAxis: [
+			{
+				type: 'category',
+				axisTick: {
+					show: false
+				},
+				axisLine: {
+					lineStyle: {
+						color: colors[3]
+					}
+				},
+				axisLabel: {
+					textStyle: {
+						color: colors[0]
+					}
+				},
+				data: ['2016年', '2017年', '2018年', '2019年', '2020年']
 			},
-			axisLine: {
-				lineStyle: {
-					color: colors[3]
-				}
-			},
-			axisLabel: {
-				textStyle: {
-					color: colors[0]
-				}
-			},
-			data: ['2016年', '2017年', '2018年', '2019年', '2020年']
-		}],
+			{
+				type: 'value',
+				max: 500,
+				show:	false
+			}
+		],
 		yAxis: [{
 			type: 'value',
 			name: '数量',
@@ -99,6 +106,7 @@ export const fiveList = {
 			},
 			{
 				name: '人均可支配增长率',
+        xAxisIndex: 1,
 				type: 'line',
 				barWidth:10,
 				data: [200, 400, 500, 600, 570],
@@ -115,6 +123,7 @@ export const fiveList = {
 			},
 			{
 				name: '全县生产值增长率',
+        xAxisIndex: 1,
 				type: 'line',
 				barWidth:10,
 				data: [500, 700, 780, 830, 760],
@@ -130,3 +139,5 @@ export const fiveList = {
 		]
 	}
 }
+fiveList.option.series[2].data = fiveList.option.series[2].data.map((x, i) => [40 + i * 100, x])
+fiveList.option.series[3].data = fiveList.option.series[3].data.map((x, i) => [60 + i * 100, x])
