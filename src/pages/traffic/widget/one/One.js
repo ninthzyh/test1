@@ -122,7 +122,7 @@ export default class One extends Component {
             <div className={OneStyle.fiveMain}>
                 <ChartHeader title='基础设施' />
                 <div className={OneStyle.chart}>
-                    <ReactEcharts style={{ width: '100%', height: '100%' }} option={this.getOption(this.state.Data, this.state.Name)} />
+                    <ReactEcharts style={{ width: '100%', height: '110%' }} option={this.getOption(this.state.Data, this.state.Name)} />
                 </div>
             </div>
         );
