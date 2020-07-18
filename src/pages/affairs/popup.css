@@ -17,34 +17,34 @@ display: flex;
 }
 
 .popup1 .mapboxgl-popup-content{
-background:url("../../../public/img/affairs/top1.png") no-repeat;
+background:url("~img/affairs/top1.png") no-repeat;
 }
 .popup2 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top2.png") no-repeat;
+  background:url("~img/affairs/top2.png") no-repeat;
 }
 .popup3 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top3.png") no-repeat;
+  background:url("~img/affairs/top3.png") no-repeat;
 }
 .popup4 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top4.png") no-repeat;
+  background:url("~img/affairs/top4.png") no-repeat;
 }
 .popup5 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top4.png") no-repeat;
+  background:url("~img/affairs/top4.png") no-repeat;
 }
 .popup6 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top4.png") no-repeat;
+  background:url("~img/affairs/top4.png") no-repeat;
 }
 .popup7 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top4.png") no-repeat;
+  background:url("~img/affairs/top4.png") no-repeat;
 }
 .popup8 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top4.png") no-repeat;
+  background:url("~img/affairs/top4.png") no-repeat;
 }
 .popup9 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top4.png") no-repeat;
+  background:url("~img/affairs/top4.png") no-repeat;
 }
 .popup10 .mapboxgl-popup-content{
-  background:url("../../../public/img/affairs/top4.png") no-repeat;
+  background:url("~img/affairs/top4.png") no-repeat;
 }
 
 

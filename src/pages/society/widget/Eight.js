@@ -15,7 +15,7 @@ class Index extends Component {
                 <ChartHeader title='走进濮阳' />
                 <div className={SocietyStyle.eightContainer}>
                     <div>
-                        <img src="img/credit/news.png" width='120px' height='81px' alt=""/>
+                        <img src={require("img/credit/news.png")} width='120px' height='81px' alt=""/>
                         <div>
                             <p className={SocietyStyle.title}>荣誉</p>
                             <p>国家紧密型医共体建设试点县国
@@ -24,7 +24,7 @@ class Index extends Component {
                         </div>
                     </div>
                     <div>
-                        <img src="img/credit/news.png" width='120px' height='81px' alt=""/>
+                        <img src={require("img/credit/news.png")} width='120px' height='81px' alt=""/>
                         <div>
                             <p className={SocietyStyle.title}>荣誉</p>
                             <p>国家紧密型医共体建设试点县国

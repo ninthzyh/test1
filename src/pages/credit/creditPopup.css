@@ -9,17 +9,17 @@ border-radius:4px;
 .creditPopup1 .mapboxgl-popup-content{
 width:281px;
 height:274px; 
-background:url("../../../public/img/credit/marketFrame.png") no-repeat;
+background:url("~img/credit/marketFrame.png") no-repeat;
 }
 .creditPopup2 .mapboxgl-popup-content{
 width:264px;
 height:238px; 
-background:url("../../../public/img/credit/revenueFrame.png") no-repeat;
+background:url("~img/credit/revenueFrame.png") no-repeat;
 }
 .creditPopup3 .mapboxgl-popup-content{
 width:264px;
 height:224px;
-background:url("../../../public/img/credit/patentFrame.png") no-repeat;
+background:url("~img/credit/patentFrame.png") no-repeat;
 }
 .title{
   width:auto;
