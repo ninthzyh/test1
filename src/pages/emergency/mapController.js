@@ -96,9 +96,7 @@ export default class OneMap extends Component {
     };
   }
   componentWillMount() {
-    // fetch(DATA_URL.CITY)
-    // .then(res => {res.json();debugger;})
-    // .then(json => console.log(json));
+    document.oncontextmenu = () => false;
     this.setState({ cityData, buildData, roadData, countyData, arcData, pointEmeData, lineEmeData, bufferEmeData });
   }
   //组件第一次渲染后调用

@@ -4,9 +4,9 @@ import React, { Component, Fragment } from 'react';
 import { StaticMap } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
-import {changeMapboxLanguage} from 'untils/MapUtils';
+import { changeMapboxLanguage } from 'untils/MapUtils';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
-import DeckGL, {FlyToInterpolator} from 'deck.gl';
+import DeckGL, { FlyToInterpolator } from 'deck.gl';
 import { GeoJsonLayer, PathLayer, } from '@deck.gl/layers';
 import { HeatmapLayer, IconLayer } from 'deck.gl';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
@@ -22,7 +22,7 @@ import governmentData from 'assets/json/Puyang_Government.json';
 import policeData from 'assets/json/Puyang_Police.json';
 import policeIcon from 'img/affairs/police2.png';
 import governIcon from 'img/affairs/govern.png';
-import { Popup} from 'react-map-gl';
+import { Popup } from 'react-map-gl';
 import './popup.css';
 
 // Set your mapbox token here
@@ -64,7 +64,7 @@ const DEFAULT_THEME = {
   buildingColor: [74, 80, 87],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
-  borderColor: [61,169,125],
+  borderColor: [61, 169, 125],
   arcColor: [255, 78, 1],
   material,
   effects: [lightingEffect]
@@ -194,30 +194,30 @@ export default class OneMap extends Component {
     };
   }
   componentWillMount() {
-    
+    document.oncontextmenu = () => false;
     this.setState({ cityData, buildData, roadData, countyData, arcData, heatmapData, governmentData, policeData });
   }
   //组件第一次渲染后调用
   componentDidMount() {
     // this._animate();
-    setTimeout(()=> {
+    setTimeout(() => {
       this.setState({
-        initViewState: viewStates[(viewStates.length-1).toString()]
+        initViewState: viewStates[(viewStates.length - 1).toString()]
       });
       timerView = setInterval(() => {
-        if (index_viewState > viewStates.length-1){
+        if (index_viewState > viewStates.length - 1) {
           index_viewState = 0;
         }
-        this.setState({initViewState: viewStates[index_viewState]});
+        this.setState({ initViewState: viewStates[index_viewState] });
         index_viewState += 1;
-      },10000);
+      }, 10000);
     }, 5000);
     timerVisitor = setInterval(() => {
       // 自定义起始数据
       this.setState({
         visitorCount: [836 + Math.round(Math.random() * 50), 785 + Math.round(Math.random() * 50), 712 + Math.round(Math.random() * 50), 664 + Math.round(Math.random() * 50),
-        590 + Math.round(Math.random() * 50), 500 + Math.round(Math.random() * 50), 436 + Math.round(Math.random() * 50), 381 + Math.round(Math.random() * 50), 313 + Math.round(Math.random() * 50), 
-        249+Math.round(Math.random() * 50), 180+Math.round(Math.random() * 50)],
+        590 + Math.round(Math.random() * 50), 500 + Math.round(Math.random() * 50), 436 + Math.round(Math.random() * 50), 381 + Math.round(Math.random() * 50), 313 + Math.round(Math.random() * 50),
+        249 + Math.round(Math.random() * 50), 180 + Math.round(Math.random() * 50)],
       });
       if (map) {
         map.on('zoom', () => {
@@ -237,10 +237,10 @@ export default class OneMap extends Component {
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
-    if (timerView){
+    if (timerView) {
       clearInterval(timerView);
     }
-    if (timerVisitor){
+    if (timerVisitor) {
       clearInterval(timerVisitor);
     }
     if (this._animationFrame) {
@@ -311,7 +311,7 @@ export default class OneMap extends Component {
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        image:  'img/path.png',
+        image: 'img/path.png',
         getWidth: 4,
         speed: 1.2,
       }),
