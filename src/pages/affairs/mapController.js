@@ -22,6 +22,7 @@ import governmentData from 'assets/json/Puyang_Government.json';
 import policeData from 'assets/json/Puyang_Police.json';
 import policeIcon from 'img/affairs/police2.png';
 import governIcon from 'img/affairs/govern.png';
+import pathIcon from 'img/path.png';
 import { Popup } from 'react-map-gl';
 import './popup.css';
 
@@ -311,7 +312,7 @@ export default class OneMap extends Component {
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        image: 'img/path.png',
+        image: pathIcon,
         getWidth: 4,
         speed: 1.2,
       }),
