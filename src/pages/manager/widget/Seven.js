@@ -9,7 +9,6 @@ const countUpProps = {
     decimals: 0,
     useEasing: true,
     useGrouping: true,
-    separator: ','
     }
 
 const list = [
@@ -34,8 +33,8 @@ export default class extends Component {
     render() {
         return <>
             <ChartHeader title='昨日运行情况' />
-            <div className={ManagerStyle.content}>
-                <div className={ManagerStyle.SevenWrapper}>
+            <div className={ManagerStyle.sevenContent}>
+                <div className={ManagerStyle.sevenWrapper}>
                     {this.sevenList()}
                 </div>
             </div>

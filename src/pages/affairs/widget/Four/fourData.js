@@ -11,15 +11,15 @@ export const fourList = {
 	children:[
 		{
 			ditch:'豫事办',
-			proportion:80
+			proportion:21.2
 		},
 		{
 			ditch:'行政服务大厅',
-			proportion:50
+			proportion:16.4
 		},
 		{
 			ditch:'单位窗口',
-			proportion:25
+			proportion:12.5
 		}
 	]
 }

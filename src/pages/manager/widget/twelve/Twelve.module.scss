@@ -3,7 +3,7 @@
     .infoBox {
         height: calc(98% - 49px);
         position: relative;
-        padding: 19px 25px;
+        padding: 19px 25px 9px 25px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -34,7 +34,7 @@
                 }
                 .info {
                     color: #B2BDBF;
-                    line-height: 20px;
+                    line-height: 17px;
                     font-size: 12px;
                     padding: 0 4px;
                 }

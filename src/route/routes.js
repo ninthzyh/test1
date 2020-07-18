@@ -44,7 +44,7 @@ const routes = [
       },
       {
         path: "/index/society",
-        component: Manager
+        component: Society
       },
       {
         path: "/index/manager",

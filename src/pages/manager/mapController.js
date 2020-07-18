@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 // import {render} from 'react-dom';
 import {StaticMap} from 'react-map-gl';
-import mapboxgl  from 'mapbox-gl';
+import mapboxgl, { DoubleClickZoomHandler }  from 'mapbox-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import {AmbientLight, PointLight, LightingEffect} from '@deck.gl/core';
 import DeckGL, {FlyToInterpolator} from 'deck.gl';
@@ -75,8 +75,8 @@ const INITIAL_VIEW_STATE = {
 
 const viewStates = [
   {
-    longitude: 115.027,
-    latitude: 35.693,
+    longitude: 115.0236,
+    latitude: 35.7141,
     zoom: 16,
     pitch: 60,
     bearing: 30,
@@ -84,8 +84,8 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.007,
-    latitude: 35.703,
+    longitude: 115.0124,
+    latitude: 35.7043,
     zoom: 16,
     pitch: 60,
     bearing: 40,
@@ -93,8 +93,17 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.017,
-    latitude: 35.733,
+    longitude: 115.0379,
+    latitude: 35.7174,
+    zoom: 16,
+    pitch: 60,
+    bearing: 45,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
+    longitude: 115.0159,
+    latitude: 35.7273,
     zoom: 16,
     pitch: 60,
     bearing: 45,
@@ -102,8 +111,9 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   }
 ];
-var index_viewState = 0;
 
+var index_viewState = 0;
+var timerManage = null;
 export default class OneMap extends Component {
   constructor(props) {
     super(props);
@@ -117,21 +127,29 @@ export default class OneMap extends Component {
   }
 //组件第一次渲染后调用
   componentDidMount() {
-    setInterval(() => {
-      if (index_viewState > viewStates.length-1){
-        index_viewState = 0;
-      }
-      this.setState({initViewState: viewStates[index_viewState]});
-      index_viewState += 1;
-    },12000);
     setTimeout(()=>{
       this.setState({
         initViewState: viewStates[(viewStates.length-1).toString()]
       })
+      timerManage = setInterval(() => {
+        if (index_viewState > viewStates.length-1){
+          index_viewState = 0;
+        }
+        this.setState({initViewState: viewStates[index_viewState]});
+        index_viewState += 1;
+        if(map){
+          map.on("click",(e) => {
+            console.log(map.getZoom());
+          })
+        }
+      },10000);
     },5000);
   }
 //组件从DOM中移除之前调用
   componentWillUnmount() {
+    if (timerManage){
+      clearInterval(timerManage);
+    }
     if (this._animationFrame) {
       window.cancelAnimationFrame(this._animationFrame);
     }
@@ -139,13 +157,10 @@ export default class OneMap extends Component {
 
   _renderLayers() {
     const {
-      // buildings = DATA_URL.BUILDINGS,
-      // trips = DATA_URL.TRIPS,
       theme=DEFAULT_THEME
     } = this.props;
 
     return [
-
       new H3HexagonLayer({
         id: 'h3-hexagon-layer',
         data: hexagonData,
@@ -155,11 +170,11 @@ export default class OneMap extends Component {
         extruded: false,
         elevationScale: 2,
         getHexagon: d => d.hex,
-        getFillColor: d => [0, (1 - d.count / 500) * 191, 255],
+        getFillColor: d => [0, (1 - d.count / 500) * 220, 255,255/2],
         getElevation: d => d.count,
-        getLineColor: d => [255,255,0],
-        getLineWidth: 3,
-        opacity: 0.5
+        getLineColor: d => [85,245,255],
+        getLineWidth: 15,
+        // opacity: 1
       }),
       new PathLayer({
         id: 'pathlayer',
@@ -255,13 +270,10 @@ export default class OneMap extends Component {
     console.dir(e);
     map = e.target;
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
-    map.addControl(new MapboxLanguage({
+    e.target.addControl(new MapboxLanguage({
         defaultLanguage: 'zh'
     }));
-    // map.setLayoutProperty('country-label', 'text-field', [
-    //   'get',
-    //   'name_zh'
-    //   ]);
+    e.target.setLayoutProperty('country-label-lg', 'text-field', '{name_zh}');
   }
 
   render() {

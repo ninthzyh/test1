@@ -17,7 +17,7 @@ import { Progress  } from 'antd';
 import IconFont from '../../../../components/ChartHeader/ChartHeader.js'
 import {fourList} from './fourData.js'
 import './four.scss'
-console.log(fourList)
+// console.log(fourList)
 /**
  * title:组件声明区域
  */

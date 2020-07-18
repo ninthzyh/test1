@@ -65,7 +65,7 @@ export default class Three extends Component {
           show: true,
           lineStyle: {
             type: 'solid',
-            width: 1,
+            width: 0.5,
             color: 'rgba(155,155,155,0.45)',
           },
         },
@@ -144,7 +144,7 @@ export default class Three extends Component {
           show: true,
           lineStyle: {
             type: 'solid',
-            width: 1,
+            width: 0.5,
             color: 'rgba(155,155,155,0.45)',
           },
         },
