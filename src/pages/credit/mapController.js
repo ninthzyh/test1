@@ -1,15 +1,10 @@
 /* global window */
 import React, { Component } from 'react';
-// import {render} from 'react-dom';
 import { StaticMap } from 'react-map-gl';
-import mapboxgl from 'mapbox-gl';
-import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
 import DeckGL from '@deck.gl/react';
 import { GeoJsonLayer, PathLayer } from '@deck.gl/layers';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
-// import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
-// import ScanLayer from 'components/scan-layer/scan-layer';
 import cityData from 'assets/json/PuYang_City.geojson';
 import roadData from 'assets/json/PuYang_Roads.json';
 import buildData from 'assets/json/PuYang_Buildings.geojson';
@@ -25,6 +20,7 @@ import governIcon from 'img/credit/govern.png';
 import { Popup } from 'react-map-gl';
 import { IconLayer } from 'deck.gl';
 import './creditPopup.css';
+import {changeMapboxLanguage} from '../../untils/MapUtils';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -174,13 +170,8 @@ export default class OneMap extends Component {
   _onLoad(e) {
     let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
     box.style.zIndex = ''
-
-    console.dir(e);
     map = e.target;
-    mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
-    map.addControl(new MapboxLanguage({
-      defaultLanguage: 'zh'
-    }));
+    changeMapboxLanguage(map);
   }
 
   render() {
