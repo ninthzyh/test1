@@ -90,9 +90,9 @@ class One extends Component {
                 },
                 splitLine: {
                     lineStyle: {
-                        type: 'dashed',
+                        type: 'solid',
+                        width: '0.5',
                         color: 'rgba(135,140,147,0.5)',
-                        // opacity: '',
                     }
                 },
                 axisLine: {
