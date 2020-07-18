@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import SocietyStyle from '../Society.module.scss'
 import OneMap from '../mapController';
 import Eight from './Eight';
+import One from './One/One'
 import Two from './Two/Two.js'
 import Seven from './Seven.js'
 import Three from './Three/Three.js'
@@ -38,7 +39,7 @@ class Index extends Component {
             <div className={SocietyStyle.container}>
                 <OneMap/>
                 <div className={SocietyStyle.leftWrapper}>
-                    <div className={SocietyStyle.item}>1</div>
+                    <div className={SocietyStyle.item}><One/></div>
                     <div className={SocietyStyle.item}><Two /></div>
                     <div className={SocietyStyle.item}><Three /></div>
                 </div>
