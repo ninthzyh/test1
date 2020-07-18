@@ -15,14 +15,14 @@ class Index extends Component {
     render() {
         return (
             <div className={TrafficStyle.container}>
-                <OneMap></OneMap>
+                {/* <OneMap></OneMap> */}
                 <div className={TrafficStyle.leftWrapper}>
                     <div className={TrafficStyle.item}><One/></div>
                     <div className={TrafficStyle.item}><Two/>
 
                     </div>
                     <div className={TrafficStyle.item}><Three/></div>
-                </div>ix
+                </div>
                 <div  className={TrafficStyle.rightWrapper}>
                     <div className={TrafficStyle.itemRight}><Four/></div>
                     <div className={TrafficStyle.itemRight}><Five/></div>
