@@ -40,7 +40,7 @@ class Index extends Component {
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Right')}>
                     <div className={SocietyStyle.itemRight}>4</div>
                     <div className={SocietyStyle.itemRight}>5</div>
-                    <div className={SocietyStyle.itemRight}><six/></div>
+                    <div className={SocietyStyle.itemRight}><Six/></div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
                     <div className={SocietyStyle.itemRight}>7</div>
