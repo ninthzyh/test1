@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './Two.module.scss';
+import ChartHeader from '../../../../components/ChartHeader/ChartHeader';
 import 'swiper/dist/css/swiper.min.css';
 import Swiper from 'swiper';
 import trafic from 'img/traffic/trafic@2x.png'
@@ -115,6 +116,7 @@ class TrafficAccident extends Component {
             )
         })
         return (<div className={styles.TrafficAccidentPage}>
+            <ChartHeader title='突发交通事件' />
             <div className='banner swiper-container' id="banner">
                 <div className='swiper-wrapper wrap'>
                     {dom}
