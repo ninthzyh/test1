@@ -4,8 +4,8 @@ import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 // import 
 
 const list = [
-    { camera: "img/traffic/three1.png", name: "长安路", pic: 'img/traffic/three2.png' },
-    { camera: "img/traffic/three1.png", name: "富春山路", pic: 'img/traffic/three3.png' },
+    { camera: require("img/traffic/three1.png"), name: "长安路", pic: require('img/traffic/three2.png') },
+    { camera: require("img/traffic/three1.png"), name: "富春山路", pic: require('img/traffic/three3.png') },
 
 ]
 
