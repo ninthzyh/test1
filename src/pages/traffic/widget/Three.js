@@ -21,7 +21,7 @@ export default class extends Component {
                             <div className={TrafficStyle.name}>{item.name}</div>
                         </div>
                         <div className={TrafficStyle.pic} >
-                            <img src={item.pic} width='100%' height= '100%' alt='1' />
+                            <img src={item.pic} alt='1' />
                         </div>
                     </div>
                 )
