@@ -14,14 +14,14 @@ class Index extends Component {
                 <OneMap></OneMap>
                 <div className={TrafficStyle.leftWrapper}>
                     <div className={TrafficStyle.item}><One/></div>
-                    <div className={TrafficStyle.item}>
+                    <div className={TrafficStyle.item}><One/>
 
                     </div>
                     <div className={TrafficStyle.item}>3</div>
                 </div>
                 <div  className={TrafficStyle.rightWrapper}>
                     <div className={TrafficStyle.itemRight}><Four/></div>
-                    <div className={TrafficStyle.itemRight}>5</div>
+                    <div className={TrafficStyle.itemRight}><Four/></div>
                     <div className={TrafficStyle.itemRight}>6</div>
                 </div>
             </div>);
