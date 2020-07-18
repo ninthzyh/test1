@@ -12,7 +12,7 @@ class One extends Component {
         const option = {
             grid: {
                 left: '15%',
-                top: '40%',
+                top: '35%',
                 bottom: '15%',
                 right: '10%',
             },
@@ -75,7 +75,7 @@ class One extends Component {
                     }
 
                 },
-                data: ['2016', '2017', '2018', '2019', '2012']
+                data: ['2016年', '2017年', '2018年', '2019年', '2012年']
             },
             yAxis: {
                 // name: '数量',
