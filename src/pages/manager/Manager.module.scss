@@ -248,14 +248,15 @@ $twoIcon: #f3d952,
 .sevenContent{
     height: calc(100% - 40px);
     .sevenWrapper{
-        padding: 20px 0px 0px;
+        padding: 60px 0px 20px;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         height: 100%;
         text-align: center;
         .itemImg {
             width: 25%;
             div:first-child{
+                height:20%;
                 font-size:35px;
                 font-family:Source Han Sans SC;
                 font-weight:bold;
@@ -273,7 +274,8 @@ $twoIcon: #f3d952,
                 color:rgba(107,240,132,1);
             }
             .title {
-                margin: 15px 0px;
+                height: 20%;
+                margin-top: 20px;
                 font-size:9px;
                 font-family:Source Han Sans SC;
                 font-weight:400;
@@ -281,14 +283,16 @@ $twoIcon: #f3d952,
                 opacity:0.7;
             }
             .day,.week{
-                margin-top: 10px;
+                height: 20%;
+                // margin-top: 10px;
                 font-size:6px;
                 font-family:Source Han Sans SC;
                 font-weight:400;
                 color:rgba(136,255,144,1);
             }
             .month{
-                margin-top: 10px;
+                height: 20%;
+                // margin-top: 10px;
                 font-size:6px;
                 font-family:Source Han Sans SC;
                 font-weight:400;
