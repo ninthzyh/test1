@@ -70,6 +70,7 @@ const INITIAL_VIEW_STATE = {
 
 export default class OneMap extends Component {
   constructor(props) {
+    alert('1111');
     super(props);
     this.state = {
       time: 0,
@@ -77,9 +78,6 @@ export default class OneMap extends Component {
     };
   }
   componentWillMount() {
-    // fetch(DATA_URL.CITY)
-    // .then(res => {res.json();debugger;})
-    // .then(json => console.log(json));
     document.oncontextmenu = () => false;
     this.setState({ cityData, buildData, roadData, countyData, arcData, targetPos, roadHeatmap, governmentData });
   }
