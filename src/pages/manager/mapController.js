@@ -1,13 +1,8 @@
 /* global window */
 import React, { Component } from 'react';
 // import {render} from 'react-dom';
-<<<<<<< HEAD
 import {StaticMap} from 'react-map-gl';
 import mapboxgl  from 'mapbox-gl';
-=======
-import { StaticMap } from 'react-map-gl';
-import mapboxgl, { DoubleClickZoomHandler } from 'mapbox-gl';
->>>>>>> 2d4c0696b20ce6ed2555318dfaae93de46f3ed89
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
 import DeckGL, { FlyToInterpolator } from 'deck.gl';
@@ -189,18 +184,10 @@ export default class OneMap extends Component {
         extruded: false,
         elevationScale: 2,
         getHexagon: d => d.hex,
-<<<<<<< HEAD
         getFillColor: d => [0, (1 - d.count / 500) * 220, 255,255],
         getElevation: d => d.count,
         getLineColor: d => [85,245,255],
         getLineWidth: 5
-=======
-        getFillColor: d => [0, (1 - d.count / 500) * 220, 255, 255 / 2],
-        getElevation: d => d.count,
-        getLineColor: d => [85, 245, 255],
-        getLineWidth: 15,
-        // opacity: 1
->>>>>>> 2d4c0696b20ce6ed2555318dfaae93de46f3ed89
       }),
       new PathLayer({
         id: 'pathlayer',
@@ -252,7 +239,6 @@ export default class OneMap extends Component {
         material: theme.material,
         opacity: 0.3
       }),
-<<<<<<< HEAD
         // new ArcLayer({
         //     id:'arclayerext',
         //     data: this.state.arcData,
@@ -324,46 +310,6 @@ export default class OneMap extends Component {
             getLineColor: theme.borderColor,
             getLineWidth: 2,
         })
-=======
-      // new ScanLayer({
-      //     id:'pointone',
-      //     data:[
-      //       {position: [115.015, 35.7050], color: [200, 0, 0], radius: 1500}
-      //     ],
-      //     getPosition: d => d.position,
-      //     image: imgUrl + 'color.png',
-      //     imageNoise: imgUrl + 'depth.png',
-      //     getRadius: d => d.radius,
-      //     speed: 6,
-      //     getBlendColor: [0, 255, 0]
-      // }),
-
-      // new GeoJsonLayer({
-      //   id: 'city-layer',
-      //   data:this.state.cityData,
-      //   pickable: true,
-      //   stroked: true,
-      //   filled: false,
-      //   extruded: false,
-      //   lineWidthScale: 2,
-      //   lineWidthMinPixels: 2,
-      //   getFillColor: [160, 160, 180, 100],
-      //   getLineColor: [255,0,0],
-      //   getRadius: 100,
-      //   getLineWidth: 2,
-      //   // wireframe: true
-      // }),
-      new GeoJsonLayer({
-        id: 'county-Layer',
-        data: this.state.countyData,
-        stroked: true,
-        filled: false,
-        extruded: false,
-        lineWidthMinPixels: 2,
-        getLineColor: theme.borderColor,
-        getLineWidth: 2,
-      })
->>>>>>> 2d4c0696b20ce6ed2555318dfaae93de46f3ed89
     ];
   }
   _onLoad(e) {
