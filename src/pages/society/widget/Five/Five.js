@@ -29,12 +29,12 @@ class Five extends Component{
 				<div className='contentFive'>
 					<div className='contentHeaderFive'>
 						<div className='brokenLineWrapFive'>
-							<div className='yellowLineFive'><span></span><h5>近五年人均可支配增长率</h5></div>
-							<div className='blueLineFive'><span></span><h5>近五年全县生产值增长率</h5></div>
+							<div className='yellowLineFive'><span></span><h5>人均可支配增长率</h5></div>
+							<div className='blueLineFive'><span></span><h5>全县生产值增长率</h5></div>
 						</div>
 						<div className='columnarWrapFive'>
-							<div className='yellowColumnarFive'><span></span><h5>近五年居民可支配收入</h5></div>
-							<div className='blueColumnarFive'><span></span><h5>近五年全县生产总值</h5></div>
+							<div className='yellowColumnarFive'><span></span><h5>居民可支配收入</h5></div>
+							<div className='blueColumnarFive'><span></span><h5>全县生产总值</h5></div>
 						</div>
 					</div>
 					<div className='dataViewFive'>

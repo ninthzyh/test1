@@ -10,24 +10,10 @@ export const fiveList = {
 				type: 'cross'
 			}
 		},
-		toolbox: {
-			feature: {
-				dataView: {
-					show: true,
-					readOnly: false
-				},
-				restore: {
-					show: true
-				},
-				saveAsImage: {
-					show: true
-				}
-			}
-		},
 		xAxis: [{
 			type: 'category',
 			axisTick: {
-				show: false
+				show: true
 			},
 			axisLine: {
 				lineStyle: {
@@ -50,6 +36,14 @@ export const fiveList = {
 			nameTextStyle: {
 				padding: [0, 0, 0, -40] // 四个数字分别为上右下左与原位置距离
 			},
+			splitLine: {
+				show: true,
+				lineStyle:{
+					color: colors[3],
+					width: 1,
+					type: 'solid'
+				}
+			},
 			axisTick: {
 				show: false,
 				lineStyle: {
@@ -70,7 +64,7 @@ export const fiveList = {
 			}
 		}],
 		series: [{
-				name: '近五年人均可支配增长率',
+				name: '居民可支配收入',
 				type: 'bar',
 				barWidth:10,
 				data: [200, 400, 500, 600, 570],
@@ -78,16 +72,16 @@ export const fiveList = {
 					normal: {
 						color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 							offset: 0.5,
-							color: '#FFCF33'
+							color: '#56F4EC'
 						}, {
 							offset: 1,
-							color: '#F2C041'
+							color: '#56F4EC'
 						}]),
 					}
 				}
 			},
 			{
-				name: '近五年全县生产总值',
+				name: '全县生产总值',
 				type: 'bar',
 				barWidth:10,
 				data: [500, 700, 780, 830, 760],
@@ -100,6 +94,36 @@ export const fiveList = {
 							offset: 1,
 							color: '#2F5FFF'
 						}])
+					}
+				}
+			},
+			{
+				name: '人均可支配增长率',
+				type: 'line',
+				barWidth:10,
+				data: [200, 400, 500, 600, 570],
+				lineStyle:{
+					color:'#F49C34'
+				},
+				itemStyle: {
+					normal : {
+						color:'#FFCF33',
+						position: 'top',
+						padding: [0, 0, 0, -40]
+					}
+				}
+			},
+			{
+				name: '全县生产值增长率',
+				type: 'line',
+				barWidth:10,
+				data: [500, 700, 780, 830, 760],
+				lineStyle:{
+					color:'#4EFCDC'
+				},
+				itemStyle: {
+					normal : {
+						color:'#4EFCDC'
 					}
 				}
 			}
