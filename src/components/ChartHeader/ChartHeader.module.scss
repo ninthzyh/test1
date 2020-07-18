@@ -1,7 +1,7 @@
 @import 'assets/css/index.modules.scss';
 
 .icon {
-    background-image: url('/img/Group.png');
+    background-image: url('~img/Group.png');
     background-repeat: no-repeat;
     width: 23px;
     height: 10px;
@@ -31,7 +31,7 @@
         width: 25px;
         .rightIcon {
             display: inline-block;
-            background-image: url('/img/Shape.png');
+            background-image: url('~img/Shape.png');
             background-repeat: no-repeat;
             width: 10px;
             height: 10px;

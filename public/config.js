@@ -1,10 +1,10 @@
 
-global.weather = {
-    temperature: '32°',
+window.weather = {
+    temperature: '32°C',
     weathername: '晴间多云',
 };
 
-window.address = "http://localhost:8009/puyang"
+window.address = "http://localhost:3000/puyang"
 // 图标变化时间间隔 单位：毫秒
 window.interval = 5000
 
