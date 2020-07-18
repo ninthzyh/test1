@@ -13,18 +13,19 @@
       .infoItem {
           width: 25%;
           text-align: center;
-          .itemNumber {
-              font-size: 8px;
-              font-family:Source Han Sans SC;
-              font-weight:400;
-              color:rgba(64,253,251,1);
-          }
           .itemName {
               font-size: 6px;
               font-family:Source Han Sans SC;
               font-weight:400;
               color:rgba(255,255,255,1);
           }
+          .itemNumber {
+            margin-top: 6px;
+            font-size: 8px;
+            font-family:Source Han Sans SC;
+            font-weight:400;
+            color:rgba(64,253,251,1);
+        }
       }
     }
 
