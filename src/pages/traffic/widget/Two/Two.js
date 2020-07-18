@@ -117,21 +117,22 @@ class TrafficAccident extends Component {
         })
         return (<div className={styles.TrafficAccidentPage}>
             <ChartHeader title='突发交通事件' />
-            <div className='banner swiper-container' id="banner">
-                <div className='swiper-wrapper wrap'>
-                    {dom}
+            <div className={styles.banner}>
+                <div className='banner swiper-container' id="banner">
+                    <div className='swiper-wrapper wrap'>
+                        {dom}
+                    </div>
+
+                    {/* <div className='page swiper-pagination'></div> */}
+
+                    <div className='btn'>
+
+                        <div className={`swiper-button-prev ${styles.swiperBtn}`}></div>
+
+                        <div className={`swiper-button-next ${styles.swiperBtn}`}></div>
+
+                    </div>
                 </div>
-
-                {/* <div className='page swiper-pagination'></div> */}
-
-                <div className='btn'>
-
-                    <div className={`swiper-button-prev ${styles.swiperBtn}`}></div>
-
-                    <div className={`swiper-button-next ${styles.swiperBtn}`}></div>
-
-                </div>
-
             </div>
         </div>);
     }
