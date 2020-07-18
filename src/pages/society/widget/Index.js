@@ -1,13 +1,11 @@
+
 import React, { Component } from 'react'
 import SocietyStyle from '../Society.module.scss'
 import OneMap from '../mapController';
 import Eight from './Eight';
 import Two from './Two/Two.js'
-<<<<<<< HEAD
 import Seven from './Seven.js'
-=======
 import Three from './Three/Three.js'
->>>>>>> 813f79d56296499cf9b8cfc40c063b6fb16e87c7
 import 'animate.css';
 import Six from './Six.js'
 import Four from './four/Four'
