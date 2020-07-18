@@ -57,7 +57,7 @@ class TrafficAccident extends Component {
             effect: 'coverflow',
             coverflowEffect: {
                 rotate: 0,//滑动时旋转角度
-                stretch: 100,//聚合宽度
+                stretch: 133,//聚合宽度
                 depth: 300,//景深
                 modifier: 2,//覆盖叠加层数
                 slideShadows: false//是否阴影
