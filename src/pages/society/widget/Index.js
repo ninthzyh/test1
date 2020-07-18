@@ -5,7 +5,7 @@ import Eight from './Eight';
 import Two from './Two/Two.js'
 import Three from './Three/Three.js'
 import 'animate.css';
-// import Six from './Six.js'
+import Six from './Six.js'
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -40,9 +40,7 @@ class Index extends Component {
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Right')}>
                     <div className={SocietyStyle.itemRight}>4</div>
                     <div className={SocietyStyle.itemRight}>5</div>
-                    <div className={SocietyStyle.itemRight}>
-                    {/* <Six/> */}6
-                    </div>
+                    <div className={SocietyStyle.itemRight}><Six/></div>
                 </div>
                 <div style={show ? {display: 'none'} : {}} className={this.getClassName(show,'Right')}>
                     <div className={SocietyStyle.itemRight}>7</div>
