@@ -27,6 +27,7 @@ export default class Three extends Component {
     for (let i = 20; i > 0; i -= 2) {
       arr.push(i, -i)
     }
+    top.push(0)
     arr.push(0)
     clearInterval(timer)
 
