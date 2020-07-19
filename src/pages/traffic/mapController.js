@@ -17,6 +17,8 @@ import arcData from 'assets/json/PuYang_arc.json';
 import targetPos from 'assets/json/PuYang_TargetPositions.json';
 import roadHeatmap from 'assets/json/PuYang_Road_Points.geojson';
 import governmentData from '../../assets/json/Puyang_Government.json';
+import { Popup } from 'react-map-gl';
+import './trafficPopup.css'
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -50,7 +52,7 @@ const material = {
 };
 
 const DEFAULT_THEME = {
-  buildingColor: [74,112,139],
+  buildingColor: [74, 112, 139],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   arcColor: [255, 255, 255],
@@ -130,10 +132,10 @@ export default class OneMap extends Component {
         intensity: 1,
         radiusPixels: 50,
         colorRange: [
-          [49,157,62],[77,185,95],[255,218,110],
-          [255,179,63],[255,141,46],[234,85,26],[227,12,12]
-          ],
-        opacity:0.4,
+          [49, 157, 62], [77, 185, 95], [255, 218, 110],
+          [255, 179, 63], [255, 141, 46], [234, 85, 26], [227, 12, 12]
+        ],
+        opacity: 0.4,
         getPosition: d => d.geometry.coordinates,
         getWeight: d => { return Math.floor(Math.random() * (500 - 300 + 1) + 300) },
       }),
@@ -171,7 +173,10 @@ export default class OneMap extends Component {
     ];
   }
   _onLoad(e) {
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = ''
     map = e.target;
+    console.log(map,123)
     changeMapboxLanguage(map);
   }
 
@@ -181,7 +186,23 @@ export default class OneMap extends Component {
       mapStyle = 'mapbox://styles/mapbox/navigation-preview-night-v4',
       theme = DEFAULT_THEME
     } = this.props;
-
+    const displayContent = [
+      {
+        coor: [115.0195982, 35.75112835],
+        road: '解放大道',
+        acciendent: '追尾事故(7:40-8:00)'
+      },
+      {
+        coor: [115.0195982, 35.78112835],
+        road: '解放大道',
+        acciendent: '连环车祸(12:00-12:20)'
+      },
+      {
+        coor: [115.0295982, 35.76212835],
+        road: '解放大道',
+        accident: '追尾事故(17:00-17:20)'
+      }
+    ]
     return (
       <div style={{ zIndex: '1' }}>
         <DeckGL
@@ -200,7 +221,24 @@ export default class OneMap extends Component {
             preventStyleDiffing={true}
             mapboxApiAccessToken={MAPBOX_TOKEN}
             onLoad={this._onLoad}
-          />
+          >
+
+            {displayContent.map((value, index) => {
+              return <Popup className={`traffic trafficPopup${index + 1}`}
+                longitude={value.coor[0]}
+                latitude={value.coor[1]}
+                altitude={80}
+                closeButton={false}
+                visible={true}
+                key={index}
+                dynamicPosition={false}
+              >
+                  <div className='trafficAccident'>{value.accident}</div>
+                  <div className='trafficRoad'>{value.road}</div>
+              </Popup>
+            })
+            }
+          </StaticMap>
         </DeckGL>
 
       </div>

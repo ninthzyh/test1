@@ -123,7 +123,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyCateringName popup${index + 1}`}
           longitude={value.coor[0]}
           latitude={value.coor[1]}
-          altitude={1000}
+          altitude={value.customer*5}
           closeButton={false}
           visible={true}
           key={index}
@@ -140,7 +140,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyGraduationName popup${index + 1}`}
           longitude={value.coor[0]}
           latitude={value.coor[1]}
-          altitude={1000}
+          altitude={value.total*0.41}
           closeButton={false}
           visible={true}
           key={index}
@@ -157,7 +157,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyShoppingName popup${index + 1}`}
           longitude={value.coor[0]}
           latitude={value.coor[1]}
-          altitude={1000}
+          altitude={value.customer}
           closeButton={false}
           visible={true}
           key={index}
@@ -174,7 +174,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyMedicalName popup${index + 1}`}
           longitude={value.coor[0]}
           latitude={value.coor[1]}
-          altitude={1000}
+          altitude={value.patient}
           closeButton={false}
           visible={true}
           key={index}
@@ -205,7 +205,7 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >当日接待人数</div>
+      <div className='societyContent' >{`当日接待顾客 ${value.customer}人`}</div>
         </Popup>
       })
     )
@@ -222,7 +222,7 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >全校师生 278人</div>
+          <div className='societyContent' >{`全校师生 ${value.total}人`}</div>
         </Popup>
       })
     )
@@ -239,7 +239,7 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >当日接待 4178人</div>
+          <div className='societyContent' >{`当日接待顾客 ${value.customer}人`}</div>
         </Popup>
       })
     )
@@ -256,8 +256,8 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >当日接待 189人</div>
-          <div className='societyContent' >重症病人 35人</div>
+          <div className='societyContent' >{`当日接待患者 ${value.patient}人`}</div>
+          <div className='societyContent' >{`当日接待重症患者 ${value.severe}人`}</div>
         </Popup>
       })
     )
@@ -273,11 +273,11 @@ export default class OneMap extends Component {
       diskResolution: 4,
       radius: 50,
       extruded: true,
-      elevationScale: 5,
+      elevationScale: 1,
       intensity: 0.1,
       getPosition: d => d.coor,
       getFillColor: [55,232,122],
-      getElevation: 240,
+      getElevation: d=>d.patient,
       transitions: {
         getElevation: {
           duration: 3000,
@@ -301,10 +301,10 @@ export default class OneMap extends Component {
       diskResolution: 4,
       radius: 50,
       extruded: true,
-      elevationScale: 5,
+      elevationScale: 0.4,
       getPosition: d => d.coor,
       getFillColor: [100,231,255],
-      getElevation: 240,
+      getElevation: d=>d.total,
       transitions: {
         getElevation: {
           duration: 3000,
@@ -319,10 +319,10 @@ export default class OneMap extends Component {
       diskResolution: 4,
       radius: 50,
       extruded: true,
-      elevationScale: 5,
+      elevationScale: 1,
       getPosition: d => d.coor,
-      getFillColor: [255,149,97],
-      getElevation: 240,
+      getFillColor: [255,231,100],
+      getElevation: d=>d.customer,
       transitions: {
         getElevation: {
           duration: 3000,
@@ -342,8 +342,8 @@ export default class OneMap extends Component {
         extruded: true,
         elevationScale: 5,
         getPosition: d => d.coor,
-        getFillColor: [255,231,100],
-        getElevation: 240,
+        getFillColor: [255,149,97],
+        getElevation:d=>d.customer,
         transitions: {
           getElevation: {
             duration: 3000,

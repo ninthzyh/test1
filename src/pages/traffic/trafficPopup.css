@@ -1,0 +1,22 @@
+.traffic .mapboxgl-popup-content{
+  width:162px;
+  height:48px;
+  background:url("~img/traffic/popup.png") no-repeat;
+  padding: 8px 10px 15px;
+}
+.trafficAccident{
+  width:40px;
+height:10px;
+font-size:10px;
+font-family:Source Han Sans SC;
+font-weight:400;
+color:rgba(255,255,255,1);
+}
+.trafficRoad{
+  width:46px;
+height:8px;
+font-size:8px;
+font-family:Source Han Sans SC;
+font-weight:300;
+color:rgba(255,255,255,1);
+}
