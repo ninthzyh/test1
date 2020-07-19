@@ -32,7 +32,7 @@ export default class Three extends Component {
 
     timer = setInterval(() => {
       oImg.style.left = pos + arr[num] - top[num] / 2 + 'px'
-      oImg.style.top = -top[num] / 2 + 'px'
+      oImg.style.top = -10 - top[num] / 2 + 'px'
       oImg.style.width = 60 + top[num] + 'px'
       num++
       if (num === arr.length) {
