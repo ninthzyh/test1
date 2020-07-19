@@ -28,43 +28,38 @@ class FourChart extends Component {
 			list:fourList
 		}
 	}
-	componentDidMount(){
-		
-	}
 	render(){
 		return (
 			<div className='currentAffairsWrapFourChart'>
 				<div className='headerFourChart'>
 					<IconFont title={this.state.list.title}/>
 				</div>
-				<div className='contentFourChart'>
-					<div className='infoShowWrapFourChart'>
-						{
-							this.state.list.children.map((item,index)=>{
-								return (
-									<div className='infoShowFourChart' key={`${index}`}>
-										<div className='infoTxtFourChart'>
-											<span className='rankingFourChart'>{index+1}</span>
-											<span className='ditchFourChart'>{item.ditch}</span>
-										</div>
-										<div className='progressFourChart'>
-											<Progress 
-												strokeColor={{
-													'0%': '#596AFF',
-													'100%': '#34F4EA',
-												}}
-												strokeWidth={8}
-												percent={item.proportion/15}
-												showInfo={false} 
-											/>
-											<span>{item.proportion}</span>
-											<img src={require(`public/${item.img}.svg`)}></img>
-										</div>
+				<div className='infoShowWrapFourChart'>
+					{
+						this.state.list.children.map((item,index)=>{
+							return (
+								<div className='infoShowFourChart' key={`${index}`}>
+									<div className='infoTxtFourChart'>
+										<span className='rankingFourChart'>{index+1}</span>
+										<span className='ditchFourChart'>{item.ditch}</span>
 									</div>
-								)
-							})
-						}
-					</div>
+									<div className='progressFourChart'>
+										<Progress
+											strokeColor={{
+												'0%': '#596AFF',
+												'100%': '#34F4EA',
+											}}
+											strokeWidth={8}
+											percent={item.proportion/15}
+											showInfo={false}
+										/>
+										<span>{item.proportion}</span>
+										<img src={require(`public/${item.img}.svg`)}></img>
+									</div>
+								</div>
+							)
+						})
+					}
 				</div>
 			</div>
 		)
