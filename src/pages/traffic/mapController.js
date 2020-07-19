@@ -50,7 +50,7 @@ const material = {
 };
 
 const DEFAULT_THEME = {
-  buildingColor: [74, 80, 87],
+  buildingColor: [74,112,139],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   arcColor: [255, 255, 255],
@@ -70,6 +70,7 @@ const INITIAL_VIEW_STATE = {
 
 export default class OneMap extends Component {
   constructor(props) {
+    alert('1111');
     super(props);
     this.state = {
       time: 0,
@@ -77,15 +78,12 @@ export default class OneMap extends Component {
     };
   }
   componentWillMount() {
-    // fetch(DATA_URL.CITY)
-    // .then(res => {res.json();debugger;})
-    // .then(json => console.log(json));
     document.oncontextmenu = () => false;
     this.setState({ cityData, buildData, roadData, countyData, arcData, targetPos, roadHeatmap, governmentData });
   }
   //组件第一次渲染后调用
   componentDidMount() {
-    // this._animate();
+    document.oncontextmenu = () => false;
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -130,9 +128,13 @@ export default class OneMap extends Component {
       new HeatmapLayer({
         id: 'heatmaplayer',
         data: this.state.roadHeatmap,
-        intensity: 2,
-        radiusPixels: 20,
-        colorRange: [[255, 255, 174], [255, 218, 110], [255, 179, 63], [255, 141, 46], [243, 57, 11], [191, 0, 32]],
+        intensity: 1,
+        radiusPixels: 50,
+        colorRange: [
+          [49,157,62],[77,185,95],[255,218,110],
+          [255,179,63],[255,141,46],[234,85,26],[227,12,12]
+          ],
+        opacity:0.4,
         getPosition: d => d.geometry.coordinates,
         getWeight: d => { return Math.floor(Math.random() * (500 - 300 + 1) + 300) },
       }),
@@ -177,7 +179,7 @@ export default class OneMap extends Component {
   render() {
     const {
       viewState,
-      mapStyle = 'mapbox://styles/mapbox/navigation-guidance-night-v4',
+      mapStyle = 'mapbox://styles/mapbox/navigation-preview-night-v4',
       theme = DEFAULT_THEME
     } = this.props;
 

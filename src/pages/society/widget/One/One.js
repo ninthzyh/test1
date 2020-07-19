@@ -22,7 +22,7 @@ class One extends Component {
             color: ['rgba(79, 117, 248, 1)', 'rgba(199, 77, 118, 1)', 'rgba(255, 198, 71, 1)'],
             legend: {
                 x: 'center',      //可设定图例在左、右、居中
-                y: '5%',
+                y: '10%',
                 data: [
                     {
                         name: '近五年失业人员再就业人数',

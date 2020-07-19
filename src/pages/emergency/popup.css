@@ -1,38 +1,41 @@
-.popupEmergency1 .mapboxgl-popup-content{
-    width:160px;
-    height:254px; 
-    background:url("~img/emergency/icon_3.png") no-repeat;
-    background-size: 100% 100%;
-    color:RGB(0, 255, 0);
+.emergency .mapboxgl-popup-content {
+  width: 240px;
+  height: 294px;
 }
-.popupEmergency2 .mapboxgl-popup-content{
-    width:213px;
-    height:247px; 
-    background:url("~img/emergency/icon_1.png") no-repeat;
-    background-size: 100% 100%;
-    color:RGB(35 ,170 ,255);
+
+.popupEmergency1 .mapboxgl-popup-content {
+  background: url("~img/emergency/icon_hospital.png") no-repeat;
+  color: RGB(0, 255, 0);
 }
-.popupEmergency3 .mapboxgl-popup-content{
-    width:254px;
-    height:241px; 
-    background:url("~img/emergency/icon_2.png") no-repeat;
-    background-size: 100% 100%;
-    color:RGB(0, 255 , 255);
+.popupEmergency2 .mapboxgl-popup-content {
+  background: url("~img/emergency/icon_firecontrol.png") no-repeat;
+  color: RGB(0, 255, 255);
 }
-.popupEmergency4 .mapboxgl-popup-content{
-    width:213px;
-    height:256px; 
-    background:url("~img/emergency/icon_4.png") no-repeat;
-    background-size: 100% 100%;
-    color:RGB(255, 255, 0);
+.popupEmergency3 .mapboxgl-popup-content {
+  background: url("~img/emergency/icon_police.png") no-repeat;
+  color: RGB(35, 170, 255);
 }
-.fontEmergency{
-    font-size:18px;
-    font-family:PingFang SC; 
-    font-weight:800;
-    letter-spacing: 1px;
-    text-align: center;
-    line-height:10px;
-    margin: 0 auto;
-  }
-  
+.popupEmergency4 .mapboxgl-popup-content {
+  background: url("~img/emergency/icon_hospital.png") no-repeat;
+  color: RGB(0, 255, 0);
+}
+.popupEmergency5 .mapboxgl-popup-content {
+  background: url("~img/emergency/icon_weather.png") no-repeat;
+  color: RGB(255, 255, 0);
+}
+.popupEmergency6 .mapboxgl-popup-content {
+  background: url("~img/emergency/icon_police.png") no-repeat;
+  color: RGB(35, 170, 255);
+}
+.popupEmergency7 .mapboxgl-popup-content {
+  background: url("~img/emergency/icon_resident.png") no-repeat;
+  color: RGB(255, 132, 50);
+}
+.fontEmergency {
+  font-size: 16px;
+  font-family: PingFang SC;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 9% auto;
+}

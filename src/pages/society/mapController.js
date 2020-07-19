@@ -15,11 +15,13 @@ import roadData from 'assets/json/PuYang_Roads.json';
 import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
-import { ColumnLayer } from 'deck.gl';
+import { ColumnLayer, HexagonLayer } from 'deck.gl';
 import medicalData from '../../assets/json/PuYang_medical.json';
 import shoppingData from '../../assets/json/PuYang_Shopping.json';
 import cateringData from '../../assets/json/PuYang_Catering.json';
 import graduationData from '../../assets/json/PuYang_Graduation.json';
+import { Popup } from 'react-map-gl';
+import './societyPopup.css'
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -67,11 +69,11 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.015,
-  latitude: 35.705,
-  zoom: 12,
+  longitude: 115.0461258,
+  latitude: 35.77430715,
+  zoom: 13.2,
   pitch: 45,
-  bearing: 0 //方位
+  bearing: 48//方位
 };
 
 export default class OneMap extends Component {
@@ -80,15 +82,23 @@ export default class OneMap extends Component {
     this.state = {
       time: 0,
       opacity: 1,
+      columnVisible: true,
+      medicalDataVisible: false
     };
   }
   componentWillMount() {
-    document.oncontextmenu = () => false;
+    document.oncontextmenu = () => false;
     this.setState({ cityData, buildData, roadData, countyData, arcData, medicalData, shoppingData, cateringData, graduationData });
   }
   //组件第一次渲染后调用
   componentDidMount() {
-    // this._animate();
+    setInterval(() => {
+      this.setState({
+        // columnVisible: !this.state.columnVisible
+        columnVisible: true
+      });
+    }, 10000)
+
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -102,56 +112,77 @@ export default class OneMap extends Component {
       theme = DEFAULT_THEME
     } = this.props;
 
-    return [
-      new ColumnLayer({
-        id: 'puyang_medical',
-        data: this.state.medicalData,
-        diskResolution: 4,
-        radius: 20,
-        extruded: true,
-        elevationScale: 5,
-        getPosition: d => d.coor,
-        getFillColor: [255, 255, 0],
-        getElevation: 100,
+    const columnLayers = [new ColumnLayer({
+      id: 'puyang_medical',
+      data: this.state.medicalData,
+      diskResolution: 4,
+      radius: 50,
+      extruded: true,
+      elevationScale: 5,
+      intensity: 0.1,
+      getPosition: d => d.coor,
+      getFillColor: [100, 231, 255],
+      getElevation: 100,
+      transitions: {
+        getElevation: {
+          duration: 10000,
+          onEnd: value => {
+            console.log(value)
+            this.setState({
+              medicalDataVisible: true
+            })
+          },
+          enter: () => [0]
+        },
+      },
+    }),
+    new ColumnLayer({
+      id: 'puyang_graduation',
+      data: this.state.graduationData,
+      diskResolution: 4,
+      radius: 50,
+      extruded: true,
+      elevationScale: 5,
+      getPosition: d => d.coor,
+      getFillColor: [255, 149, 97],
+      getElevation: 100,
+      // transitions: {
+      //   elevationScale: 3000
+      // }
+    }),
 
-      }),
-      new ColumnLayer({
-        id: 'puyang_graduation',
-        data: this.state.graduationData,
-        diskResolution: 4,
-        radius: 20,
-        extruded: true,
-        elevationScale: 5,
-        getPosition: d => d.coor,
-        getFillColor: [255, 23, 340],
-        getElevation: 100,
-
-      }),
-
-      new ColumnLayer({
-        id: 'puyang_shopping',
-        data: this.state.shoppingData,
-        diskResolution: 4,
-        radius: 20,
-        extruded: true,
-        elevationScale: 5,
-        getPosition: d => d.coor,
-        getFillColor: [255, 0, 0],
-        getElevation: 100,
-
-      }),
-      new ColumnLayer({
-        id: 'puyang_catering',
-        data: this.state.cateringData,
-        diskResolution: 4,
-        radius: 20,
-        extruded: true,
-        elevationScale: 5,
-        getPosition: d => d.coor,
-        getFillColor: [0, 0, 255],
-        getElevation: 100,
-
-      }),
+    new ColumnLayer({
+      id: 'puyang_shopping',
+      data: this.state.shoppingData,
+      diskResolution: 4,
+      radius: 50,
+      extruded: true,
+      elevationScale: 5,
+      getPosition: d => d.coor,
+      getFillColor: [255, 231, 100],
+      getElevation: 100,
+      pickable: true,
+      onHover: ({ object }) => {
+        console.log(object)
+      }
+    }),
+    // new ColumnLayer({
+    //   id: 'puyang_catering',
+    //   data: this.state.cateringData,
+    //   diskResolution: 4,
+    //   radius: 50,
+    //   extruded: true,
+    //   elevationScale: 5,
+    //   getPosition: d => d.coor,
+    //   getFillColor: [55, 232, 122],
+    //   getElevation: 100,
+    //   pickable: true,
+    //   onHover: ({ object }) => {
+    //     console.log(object)
+    //   }
+    // })
+  ]
+    const baseLayers = [
       new PathLayer({
         id: 'pathlayer',
         data: this.state.roadData,
@@ -180,7 +211,7 @@ export default class OneMap extends Component {
         getElevation: d => d.properties.height,
         getFillColor: theme.buildingColor,
         material: theme.material,
-        opacity: 0.6
+        opacity: 0.6,
       }),
 
       new GeoJsonLayer({
@@ -193,7 +224,14 @@ export default class OneMap extends Component {
         getLineColor: [255, 255, 0],
         getLineWidth: 2,
       })
-    ];
+    ]
+
+    if (this.state.columnVisible) {
+      return baseLayers.concat(columnLayers)
+    } else {
+      return baseLayers
+    }
+
   }
   _onLoad(e) {
 
@@ -206,10 +244,6 @@ export default class OneMap extends Component {
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'zh'
     }));
-    // e.target.setLayoutProperty('country-label', 'text-field', [
-    //   'get',
-    //   'name_zh'
-    //   ]);
   }
 
   render() {
@@ -237,7 +271,68 @@ export default class OneMap extends Component {
             preventStyleDiffing={true}
             mapboxApiAccessToken={MAPBOX_TOKEN}
             onLoad={this._onLoad}
-          />
+          >
+            {/* {this.state.cateringData.map((value, index) => {
+              return <Popup className={`societyCateringName popup${index + 1}`}
+                longitude={value.coor[0]}
+                latitude={value.coor[1]}
+                altitude={500}
+                closeButton={false}
+                visible={true}
+                key={index}
+              >
+                <div className='societyNameWrapper'>各部门日服务人次</div>
+              </Popup>
+            })} */}
+            {this.state.cateringData.map((value, index) => {
+              return <Popup className={`societyCatering popup${index + 1}`}
+                longitude={value.coor[0]}
+                latitude={value.coor[1]}
+                closeButton={false}
+                visible={true}
+                key={index}
+              >
+               <div className='societyTitle' >海底捞</div>
+              <div className='societyContent' >当日接待人数</div>
+              </Popup>
+            })}
+            {this.state.medicalDataVisible && this.state.medicalData.map((value, index) => {
+              return <Popup className={`societyMedicalName popup${index + 1}`}
+                longitude={value.coor[0]}
+                latitude={value.coor[1]}
+                altitude={500}
+                closeButton={false}
+                visible={true}
+                key={index}
+              >
+                <div className='societyNameWrapper'>各部门日服务人次</div>
+              </Popup>
+            })}
+            {this.state.graduationData.map((value, index) => {
+              return <Popup className={`societyGraduationName popup${index + 1}`}
+                longitude={value.coor[0]}
+                latitude={value.coor[1]}
+                altitude={500}
+                closeButton={false}
+                visible={true}
+                key={index}
+              >
+                <div className='societyNameWrapper'>各部门日服务人次</div>
+              </Popup>
+            })}
+            {this.state.shoppingData.map((value, index) => {
+              return <Popup className={`societyShoppingName popup${index + 1}`}
+                longitude={value.coor[0]}
+                latitude={value.coor[1]}
+                altitude={500}
+                closeButton={false}
+                visible={true}
+                key={index}
+              >
+                <div className='societyNameWrapper'>各部门日服务人次</div>
+              </Popup>
+            })}
+          </StaticMap>
         </DeckGL>
 
       </div>
