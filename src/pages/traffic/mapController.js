@@ -1,5 +1,5 @@
 /* global window */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { StaticMap } from 'react-map-gl';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
 import { HeatmapLayer, IconLayer } from 'deck.gl';
@@ -18,6 +18,7 @@ import targetPos from 'assets/json/PuYang_TargetPositions.json';
 import roadHeatmap from 'assets/json/PuYang_Road_Points.geojson';
 import governmentData from '../../assets/json/Puyang_Government.json';
 import { Popup } from 'react-map-gl';
+import carUrl from 'img/traffic/car.png';
 import './trafficPopup.css'
 
 // Set your mapbox token here
@@ -176,7 +177,7 @@ export default class OneMap extends Component {
     let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
     box.style.zIndex = ''
     map = e.target;
-    console.log(map,123)
+    console.log(map, 123)
     changeMapboxLanguage(map);
   }
 
@@ -190,18 +191,32 @@ export default class OneMap extends Component {
       {
         coor: [115.0195982, 35.75112835],
         road: '解放大道',
-        acciendent: '追尾事故(7:40-8:00)'
+        accident: '追尾事故',
+        accidentTime: '(07-17 17:50)'
       },
       {
         coor: [115.0195982, 35.78112835],
         road: '解放大道',
-        acciendent: '连环车祸(12:00-12:20)'
+        accident: '连环车祸',
+        accidentTime: '(07-13 8:20)'
       },
       {
         coor: [115.0295982, 35.76212835],
         road: '解放大道',
-        accident: '追尾事故(17:00-17:20)'
+        accident: '追尾事故',
+        accidentTime: '(07-12 7:40)'
       }
+    ]
+    const displayIcon = [
+      {
+        coor: [115.08628, 35.76303],
+      },
+      {
+        coor: [115.02760, 35.75115],
+      },
+      {
+        coor: [115.01693, 35.70723],
+      },
     ]
     return (
       <div style={{ zIndex: '1' }}>
@@ -224,18 +239,41 @@ export default class OneMap extends Component {
           >
 
             {displayContent.map((value, index) => {
-              return <Popup className={`traffic trafficPopup${index + 1}`}
-                longitude={value.coor[0]}
-                latitude={value.coor[1]}
-                altitude={80}
-                closeButton={false}
-                visible={true}
-                key={index}
-                dynamicPosition={false}
-              >
-                  <div className='trafficAccident'>{value.accident}</div>
-                  <div className='trafficRoad'>{value.road}</div>
-              </Popup>
+              return (
+                <Fragment>
+                  <Popup className={`traffic trafficPopup${index + 1}`}
+                    longitude={value.coor[0]}
+                    latitude={value.coor[1]}
+                    altitude={50}
+                    offsetLeft={90}
+                    closeButton={false}
+                    visible={true}
+                    key={index}
+                    dynamicPosition={false}
+                  >
+                    <img className="trafficCarimage" src={carUrl} ></img>
+                    <div>
+                      <div className='trafficAccident'>{value.accident}
+                        <span className='trafficTime' >
+                          {value.accidentTime}
+                        </span>
+                      </div>
+                      <div className='trafficRoad'>{value.road}</div>
+                    </div>
+
+                  </Popup>
+                  <Popup className={`trafficIcon`}
+                    longitude={value.coor[0]}
+                    latitude={value.coor[1]}
+                    altitude={0}
+                    closeButton={false}
+                    visible={true}
+                    key={'car'+index}
+                    dynamicPosition={false}
+                  >
+                  </Popup>
+                </Fragment>
+              )
             })
             }
           </StaticMap>
