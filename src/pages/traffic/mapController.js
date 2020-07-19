@@ -127,7 +127,7 @@ export default class OneMap extends Component {
       new HeatmapLayer({
         id: 'heatmaplayer',
         data: this.state.roadHeatmap,
-        intensity: 1,
+        intensity: 3,
         radiusPixels: 50,
         colorRange: [
           [49,157,62],[77,185,95],[255,218,110],

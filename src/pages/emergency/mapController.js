@@ -50,15 +50,15 @@ const pointLightRight = new PointLight({
 });
 
 const emergencyPointLight = new PointLight({
-  color: [255, 255, 0],
+  color: [255,255,0],
   intensity: 10.0,
-  position: [115.033669, 35.763893000000003, 200],
+  position: [115.033669,35.763893000000003,200]
 });
 
 const hospitalPointLight = new PointLight({
-  color: [0, 255, 0],
+  color: [0,255,0],
   intensity: 0.2,
-  position: [115.050518, 35.760787999999998, 1000],
+  position: [115.050518,35.760787999999998,1000]
 });
 
 // const directionalLight = new DirectionalLight({
@@ -72,7 +72,7 @@ const lightingEffect = new LightingEffect({
   pointLightRight,
 });
 const material = {
-  ambient: 0.1, //环境
+  ambient: 0.5, //环境
   diffuse: 0.6, //漫反射
   shininess: 8,
   specularColor: [60, 64, 70], //高光颜色
@@ -256,8 +256,8 @@ export default class OneMap extends Component {
     return baseLayers;
   }
   _onLoad(e) {
-    let box = document.getElementsByClassName("mapboxgl-map")[0].parentNode;
-    box.style.zIndex = "";
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = '';
     map = e.target;
     changeMapboxLanguage(map);
   }
