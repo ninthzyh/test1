@@ -17,7 +17,7 @@ class Index extends Component {
                     <div className={EmergencyStyle.item}><Two/>
 
                     </div>
-                    <div className={EmergencyStyle.item}><Two/></div>
+                    <div className={EmergencyStyle.item}>3</div>
                 </div>
                 <div  className={EmergencyStyle.rightWrapper}>
                     <div className={EmergencyStyle.itemRight}>4</div>
