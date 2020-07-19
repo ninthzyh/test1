@@ -106,7 +106,7 @@ export default class Two extends Component {
                     normal: {
                         color:'rgba(58,132,255,1)',
                         lineStyle: {
-                            color: "rgba(58,132,255,0.75)",
+                            color: "rgba(58,132,255,1)",
                             width:1
                         },
                         areaStyle: { 
@@ -120,7 +120,7 @@ export default class Two extends Component {
                         }
                     }
                 },
-                data: [ 8, 7,  7.6, 3.7, 6.5]
+                data: [ 6.5, 4.8,  7.6, 3.7, 6.5]
             },
             {
                 name: '社会安全',
@@ -130,7 +130,7 @@ export default class Two extends Component {
                     normal: {
                         color:'rgba(250,217,61,1)',
                         lineStyle: {
-                            color: "rgba(250,217,61,0.75)",
+                            color: "rgba(250,217,61,1)",
                             width:1
                         },
                         areaStyle: { 
@@ -152,18 +152,18 @@ export default class Two extends Component {
                 symbol:"none",
                 itemStyle: {
                     normal: {
-                        color:'rgba(255,80,124,1)',
+                        color:'rgba(255,35,0,1)',
                         lineStyle: {
-                            color: "rgba(255,80,124,0.75)",
+                            color: "rgba(255,35,0,1)",
                             width:1
                         },
                         areaStyle: { 
                             color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
                                 offset: 0,
-                                color: 'rgba(255,80,124,0)'
+                                color: 'rgba(255,35,0,0)'
                             }, {
                                 offset: 1,
-                                color: 'rgba(255,80,124,0.15)'
+                                color: 'rgba(255,35,0,0.15)'
                             }]),
                         }
                     }
@@ -178,7 +178,7 @@ export default class Two extends Component {
                     normal: {
                         color:'rgba(251,55,225,1)',
                         lineStyle: {
-                            color: "rgba(251,55,225,0.75)",
+                            color: "rgba(251,55,225,1)",
                             width:1
                         },
                         areaStyle: { 
@@ -187,12 +187,12 @@ export default class Two extends Component {
                                 color: 'rgba(251,55,225,0)'
                             }, {
                                 offset: 1,
-                                color: 'rgba(250,217,61,0.15)'
+                                color: 'rgba(251,55,225,0.15)'
                             }]),
                         }
                     }
                 },
-                data: [4.6,5.8,4.2,4.4,5.2]
+                data: [4.8,3.6,5.2,3.4,4.2]
             },
         ]
     }
@@ -202,7 +202,7 @@ export default class Two extends Component {
   render() {
     return (
         <>
-            <ChartHeader title='年度案件统计趋势' />
+            <ChartHeader title='应急类型分布' />
             <div className={EmergencyStyle.content}>
                 <ReactEcharts
                     option={this.getOption()}
