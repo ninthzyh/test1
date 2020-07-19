@@ -16,34 +16,34 @@ border-radius:4px;
 display: flex;
 }
 
-.popup1 .mapboxgl-popup-content{
+.affairsPopup1 .mapboxgl-popup-content{
 background:url("~img/affairs/top1.png") no-repeat;
 }
-.popup2 .mapboxgl-popup-content{
+.affairsPopup2 .mapboxgl-popup-content{
   background:url("~img/affairs/top2.png") no-repeat;
 }
-.popup3 .mapboxgl-popup-content{
+.affairsPopup3 .mapboxgl-popup-content{
   background:url("~img/affairs/top3.png") no-repeat;
 }
-.popup4 .mapboxgl-popup-content{
+.affairsPopup4 .mapboxgl-popup-content{
   background:url("~img/affairs/top4.png") no-repeat;
 }
-.popup5 .mapboxgl-popup-content{
+.affairsPopup5 .mapboxgl-popup-content{
   background:url("~img/affairs/top4.png") no-repeat;
 }
-.popup6 .mapboxgl-popup-content{
+.affairsPopup6 .mapboxgl-popup-content{
   background:url("~img/affairs/top4.png") no-repeat;
 }
-.popup7 .mapboxgl-popup-content{
+.affairsPopup7 .mapboxgl-popup-content{
   background:url("~img/affairs/top4.png") no-repeat;
 }
-.popup8 .mapboxgl-popup-content{
+.affairsPopup8 .mapboxgl-popup-content{
   background:url("~img/affairs/top4.png") no-repeat;
 }
-.popup9 .mapboxgl-popup-content{
+.affairsPopup9 .mapboxgl-popup-content{
   background:url("~img/affairs/top4.png") no-repeat;
 }
-.popup10 .mapboxgl-popup-content{
+.affairsPopup10 .mapboxgl-popup-content{
   background:url("~img/affairs/top4.png") no-repeat;
 }
 

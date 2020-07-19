@@ -83,7 +83,7 @@ export default class OneMap extends Component {
       time: 0,
       opacity: 1,
       columnVisible: true,
-      medicalDataVisible: false
+      titleVisible: false
     };
   }
   componentWillMount() {
@@ -94,10 +94,10 @@ export default class OneMap extends Component {
   componentDidMount() {
     setInterval(() => {
       this.setState({
-        // columnVisible: !this.state.columnVisible
-        columnVisible: true
+        columnVisible: !this.state.columnVisible
+       // columnVisible: true
       });
-    }, 10000)
+    }, 6000)
 
   }
   //组件从DOM中移除之前调用
@@ -106,7 +106,162 @@ export default class OneMap extends Component {
       window.cancelAnimationFrame(this._animationFrame);
     }
   }
+  showTitle = () => {
+    return (
+      [
+        this.showCateringTitle(),
+        this.showGraduationTitle(),
+        this.showShoppingTitle(),
+        this.showMedicalTitle()
+      ]
+    )
 
+  }
+  showCateringTitle = () => {
+    return (
+      this.state.cateringData.map((value, index) => {
+        return <Popup className={`societyCateringName popup${index + 1}`}
+          longitude={value.coor[0]}
+          latitude={value.coor[1]}
+          altitude={1000}
+          closeButton={false}
+          visible={true}
+          key={index}
+          dynamicPosition={false}
+        >
+          <div className='societyNameWrapper'>{value.name}</div>
+        </Popup>
+      })
+    )
+  }
+  showGraduationTitle = () => {
+    return (
+      this.state.graduationData.map((value, index) => {
+        return <Popup className={`societyGraduationName popup${index + 1}`}
+          longitude={value.coor[0]}
+          latitude={value.coor[1]}
+          altitude={1000}
+          closeButton={false}
+          visible={true}
+          key={index}
+          dynamicPosition={false}
+        >
+          <div className='societyNameWrapper'>{value.name}</div>
+        </Popup>
+      })
+    )
+  }
+  showShoppingTitle = () => {
+    return (
+      this.state.shoppingData.map((value, index) => {
+        return <Popup className={`societyShoppingName popup${index + 1}`}
+          longitude={value.coor[0]}
+          latitude={value.coor[1]}
+          altitude={1000}
+          closeButton={false}
+          visible={true}
+          key={index}
+          dynamicPosition={false}
+        >
+          <div className='societyNameWrapper'>{value.name}</div>
+        </Popup>
+      })
+    )
+  }
+  showMedicalTitle = () => {
+    return (
+      this.state.medicalData.map((value, index) => {
+        return <Popup className={`societyMedicalName popup${index + 1}`}
+          longitude={value.coor[0]}
+          latitude={value.coor[1]}
+          altitude={1000}
+          closeButton={false}
+          visible={true}
+          key={index}
+          dynamicPosition={false}
+        >
+          <div className='societyNameWrapper'>{value.name}</div>
+        </Popup>
+      })
+    )
+  }
+  showContent = () => {
+    return [
+      this.showCateringContent(),
+      this.showGraduationContent(),
+      this.showShoppingContent(),
+      this.showMedicalContent()
+    ]
+  }
+  showCateringContent = () => {
+    return (
+      this.state.cateringData.map((value, index) => {
+        return <Popup className={`societyCatering popup${index + 1}`}
+          longitude={value.coor[0]}
+          latitude={value.coor[1]}
+          closeButton={false}
+          visible={true}
+          key={index}
+          dynamicPosition={false}
+        >
+          <div className='societyTitle' >{value.name}</div>
+          <div className='societyContent' >当日接待人数</div>
+        </Popup>
+      })
+    )
+  }
+  showGraduationContent = () => {
+    return (
+      this.state.graduationData.map((value, index) => {
+        return <Popup className={`societyGraduation popup${index + 1}`}
+          longitude={value.coor[0]}
+          latitude={value.coor[1]}
+          closeButton={false}
+          visible={true}
+          key={index}
+          dynamicPosition={false}
+        >
+          <div className='societyTitle' >{value.name}</div>
+          <div className='societyContent' >全校师生 278人</div>
+        </Popup>
+      })
+    )
+  }
+  showShoppingContent = () => {
+    return (
+      this.state.shoppingData.map((value, index) => {
+        return <Popup className={`societyShopping popup${index + 1}`}
+          longitude={value.coor[0]}
+          latitude={value.coor[1]}
+          closeButton={false}
+          visible={true}
+          key={index}
+          dynamicPosition={false}
+        >
+          <div className='societyTitle' >{value.name}</div>
+          <div className='societyContent' >当日接待 4178人</div>
+        </Popup>
+      })
+    )
+  }
+  showMedicalContent = () => {
+    return (
+      this.state.medicalData.map((value, index) => {
+        return <Popup className={`societyMedical popup${index + 1}`}
+          longitude={value.coor[0]}
+          latitude={value.coor[1]}
+          closeButton={false}
+          visible={true}
+          key={index}
+          dynamicPosition={false}
+        >
+          <div className='societyTitle' >{value.name}</div>
+          <div className='societyContent' >当日接待 189人</div>
+          <div className='societyContent' >重症病人 35人</div>
+        </Popup>
+      })
+    )
+  }
   _renderLayers() {
     const {
       theme = DEFAULT_THEME
@@ -121,15 +276,19 @@ export default class OneMap extends Component {
       elevationScale: 5,
       intensity: 0.1,
       getPosition: d => d.coor,
-      getFillColor: [100, 231, 255],
-      getElevation: 100,
+      getFillColor: [55,232,122],
+      getElevation: 240,
       transitions: {
         getElevation: {
-          duration: 10000,
+          duration: 3000,
           onEnd: value => {
-            console.log(value)
             this.setState({
-              medicalDataVisible: true
+              titleVisible: true
+            })
+          },
+          onStart: value => {
+            this.setState({
+              titleVisible: false
             })
           },
           enter: () => [0]
@@ -144,11 +303,14 @@ export default class OneMap extends Component {
       extruded: true,
       elevationScale: 5,
       getPosition: d => d.coor,
-      getFillColor: [255, 149, 97],
-      getElevation: 100,
-      // transitions: {
-      //   elevationScale: 3000
-      // }
+      getFillColor: [100,231,255],
+      getElevation: 240,
+      transitions: {
+        getElevation: {
+          duration: 3000,
+          enter: () => [0]
+        },
+      },
     }),
 
     new ColumnLayer({
@@ -159,29 +321,41 @@ export default class OneMap extends Component {
       extruded: true,
       elevationScale: 5,
       getPosition: d => d.coor,
-      getFillColor: [255, 231, 100],
-      getElevation: 100,
+      getFillColor: [255,149,97],
+      getElevation: 240,
+      transitions: {
+        getElevation: {
+          duration: 3000,
+          enter: () => [0]
+        },
+      },
       pickable: true,
       onHover: ({ object }) => {
         console.log(object)
       }
     }),
-    // new ColumnLayer({
-    //   id: 'puyang_catering',
-    //   data: this.state.cateringData,
-    //   diskResolution: 4,
-    //   radius: 50,
-    //   extruded: true,
-    //   elevationScale: 5,
-    //   getPosition: d => d.coor,
-    //   getFillColor: [55, 232, 122],
-    //   getElevation: 100,
-    //   pickable: true,
-    //   onHover: ({ object }) => {
-    //     console.log(object)
-    //   }
-    // })
-  ]
+      new ColumnLayer({
+        id: 'puyang_catering',
+        data: this.state.cateringData,
+        diskResolution: 4,
+        radius: 50,
+        extruded: true,
+        elevationScale: 5,
+        getPosition: d => d.coor,
+        getFillColor: [255,231,100],
+        getElevation: 240,
+        transitions: {
+          getElevation: {
+            duration: 3000,
+            enter: () => [0]
+          },
+        },
+        pickable: true,
+        onHover: ({ object }) => {
+          console.log(object)
+        }
+      })
+    ]
     const baseLayers = [
       new PathLayer({
         id: 'pathlayer',
@@ -272,66 +446,12 @@ export default class OneMap extends Component {
             mapboxApiAccessToken={MAPBOX_TOKEN}
             onLoad={this._onLoad}
           >
-            {/* {this.state.cateringData.map((value, index) => {
-              return <Popup className={`societyCateringName popup${index + 1}`}
-                longitude={value.coor[0]}
-                latitude={value.coor[1]}
-                altitude={500}
-                closeButton={false}
-                visible={true}
-                key={index}
-              >
-                <div className='societyNameWrapper'>各部门日服务人次</div>
-              </Popup>
-            })} */}
-            {this.state.cateringData.map((value, index) => {
-              return <Popup className={`societyCatering popup${index + 1}`}
-                longitude={value.coor[0]}
-                latitude={value.coor[1]}
-                closeButton={false}
-                visible={true}
-                key={index}
-              >
-               <div className='societyTitle' >海底捞</div>
-              <div className='societyContent' >当日接待人数</div>
-              </Popup>
-            })}
-            {this.state.medicalDataVisible && this.state.medicalData.map((value, index) => {
-              return <Popup className={`societyMedicalName popup${index + 1}`}
-                longitude={value.coor[0]}
-                latitude={value.coor[1]}
-                altitude={500}
-                closeButton={false}
-                visible={true}
-                key={index}
-              >
-                <div className='societyNameWrapper'>各部门日服务人次</div>
-              </Popup>
-            })}
-            {this.state.graduationData.map((value, index) => {
-              return <Popup className={`societyGraduationName popup${index + 1}`}
-                longitude={value.coor[0]}
-                latitude={value.coor[1]}
-                altitude={500}
-                closeButton={false}
-                visible={true}
-                key={index}
-              >
-                <div className='societyNameWrapper'>各部门日服务人次</div>
-              </Popup>
-            })}
-            {this.state.shoppingData.map((value, index) => {
-              return <Popup className={`societyShoppingName popup${index + 1}`}
-                longitude={value.coor[0]}
-                latitude={value.coor[1]}
-                altitude={500}
-                closeButton={false}
-                visible={true}
-                key={index}
-              >
-                <div className='societyNameWrapper'>各部门日服务人次</div>
-              </Popup>
-            })}
+            {
+              this.state.columnVisible && this.state.titleVisible && this.showTitle()
+            }
+            {
+              !this.state.columnVisible && this.showContent()
+            }
           </StaticMap>
         </DeckGL>
 

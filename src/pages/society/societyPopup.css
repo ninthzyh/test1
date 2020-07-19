@@ -4,12 +4,7 @@ height:31px;
 background:url("~img/society/catering.png") no-repeat;
 padding: 8px 10px 15px;
 }
-.societyCatering .mapboxgl-popup-content{
-  width:161px;
-  height:126px;
-  background:url("~img/society/cateringContent.png") no-repeat;
-  padding: 8px 10px 15px;
-  }
+
 .societyMedicalName .mapboxgl-popup-content{
 width:167px;
 height:31px;
@@ -38,7 +33,7 @@ padding: 8px 10px 15px;
   text-align: center;
 }
 .societyTitle{
-  width:122px;
+  text-align: center;
   height:16px;
   font-size:14px;
   font-family:Source Han Sans SC;
@@ -46,10 +41,35 @@ padding: 8px 10px 15px;
   color:rgba(250,250,250,1);
 }
 .societyContent{
-  width:90px;
+padding-top: 7px;
 height:13px;
 font-size:12px;
 font-family:Source Han Sans SC;
 font-weight:400;
 color:rgba(250,250,250,1);
+text-align: center;
+}
+.societyCatering .mapboxgl-popup-content{
+  width:161px;
+  height:126px;
+  background:url("~img/society/cateringContent.png") no-repeat;
+  padding: 8px 10px 15px;
+}
+.societyMedical .mapboxgl-popup-content{
+  width:161px;
+  height:146px;
+  background:url("~img/society/medicalContent.png") no-repeat;
+  padding: 8px 10px 15px;
+}
+.societyGraduation .mapboxgl-popup-content{
+  width:161px;
+  height:126px;
+  background:url("~img/society/graduationContent.png") no-repeat;
+  padding: 8px 10px 15px;
+}
+.societyShopping .mapboxgl-popup-content{
+  width:161px;
+  height:126px;
+  background:url("~img/society/shoppingContent.png") no-repeat;
+  padding: 8px 10px 15px;
 }

@@ -423,13 +423,14 @@ export default class OneMap extends Component {
           {
             this.state.popupVisible && <Fragment>
               {displayContent.map((value, index) => {
-                return <Popup className={`affairs popup${index + 1}`}
+                return <Popup className={`affairs affairsPopup${index + 1}`}
                   longitude={value.coor[0]}
                   latitude={value.coor[1]}
                   altitude={80}
                   closeButton={false}
                   visible={true}
                   key={index}
+                  dynamicPosition={false}
                 >
                   <div className='font'>{index + 1}</div>
                   <div className='font2'>{value.branch}</div>
