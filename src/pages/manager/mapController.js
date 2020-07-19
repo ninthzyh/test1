@@ -1,6 +1,5 @@
 /* global window */
 import React, { Component } from 'react';
-// import {render} from 'react-dom';
 import {StaticMap} from 'react-map-gl';
 import mapboxgl  from 'mapbox-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
@@ -10,7 +9,6 @@ import { GeoJsonLayer, PathLayer } from '@deck.gl/layers';
 import { H3HexagonLayer } from '@deck.gl/geo-layers';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
 import { Popup } from 'react-map-gl';
-// import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
 // import ScanLayer from 'components/scan-layer/scan-layer';
 import cityData from 'assets/json/PuYang_City.geojson';
 import roadData from 'assets/json/PuYang_Roads.json';
@@ -19,9 +17,8 @@ import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
 import hexagonData from 'assets/json/PuYangCity_WangGe.json';
 import pathImg from 'assets/images/path.png';
-// import colorImg from 'img/color.png';
-// import noiseImg from 'img/depth.png';
 import './managerPopup.scss';
+import {changeMapboxLanguage} from "../../untils/MapUtils";
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -178,16 +175,17 @@ export default class OneMap extends Component {
       new H3HexagonLayer({
         id: 'h3-hexagon-layer',
         data: hexagonData,
-        pickable: true,
-        wireframe: false,
-        filled: false,
-        extruded: false,
-        elevationScale: 2,
+        pickable: false,
+        wireframe: true,
+        filled: true,
+        extruded: true,
+        elevationScale: 1,
         getHexagon: d => d.hex,
         getFillColor: d => [0, (1 - d.count / 500) * 220, 255,255],
-        getElevation: d => d.count,
-        getLineColor: d => [85,245,255],
-        getLineWidth: 5
+        getElevation: 30,
+        getLineColor: [255,255,255],
+        getLineWidth: 1000,
+        opacity:0.1
       }),
       new PathLayer({
         id: 'pathlayer',
@@ -316,11 +314,7 @@ export default class OneMap extends Component {
     let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
     box.style.zIndex = ''
     map = e.target;
-    mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.1/mapbox-gl-rtl-text.js');
-    e.target.addControl(new MapboxLanguage({
-      defaultLanguage: 'zh'
-    }));
-    e.target.setLayoutProperty('country-label-lg', 'text-field', '{name_zh}');
+    changeMapboxLanguage(map);
   }
 
   render() {
@@ -412,7 +406,7 @@ export default class OneMap extends Component {
               closeButton={false}
               visible={true}
             >
-              <div className='managerPopup2 title'>抢劫治安事件</div>
+              <div className='managerPopup2 title'>城市治安事件</div>
               <div className="managerPopup2 body">
                 <div className='managerPopup2 content'>濮阳县解放大道建业城小区附近</div>
                 <div className='managerPopup2 content'>2020-07-07 11:34:20</div>

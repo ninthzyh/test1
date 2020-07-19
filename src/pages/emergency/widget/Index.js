@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import EmergencyStyle from '../Emergency.module.scss'
 import OneMap from '../mapController';
-import Two from "./Two"
+import Four from './Four';
 
+import Two from "./Two"
+import Six from "./six/Six"
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -11,18 +13,18 @@ class Index extends Component {
     render() {
         return (
             <div className={EmergencyStyle.container}>
-                <OneMap></OneMap>
+                {/* <OneMap></OneMap> */}
                 <div className={EmergencyStyle.leftWrapper}>
                     <div className={EmergencyStyle.item}>1</div>
                     <div className={EmergencyStyle.item}><Two/>
 
                     </div>
-                    <div className={EmergencyStyle.item}><Two/></div>
+                    <div className={EmergencyStyle.item}>3</div>
                 </div>
                 <div  className={EmergencyStyle.rightWrapper}>
-                    <div className={EmergencyStyle.itemRight}>4</div>
+                    <div className={EmergencyStyle.itemRight}><Four /></div>
                     <div className={EmergencyStyle.itemRight}>5</div>
-                    <div className={EmergencyStyle.itemRight}></div>
+                    <div className={EmergencyStyle.itemRight}><Six/></div>
                 </div>
             </div>);
 

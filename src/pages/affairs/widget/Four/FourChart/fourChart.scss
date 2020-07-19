@@ -17,16 +17,17 @@
 	.headerFourChart{
 		width: 100%;
 	}
-	.contentFourChart{
-		margin-top: 15px;
-		.infoShowWrapFourChart{
+	.infoShowWrapFourChart{
 			width: 90%;
 			margin-left: 25px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		height: calc(100% - 68px);
 			.infoShowFourChart{
 				display: flex;
 				justify-content: space-around;
 				align-items: center;
-				margin-top: 24px;
 				.progressFourChart{
 					width: 300px;
 					margin: 0;
@@ -76,7 +77,6 @@
 					}
 				}
 			}
-		}
 	}
 	.ant-progress-inner{
 		border-radius: 0 !important;
