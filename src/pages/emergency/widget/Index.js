@@ -5,6 +5,7 @@ import Four from './Four';
 import One from './One/One'
 import Two from "./Two"
 import Six from "./six/Six"
+import Five from "./Five"
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -23,7 +24,7 @@ class Index extends Component {
                 </div>
                 <div className={EmergencyStyle.rightWrapper}>
                     <div className={EmergencyStyle.itemRight}><Four /></div>
-                    <div className={EmergencyStyle.itemRight}>5</div>
+                    <div className={EmergencyStyle.itemRight}><Five/></div>
                     <div className={EmergencyStyle.itemRight}><Six /></div>
                 </div>
             </div>);
