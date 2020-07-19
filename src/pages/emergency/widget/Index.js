@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import EmergencyStyle from '../Emergency.module.scss'
 import OneMap from '../mapController';
+import Four from './Four';
 
 class Index extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class Index extends Component {
     render() {
         return (
             <div className={EmergencyStyle.container}>
-                <OneMap></OneMap>
+                {/* <OneMap></OneMap> */}
                 <div className={EmergencyStyle.leftWrapper}>
                     <div className={EmergencyStyle.item}>1</div>
                     <div className={EmergencyStyle.item}>
@@ -19,7 +20,7 @@ class Index extends Component {
                     <div className={EmergencyStyle.item}>3</div>
                 </div>
                 <div  className={EmergencyStyle.rightWrapper}>
-                    <div className={EmergencyStyle.itemRight}>4</div>
+                    <div className={EmergencyStyle.itemRight}><Four /></div>
                     <div className={EmergencyStyle.itemRight}>5</div>
                     <div className={EmergencyStyle.itemRight}></div>
                 </div>
