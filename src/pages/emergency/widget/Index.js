@@ -3,6 +3,7 @@ import EmergencyStyle from '../Emergency.module.scss'
 import OneMap from '../mapController';
 import Four from './Four';
 import One from './One/One'
+import Three from './Three/Three.js'
 import Two from "./Two"
 import Six from "./six/Six"
 import Five from "./Five"
@@ -20,7 +21,7 @@ class Index extends Component {
                     <div className={EmergencyStyle.item}><Two />
 
                     </div>
-                    <div className={EmergencyStyle.item}>3</div>
+                    <div className={EmergencyStyle.item}><Three /></div>
                 </div>
                 <div className={EmergencyStyle.rightWrapper}>
                     <div className={EmergencyStyle.itemRight}><Four /></div>
