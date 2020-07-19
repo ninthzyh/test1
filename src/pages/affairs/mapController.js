@@ -422,7 +422,7 @@ export default class OneMap extends Component {
           {
             this.state.popupVisible && <Fragment>
               {displayContent.map((value, index) => {
-                return <Popup className={`affairs popup${index + 1}`}
+                return <Popup className={`affairs affairsPopup${index + 1}`}
                   longitude={value.coor[0]}
                   latitude={value.coor[1]}
                   altitude={80}
