@@ -351,6 +351,7 @@ export default class OneMap extends Component {
               sortByDepth = {true}
               closeButton={false}
               visible={true}
+              dynamicPosition={false}
             >
               <div className='managerPopup1 font'>1</div>
               <div className='managerPopup1 title'>网格统计情况</div>
@@ -369,6 +370,7 @@ export default class OneMap extends Component {
               sortByDepth = {true}
               closeButton={false}
               visible={true}
+              dynamicPosition={false}
             >
               <div className='managerPopup1 font'>2</div>
               <div className='managerPopup1 title'>网格统计情况</div>
@@ -387,6 +389,7 @@ export default class OneMap extends Component {
               sortByDepth = {true}
               closeButton={false}
               visible={true}
+              dynamicPosition={false}
             >
               <div className='managerPopup1 font'>3</div>
               <div className='managerPopup1 title'>网格统计情况</div>
@@ -405,6 +408,7 @@ export default class OneMap extends Component {
               sortByDepth = {true}
               closeButton={false}
               visible={true}
+              dynamicPosition={false}
             >
               <div className='managerPopup2 title'>城市治安事件</div>
               <div className="managerPopup2 body">

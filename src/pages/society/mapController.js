@@ -291,6 +291,7 @@ export default class OneMap extends Component {
                 closeButton={false}
                 visible={true}
                 key={index}
+                dynamicPosition={false}
               >
                <div className='societyTitle' >海底捞</div>
               <div className='societyContent' >当日接待人数</div>
@@ -304,6 +305,7 @@ export default class OneMap extends Component {
                 closeButton={false}
                 visible={true}
                 key={index}
+                dynamicPosition={false}
               >
                 <div className='societyNameWrapper'>各部门日服务人次</div>
               </Popup>
@@ -316,6 +318,7 @@ export default class OneMap extends Component {
                 closeButton={false}
                 visible={true}
                 key={index}
+                dynamicPosition={false}
               >
                 <div className='societyNameWrapper'>各部门日服务人次</div>
               </Popup>
@@ -328,6 +331,7 @@ export default class OneMap extends Component {
                 closeButton={false}
                 visible={true}
                 key={index}
+                dynamicPosition={false}
               >
                 <div className='societyNameWrapper'>各部门日服务人次</div>
               </Popup>

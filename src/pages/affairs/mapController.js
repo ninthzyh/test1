@@ -430,6 +430,7 @@ export default class OneMap extends Component {
                   closeButton={false}
                   visible={true}
                   key={index}
+                  dynamicPosition={false}
                 >
                   <div className='font'>{index + 1}</div>
                   <div className='font2'>{value.branch}</div>

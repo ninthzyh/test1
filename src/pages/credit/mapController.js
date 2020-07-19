@@ -206,6 +206,7 @@ export default class OneMap extends Component {
               altitude={80}
               closeButton={false}
               visible={true}
+              dynamicPosition={false}
             >
               <div className='title'> 市场监督</div>
               <div className='underline' />
@@ -222,6 +223,7 @@ export default class OneMap extends Component {
               altitude={80}
               closeButton={false}
               visible={true}
+              dynamicPosition={false}
             >
               <div className='title'> 税务局</div>
               <div className='underline' />
@@ -236,6 +238,7 @@ export default class OneMap extends Component {
               altitude={80}
               closeButton={false}
               visible={true}
+              dynamicPosition={false}
             >
               <div className='title'> 专利及知识产权局</div>
               <div className='underline' />

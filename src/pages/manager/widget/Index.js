@@ -39,7 +39,7 @@ class Manager extends React.Component {
         const { show } = this.state;
         return (
             <div className={ManagerStyle.container}>
-                {/* <OneMap /> */}
+                <OneMap />
                 <div style={!show ? { display: 'none' } : {}} className={this.getClassName(!show, 'Left')}>
                     <div className={ManagerStyle.item}><One /></div>
                     <div className={ManagerStyle.item}><Two /></div>
