@@ -9,16 +9,18 @@ import cityData from "assets/json/PuYang_City.geojson";
 import roadData from "assets/json/PuYang_Roads.json";
 import buildData from "assets/json/PuYang_Buildings.geojson";
 import countyData from "assets/json/PuYang_County.geojson";
-import arcData from "assets/json/PuYang_arc.json";
 import ScanLayer from "components/scan-layer/scan-layer";
 import ScatterpointLayer from "components/scatterpoint-layer/scatterpoint-layer";
+import ArcLayerExt from "components/arc-layer/arc-layer-ext";
 import { HeatmapLayer, IconLayer } from "deck.gl";
+import arcData from "assets/json/PuYang_Emergency_Arc.json";
 import pointEmeData from "assets/json/PuYang_Emergency_Point.json";
 import lineEmeData from "assets/json/PuYang_Emergency_Line.json";
 import bufferEmeData from "assets/json/PuYang_Emergency_Building.json";
 import { Popup } from "react-map-gl";
 import pathImg from "assets/images/path.png";
 import depthImg from "assets/images/depth.png";
+import arcImg from "assets/images/path4.png";
 import residentImg from "assets/images/resident_color.png";
 import hospitalImg from "assets/images/hospital_color.png";
 import firecontrolImg from "assets/images/firecontrol_color.png";
@@ -114,8 +116,8 @@ const INITIAL_VIEW_STATE = {
   longitude: 115.0336,
   latitude: 35.728,
   zoom: 13,
-  pitch: 45,
-  bearing: 70, //方位
+  pitch: 58,
+  bearing: 60, //方位
 };
 
 export default class OneMap extends Component {
@@ -153,23 +155,16 @@ export default class OneMap extends Component {
   _renderLayers() {
     const { theme = DEFAULT_THEME } = this.props;
     const baseLayers = [
-      // 应急救援道路图层-Path
-      new PathLayer({
-        id: "pathEmergency",
-        data: this.state.lineEmeData,
-        getPath: (d) => d.geometry.paths[0],
-        getWidth: 40,
-        getColor: theme.arcColor,
-        opacity: 0.2,
-      }),
-      // 应急救援道路图层-样式
-      new PolylineLayer({
-        id: "lineEmergency",
-        data: this.state.lineEmeData,
-        getPath: (d) => d.geometry.paths[0],
-        image: pathImg,
-        getWidth: 80,
-        speed: 2.2,
+      // 应急道路空中连线
+      new ArcLayerExt({
+        id: "arclayerext",
+        data: this.state.arcData,
+        getSourcePosition: (d) => d.from,
+        getTargetPosition: (d) => d.to,
+        getWidth: 3,
+        getHeight: 1,
+        image: arcImg,
+        speed: 5,
       }),
       // new HeatmapLayer({
       //   id: 'heatmaplayer',
@@ -185,6 +180,7 @@ export default class OneMap extends Component {
       //   getPosition: d => [d.geometry.x, d.geometry.y],
       //   getWeight: d => d.attributes.pNumber,
       // }),
+
       // 城市道路图层-path
       new PathLayer({
         id: "pathlayer",
@@ -203,6 +199,7 @@ export default class OneMap extends Component {
         getWidth: 4,
         speed: 1.2,
       }),
+
       // 城市应急点-圆圈
       new ScatterpointLayer({
         id: "pointone",
@@ -211,11 +208,10 @@ export default class OneMap extends Component {
         getLineWidth: 50,
         getRadius: 500,
         getLineColor: (d) => scatterPointColors[d.attributes.Type],
-        speed: 5.0,
-        // stroked: true,
-        // filled: false
+        speed: 3.0,
+        stroked: true,
+        filled: false,
       }),
-
       // 城市建筑图层
       new GeoJsonLayer({
         id: "building-layer",
@@ -231,16 +227,16 @@ export default class OneMap extends Component {
         opacity: 0.6,
       }),
       // 城市行政区域图层
-      new GeoJsonLayer({
-        id: "county-Layer",
-        data: this.state.countyData,
-        stroked: true,
-        filled: false,
-        extruded: false,
-        lineWidthMinPixels: 2,
-        getLineColor: [255, 255, 0],
-        getLineWidth: 2,
-      }),
+      // new GeoJsonLayer({
+      //   id: "county-Layer",
+      //   data: this.state.countyData,
+      //   stroked: true,
+      //   filled: false,
+      //   extruded: false,
+      //   lineWidthMinPixels: 2,
+      //   getLineColor: [255, 255, 0],
+      //   getLineWidth: 2,
+      // }),
     ];
     // 城市应急点-球体
     this.state.pointEmeData.map((value, index) => {
@@ -304,6 +300,7 @@ export default class OneMap extends Component {
                       closeButton={false}
                       visible={true}
                       key={index}
+                      dynamicPosition={false}
                     >
                       <div className="fontEmergency">
                         {value.attributes.Name}
