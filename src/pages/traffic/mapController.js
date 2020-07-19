@@ -70,7 +70,6 @@ const INITIAL_VIEW_STATE = {
 
 export default class OneMap extends Component {
   constructor(props) {
-    alert('1111');
     super(props);
     this.state = {
       time: 0,
