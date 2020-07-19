@@ -127,6 +127,7 @@ export default class OneMap extends Component {
           closeButton={false}
           visible={true}
           key={index}
+          dynamicPosition={false}
         >
           <div className='societyNameWrapper'>{value.name}</div>
         </Popup>
@@ -143,6 +144,7 @@ export default class OneMap extends Component {
           closeButton={false}
           visible={true}
           key={index}
+          dynamicPosition={false}
         >
           <div className='societyNameWrapper'>{value.name}</div>
         </Popup>
@@ -159,6 +161,7 @@ export default class OneMap extends Component {
           closeButton={false}
           visible={true}
           key={index}
+          dynamicPosition={false}
         >
           <div className='societyNameWrapper'>{value.name}</div>
         </Popup>
@@ -175,6 +178,7 @@ export default class OneMap extends Component {
           closeButton={false}
           visible={true}
           key={index}
+          dynamicPosition={false}
         >
           <div className='societyNameWrapper'>{value.name}</div>
         </Popup>
@@ -198,6 +202,7 @@ export default class OneMap extends Component {
           closeButton={false}
           visible={true}
           key={index}
+          dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
           <div className='societyContent' >当日接待人数</div>
@@ -214,6 +219,7 @@ export default class OneMap extends Component {
           closeButton={false}
           visible={true}
           key={index}
+          dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
           <div className='societyContent' >全校师生 278人</div>
@@ -230,6 +236,7 @@ export default class OneMap extends Component {
           closeButton={false}
           visible={true}
           key={index}
+          dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
           <div className='societyContent' >当日接待 4178人</div>
@@ -246,6 +253,7 @@ export default class OneMap extends Component {
           closeButton={false}
           visible={true}
           key={index}
+          dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
           <div className='societyContent' >当日接待 189人</div>
