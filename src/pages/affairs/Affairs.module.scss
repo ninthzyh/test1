@@ -1,14 +1,14 @@
 @import 'assets/css/index.modules.scss';
-$nineliImg: '~img/affairs/invoice.png',
-'~img/affairs/social.png',
-'~img/affairs/tax.png';
-$eightliImg: '~img/affairs/statistic.png',
-'~img/affairs/marry.png',
-'~img/affairs/divorce.png';
+$nineliImg: '~img/affairs/invoice.gif',
+'~img/affairs/social.gif',
+'~img/affairs/tax.gif';
+$eightliImg: '~img/affairs/statistic.gif',
+'~img/affairs/marry.gif',
+'~img/affairs/divorce.gif';
 $elevenliImg: '~img/affairs/eleven1.gif',
 '~img/affairs/eleven2.gif',
 '~img/affairs/eleven3.gif';
-
+$twelveliImg: '~img/affairs/twelve1.gif','~img/affairs/twelve2.gif';
 /*当日疫情*/
 .oneContainer {
     width: 100%;
@@ -109,6 +109,15 @@ $elevenliImg: '~img/affairs/eleven1.gif',
             background-position: center center;
         }
     }
+    @each $img in $twelveliImg {
+        $i: index($twelveliImg, $img);
+        .twelveImg#{$i}{
+            background-image: url($img);
+            height: 66px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
 
 }
 
@@ -161,42 +170,6 @@ $elevenliImg: '~img/affairs/eleven1.gif',
     }
 }
 
-
-.twelveBox {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-
-    .infoItem {
-        width: 40%;
-        margin-top: -15%;
-        text-align: center;
-
-        .itemPic {
-            height: 100%;
-        }
-
-        .itemNumber {
-            margin-top: 12%;
-            font-size: 36px;
-            font-family: Impact;
-            font-weight: 400;
-            color: rgba(5, 222, 255, 1);
-        }
-
-        .itemName {
-            margin-top: 12%;
-            font-size: 14px;
-            font-family: 'Microsoft YaHei';
-            font-weight: 400;
-            color: rgba(254, 254, 254, 1);
-        }
-    }
-
-}
 .three{
     height: 100%;
   .content {

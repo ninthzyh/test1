@@ -16,11 +16,7 @@ export default class One extends Component {
     getOption = (data, name) => {
         return {
             tooltip: {
-                formatter: '{b} : {c}',
-                backgroundColor: 'rgba(255,255,255,0.8)',
-                textStyle: {
-                    color: '#000000'
-                }
+                // formatter: '{b} : {c}',
             },
             grid: {
                 top: '22%',
@@ -44,7 +40,7 @@ export default class One extends Component {
                         fontSize: 11,
                     },
                     interval: 0,
-                    rotate: -30,
+                    rotate: -23,
                 },
                 data: name,
             },

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AffairsStyle from '../Affairs.module.scss'
 import ChartHeader from '../../../components/ChartHeader/ChartHeader';
-import { Col, Row } from 'antd';
 
 const img = [
     {title: '综合窗口统计出证区',num: 34},
