@@ -98,7 +98,7 @@ export default class Three extends Component {
             color: color,
             title: {
                 text: '办理总量',
-                top: '45%',
+                top: '42%',
                 textAlign: "center",
                 left: "49%",
                 textStyle: {
