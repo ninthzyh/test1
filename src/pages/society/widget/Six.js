@@ -12,19 +12,19 @@ export default class extends Component {
   componentDidMount() {
     let number = [
       {
-        name: '近一年新增市民建设\n中心数\n23',
+        name: '新增市民建设中心数\n23',
         value: 50,
       },
       {
-        name: '近一年新增足球场数\n23',
+        name: '新增足球场数\n23',
         value: 10,
       },
       {
-        name: '近一年新增绿地面积\n23',
+        name: '新增绿地面积\n23',
         value: 15,
       },
       {
-        name: '近一年新增游乐园数\n23',
+        name: '新增游乐园数\n23',
         value: 25,
       },
     ]
