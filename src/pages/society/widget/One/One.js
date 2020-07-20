@@ -25,7 +25,7 @@ class One extends Component {
                 y: '10%',
                 data: [
                     {
-                        name: '近五年失业人员再就业人数',
+                        name: '失业人员再就业人数',
                         textStyle: {
                             fontSize: 10,
                             fontWeight: 'bolder',
@@ -34,7 +34,7 @@ class One extends Component {
                         icon: 'line'
                     },
                     {
-                        name: '近五年新增就业人数',
+                        name: '新增就业人数',
                         textStyle: {
                             fontSize: 10,
                             fontWeight: 'bolder',
@@ -109,7 +109,7 @@ class One extends Component {
             },
             series: [
                 {
-                    name: '近五年失业人员再就业人数',
+                    name: '失业人员再就业人数',
                     type: 'line',
                     symbol: 'none',
                     data: [120, 132, 101, 134, 90],
@@ -122,7 +122,7 @@ class One extends Component {
                     },
                 },
                 {
-                    name: '近五年新增就业人数',
+                    name: '新增就业人数',
                     type: 'line',
                     symbol: 'none',
                     data: [400, 182, 190, 600, 900],
