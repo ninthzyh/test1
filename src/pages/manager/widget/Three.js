@@ -37,7 +37,7 @@ export default class extends Component {
     render() {
         return <>
             <ChartHeader title='城市部件统计' />
-            <div className={ManagerStyle.content}>
+            <div className={ManagerStyle.content} style={{display: 'flex',justifyContent: 'center',flexDirection: 'column',marginTop:10}}>
                 <div className={ManagerStyle.threeWrapper}>
                     {this.iconList()}
                 </div>
