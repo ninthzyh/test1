@@ -129,7 +129,7 @@ export default class extends Component {
     render() {
         return (
             <>
-                <ChartHeader title='服务人次年度趋势图' />
+                <ChartHeader title='公共交通客流量' />
                 <div className={AffairsStyle.content}>
                     <ReactEcharts
                         option={this.getOption()}

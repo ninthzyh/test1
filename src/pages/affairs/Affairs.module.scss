@@ -8,6 +8,7 @@ $eightliImg: '~img/affairs/statistic.png',
 $elevenliImg: '~img/affairs/eleven1.png',
 '~img/affairs/eleven2.png',
 '~img/affairs/eleven3.png';
+$twelveliImg: '~img/affairs/twelve1.png','~img/affairs/twelve2.png';
 
 /*当日疫情*/
 .oneContainer {
@@ -109,6 +110,15 @@ $elevenliImg: '~img/affairs/eleven1.png',
             background-position: center center;
         }
     }
+    @each $img in $twelveliImg {
+        $i: index($twelveliImg, $img);
+        .twelveImg#{$i}{
+            background-image: url($img);
+            height: 66px;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
 
 }
 
@@ -161,42 +171,6 @@ $elevenliImg: '~img/affairs/eleven1.png',
     }
 }
 
-
-.twelveBox {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-
-    .infoItem {
-        width: 40%;
-        margin-top: -15%;
-        text-align: center;
-
-        .itemPic {
-            height: 100%;
-        }
-
-        .itemNumber {
-            margin-top: 12%;
-            font-size: 36px;
-            font-family: Impact;
-            font-weight: 400;
-            color: rgba(5, 222, 255, 1);
-        }
-
-        .itemName {
-            margin-top: 12%;
-            font-size: 14px;
-            font-family: 'Microsoft YaHei';
-            font-weight: 400;
-            color: rgba(254, 254, 254, 1);
-        }
-    }
-
-}
 .serviceNumber{
     margin-top: 25px;
     height: 100%;

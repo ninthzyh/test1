@@ -44,7 +44,7 @@ export default class extends Component {
                 },
                 label: {
                     position: ['50%', '37%'],
-                    formatter: '绿化率50%',
+                    formatter: '绿化率75%',
                     fontSize: 13,
                     color: '#fff',
                     align: 'center'

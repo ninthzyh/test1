@@ -22,7 +22,7 @@ class Index extends Component {
         }
     }
     componentDidMount() {
-        this.showChange();
+        // this.showChange();
     }
 
     showChange = () => {
@@ -40,7 +40,7 @@ class Index extends Component {
         const { show } = this.state;
         return (
             <div className={AffairsStyle.container}>
-                <OneMap/>
+                {/* <OneMap/> */}
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
                     <div className={AffairsStyle.item}><One/></div>
                     <div className={AffairsStyle.item}><Two /></div>
