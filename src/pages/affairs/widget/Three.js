@@ -10,10 +10,10 @@ export default class Three extends Component {
     }
     componentDidMount() {
         var number = [{
-            name: '罚款缴纳 2323人',
+            name: '罚款缴纳\n2323人',
             value: 45
         }, {
-            name: '出入境自主办理2323人 35%',
+            name: '出入境自主办理\n2323人\n35%',
             value: 55
 
         }];
@@ -54,9 +54,9 @@ export default class Three extends Component {
             name: '',
             type: 'pie',
             clockWise: false,
-            radius: [50, 60],
+            radius: [60, 70],
             center:['50%','50%'],
-            hoverAnimation: false,
+            hoverAnimation: true,
             itemStyle: {
                 normal: {
                     label: {
@@ -65,15 +65,8 @@ export default class Three extends Component {
                         position: 'outer',
                         color: '#ddd',
                         formatter: function (params) {
-                            // var percent = 0;
-                            // var total = 0;
-                            // for (var i = 0; i < number.length; i++) {
-                            //     total += number[i].value;
-                            // }
-                            // percent = ((params.value / total) * 100).toFixed(0);
                             if (params.name !== '') {
-                                let length = params.name.length;
-                                return '{b| ' + params.name.slice(0,5) + '}'+ '\n' + '{b| ' + params.name.slice(5-length) + '}';
+                               return params.name
                             } else {
                                 return '';
                             }
@@ -140,12 +133,11 @@ export default class Three extends Component {
             },
             series: seriesOption
         });
-        window.onresize = myChart.onresize;
     }
     render() {
         return (
-            <div className={AffairsStyle.serviceNumber}>
-                 <ChartHeader title='特色服务总量' />
+            <div className={AffairsStyle.three}>
+                <ChartHeader title='特色服务总量' />
                 <div id="serviceNumber" className={AffairsStyle.content}></div>
             </div>);
     }

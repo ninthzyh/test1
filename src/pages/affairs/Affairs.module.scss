@@ -197,13 +197,12 @@ $elevenliImg: '~img/affairs/eleven1.png',
     }
 
 }
-.serviceNumber{
-    margin-top: 25px;
+.three{
     height: 100%;
-    width: 100%;
+  .content {
     display: flex;
-    flex-direction: column;
-    .content{
-        height: 70%;
-    }
+    align-items: center;
+    align-content: center;
+    margin-top: 5px;
+  }
  }

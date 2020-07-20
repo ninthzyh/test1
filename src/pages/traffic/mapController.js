@@ -18,7 +18,7 @@ import targetPos from 'assets/json/PuYang_TargetPositions.json';
 import roadHeatmap from 'assets/json/PuYang_Road_Points.geojson';
 import governmentData from '../../assets/json/Puyang_Government.json';
 import { Popup } from 'react-map-gl';
-import carUrl from 'img/traffic/car.png';
+import carUrl from 'img/traffic/trafficCar.png';
 import './trafficPopup.css'
 
 // Set your mapbox token here

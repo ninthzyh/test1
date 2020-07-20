@@ -12,7 +12,7 @@ export default class extends Component {
   componentDidMount() {
     let number = [
       {
-        name: '近一年新增市民建设\n中心数 \n23',
+        name: '近一年新增市民建设\n中心数\n23',
         value: 50,
       },
       {
@@ -69,9 +69,9 @@ export default class extends Component {
         name: '',
         type: 'pie',
         clockWise: false,
-        radius: [50, 60],
-        center: ['50%', '55%'],
-        hoverAnimation: false,
+        radius: [60, 70],
+        center: ['50%', '50%'],
+        hoverAnimation: true,
         itemStyle: {
           normal: {
             label: {
@@ -139,7 +139,6 @@ export default class extends Component {
       },
       series: seriesOption,
     })
-    window.onresize = myChart.onresize
   }
   render() {
     return (
