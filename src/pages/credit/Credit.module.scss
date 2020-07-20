@@ -11,8 +11,11 @@
     opacity: 0.6;
     padding: 10px 20px;
     height: calc(100% - 68px);
+    marquee{
+      text-align: center;
+    }
     p{
-      padding: 0 10%;
+      padding: 0 6%;
     }
   }
 }

@@ -16,7 +16,7 @@ class Index extends Component {
     render() {
         return (
             <div className={CreditStyle.container}>
-                {/*<OneMap></OneMap>*/}
+                <OneMap></OneMap>
                 <div className={`animate__animated animate__slideInLeft ${CreditStyle.leftWrapper}`}>
                     <div  className={CreditStyle.item}>
                         <One />
