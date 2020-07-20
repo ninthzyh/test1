@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 import AffairsStyle from '../Affairs.module.scss'
 import ChartHeader from "../../../components/ChartHeader/ChartHeader"
-import twelve1Icon from "img/affairs/twelve1.png"
-import twelve2Icon from "img/affairs/twelve2.png"
+import twelve1Icon from "img/affairs/twelve1.gif"
+import twelve2Icon from "img/affairs/twelve2.gif"
 
 /*
 工商局
