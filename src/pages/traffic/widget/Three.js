@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import TrafficStyle from '../Traffic.module.scss'
 import ChartHeader from '../../../components/ChartHeader/ChartHeader';
-// import 
 
+//pic:require(window.trafficVideo.one)  pic:require('img/emergency/accident.mp4')
 const list = [
-    { camera: require("img/traffic/three1.png"), name: "长安路", pic: require('img/traffic/three2.png') },
-    { camera: require("img/traffic/three1.png"), name: "富春山路", pic: require('img/traffic/three3.png') },
+    { camera: require("img/traffic/three1.png"), name: "长安路", pic:require('img/emergency/accident.mp4'),id:"videoOne" },
+    { camera: require("img/traffic/three1.png"), name: "富春山路", pic:require('img/emergency/accident.mp4') ,id:"videoTwo" },
 
 ]
 
@@ -21,7 +21,14 @@ export default class extends Component {
                             <div className={TrafficStyle.name}>{item.name}</div>
                         </div>
                         <div className={TrafficStyle.pic} >
-                            <img src={item.pic} alt='1' />
+                            <video
+                                id={item.id}
+                                ref={item.id}
+                                src={item.pic}
+                                autoPlay="autoplay"
+                                loop="loop"
+                                muted="muted"
+                            ></video>
                         </div>
                     </div>
                 )
