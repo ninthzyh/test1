@@ -1,15 +1,14 @@
 @import 'assets/css/index.modules.scss';
-$nineliImg: '~img/affairs/invoice.png',
-'~img/affairs/social.png',
-'~img/affairs/tax.png';
-$eightliImg: '~img/affairs/statistic.png',
-'~img/affairs/marry.png',
-'~img/affairs/divorce.png';
-$elevenliImg: '~img/affairs/eleven1.png',
-'~img/affairs/eleven2.png',
-'~img/affairs/eleven3.png';
-$twelveliImg: '~img/affairs/twelve1.png','~img/affairs/twelve2.png';
-
+$nineliImg: '~img/affairs/invoice.gif',
+'~img/affairs/social.gif',
+'~img/affairs/tax.gif';
+$eightliImg: '~img/affairs/statistic.gif',
+'~img/affairs/marry.gif',
+'~img/affairs/divorce.gif';
+$elevenliImg: '~img/affairs/eleven1.gif',
+'~img/affairs/eleven2.gif',
+'~img/affairs/eleven3.gif';
+$twelveliImg: '~img/affairs/twelve1.gif','~img/affairs/twelve2.gif';
 /*当日疫情*/
 .oneContainer {
     width: 100%;
@@ -171,13 +170,12 @@ $twelveliImg: '~img/affairs/twelve1.png','~img/affairs/twelve2.png';
     }
 }
 
-.serviceNumber{
-    margin-top: 25px;
+.three{
     height: 100%;
-    width: 100%;
+  .content {
     display: flex;
-    flex-direction: column;
-    .content{
-        height: 70%;
-    }
+    align-items: center;
+    align-content: center;
+    margin-top: 5px;
+  }
  }

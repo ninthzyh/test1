@@ -107,15 +107,20 @@ export default class extends Component {
                     symbolSize: 0,
                     areaStyle: {
                         color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
                             colorStops: [{
-                                offset: 0, color: 'rgba(38, 2, 155,0.38)'
+                                offset: 0, color: 'rgba(51,30,255,1)'
                             }, {
-                                offset: 1, color: 'rgba(38, 2, 155,0.12)' 
+                                offset: 1, color: 'rgba(51,30,255,0)'
                             }],
                         }
                     },
                     lineStyle: {
-                        color: '#26029B',
+                        color: '#1738ff',
                     },
                     itemStyle: {
                         color: '#26029B',

@@ -1,0 +1,42 @@
+.traffic .mapboxgl-popup-content{
+  width:162px;
+  height:48px;
+  background:url("~img/traffic/popup.png") no-repeat;
+  padding: 8px 10px 15px;
+  display:flex
+}
+.trafficAccident{
+width: 162px;
+
+font-size:10px;
+font-family:Source Han Sans SC;
+font-weight:400;
+color:rgba(255,255,255,1);
+padding:2px 0px 0px 10px;
+}
+.trafficTime{
+width:51px;
+font-size:9px;
+font-family:Source Han Sans SC;
+font-weight:300;
+color:rgba(255,255,255,1);
+}
+.trafficRoad{
+font-size:8px;
+font-family:Source Han Sans SC;
+font-weight:300;
+color:rgba(255,255,255,1);
+padding:2px 0px 0px 10px;
+}
+
+.trafficIcon .mapboxgl-popup-content{
+  width:29px;
+  height:37px;
+  background:url("~img/traffic/icon.png") no-repeat;
+  padding: 8px 10px 15px;
+}
+.trafficCarimage{
+  width:24.05px;
+  height:22.75px;
+  margin: 3px 0px 0px 2px;
+}

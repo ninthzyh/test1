@@ -26,7 +26,6 @@
 
 .three {
     height: calc(100% - 40px);
-
     .threeWrapper {
         display: flex;
         justify-content: space-around;
@@ -59,7 +58,7 @@
             }
 
             .pic {
-                >img {
+                >video {
                     width: auto;
                     height: auto;
                     max-width: 100%;

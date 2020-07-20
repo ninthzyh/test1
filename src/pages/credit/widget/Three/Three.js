@@ -10,10 +10,10 @@ export default class Three extends Component {
   getBlackRedListOption = () => {
     let blackRedListOption = {
       grid: {
-        top: '32%',
+        top: '25%',
         left: '15%',
         right: '4%',
-        bottom: 18,
+        bottom: 20,
       },
       tooltip: {
         trigger: 'axis',
@@ -90,10 +90,10 @@ export default class Three extends Component {
   getCourtDecisionOption = () => {
     let courtDecisionOption = {
       grid: {
-        top: '32%',
+        top: '25%',
         left: '15%',
         right: '1%',
-        bottom: 18,
+        bottom: 20,
       },
       tooltip: {
         trigger: 'axis',

@@ -1,5 +1,5 @@
 /* global window */
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { StaticMap } from 'react-map-gl';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
 import { HeatmapLayer, IconLayer } from 'deck.gl';
@@ -17,6 +17,9 @@ import arcData from 'assets/json/PuYang_arc.json';
 import targetPos from 'assets/json/PuYang_TargetPositions.json';
 import roadHeatmap from 'assets/json/PuYang_Road_Points.geojson';
 import governmentData from '../../assets/json/Puyang_Government.json';
+import { Popup } from 'react-map-gl';
+import carUrl from 'img/traffic/trafficCar.png';
+import './trafficPopup.css'
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -50,7 +53,7 @@ const material = {
 };
 
 const DEFAULT_THEME = {
-  buildingColor: [74,112,139],
+  buildingColor: [74, 112, 139],
   trailColor0: [253, 128, 93],
   trailColor1: [23, 184, 190],
   arcColor: [255, 255, 255],
@@ -70,7 +73,6 @@ const INITIAL_VIEW_STATE = {
 
 export default class OneMap extends Component {
   constructor(props) {
-    alert('1111');
     super(props);
     this.state = {
       time: 0,
@@ -131,10 +133,10 @@ export default class OneMap extends Component {
         intensity: 1,
         radiusPixels: 50,
         colorRange: [
-          [49,157,62],[77,185,95],[255,218,110],
-          [255,179,63],[255,141,46],[234,85,26],[227,12,12]
-          ],
-        opacity:0.4,
+          [49, 157, 62], [77, 185, 95], [255, 218, 110],
+          [255, 179, 63], [255, 141, 46], [234, 85, 26], [227, 12, 12]
+        ],
+        opacity: 0.4,
         getPosition: d => d.geometry.coordinates,
         getWeight: d => { return Math.floor(Math.random() * (500 - 300 + 1) + 300) },
       }),
@@ -172,7 +174,10 @@ export default class OneMap extends Component {
     ];
   }
   _onLoad(e) {
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = ''
     map = e.target;
+    console.log(map, 123)
     changeMapboxLanguage(map);
   }
 
@@ -182,7 +187,37 @@ export default class OneMap extends Component {
       mapStyle = 'mapbox://styles/mapbox/navigation-preview-night-v4',
       theme = DEFAULT_THEME
     } = this.props;
-
+    const displayContent = [
+      {
+        coor: [115.0195982, 35.75112835],
+        road: '解放大道',
+        accident: '追尾事故',
+        accidentTime: '(07-17 17:50)'
+      },
+      {
+        coor: [115.0195982, 35.78112835],
+        road: '解放大道',
+        accident: '连环车祸',
+        accidentTime: '(07-13 8:20)'
+      },
+      {
+        coor: [115.0295982, 35.76212835],
+        road: '解放大道',
+        accident: '追尾事故',
+        accidentTime: '(07-12 7:40)'
+      }
+    ]
+    const displayIcon = [
+      {
+        coor: [115.08628, 35.76303],
+      },
+      {
+        coor: [115.02760, 35.75115],
+      },
+      {
+        coor: [115.01693, 35.70723],
+      },
+    ]
     return (
       <div style={{ zIndex: '1' }}>
         <DeckGL
@@ -201,7 +236,47 @@ export default class OneMap extends Component {
             preventStyleDiffing={true}
             mapboxApiAccessToken={MAPBOX_TOKEN}
             onLoad={this._onLoad}
-          />
+          >
+
+            {displayContent.map((value, index) => {
+              return (
+                <Fragment>
+                  <Popup className={`traffic trafficPopup${index + 1}`}
+                    longitude={value.coor[0]}
+                    latitude={value.coor[1]}
+                    altitude={50}
+                    offsetLeft={90}
+                    closeButton={false}
+                    visible={true}
+                    key={index}
+                    dynamicPosition={false}
+                  >
+                    <img className="trafficCarimage" src={carUrl} ></img>
+                    <div>
+                      <div className='trafficAccident'>{value.accident}
+                        <span className='trafficTime' >
+                          {value.accidentTime}
+                        </span>
+                      </div>
+                      <div className='trafficRoad'>{value.road}</div>
+                    </div>
+
+                  </Popup>
+                  <Popup className={`trafficIcon`}
+                    longitude={value.coor[0]}
+                    latitude={value.coor[1]}
+                    altitude={0}
+                    closeButton={false}
+                    visible={true}
+                    key={'car'+index}
+                    dynamicPosition={false}
+                  >
+                  </Popup>
+                </Fragment>
+              )
+            })
+            }
+          </StaticMap>
         </DeckGL>
 
       </div>
