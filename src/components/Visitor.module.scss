@@ -1,0 +1,21 @@
+
+.visitor{
+  z-index: 2;
+  position: relative;
+  width: 54%;
+  display: flex;
+  float: left;
+  text-align: center;
+  line-height: 68px;
+  font-size: 16px;
+  justify-content: space-around;
+  background-color: rgba(0,0,0,0.1);
+  color: #ffffff;
+  >div{
+    flex: 1;
+    .number{
+      color: #FCC83B;
+      font-size: 20px;
+    }
+  }
+}
