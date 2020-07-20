@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CreditStyle from '../Credit.module.scss';
 import ChartHeader from 'components/ChartHeader/ChartHeader';
+import img from 'img/credit/news.png';
 export default class extends Component {
     constructor(props) {
         super(props);
@@ -11,7 +12,7 @@ export default class extends Component {
             <div className={CreditStyle.six}>
                 <ChartHeader title='信用动态' />
                 <div className={CreditStyle.bg}>
-                    <img src="img/credit/news.png" width='74%' alt=""/>
+                    <img src={img} width='74%' alt=""/>
                 </div>
                 <div className={CreditStyle.marquee}>
                     <marquee direction='up' scrollamount='1' height='20%' width="100%">

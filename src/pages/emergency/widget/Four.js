@@ -107,7 +107,7 @@ export default class extends Component {
                                     )
                                 }
                             },
-                            barMaxWidth: 30,
+                            barMaxWidth: 20,
                             label: {
                         show: true,
                         position: 'top',
