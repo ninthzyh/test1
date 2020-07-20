@@ -50,7 +50,7 @@ class Four extends Component {
                         <img src={item.pic} className={FourStyle.itemPic}/>               
                         <div className={FourStyle.itemName}>{item.name}</div>
                         <div className={FourStyle.itemNumber}>
-                            <CountUp end={item.count} {...counUpProps}/>
+                            <CountUp delay={1} end={item.count} {...counUpProps}/>
                             <span><div className={FourStyle.itemUnit}>{item.unit}</div></span>
                         </div>
                     </div>
