@@ -3,17 +3,16 @@
     .infoBox {
         height: calc(98% - 49px);
         position: relative;
-        padding: 19px 25px 9px 25px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        margin: 19px 25px 9px 25px;
+        overflow: hidden;
         .item {
             width: 100%;
             border: 1px solid rgba(71, 224, 230, 0.4);
             display: flex;
+            margin-bottom: 10px;
             .left {
                 flex: 3;
-                padding: 12px;
+                padding: 12px 0 12px 12px;
                 .image {
                     border: 1px solid rgba(71, 224, 230, 0.4);
                     width: 100%;
@@ -22,7 +21,7 @@
             }
             .right {
                 flex: 4;
-                padding: 12px;
+                padding: 12px 2px 12px 6px;
                 .type {
                     background: linear-gradient(90deg, rgba(39, 166, 189, 0.98), rgba(69, 204, 254, 0));
                     color: #F0F4F5;
@@ -35,10 +34,14 @@
                 .info {
                     color: #B2BDBF;
                     line-height: 17px;
-                    font-size: 12px;
+                    font-size: 10px;
                     padding: 0 4px;
                 }
             }
         }
     }
+    .anim {
+        transition: margin-top 2s;
+        margin-top: -24px;
+      } 
 }
