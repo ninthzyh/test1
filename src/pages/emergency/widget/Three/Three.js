@@ -12,29 +12,25 @@ export default class Three extends Component {
 
   Jitter = () => {
     let oImg = this.refs.img
-    let pos = 0
     let arr = []
+    let arrImg = []
     let num = 0
     let timer = null
-    let top = []
-    for (let i = 0; i < 20; i++) {
-      if (i < 10) {
-        top.push(i * 4)
+
+    for (let i = 1; i < 21; i++) {
+      if (i < 11) {
+        arrImg.push(i / 10)
       } else {
-        top.push(80 - i * 4)
+        arrImg.push((21 - i) / 10)
       }
     }
-    for (let i = 20; i > 0; i -= 2) {
-      arr.push(i, -i)
-    }
-    top.push(0)
+    arr = arrImg.concat(arrImg.concat(arrImg))
     arr.push(0)
+
     clearInterval(timer)
 
     timer = setInterval(() => {
-      oImg.style.left = pos + arr[num] - top[num] / 2 + 'px'
-      oImg.style.top = -10 - top[num] / 2 + 'px'
-      oImg.style.width = 60 + top[num] + 'px'
+      oImg.style.opacity = arr[num]
       num++
       if (num === arr.length) {
         clearInterval(timer)
@@ -45,6 +41,9 @@ export default class Three extends Component {
   getvideoprogress = () => {
     setTimeout(() => {
       let vid = this.refs.videos
+      if (!vid) {
+        return
+      }
       let currentTime = vid.currentTime.toFixed(1)
       if (currentTime > 2.9 && currentTime < 3.2) {
         this.Jitter()
@@ -55,7 +54,6 @@ export default class Three extends Component {
   componentDidMount = () => {
     let theThis = this
     this.refs.videos.src = accident
-    //this.getvideoprogress()
     this.refs.videos.addEventListener('play', function (e) {
       theThis.getvideoprogress()
     })
