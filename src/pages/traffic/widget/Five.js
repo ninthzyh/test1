@@ -30,10 +30,10 @@ export default class Five extends Component {
     return {
         tooltip: {
             trigger: 'axis',
-            backgroundColor: 'rgba(255,255,255,0.7)',
-            textStyle: {
-                color: '#000000'
-            }
+            // backgroundColor: 'rgba(255,255,255,0.7)',
+            // textStyle: {
+            //     color: '#000000'
+            // }
         },
         legend: [
             {  
