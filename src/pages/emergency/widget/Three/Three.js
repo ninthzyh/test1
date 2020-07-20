@@ -46,7 +46,7 @@ export default class Three extends Component {
     setTimeout(() => {
       let vid = this.refs.videos
       let currentTime = vid.currentTime.toFixed(1)
-      if (currentTime == 3) {
+      if (currentTime > 2.9 && currentTime < 3.2) {
         this.Jitter()
       }
       this.getvideoprogress()
