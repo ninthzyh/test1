@@ -36,7 +36,7 @@ export default class FiveChart extends Component {
       grid: {
         top: '22%',
         left: '11%',
-        right: '1%',
+        right: '3%',
         bottom: 20,
       },
       color: '#0091FF',
