@@ -8,12 +8,6 @@ window.address = "http://localhost:3000/puyang"
 // 图标变化时间间隔 单位：毫秒
 window.interval = 5000
 
-//traffic——交通视频展示（three）
-window.trafficVideo = {
-    one:'img/emergency/accident.mp4',
-    two:"img/emergency/accident.mp4"
-}
-
 // 导航路径
 window.menubar = [
     {
