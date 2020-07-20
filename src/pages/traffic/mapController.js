@@ -18,7 +18,6 @@ import targetPos from 'assets/json/PuYang_TargetPositions.json';
 import roadHeatmap from 'assets/json/PuYang_Road_Points.geojson';
 import governmentData from '../../assets/json/Puyang_Government.json';
 import { Popup } from 'react-map-gl';
-import carUrl from 'img/traffic/trafficCar.png';
 import './trafficPopup.css'
 
 // Set your mapbox token here
@@ -187,7 +186,7 @@ export default class OneMap extends Component {
       mapStyle = 'mapbox://styles/mapbox/navigation-preview-night-v4',
       theme = DEFAULT_THEME
     } = this.props;
-    const displayContent = [
+    const displayAccident = [
       {
         coor: [115.0195982, 35.75112835],
         road: '解放大道',
@@ -207,16 +206,25 @@ export default class OneMap extends Component {
         accidentTime: '(07-12 7:40)'
       }
     ]
-    const displayIcon = [
+    const displayCongestion = [
       {
-        coor: [115.08628, 35.76303],
+        coor: [115.0095982, 35.75112835],
+        road: '解放大道',
+        accident: '交通拥堵',
+        accidentTime: '(07-17 17:50)'
       },
       {
-        coor: [115.02760, 35.75115],
+        coor: [115.0095982, 35.78112835],
+        road: '解放大道',
+        accident: '交通拥堵',
+        accidentTime: '(07-13 8:20)'
       },
       {
-        coor: [115.01693, 35.70723],
-      },
+        coor: [115.0095982, 35.76212835],
+        road: '解放大道',
+        accident: '交通拥堵',
+        accidentTime: '(07-12 7:40)'
+      }
     ]
     return (
       <div style={{ zIndex: '1' }}>
@@ -238,43 +246,52 @@ export default class OneMap extends Component {
             onLoad={this._onLoad}
           >
 
-            {displayContent.map((value, index) => {
+            {displayAccident.map((value, index) => {
               return (
-                <Fragment>
-                  <Popup className={`traffic trafficPopup${index + 1}`}
-                    longitude={value.coor[0]}
-                    latitude={value.coor[1]}
-                    altitude={50}
-                    offsetLeft={90}
-                    closeButton={false}
-                    visible={true}
-                    key={index}
-                    dynamicPosition={false}
-                  >
-                    <img className="trafficCarimage" src={carUrl} ></img>
-                    <div>
-                      <div className='trafficAccident'>{value.accident}
-                        <span className='trafficTime' >
-                          {value.accidentTime}
-                        </span>
-                      </div>
-                      <div className='trafficRoad'>{value.road}</div>
+                <Popup className={`trafficAccident accidentPopup${index + 1}`}
+                  longitude={value.coor[0]}
+                  latitude={value.coor[1]}
+                  altitude={0}
+                  closeButton={false}
+                  visible={true}
+                  key={'accident' + index}
+                  dynamicPosition={false}
+                >
+              
+                    <div className='trafficAccident'>{value.accident}
+                      <span className='accidentTime' >
+                        {value.accidentTime}
+                      </span>
                     </div>
-
-                  </Popup>
-                  <Popup className={`trafficIcon`}
+                    <div className='accidentRoad'>{value.road}</div>
+          
+                </Popup>
+              )
+            })
+            }
+            {
+              displayCongestion.map((value, index) => {
+                return (
+                  <Popup className={`trafficCongestion accidentPopup${index + 1}`}
                     longitude={value.coor[0]}
                     latitude={value.coor[1]}
                     altitude={0}
                     closeButton={false}
                     visible={true}
-                    key={'car'+index}
+                    key={'congestion' + index}
                     dynamicPosition={false}
                   >
+                    
+                      <div className='trafficAccident'>{value.accident}
+                        <span className='accidentTime' >
+                          {value.accidentTime}
+                        </span>
+                      </div>
+                      <div className='accidentRoad'>{value.road}</div>
+        
                   </Popup>
-                </Fragment>
-              )
-            })
+                )
+              })
             }
           </StaticMap>
         </DeckGL>

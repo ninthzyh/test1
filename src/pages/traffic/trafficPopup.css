@@ -1,42 +1,49 @@
-.traffic .mapboxgl-popup-content{
-  width:162px;
-  height:48px;
-  background:url("~img/traffic/popup.png") no-repeat;
+.trafficAccident .mapboxgl-popup-content{
+  width:215px;
+  height:56px;
+  background:url("~img/traffic/accidentPopup.png") no-repeat;
   padding: 8px 10px 15px;
-  display:flex
 }
 .trafficAccident{
-width: 162px;
 
-font-size:10px;
+height:14px;
+font-size:14px;
 font-family:Source Han Sans SC;
-font-weight:400;
+font-weight:500;
 color:rgba(255,255,255,1);
-padding:2px 0px 0px 10px;
+position: relative;
+    left: 45px;
 }
-.trafficTime{
-width:51px;
-font-size:9px;
-font-family:Source Han Sans SC;
-font-weight:300;
-color:rgba(255,255,255,1);
+.accidentTime{
+  width:73px;
+  height:14px;
+  font-size:13px;
+  font-family:Source Han Sans SC;
+  font-weight:300;
+  color:rgba(255,255,255,1);
+  margin-left: 5px;
 }
-.trafficRoad{
-font-size:8px;
-font-family:Source Han Sans SC;
-font-weight:300;
-color:rgba(255,255,255,1);
-padding:2px 0px 0px 10px;
+.accidentRoad{
+  width:74px;
+  height:13px;
+  font-size:13px;
+  font-family:Source Han Sans SC;
+  font-weight:300;
+  color:rgba(255,255,255,1);
+  position: relative;
+    left: 45px;
+    top: 5px;
 }
 
 .trafficIcon .mapboxgl-popup-content{
   width:29px;
   height:37px;
-  background:url("~img/traffic/icon.png") no-repeat;
-  padding: 8px 10px 15px;
+  background:url("~img/traffic/congestionPopup.png") no-repeat;
+  margin: 8px 10px 10px 4px;
 }
-.trafficCarimage{
-  width:24.05px;
-  height:22.75px;
-  margin: 3px 0px 0px 2px;
+.trafficCongestion .mapboxgl-popup-content{
+  width:215px;
+  height:56px;
+  background:url("~img/traffic/congestionPopup.png") no-repeat;
+  padding: 8px 10px 15px;
 }

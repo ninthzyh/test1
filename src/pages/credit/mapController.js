@@ -218,8 +218,8 @@ export default class OneMap extends Component {
               <div className='content'> 版权变更办理数 <span className='number'> 4</span></div>
             </Popup>
             <Popup className={'credit creditPopup2'}
-              longitude={115.0295982}
-              latitude={35.7552835}
+              longitude={ 115.0274868}
+              latitude={35.71218135}
               altitude={80}
               closeButton={false}
               visible={true}
@@ -233,8 +233,8 @@ export default class OneMap extends Component {
               <div className='content'> 欠税企业数 <span className='number'> 0</span></div>
             </Popup>
             <Popup className={'credit creditPopup3'}
-              longitude={115.0495982}
-              latitude={35.76142835}
+              longitude={ 115.0289515}
+              latitude={35.76300968}
               altitude={80}
               closeButton={false}
               visible={true}

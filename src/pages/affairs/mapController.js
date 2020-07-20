@@ -18,7 +18,7 @@ import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
 import heatmapData from 'assets/json/builidingCenter.json';
-import governmentData from 'assets/json/Puyang_Government.json';
+import governmentData from 'assets/json/Puyang_Government_affairs.json';
 import policeData from 'assets/json/Puyang_Police.json';
 import policeIcon from 'img/affairs/police.png';
 import governIcon from 'img/affairs/govern.png';
@@ -222,7 +222,6 @@ export default class OneMap extends Component {
       });
       if (map) {
         map.on('zoom', () => {
-          console.log(map.getZoom())
           if (map.getZoom() > 12) {
             this.setState({
               popupVisible: true
@@ -279,7 +278,7 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: policeIcon,
+        iconAtlas: governIcon,
         sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
@@ -292,7 +291,7 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: governIcon,
+        iconAtlas: policeIcon,
         sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
