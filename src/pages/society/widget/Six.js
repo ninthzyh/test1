@@ -104,7 +104,7 @@ export default class extends Component {
       color: color,
       title: {
         text: '城市建设',
-        top: '50%',
+        top: '48%',
         textAlign: 'center',
         left: '49%',
         textStyle: {
