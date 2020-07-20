@@ -28,16 +28,16 @@ export default class FiveChart extends Component {
       },
       tooltip: {
         formatter: '{b} : {c}m²',
-        backgroundColor:'rgba(255,255,255,0.8)',
-        textStyle:{
-          color: '#000000'
-        }
+        // backgroundColor:'rgba(255,255,255,0.8)',
+        // textStyle:{
+        //   color: '#000000'
+        // }
       },
       grid: {
         top: '22%',
         left: '11%',
         right: '1%',
-        bottom: 18,
+        bottom: 20,
       },
       color: '#0091FF',
       xAxis: {
