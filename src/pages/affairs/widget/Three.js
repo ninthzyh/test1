@@ -56,7 +56,7 @@ export default class Three extends Component {
             clockWise: false,
             radius: [60, 70],
             center:['50%','50%'],
-            hoverAnimation: false,
+            hoverAnimation: true,
             itemStyle: {
                 normal: {
                     label: {
@@ -133,7 +133,6 @@ export default class Three extends Component {
             },
             series: seriesOption
         });
-        window.onresize = myChart.onresize;
     }
     render() {
         return (
