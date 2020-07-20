@@ -52,7 +52,7 @@ export default class Five extends Component {
             {  
                 icon:'line',
                 itemWidth:15, 
-                left: 135,
+                left: 130,
                 top: 13, 
                 textStyle:{
                     fontsize:12,
@@ -65,7 +65,7 @@ export default class Five extends Component {
             {  
                 icon:'line',
                 itemWidth:15,
-                left: 290,
+                left: 280,
                 top: 13,  
                 textStyle:{
                     fontsize:12,
@@ -91,7 +91,7 @@ export default class Five extends Component {
             {  
                 icon:'line',
                 itemWidth:15,  
-                left: 135,
+                left: 130,
                 top: 35,
                 textStyle:{
                     fontsize:12,
@@ -104,7 +104,7 @@ export default class Five extends Component {
             {   
                 icon:'line',
                 itemWidth:15,
-                left: 290,
+                left: 280,
                 top: 35,
                 textStyle:{
                     fontsize:12,
@@ -118,8 +118,8 @@ export default class Five extends Component {
         grid: {
             bottom: '3%',
             top: '36%',
-            right:'5%',
-            left:'1%',
+            right:'7%',
+            left:'2%',
             containLabel: true
         },
         dataset: { source: dataSource },
