@@ -72,9 +72,9 @@ class Four extends Component {
                 containLabel: true
             },
             animation: true,
-            animationDuration: 1000,
+            animationDuration: 3000,
             animationEasing: 'quadraticInOut',
-            animationDurationUpdate: 1000,
+            animationDurationUpdate: 3000,
             animationEasingUpdate: 'quadraticInOut',
             tooltip: {
                 trigger: 'axis',
@@ -157,7 +157,7 @@ class Four extends Component {
                 barWidth: 5,
                 barGap: '-100%',
                 // data:  yArrayRight,
-                // data: [5000, 5000, 5000, 5000, 5000,5000,5000],
+                // data: [5000, 5000, 50, 50, 50,50,50],
                 itemStyle: {
                     normal: {
                         color: 'rgba(24,31,68,1)',
