@@ -21,6 +21,7 @@ class FooterBottom extends Component {
     }
     jumpTo = (menu) => {
         window.open(menu.path);
+        // this.props.history.push(menu.path);
         // if (menu.type === "inner") {
         //     window.open(menu.path);
         //     // this.props.history.push(menu.path);
