@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import FiveChartStyle from './FiveChart.module.scss';
 import ChartHeader from '../../../../components/ChartHeader/ChartHeader';
-import ReactEcharts from 'echarts-for-react';
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/line'
+// import ReactEcharts from 'echarts-for-react';
 
 export default class FiveChart extends Component {
   constructor(props) {
@@ -55,11 +57,7 @@ export default class FiveChart extends Component {
       tooltip: {
         trigger: 'axis'
       },
-      // animation:  true,
-      // animationDuration: 3000, 
-      // animationEasing: 'quinticInOut',
-      // animationDurationUpdate: 3000,
-      // animationEasingUpdate: 'quinticInOut',
+      animationDuration: 3000,
       xAxis: {
         axisTick: {
           show: false
@@ -115,6 +113,11 @@ export default class FiveChart extends Component {
     };
   }
 
+  componentDidMount() {
+    let chart = echarts.init(this.ID)
+    chart.setOption(this.getOption(this.state.TimesData, this.state.countsData))
+  }
+
   render() {
     return (
       <div className={FiveChartStyle.fiveMain}>
@@ -123,7 +126,8 @@ export default class FiveChart extends Component {
           {this.showInfo()}
         </div>
         <div className={FiveChartStyle.chart}>
-          <ReactEcharts style={{ width: '100%', height: '100%' }} option={this.getOption(this.state.TimesData, this.state.countsData)} />
+          <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
+          {/* <ReactEcharts style={{ width: '100%', height: '100%' }} option={this.getOption(this.state.TimesData, this.state.countsData)} /> */}
         </div>
       </div>
     );
