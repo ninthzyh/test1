@@ -117,7 +117,7 @@ class One extends Component {
                         normal: {
                             lineStyle: {
                                 color: 'rgba(79, 117, 248, 1)',
-                                width: 2,
+                                width: window.lineWidth,
                             }
                         }
                     },
@@ -131,7 +131,7 @@ class One extends Component {
                         normal: {
                             lineStyle: {
                                 color: 'rgba(199, 77, 118, 1)',
-                                width: 2,
+                                width: window.lineWidth,
                             }
                         }
                     },
@@ -145,7 +145,7 @@ class One extends Component {
                         normal: {
                             lineStyle: {
                                 color: 'rgba(255, 198, 71, 1)',
-                                width: 2,
+                                width: window.lineWidth,
                             }
                         }
                     },
