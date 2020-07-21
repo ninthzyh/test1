@@ -10,6 +10,7 @@ width:167px;
 height:31px;
 background:url("~img/society/medical.png") no-repeat;
 padding: 8px 10px 15px;
+text-align: center;
 }
 .societyGraduationName .mapboxgl-popup-content{
 width:167px;
@@ -48,7 +49,18 @@ font-family:Source Han Sans SC;
 font-weight:400;
 color:rgba(250,250,250,1);
 text-align: center;
+padding-bottom: 10px;
 }
+.societyContent1{
+  padding-top: 10px;
+  height:13px;
+  font-size:12px;
+  font-family:Source Han Sans SC;
+  font-weight:400;
+  color:rgba(250,250,250,1);
+  text-align: center;
+
+  }
 .societyCatering .mapboxgl-popup-content{
   width:161px;
   height:126px;

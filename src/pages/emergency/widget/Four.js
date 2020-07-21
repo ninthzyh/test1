@@ -3,8 +3,14 @@ import ReactEcharts from "echarts-for-react";
 import AffairsStyle from '../../affairs/Affairs.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
+import 'echarts/lib/chart/bar';
 
 export default class extends Component {
+    componentDidMount() {
+        let chart = echarts.init(this.ID)
+        chart.setOption(this.getOption())
+    }
 
     getOption = () => {
         let option = {
@@ -107,7 +113,7 @@ export default class extends Component {
                                     )
                                 }
                             },
-                            barMaxWidth: 30,
+                            barMaxWidth: 20,
                             label: {
                         show: true,
                         position: 'top',
@@ -131,6 +137,7 @@ export default class extends Component {
                     },
                     lineStyle: {
                         color: '#EB64FF',
+                        width: window.lineWidth
                     },
                     data: [ 90, 150, 140, 210, 90],
                 }
@@ -143,11 +150,7 @@ export default class extends Component {
             <>
                 <ChartHeader title='服务人次年度趋势图' />
                 <div className={AffairsStyle.content}>
-                    <ReactEcharts
-                        option={this.getOption()}
-                        notMerge={true}
-                        lazyUpdate={true}
-                        style={{ width: '100%', height: '100%' }} />
+                    <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
                 </div>
 
 

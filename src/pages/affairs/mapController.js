@@ -18,13 +18,13 @@ import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
 import heatmapData from 'assets/json/builidingCenter.json';
-import governmentData from 'assets/json/Puyang_Government.json';
+import governmentData from 'assets/json/Puyang_Government_affairs.json';
 import policeData from 'assets/json/Puyang_Police.json';
 import policeIcon from 'img/affairs/police.png';
 import governIcon from 'img/affairs/govern.png';
 import pathIcon from 'img/path.png';
 import { Popup } from 'react-map-gl';
-import './popup.css';
+import './affairsPopup.css';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -91,8 +91,8 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.0195982,
-    latitude: 35.78112835,
+    longitude: 115.01207,
+    latitude: 35.70646,
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -100,8 +100,8 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.0295982,
-    latitude: 35.76212835,
+    longitude: 115.02,
+    latitude: 35.779,
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -109,17 +109,17 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.01392,
-    latitude: 35.76112,
+    longitude: 115.021,
+    latitude: 35.73,
     zoom: 17,
     pitch: 60,
     bearing: 30,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
-  }, {
+  }, 
+  {
     longitude: 115.064040,
     latitude: 35.756332,
-
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -129,7 +129,6 @@ const viewStates = [
   {
     longitude: 115.08628,
     latitude: 35.76303,
-
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -137,8 +136,8 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.02760,
-    latitude: 35.75115,
+    longitude: 115.03675,
+    latitude: 35.7240146,
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -146,8 +145,8 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.01693,
-    latitude: 35.70723,
+    longitude: 115.029,
+    latitude: 35.706,
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -155,8 +154,8 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.0350982,
-    latitude: 35.75612835,
+    longitude: 115.05,
+    latitude: 35.772,
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -164,8 +163,8 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.05605,
-    latitude: 35.77294,
+    longitude: 115.023,
+    latitude: 35.761,
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -180,7 +179,16 @@ const viewStates = [
     bearing: 25,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
-  }
+  },
+  {
+    longitude: 115.031,
+    latitude: 35.719,
+    zoom: 13.5,
+    pitch: 50,
+    bearing: 55,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
 ];
 var index_viewState = 0;
 var timerView = null;
@@ -222,7 +230,6 @@ export default class OneMap extends Component {
       });
       if (map) {
         map.on('zoom', () => {
-          console.log(map.getZoom())
           if (map.getZoom() > 12) {
             this.setState({
               popupVisible: true
@@ -279,7 +286,7 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: policeIcon,
+        iconAtlas: governIcon,
         sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
@@ -292,7 +299,7 @@ export default class OneMap extends Component {
         iconMapping: {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
-        iconAtlas: governIcon,
+        iconAtlas: policeIcon,
         sizeScale: 3,
         getIcon: d => 'marker',
         getPosition: d => [d.coor[0], d.coor[1], 80],
@@ -364,17 +371,18 @@ export default class OneMap extends Component {
         branch: '不动产',
       },
       {
-        coor: [115.0195982, 35.78112835],
+        coor: [115.01207, 35.70646],
         branch: '公安',
       },
       {
-        coor: [115.0295982, 35.76212835],
+        coor: [115.02, 35.779],
         branch: '民政',
       },
       {
-        coor: [115.01392, 35.76112],
+        coor: [115.021, 35.73],
         branch: '工商',
-      }, {
+      }, 
+      {
         coor: [115.064040, 35.756332],
         branch: '人社',
       },
@@ -383,19 +391,19 @@ export default class OneMap extends Component {
         branch: '税务',
       },
       {
-        coor: [115.02760, 35.75115],
+        coor: [115.03675, 35.7240146],
         branch: '消防',
       },
       {
-        coor: [115.01693, 35.70723],
+        coor: [115.029, 35.706],
         branch: '建行',
       },
       {
-        coor: [115.0350982, 35.75612835],
+        coor: [115.05, 35.772],
         branch: '公积金',
       },
       {
-        coor: [115.05605, 35.77294],
+        coor: [115.023, 35.761],
         branch: '建行',
       },
     ]
@@ -406,6 +414,7 @@ export default class OneMap extends Component {
 
         layers={this._renderLayers()}
         effects={theme.effects}
+        // initialViewState={INITIAL_VIEW_STATE}
         initialViewState={this.state.initViewState}
         viewState={viewState}
         controller={true}

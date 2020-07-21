@@ -21,11 +21,11 @@ class One extends Component {
             },
             color: ['rgba(79, 117, 248, 1)', 'rgba(199, 77, 118, 1)', 'rgba(255, 198, 71, 1)'],
             legend: {
-                x: 'center',      //可设定图例在左、右、居中
+                x: 'center',//可设定图例在左、右、居中
                 y: '10%',
                 data: [
                     {
-                        name: '近五年失业人员再就业人数',
+                        name: '失业人员再就业人数',
                         textStyle: {
                             fontSize: 10,
                             fontWeight: 'bolder',
@@ -34,7 +34,7 @@ class One extends Component {
                         icon: 'line'
                     },
                     {
-                        name: '近五年新增就业人数',
+                        name: '新增就业人数',
                         textStyle: {
                             fontSize: 10,
                             fontWeight: 'bolder',
@@ -109,27 +109,29 @@ class One extends Component {
             },
             series: [
                 {
-                    name: '近五年失业人员再就业人数',
+                    name: '失业人员再就业人数',
                     type: 'line',
                     symbol: 'none',
                     data: [120, 132, 101, 134, 90],
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                color: 'rgba(79, 117, 248, 1)'
+                                color: 'rgba(79, 117, 248, 1)',
+                                width: window.lineWidth,
                             }
                         }
                     },
                 },
                 {
-                    name: '近五年新增就业人数',
+                    name: '新增就业人数',
                     type: 'line',
                     symbol: 'none',
                     data: [400, 182, 190, 600, 900],
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                color: 'rgba(199, 77, 118, 1)'
+                                color: 'rgba(199, 77, 118, 1)',
+                                width: window.lineWidth,
                             }
                         }
                     },
@@ -142,7 +144,8 @@ class One extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                color: 'rgba(255, 198, 71, 1)'
+                                color: 'rgba(255, 198, 71, 1)',
+                                width: window.lineWidth,
                             }
                         }
                     },

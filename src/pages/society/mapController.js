@@ -5,7 +5,7 @@ import { StaticMap } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
-import DeckGL from '@deck.gl/react';
+import DeckGL, { FlyToInterpolator } from "deck.gl";
 import { GeoJsonLayer, PathLayer } from '@deck.gl/layers';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
 // import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
@@ -21,11 +21,18 @@ import shoppingData from '../../assets/json/PuYang_Shopping.json';
 import cateringData from '../../assets/json/PuYang_Catering.json';
 import graduationData from '../../assets/json/PuYang_Graduation.json';
 import { Popup } from 'react-map-gl';
-import './societyPopup.css'
+import './societyPopup.css';
+import pathImg from "assets/images/path.png";
+import { changeMapboxLanguage } from "../../untils/MapUtils";
+
+let buildingMaterial = {
+  id: "building",
+  //ambient: 0.5,
+  diffuse: 0.3,
+}
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
-const imgUrl = 'http://localhost:3000/img';
 var map;
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -69,13 +76,88 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.0461258,
-  latitude: 35.77430715,
-  zoom: 13.2,
-  pitch: 45,
-  bearing: 48//方位
+  longitude: 115.055,
+  latitude: 35.752,
+  zoom: 12.5,
+  pitch: 50,
+  bearing: 50,
 };
-
+const viewStates = [
+  // 濮阳县整体视角-1
+  {
+    longitude: 115.031,
+    latitude: 35.719,
+    zoom: 14,
+    pitch: 50,
+    bearing: 320, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县局部视角-1
+  {
+    longitude: 115.033071,
+    latitude: 35.714462,
+    zoom: 14.2,
+    pitch: 60,
+    bearing: 50,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县整体视角-2
+  {
+    longitude: 115.036,
+    latitude: 35.715,
+    zoom: 13.5,
+    pitch: 50,
+    bearing: 150, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },    
+  // 龙华区整体视角-1
+  {
+    longitude: 115.051,
+    latitude: 35.753,
+    zoom: 13,
+    pitch: 50,
+    bearing: 160, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },  
+  // 龙华区整体视角-2
+  {
+    longitude: 115.050,
+    latitude: 35.773,
+    zoom: 13,
+    pitch: 40,
+    bearing: 340, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳区域整体视角-1
+  {
+    longitude: 115.045,
+    latitude: 35.752,
+    zoom: 12.5,
+    pitch: 50,
+    bearing: 330,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },            
+  // 濮阳区域整体视角-2
+  {
+    longitude: 115.055,
+    latitude: 35.752,
+    zoom: 12.5,
+    pitch: 50,
+    bearing: 50,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },  
+  
+];
+var index_viewState = 0;
+var timerView = null;
+var timerColumnView = null;
 export default class OneMap extends Component {
   constructor(props) {
     super(props);
@@ -83,7 +165,8 @@ export default class OneMap extends Component {
       time: 0,
       opacity: 1,
       columnVisible: true,
-      titleVisible: false
+      titleVisible: false,
+      initViewState: INITIAL_VIEW_STATE,
     };
   }
   componentWillMount() {
@@ -92,13 +175,24 @@ export default class OneMap extends Component {
   }
   //组件第一次渲染后调用
   componentDidMount() {
-    setInterval(() => {
+    setTimeout(() => {
+      this.setState({
+        initViewState: viewStates[(viewStates.length - 1).toString()]
+      });
+    timerColumnView = setInterval(() => {
       this.setState({
         columnVisible: !this.state.columnVisible
-       // columnVisible: true
+        // columnVisible: true
       });
-    }, 6000)
-
+    }, 7000)
+    timerView = setInterval(() => {
+      if (index_viewState > viewStates.length - 1) {
+        index_viewState = 0;
+      }
+      this.setState({ initViewState: viewStates[index_viewState] });
+      index_viewState += 1;
+    }, 14000);
+  }, 5000);
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -121,9 +215,9 @@ export default class OneMap extends Component {
     return (
       this.state.cateringData.map((value, index) => {
         return <Popup className={`societyCateringName popup${index + 1}`}
-          longitude={value.coor[0]}
-          latitude={value.coor[1]}
-          altitude={value.customer*5}
+          longitude={value.location[0]}
+          latitude={value.location[1]}
+          altitude={value.review_count*0.5 }
           closeButton={false}
           visible={true}
           key={index}
@@ -140,7 +234,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyGraduationName popup${index + 1}`}
           longitude={value.coor[0]}
           latitude={value.coor[1]}
-          altitude={value.total*0.41}
+          altitude={value.total * 0.41}
           closeButton={false}
           visible={true}
           key={index}
@@ -174,7 +268,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyMedicalName popup${index + 1}`}
           longitude={value.coor[0]}
           latitude={value.coor[1]}
-          altitude={value.patient}
+          altitude={value.staff}
           closeButton={false}
           visible={true}
           key={index}
@@ -197,15 +291,15 @@ export default class OneMap extends Component {
     return (
       this.state.cateringData.map((value, index) => {
         return <Popup className={`societyCatering popup${index + 1}`}
-          longitude={value.coor[0]}
-          latitude={value.coor[1]}
+          longitude={value.location[0]}
+          latitude={value.location[1]}
           closeButton={false}
           visible={true}
           key={index}
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-      <div className='societyContent' >{`当日接待顾客 ${value.customer}人`}</div>
+          <div className='societyContent' >{`当月接待顾客 ${value.review_count}人`}</div>
         </Popup>
       })
     )
@@ -256,8 +350,8 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >{`当日接待患者 ${value.patient}人`}</div>
-          <div className='societyContent' >{`当日接待重症患者 ${value.severe}人`}</div>
+          <div className='societyContent' >{`在职员工 ${value.staff}人`}</div>
+          <div className='societyContent1' >{`开放床位 ${value.beds}张`}</div>
         </Popup>
       })
     )
@@ -270,16 +364,19 @@ export default class OneMap extends Component {
     const columnLayers = [new ColumnLayer({
       id: 'puyang_medical',
       data: this.state.medicalData,
-      diskResolution: 4,
+      diskResolution: 40,
       radius: 50,
       extruded: true,
+      material:buildingMaterial,
       elevationScale: 1,
       intensity: 0.1,
       getPosition: d => d.coor,
-      getFillColor: [55,232,122],
-      getElevation: d=>d.patient,
+      getFillColor: [55, 232, 122],
+      getElevation: d => d.staff,
       transitions: {
         getElevation: {
+
+          enter: (value) => [0],
           duration: 3000,
           onEnd: value => {
             this.setState({
@@ -291,20 +388,20 @@ export default class OneMap extends Component {
               titleVisible: false
             })
           },
-          enter: () => [0]
         },
       },
     }),
     new ColumnLayer({
       id: 'puyang_graduation',
       data: this.state.graduationData,
-      diskResolution: 4,
+      diskResolution: 40,
       radius: 50,
       extruded: true,
       elevationScale: 0.4,
+      material:buildingMaterial,
       getPosition: d => d.coor,
-      getFillColor: [100,231,255],
-      getElevation: d=>d.total,
+      getFillColor: [100, 231, 255],
+      getElevation: d => d.total,
       transitions: {
         getElevation: {
           duration: 3000,
@@ -316,45 +413,40 @@ export default class OneMap extends Component {
     new ColumnLayer({
       id: 'puyang_shopping',
       data: this.state.shoppingData,
-      diskResolution: 4,
+      diskResolution: 40,
       radius: 50,
       extruded: true,
+      material:buildingMaterial,
       elevationScale: 1,
       getPosition: d => d.coor,
-      getFillColor: [255,231,100],
-      getElevation: d=>d.customer,
+      getFillColor: [255, 231, 100],
+      getElevation: d => d.customer,
       transitions: {
         getElevation: {
           duration: 3000,
           enter: () => [0]
         },
       },
-      pickable: true,
-      onHover: ({ object }) => {
-        console.log(object)
-      }
     }),
-      new ColumnLayer({
-        id: 'puyang_catering',
-        data: this.state.cateringData,
-        diskResolution: 4,
-        radius: 50,
-        extruded: true,
-        elevationScale: 5,
-        getPosition: d => d.coor,
-        getFillColor: [255,149,97],
-        getElevation:d=>d.customer,
-        transitions: {
-          getElevation: {
-            duration: 3000,
-            enter: () => [0]
-          },
+    new ColumnLayer({
+      id: 'puyang_catering',
+      data: this.state.cateringData,
+      diskResolution: 40,
+      radius: 50,
+      extruded: true,
+      elevationScale: 0.5,
+      material:buildingMaterial,
+      getPosition: d => d.location,
+      getFillColor: [255, 149, 97],
+      getElevation: d => d.review_count,
+      transitions: {
+        getElevation: {
+          duration: 3000,
+          easing: (t => t),
+          enter: () => [50, 0]
         },
-        pickable: true,
-        onHover: ({ object }) => {
-          console.log(object)
-        }
-      })
+      },
+    })
     ]
     const baseLayers = [
       new PathLayer({
@@ -369,7 +461,7 @@ export default class OneMap extends Component {
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        image: imgUrl + '/path.png',
+        image: pathImg,
         getWidth: 4,
         speed: 1.2,
       }),
@@ -418,6 +510,7 @@ export default class OneMap extends Component {
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'zh'
     }));
+    changeMapboxLanguage(map);
   }
 
   render() {
@@ -432,7 +525,8 @@ export default class OneMap extends Component {
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
-          initialViewState={INITIAL_VIEW_STATE}
+          // initialViewState={INITIAL_VIEW_STATE}
+          initialViewState={this.state.initViewState}
           viewState={viewState}
           controller={true}
         >

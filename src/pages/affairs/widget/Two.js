@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
-import ReactEcharts from "echarts-for-react";
 import AffairsStyle from '../Affairs.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
+import echarts from 'echarts/lib/echarts';
+import 'echarts/lib/chart/line';
 
 export default class Two extends Component {
 
+    componentDidMount() {
+        let chart = echarts.init(this.ID)
+        chart.setOption(this.getOption())
+    }
     getOption = () => {
         let option = {
 
@@ -99,6 +104,7 @@ export default class Two extends Component {
                     },
                     lineStyle: {
                         color: '#34F4EB',
+                        width: window.lineWidth
                     },
                     itemStyle: {
                         color: '#34F4EB',
@@ -108,7 +114,8 @@ export default class Two extends Component {
                     barWidth: '35%', //柱子宽度
                     data: [500, 600, 780, 930, 1050, 1000, 900, 820, 780, 810, 800, 810],
                 }
-            ]
+            ],
+            animationDuration: 2000
         };
         return option
     }
@@ -117,11 +124,7 @@ export default class Two extends Component {
             <>
                 <ChartHeader title='服务人次年度趋势图' />
                 <div className={AffairsStyle.content}>
-                    <ReactEcharts
-                        option={this.getOption()}
-                        notMerge={true}
-                        lazyUpdate={true}
-                        style={{ width: '100%', height: '100%' }} />
+                    <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
                 </div>
 
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import ReactEcharts from 'echarts-for-react'
 import style from './Three.module.scss'
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/line'
 
 export default class Three extends Component {
   constructor(props) {
@@ -10,10 +11,10 @@ export default class Three extends Component {
   getBlackRedListOption = () => {
     let blackRedListOption = {
       grid: {
-        top: '32%',
+        top: '25%',
         left: '15%',
         right: '4%',
-        bottom: 18,
+        bottom: 20,
       },
       tooltip: {
         trigger: 'axis',
@@ -75,25 +76,40 @@ export default class Three extends Component {
           name: '红榜总数',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [3, 9, 27],
         },
         {
           name: '黑榜总数',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [2, 18, 22],
         },
       ],
+      animationDuration: 4000,
     }
     return blackRedListOption
   }
   getCourtDecisionOption = () => {
     let courtDecisionOption = {
       grid: {
-        top: '32%',
+        top: '25%',
         left: '15%',
         right: '1%',
-        bottom: 18,
+        bottom: 20,
       },
       tooltip: {
         trigger: 'axis',
@@ -154,25 +170,52 @@ export default class Three extends Component {
           name: '经济纠纷判决',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [45, 95, 65],
         },
         {
           name: '土地或房产判决',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [5, 10, 5],
         },
         {
           name: '企业强制执行资产',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [20, 30, 15],
         },
       ],
+      animationDuration: 4000,
     }
     return courtDecisionOption
   }
-  componentDidMount() {}
+  componentDidMount() {
+    let chart1 = echarts.init(this.ID1)
+    chart1.setOption(this.getBlackRedListOption())
+    let chart2 = echarts.init(this.ID2)
+    chart2.setOption(this.getCourtDecisionOption())
+  }
   render() {
     return (
       <div className={style.Three}>
@@ -188,20 +231,16 @@ export default class Three extends Component {
         </div>
         <div className={style.content}>
           <div className={style.left}>
-            <ReactEcharts
-              option={this.getBlackRedListOption()}
-              notMerge={true}
-              lazyUpdate={true}
+            <div
+              ref={(ID1) => (this.ID1 = ID1)}
               style={{ width: '100%', height: '100%' }}
-            />
+            ></div>
           </div>
           <div className={style.right}>
-            <ReactEcharts
-              option={this.getCourtDecisionOption()}
-              notMerge={true}
-              lazyUpdate={true}
+            <div
+              ref={(ID2) => (this.ID2 = ID2)}
               style={{ width: '100%', height: '100%' }}
-            />
+            ></div>
           </div>
         </div>
       </div>

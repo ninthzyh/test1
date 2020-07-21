@@ -194,11 +194,11 @@ export default class OneMap extends Component {
         extruded: true,
         elevationScale: 1,
         getHexagon: d => d.hex,
-        getFillColor: d => [0, (1 - d.count / 500) * 220, 255, 255],
+        getFillColor: d => [0, (1 - d.count / 500) * 220, 200,255],
         getElevation: 30,
         getLineColor: [255, 255, 255],
         getLineWidth: 1000,
-        opacity: 0.1
+        opacity:0.05
       }),
       new PathLayer({
         id: 'pathlayer',

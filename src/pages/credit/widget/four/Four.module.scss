@@ -23,5 +23,27 @@
             }
         }
     }
+    .itemBoxNew {
+        padding: 13px 25px 3px 15px;
+        height: calc(100% - 49px);
+        display: flex;
+        flex-direction:column;
+        .progressInfo {
+            font-size: 10px;
+            font-weight: 300;
+            opacity: 0.7;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            .name {
+                color: rgba(254,254,254,1);
+            }
+            .count {
+                color: #3ED5DE;
+                text-align: right;
+        
+            }
+        }
+    }
 }
 

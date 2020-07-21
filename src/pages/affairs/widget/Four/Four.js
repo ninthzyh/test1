@@ -12,11 +12,12 @@
  * @four:引进当前组件样式设置模块
  * @Progress:引进进度条组件
  */
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Progress  } from 'antd';
-import IconFont from '../../../../components/ChartHeader/ChartHeader.js'
-import {fourList} from './fourData.js'
-import './four.scss'
+import IconFont from '../../../../components/ChartHeader/ChartHeader.js';
+import {fourList} from './fourData.js';
+import './four.scss';
+import "animate.css";
 // console.log(fourList)
 /**
  * title:组件声明区域
@@ -25,15 +26,18 @@ class Four extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			list:fourList
+			list:fourList,
+			animateName:''
 		}
 	}
 	componentDidMount(){
-		
+		this.setState({
+			animateName:'bounceOutLeft'
+		})
 	}
 	render(){
 		return (
-			<div className='currentAffairsWrapFour'>
+			<div className={`animated ${this.state.animateName} currentAffairsWrapFour`}>
 				<div className='headerFour'>
 					<IconFont title={this.state.list.title}/>
 				</div>
@@ -66,7 +70,7 @@ class Four extends Component {
 												strokeWidth={8}
 												percent={item.proportion} 
 												showInfo={false} 
-										/>
+											/>
 										</div>
 									</div>
 								)

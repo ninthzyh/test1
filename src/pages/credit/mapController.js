@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { StaticMap } from 'react-map-gl';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
-import DeckGL from '@deck.gl/react';
+import DeckGL,{FlyToInterpolator} from "deck.gl";
 import { GeoJsonLayer, PathLayer } from '@deck.gl/layers';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
 import cityData from 'assets/json/PuYang_City.geojson';
@@ -13,18 +13,16 @@ import arcData from 'assets/json/PuYang_arc.json';
 import companyData from 'assets/json/PuYang_Company.json';
 import placeData from 'assets/json/PuYang_Place.json';
 import governmentData from 'assets/json/Puyang_Government.json';
-
 import companyIcon from 'img/credit/company.png';
 import governIcon from 'img/credit/govern.png';
-
 import { Popup } from 'react-map-gl';
-import { IconLayer } from 'deck.gl';
+import { IconLayer,HeatmapLayer } from 'deck.gl';
 import './creditPopup.css';
 import {changeMapboxLanguage} from '../../untils/MapUtils';
+import pathImg from "assets/images/path.png";
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
-const imgUrl = 'http://localhost:3000/img';
 var map;
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -68,26 +66,80 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.0295982,
-  latitude: 35.7552835,
-  zoom: 13.5,
+  longitude: 115.037,
+  latitude: 35.744,
+  zoom: 12.5,
   pitch: 50,
-  bearing: -15 //方位
+  bearing: 330,
 };
-
+const viewStates = [
+  // 市场监督
+  {
+    longitude: 115.030,
+    latitude: 35.7076,
+    zoom: 15,
+    pitch: 50,
+    bearing: 60,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 专利局
+  {
+    longitude: 115.029,
+    latitude: 35.766,
+    zoom: 15,
+    pitch: 50,
+    bearing: 15,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },  
+  // 税务局
+  {
+    longitude: 115.064,
+    latitude: 35.781,
+    zoom: 15,
+    pitch: 50,
+    bearing: 340,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },    
+  // 起始视角
+  {
+    longitude: 115.037,
+    latitude: 35.744,
+    zoom: 12.5,
+    pitch: 50,
+    bearing: 330,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },  
+];
+var index_viewState = 0;
 export default class OneMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
       time: 0,
       opacity: 1,
+      initViewState: INITIAL_VIEW_STATE,
     };
   }
   componentWillMount() {
     document.oncontextmenu = () => false;
     this.setState({ cityData, buildData, roadData, countyData, arcData, companyData, placeData, governmentData });
   }
-
+  //组件第一次渲染后调用
+  componentDidMount() {
+    // this._animate();
+    setInterval(() => {
+      if (index_viewState > viewStates.length - 1) {
+        index_viewState = 0;
+      }
+      this.setState({ initViewState: viewStates[index_viewState] });
+      index_viewState += 1;
+    }, 10000);
+    console.log(viewStates[index_viewState])
+  }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
     if (this._animationFrame) {
@@ -113,7 +165,7 @@ export default class OneMap extends Component {
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        image: imgUrl + '/path.png',
+        image: pathImg,
         getWidth: 4,
         speed: 1.2,
       }),
@@ -129,7 +181,7 @@ export default class OneMap extends Component {
         getElevation: d => d.properties.height,
         getFillColor: theme.buildingColor,
         material: theme.material,
-        opacity: 0.6
+        opacity: 0.1
       }),
       new GeoJsonLayer({
         id: 'county-Layer',
@@ -153,17 +205,30 @@ export default class OneMap extends Component {
         getPosition: d => [d.coor[0], d.coor[1], 80],
         getSize: d => { return 10 },
       }),
-      new IconLayer({
-        id: 'government_icon',
-        data: this.state.governmentData,
-        iconMapping: {
-          marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
-        },
-        iconAtlas: governIcon,
-        sizeScale: 2,
-        getIcon: d => 'marker',
-        getPosition: d => [d.coor[0], d.coor[1], 80],
-        getSize: d => { return 10 },
+      // new IconLayer({
+      //   id: 'government_icon',
+      //   data: this.state.governmentData,
+      //   iconMapping: {
+      //     marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
+      //   },
+      //   iconAtlas: governIcon,
+      //   sizeScale: 2,
+      //   getIcon: d => 'marker',
+      //   getPosition: d => [d.coor[0], d.coor[1], 80],
+      //   getSize: d => { return 10 },
+      // }),
+      new HeatmapLayer({
+        id: 'heatmaplayer',
+        data: this.state.companyData,
+        intensity: 3,
+        radiusPixels: 70,
+        colorRange: [
+             [81,54,158],[105,66,151],[119,73,147],[150,85,139],
+             [194,100,123],[219,110,105],[239,124,83],[250,191,61]
+          ],
+        opacity:1.0,
+        getPosition: d => [d.coor[0], d.coor[1]],
+        getWeight: d => { return Math.floor(Math.random() * (100 - 1 + 1) + 1) },
       }),
     ];
   }
@@ -177,7 +242,7 @@ export default class OneMap extends Component {
   render() {
     const {
       viewState,
-      mapStyle = 'mapbox://styles/mapbox/navigation-guidance-night-v4',
+      mapStyle = 'mapbox://styles/mapbox/navigation-guidance-night-v3',
       theme = DEFAULT_THEME
     } = this.props;
 
@@ -186,7 +251,8 @@ export default class OneMap extends Component {
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
-          initialViewState={INITIAL_VIEW_STATE}
+          // initialViewState={INITIAL_VIEW_STATE}
+          initialViewState={this.state.initViewState}
           viewState={viewState}
           controller={true}
         >
@@ -201,8 +267,8 @@ export default class OneMap extends Component {
             onLoad={this._onLoad}
           >
             <Popup className={'credit creditPopup1'}
-              longitude={115.0105982}
-              latitude={35.75112835}
+              longitude={115.026}
+              latitude={35.706}
               altitude={80}
               closeButton={false}
               visible={true}
@@ -218,8 +284,8 @@ export default class OneMap extends Component {
               <div className='content'> 版权变更办理数 <span className='number'> 4</span></div>
             </Popup>
             <Popup className={'credit creditPopup2'}
-              longitude={115.0295982}
-              latitude={35.7552835}
+              longitude={ 115.064}
+              latitude={35.779}
               altitude={80}
               closeButton={false}
               visible={true}
@@ -233,8 +299,8 @@ export default class OneMap extends Component {
               <div className='content'> 欠税企业数 <span className='number'> 0</span></div>
             </Popup>
             <Popup className={'credit creditPopup3'}
-              longitude={115.0495982}
-              latitude={35.76142835}
+              longitude={ 115.029}
+              latitude={35.763}
               altitude={80}
               closeButton={false}
               visible={true}

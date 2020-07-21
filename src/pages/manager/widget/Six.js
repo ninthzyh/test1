@@ -20,13 +20,8 @@ class Manager extends React.Component {
         rate: 76
     }];
 
-    getPeople = (people, num) => {
-        const result = [];
-        for (let i=1;i<=6;i++){
-            result.push(i<=people? <img key={i} src={require(`img/manager/people${num+1}.png`)} alt=""/>:<img key={i} src={require(`img/manager/people${num+4}.png`)} alt=""/>)
-        }
-        return result;
-    };
+    getPeople = (people, num) => [...new Array(6)].map((item,index)=>index<people? <img key={index} src={require(`img/manager/people${num+1}.png`)} alt=""/>:<img key={index} src={require(`img/manager/people${num+4}.png`)} alt=""/>);
+
     render() {
         return (
             <div className={ManagerStyle.sixContainer}>

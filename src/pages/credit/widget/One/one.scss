@@ -16,6 +16,7 @@
 	}
 	.contentOne{
 		margin-top: 7px;
+		height: calc(100% - 48px - 7px);
 		.contentHeaderOne{
 			width: 100%;
 			display: flex;
@@ -80,7 +81,7 @@
 			display: flex;
 			justify-content: start;
 			align-items: stretch;
-			height: 130px;
+			height: calc(100% - 60px);
 			.dataViewOne{
 				width: 100%;
 				height: 100%;
@@ -90,9 +91,10 @@
 					width: 60%;
 					height: 100%;
 					.leftDataProgressOne{
-						// transform-origin: center;
-						// transform: rotate(180deg);
 						height: 100%;
+						display: flex;
+						justify-content: space-around;
+						flex-direction:column;
 						.leftDataProgressShowOne{
 							height: 16px;
 							display: flex;
@@ -130,10 +132,9 @@
 				}
 				.middleLineOne{
 					width: 2px;
-					height: 120px;
+					height: calc(100% - 5%);
 					background: #756E9F;
 					position: relative;
-					top: -1px;
 				}
 				.rightProgressOne{
 					width: 30%;
@@ -143,6 +144,9 @@
 					flex-direction:column;
 					.rightDataProgressOne{
 						height: 100%;
+						display: flex;
+						justify-content: space-around;
+						flex-direction:column;
 						.leftDataProgressShowOne{
 							height: 16px;
 							display: flex;

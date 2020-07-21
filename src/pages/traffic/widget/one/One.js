@@ -16,18 +16,19 @@ export default class One extends Component {
     getOption = (data, name) => {
         return {
             tooltip: {
-                formatter: '{b} : {c}',
-                backgroundColor: 'rgba(255,255,255,0.8)',
-                textStyle: {
-                    color: '#000000'
-                }
+                // formatter: '{b} : {c}',
             },
             grid: {
                 top: '22%',
                 left: '7%',
-                right: '1%',
-                bottom: '15%',
+                right: '3%',
+                bottom: '16%',
             },
+            animation: true,
+            animationDuration: 2000,
+            animationEasing: 'quinticInOut',
+            animationDurationUpdate: 2000,
+            animationEasingUpdate: 'quinticInOut',
             color: '#0091FF',
             xAxis: {
                 type: 'category',
@@ -44,27 +45,7 @@ export default class One extends Component {
                         fontSize: 11,
                     },
                     interval: 0,
-                    formatter: function (value) {
-                        var ret = "";//拼接加\n返回的类目项  
-                        var maxLength = 3;//每项显示文字个数  
-                        var valLength = value.length;//X轴类目项的文字个数  
-                        var rowN = Math.ceil(valLength / maxLength); //类目项需要换行的行数  
-                        if (rowN > 1)//如果类目项的文字大于3,  
-                        {
-                            for (var i = 0; i < rowN; i++) {
-                                var temp = "";//每次截取的字符串  
-                                var start = i * maxLength;//开始截取的位置  
-                                var end = start + maxLength;//结束截取的位置  
-                                //这里也可以加一个是否是最后一行的判断，但是不加也没有影响，那就不加吧  
-                                temp = value.substring(start, end) + "\n";
-                                ret += temp; //凭借最终的字符串  
-                            }
-                            return ret;
-                        }
-                        else {
-                            return value;
-                        }
-                    }
+                    rotate: -23,
                 },
                 data: name,
             },
@@ -122,7 +103,7 @@ export default class One extends Component {
             <div className={OneStyle.fiveMain}>
                 <ChartHeader title='基础设施' />
                 <div className={OneStyle.chart}>
-                    <ReactEcharts style={{ width: '100%', height: '110%' }} option={this.getOption(this.state.Data, this.state.Name)} />
+                    <ReactEcharts style={{ width: '100%', height: '115%' }} option={this.getOption(this.state.Data, this.state.Name)} />
                 </div>
             </div>
         );

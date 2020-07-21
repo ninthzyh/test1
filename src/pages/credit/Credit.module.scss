@@ -2,20 +2,20 @@
 
 .six {
   height: 100%;
-  .bg {
+  .marquee {
     text-align: center;
     margin-top: 10px;
-  }
-  .marquee {
     color: #ffffff;
     font-size: 12px;
     line-height: 20px;
     opacity: 0.6;
     padding: 10px 20px;
-    div {
-      margin: 0 auto;
+    height: calc(100% - 68px);
+    marquee{
       text-align: center;
-      width: 90%;
+    }
+    p{
+      padding: 0 6%;
     }
   }
 }

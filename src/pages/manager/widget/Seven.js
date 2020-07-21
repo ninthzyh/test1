@@ -5,7 +5,7 @@ import { Icon } from 'antd';
 import CountUp from 'react-countup';
 const countUpProps = {
     star: 0,
-    duration: 8,
+    duration: 9,
     decimals: 0,
     useEasing: true,
     useGrouping: true,
@@ -22,7 +22,7 @@ export default class extends Component {
     sevenList = () => {
         return list.map((itemImg, itemIndex) => {
             return <div className={ManagerStyle.itemImg} key={itemIndex}>
-                <div className={ManagerStyle[itemImg.numColor]}><CountUp end={itemImg.num} suffix='' {...countUpProps}/></div>
+                <div className={ManagerStyle[itemImg.numColor]}><CountUp delay={1} end={itemImg.num} {...countUpProps}/></div>
                 <div className={ManagerStyle.title}>{itemImg.title}</div>
                 <div className={ManagerStyle.day}>日:{itemImg.day}<Icon type="arrow-down" /></div>
                 <div className={ManagerStyle.week}>周:{itemImg.week}<Icon type="arrow-down" /></div>

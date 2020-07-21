@@ -15,30 +15,31 @@ export default class FiveChart extends Component {
 
   getOption = (data, name) => {
     return {
-      title:{
+      title: {
         text: '渣土清扫面积/万m²',
         left: 15,
         top: 5,
-        textStyle:{
-          fontSize: 14 ,
-          fontFamily:'Microsoft YaHei',
-          fontWeight:'bold',
-          color:'rgba(64,253,251,1)',
+        textStyle: {
+          fontSize: 14,
+          fontFamily: 'Microsoft YaHei',
+          fontWeight: 'bold',
+          color: 'rgba(64,253,251,1)',
         },
       },
       tooltip: {
         formatter: '{b} : {c}m²',
-        backgroundColor:'rgba(255,255,255,0.8)',
-        textStyle:{
-          color: '#000000'
-        }
       },
       grid: {
         top: '22%',
         left: '11%',
-        right: '1%',
-        bottom: 18,
+        right: '3%',
+        bottom: 20,
       },
+      animation:  true,
+      animationDuration: 1000,
+      animationEasing: 'quinticInOut',
+      animationDurationUpdate: 1000,
+      animationEasingUpdate: 'quinticInOut',
       color: '#0091FF',
       xAxis: {
         type: 'category',
@@ -63,9 +64,9 @@ export default class FiveChart extends Component {
       },
       yAxis: {
         type: 'value',
-        max : 88,
-        min : 0,
-        interval : 22, //刻度间隔
+        max: 88,
+        min: 0,
+        interval: 22, //刻度间隔
         axisLine: {
           // lineStyle: {
           //   color: '#134C78',
@@ -99,13 +100,13 @@ export default class FiveChart extends Component {
           data: data,
           itemStyle: {
             normal: {
-                color: new echarts.graphic.LinearGradient(
-                    0, 0, 0, 1,
-                    [
-                        {offset: 1, color: '#008CFF'},                   //柱图渐变色
-                        {offset: 0, color: '#15F2FF'},                   //柱图渐变色
-                    ]
-                )
+              color: new echarts.graphic.LinearGradient(
+                0, 0, 0, 1,
+                [
+                  { offset: 1, color: '#008CFF' },                   //柱图渐变色
+                  { offset: 0, color: '#15F2FF' },                   //柱图渐变色
+                ]
+              )
             },
             // emphasis: {
             //     color: new echarts.graphic.LinearGradient(
@@ -118,7 +119,7 @@ export default class FiveChart extends Component {
             // }
           }
         }
-      ]
+      ],
     }
   };
 

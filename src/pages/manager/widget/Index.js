@@ -23,7 +23,7 @@ class Manager extends React.Component {
         }
     }
     componentDidMount() {
-        // this.showChange();
+        this.showChange();
     }
 
     showChange = () => {

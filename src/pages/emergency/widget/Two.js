@@ -29,6 +29,11 @@ export default class Two extends Component {
                 right:'2%',
             data: ['公共卫生事件', '社会安全', '自然灾害', '事故灾害']
         },
+        animation: true,
+        animationDuration: 100000,
+        // animationEasing: 'quadraticInOut',
+        // animationDurationUpdate: 100000,
+        // animationEasingUpdate: 'quadraticInOut',
         grid: {
             bottom: '1%',
             top: '15%',
@@ -107,7 +112,7 @@ export default class Two extends Component {
                         color:'rgba(58,132,255,1)',
                         lineStyle: {
                             color: "rgba(58,132,255,1)",
-                            width:1
+                            width:2
                         },
                         areaStyle: { 
                             color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
@@ -131,7 +136,7 @@ export default class Two extends Component {
                         color:'rgba(250,217,61,1)',
                         lineStyle: {
                             color: "rgba(250,217,61,1)",
-                            width:1
+                            width:2
                         },
                         areaStyle: { 
                             color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
@@ -155,7 +160,7 @@ export default class Two extends Component {
                         color:'rgba(255,35,0,1)',
                         lineStyle: {
                             color: "rgba(255,35,0,1)",
-                            width:1
+                            width:2
                         },
                         areaStyle: { 
                             color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
@@ -179,7 +184,7 @@ export default class Two extends Component {
                         color:'rgba(251,55,225,1)',
                         lineStyle: {
                             color: "rgba(251,55,225,1)",
-                            width:1
+                            width:2
                         },
                         areaStyle: { 
                             color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
@@ -194,7 +199,7 @@ export default class Two extends Component {
                 },
                 data: [4.8,3.6,5.2,3.4,4.2]
             },
-        ]
+        ],
     }
   };
 

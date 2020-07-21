@@ -46,6 +46,7 @@ export default class RowBar extends Component {
                                 '0%': '#0C97FC',
                                 '100%': '#18FFFF',
                             }}
+                            status='active'
                             className={AffairsStyle.progress}
                             strokeWidth={6}
                             percent={item.percent}
