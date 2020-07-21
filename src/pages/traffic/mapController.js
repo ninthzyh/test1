@@ -124,12 +124,12 @@ export default class OneMap extends Component {
         getTargetPosition: d => d.to,
         getWidth: 3,
         image: imgUrl + "/path4.png",
-        speed: 3
+        speed: 1.0
       }),
       new HeatmapLayer({
         id: 'heatmaplayer',
         data: this.state.roadHeatmap,
-        intensity: 1,
+        intensity: 3,
         radiusPixels: 50,
         colorRange: [
           [49, 157, 62], [77, 185, 95], [255, 218, 110],
@@ -143,7 +143,7 @@ export default class OneMap extends Component {
         data: this.state.targetPos,
         getRadius: 1500,
         getPosition: d => d.position,
-        speed: 4.0,
+        speed: 0.8,
         getColor: [255, 255, 0],
         getLineWidth: 60
       }),
