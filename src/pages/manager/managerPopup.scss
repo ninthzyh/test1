@@ -1,18 +1,20 @@
 @import 'assets/css/index.modules.scss';
 .manager .mapboxgl-popup-content{
   padding: 10px 0px 15px !important;
-  opacity:1;
-  border-radius:4px;  
+  opacity: 1;
+  border-radius: 4px;
 }
 .managerPopup1 .mapboxgl-popup-content{
-  width:339px;
-  height:250px; 
-  background:url('~img/manager/statistics.png') no-repeat;
+  width: 362px;
+  height: 250px; 
+  background: url('~img/manager/statistics.png') no-repeat;
+  display: none;
 }
 .managerPopup2 .mapboxgl-popup-content{
-  width:313px;
-  height:218px; 
-  background:url("~img/manager/incidents.png") no-repeat;
+  width: 313px;
+  height: 218px; 
+  background: url("~img/manager/incidents.png") no-repeat;
+  display: none;
 }
 .managerPopup1 {
   .font{
@@ -31,18 +33,18 @@
     font-size:20px;
     font-family:PingFang SC;
     font-weight:500;
-    color:rgba(0,238,255,1);
+    color:rgb(255, 255, 255);
     padding: 3px  0px 30px 53px;
   }
   .static{
     float: left;
-    width: 2.5%;
+    width: 8px;
     height: 12px;
     font-size: 20px;
     font-family: PingFang SC;
     font-weight:400;
     color:rgba(255,255,255,1);
-    margin-left: 50px;
+    margin-left: 52px;
     margin-top: 75px;
   }
 }
@@ -68,16 +70,3 @@
     color:rgba(255,255,255,1);
   }
 }
-
-// .number{
-// padding-left: 30px;
-// position:absolute;
-// left: 147px;
-// width:9px;
-// height:12px;
-// font-size:16px;
-// font-family:PingFang SC;
-// font-weight:400;
-// color:rgba(105,244,254,1);
-// line-height:24px;
-// }
