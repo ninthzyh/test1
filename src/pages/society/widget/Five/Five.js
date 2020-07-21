@@ -42,7 +42,7 @@ class Five extends Component{
 							option={this.state.list.option}
 							notMerge={true}
 							lazyUpdate={true}
-							style={{ width: '100%', height: '100%' }}
+							style={{ width: '100%', height: '110%' }}
 						/>
 					</div>
 				</div>
