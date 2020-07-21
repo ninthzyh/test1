@@ -8,6 +8,9 @@ window.address = "http://localhost:3000/puyang"
 // 图标变化时间间隔 单位：毫秒
 window.interval = 5000
 
+// 图表折线宽度
+window.lineWidth="2px";
+
 // 导航路径
 window.menubar = [
     {

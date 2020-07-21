@@ -18,7 +18,7 @@ import companyIcon from 'img/credit/company.png';
 import governIcon from 'img/credit/govern.png';
 
 import { Popup } from 'react-map-gl';
-import { IconLayer } from 'deck.gl';
+import { IconLayer,HeatmapLayer } from 'deck.gl';
 import './creditPopup.css';
 import {changeMapboxLanguage} from '../../untils/MapUtils';
 
@@ -129,7 +129,7 @@ export default class OneMap extends Component {
         getElevation: d => d.properties.height,
         getFillColor: theme.buildingColor,
         material: theme.material,
-        opacity: 0.6
+        opacity: 0.1
       }),
       new GeoJsonLayer({
         id: 'county-Layer',
@@ -153,17 +153,30 @@ export default class OneMap extends Component {
         getPosition: d => [d.coor[0], d.coor[1], 80],
         getSize: d => { return 10 },
       }),
-      new IconLayer({
-        id: 'government_icon',
-        data: this.state.governmentData,
-        iconMapping: {
-          marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
-        },
-        iconAtlas: governIcon,
-        sizeScale: 2,
-        getIcon: d => 'marker',
-        getPosition: d => [d.coor[0], d.coor[1], 80],
-        getSize: d => { return 10 },
+      // new IconLayer({
+      //   id: 'government_icon',
+      //   data: this.state.governmentData,
+      //   iconMapping: {
+      //     marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
+      //   },
+      //   iconAtlas: governIcon,
+      //   sizeScale: 2,
+      //   getIcon: d => 'marker',
+      //   getPosition: d => [d.coor[0], d.coor[1], 80],
+      //   getSize: d => { return 10 },
+      // }),
+      new HeatmapLayer({
+        id: 'heatmaplayer',
+        data: this.state.companyData,
+        intensity: 3,
+        radiusPixels: 70,
+        colorRange: [
+             [81,54,158],[105,66,151],[119,73,147],[150,85,139],
+             [194,100,123],[219,110,105],[239,124,83],[250,191,61]
+          ],
+        opacity:1.0,
+        getPosition: d => [d.coor[0], d.coor[1]],
+        getWeight: d => { return Math.floor(Math.random() * (100 - 1 + 1) + 1) },
       }),
     ];
   }
@@ -177,7 +190,7 @@ export default class OneMap extends Component {
   render() {
     const {
       viewState,
-      mapStyle = 'mapbox://styles/mapbox/navigation-guidance-night-v4',
+      mapStyle = 'mapbox://styles/mapbox/navigation-guidance-night-v3',
       theme = DEFAULT_THEME
     } = this.props;
 
@@ -218,8 +231,8 @@ export default class OneMap extends Component {
               <div className='content'> 版权变更办理数 <span className='number'> 4</span></div>
             </Popup>
             <Popup className={'credit creditPopup2'}
-              longitude={115.0295982}
-              latitude={35.7552835}
+              longitude={ 115.0274868}
+              latitude={35.71218135}
               altitude={80}
               closeButton={false}
               visible={true}
@@ -233,8 +246,8 @@ export default class OneMap extends Component {
               <div className='content'> 欠税企业数 <span className='number'> 0</span></div>
             </Popup>
             <Popup className={'credit creditPopup3'}
-              longitude={115.0495982}
-              latitude={35.76142835}
+              longitude={ 115.0289515}
+              latitude={35.76300968}
               altitude={80}
               closeButton={false}
               visible={true}

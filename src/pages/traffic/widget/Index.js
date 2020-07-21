@@ -13,6 +13,7 @@ class Index extends Component {
         this.state = {}
     }
     render() {
+        console.dir(window.trafficVideo)
         return (
             <div className={TrafficStyle.container}>
                 <OneMap></OneMap>

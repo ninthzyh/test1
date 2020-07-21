@@ -2,7 +2,7 @@
 import React, { Component, Fragment } from "react";
 import { StaticMap } from "react-map-gl";
 import { AmbientLight, PointLight, LightingEffect } from "@deck.gl/core";
-import DeckGL from "@deck.gl/react";
+import DeckGL, { FlyToInterpolator } from "deck.gl";
 import { GeoJsonLayer, PathLayer } from "@deck.gl/layers";
 import PolylineLayer from "components/polyline-layer/polyline-layer";
 import cityData from "assets/json/PuYang_City.geojson";
@@ -50,15 +50,15 @@ const pointLightRight = new PointLight({
 });
 
 const emergencyPointLight = new PointLight({
-  color: [255, 255, 0],
+  color: [255,255,0],
   intensity: 10.0,
-  position: [115.033669, 35.763893000000003, 200],
+  position: [115.033669,35.763893000000003,200]
 });
 
 const hospitalPointLight = new PointLight({
-  color: [0, 255, 0],
+  color: [0,255,0],
   intensity: 0.2,
-  position: [115.050518, 35.760787999999998, 1000],
+  position: [115.050518,35.760787999999998,1000]
 });
 
 // const directionalLight = new DirectionalLight({
@@ -72,7 +72,7 @@ const lightingEffect = new LightingEffect({
   pointLightRight,
 });
 const material = {
-  ambient: 0.1, //环境
+  ambient: 0.5, //环境
   diffuse: 0.6, //漫反射
   shininess: 8,
   specularColor: [60, 64, 70], //高光颜色
@@ -113,19 +113,102 @@ const scanImgs = [
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置
-  longitude: 115.0336,
-  latitude: 35.728,
+  longitude: 115.036,
+  latitude: 35.736,
   zoom: 13,
   pitch: 58,
   bearing: 60, //方位
 };
-
+const viewStates = [
+  // 事故地点
+  {
+    longitude: 115.0304,
+    latitude: 35.7128,
+    zoom: 14,
+    pitch: 55,
+    bearing: 110,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 事故地点，俯瞰视角
+  {
+    longitude: 115.02607,
+    latitude: 35.714062,
+    zoom: 14,
+    pitch: 0,
+    bearing: 100,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县人民医院
+  {
+    longitude: 115.032,
+    latitude: 35.7058,
+    zoom: 15,
+    pitch: 58,
+    bearing: 10,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县消防大队
+  {
+    longitude: 115.03675266957364,
+    latitude: 35.724014677616225,
+    zoom: 15,
+    pitch: 58,
+    bearing: 260,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县公安局
+  {
+    longitude: 115.01207175600501,
+    latitude: 35.706462793571056,
+    zoom: 14.5,
+    pitch: 40,
+    bearing: 60,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳市人民医院
+  {
+    longitude: 115.03228,
+    latitude: 35.747326,
+    zoom: 13.7,
+    pitch: 58,
+    bearing: 120,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳市公安局
+  {
+    longitude: 115.01559322149822,
+    latitude: 35.74715,
+    zoom: 13.7,
+    pitch: 58,
+    bearing: 250,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  {
+    //濮阳中心坐标位置
+    longitude: 115.036,
+    latitude: 35.736,
+    zoom: 13,
+    pitch: 58,
+    bearing: 60, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+];
+var index_viewState = 0;
 export default class OneMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
       time: 0,
       opacity: 1,
+      initViewState: INITIAL_VIEW_STATE,
     };
   }
   componentWillMount() {
@@ -144,6 +227,13 @@ export default class OneMap extends Component {
   //组件第一次渲染后调用
   componentDidMount() {
     // this._animate();
+    setInterval(() => {
+      if (index_viewState > viewStates.length - 1) {
+        index_viewState = 0;
+      }
+      this.setState({ initViewState: viewStates[index_viewState] });
+      index_viewState += 1;
+    }, 10000);
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -164,7 +254,7 @@ export default class OneMap extends Component {
         getWidth: 3,
         getHeight: 1,
         image: arcImg,
-        speed: 5,
+        speed: 0.8,
       }),
       // new HeatmapLayer({
       //   id: 'heatmaplayer',
@@ -208,7 +298,7 @@ export default class OneMap extends Component {
         getLineWidth: 50,
         getRadius: 500,
         getLineColor: (d) => scatterPointColors[d.attributes.Type],
-        speed: 3.0,
+        speed: 1.0,
         stroked: true,
         filled: false,
       }),
@@ -248,7 +338,7 @@ export default class OneMap extends Component {
           image: scanImgs[index],
           imageNoise: depthImg,
           getRadius: 500,
-          speed: 0.8,
+          speed: 0.3,
           getBlendColor: (d) => scanColors[d.attributes.Type],
         })
       );
@@ -256,8 +346,8 @@ export default class OneMap extends Component {
     return baseLayers;
   }
   _onLoad(e) {
-    let box = document.getElementsByClassName("mapboxgl-map")[0].parentNode;
-    box.style.zIndex = "";
+    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
+    box.style.zIndex = '';
     map = e.target;
     changeMapboxLanguage(map);
   }
@@ -274,7 +364,7 @@ export default class OneMap extends Component {
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
-          initialViewState={INITIAL_VIEW_STATE}
+          initialViewState={this.state.initViewState} //{INITIAL_VIEW_STATE} //
           viewState={viewState}
           controller={true}
         >
