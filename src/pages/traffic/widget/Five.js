@@ -123,9 +123,9 @@ export default class Five extends Component {
                 containLabel: true
             },
             // animation: true,
-            // animationDuration: 5000,
+            // animationDuration: 3000,
             // animationEasing: 'quinticInOut',
-            // animationDurationUpdate: 5000,
+            // animationDurationUpdate: 3000,
             // animationEasingUpdate: 'quinticInOut',
             dataset: { source: dataSource },
             color: ['#47C8FF', '#2C00BB', '#FFC900', '#00FF5A', '#FF00FF', '#FA0029'],
@@ -196,13 +196,13 @@ export default class Five extends Component {
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
+                    // markline: {
+                    //     animation: true,
+                    //     animationDuration: 5000,
+                    //     animationEasing: 'quinticInOut',
+                    //     animationDurationUpdate: 5000,
+                    //     animationEasingUpdate: 'quinticInOut',
+                    // }
                 },
                 {
                     type: 'line',
@@ -214,13 +214,13 @@ export default class Five extends Component {
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
+                    // markline: {
+                    //     animation: true,
+                    //     animationDuration: 5000,
+                    //     animationEasing: 'quinticInOut',
+                    //     animationDurationUpdate: 5000,
+                    //     animationEasingUpdate: 'quinticInOut',
+                    // }
                 },
                 {
                     type: 'line',
@@ -232,13 +232,13 @@ export default class Five extends Component {
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
+                    // markline: {
+                    //     animation: true,
+                    //     animationDuration: 5000,
+                    //     animationEasing: 'quinticInOut',
+                    //     animationDurationUpdate: 5000,
+                    //     animationEasingUpdate: 'quinticInOut',
+                    // }
                 },
                 {
                     type: 'line',
@@ -250,13 +250,13 @@ export default class Five extends Component {
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
+                    // markline: {
+                    //     animation: true,
+                    //     animationDuration: 5000,
+                    //     animationEasing: 'quinticInOut',
+                    //     animationDurationUpdate: 5000,
+                    //     animationEasingUpdate: 'quinticInOut',
+                    // }
                 },
                 {
                     type: 'line',
@@ -268,13 +268,13 @@ export default class Five extends Component {
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
+                    // markline: {
+                    //     animation: true,
+                    //     animationDuration: 5000,
+                    //     animationEasing: 'quinticInOut',
+                    //     animationDurationUpdate: 5000,
+                    //     animationEasingUpdate: 'quinticInOut',
+                    // }
                 },
                 {
                     type: 'line',
@@ -286,13 +286,13 @@ export default class Five extends Component {
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
+                    // markline: {
+                    //     animation: true,
+                    //     animationDuration: 5000,
+                    //     animationEasing: 'quinticInOut',
+                    //     animationDurationUpdate: 5000,
+                    //     animationEasingUpdate: 'quinticInOut',
+                    // }
                 },
             ]
         }
