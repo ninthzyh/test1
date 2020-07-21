@@ -18,7 +18,6 @@ import IconFont from '../../../../components/ChartHeader/ChartHeader.js';
 import {fourList} from './fourData.js';
 import './four.scss';
 import "animate.css";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 // console.log(fourList)
 /**
  * title:组件声明区域
