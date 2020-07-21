@@ -35,7 +35,7 @@ export default class FiveChart extends Component {
         right: '3%',
         bottom: 20,
       },
-      animation: true,
+      animation:  true,
       animationDuration: 3000,
       animationEasing: 'backIn',
       animationDurationUpdate: 3000,

@@ -24,7 +24,7 @@ export default class One extends Component {
                 right: '3%',
                 bottom: '16%',
             },
-            animation: true,
+            animation:  true,
             animationDuration: 5000,
             animationEasing: 'quinticInOut',
             animationDurationUpdate: 5000,
