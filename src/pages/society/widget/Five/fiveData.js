@@ -10,6 +10,11 @@ export const fiveList = {
 				type: 'cross'
 			}
 		},
+		animation: true,
+		animationDuration: 1500,
+		animationEasing: 'exponentialOut',
+		animationDurationUpdate: 1500,
+		animationEasingUpdate: 'cubicOut',
 		xAxis: [
 			{
 				type: 'category',
