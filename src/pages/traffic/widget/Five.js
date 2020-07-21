@@ -124,7 +124,7 @@ export default class Five extends Component {
                 left: '2%',
                 containLabel: true
             },
-            animationDuration: 4000,
+            animationDuration: 3000,
             dataset: { source: dataSource },
             color: ['#47C8FF', '#2C00BB', '#FFC900', '#00FF5A', '#FF00FF', '#FA0029'],
             xAxis: {
