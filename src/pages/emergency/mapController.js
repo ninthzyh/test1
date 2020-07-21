@@ -26,7 +26,7 @@ import hospitalImg from "assets/images/hospital_color.png";
 import firecontrolImg from "assets/images/firecontrol_color.png";
 import policeImg from "assets/images/police_color.png";
 import weatherImg from "assets/images/weather_color.png";
-import "./popup.css";
+import "./emergencyPopup.css";
 import { changeMapboxLanguage } from "../../untils/MapUtils";
 
 // Set your mapbox token here
