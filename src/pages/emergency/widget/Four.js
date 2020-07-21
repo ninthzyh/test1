@@ -145,8 +145,8 @@ export default class extends Component {
                 <div className={AffairsStyle.content}>
                     <ReactEcharts
                         option={this.getOption()}
-                        notMerge={true}
-                        lazyUpdate={true}
+                        // notMerge={true}
+                        // lazyUpdate={true}
                         style={{ width: '100%', height: '100%' }} />
                 </div>
 
