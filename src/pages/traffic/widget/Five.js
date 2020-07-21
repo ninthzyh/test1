@@ -192,7 +192,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -203,7 +203,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -214,7 +214,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -225,7 +225,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -236,7 +236,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -247,7 +247,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },

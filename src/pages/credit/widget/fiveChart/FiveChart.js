@@ -109,7 +109,7 @@ export default class FiveChart extends Component {
       series: [{
         type: 'line',
         symbol: "none",//不显示折线上圆圈点
-        lineStyle: { color: "rgba(64,253,251,1)", width: 2 },
+        lineStyle: { color: "rgba(64,253,251,1)", width: window.lineWidth },
         data: counts
       }]
     };
