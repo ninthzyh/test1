@@ -96,6 +96,11 @@ export default class Three extends Component {
         // 绘制图表
         myChart.setOption({
             color: color,
+            animation: true,
+            animationDuration: 4000,
+            animationEasing: 'linear',
+            animationDurationUpdate: 4000,
+            animationEasingUpdate: 'linear',
             title: {
                 text: '办理总量',
                 top: '42%',
