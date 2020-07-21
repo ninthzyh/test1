@@ -192,7 +192,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
@@ -203,7 +203,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
@@ -214,7 +214,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
@@ -225,7 +225,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
@@ -236,7 +236,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
@@ -247,7 +247,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
