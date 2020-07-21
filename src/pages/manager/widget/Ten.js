@@ -107,8 +107,8 @@ export default class Ten extends Component {
                     normal: {
                         color:'rgba(58,132,255,1)',
                         lineStyle: {
-                            color: "rgba(58,132,255,0.75)",
-                            width:1
+                            color: "rgba(58,132,255,1)",
+                            width:2
                         },
                         areaStyle: { 
                             color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
@@ -131,8 +131,8 @@ export default class Ten extends Component {
                     normal: {
                         color:'rgba(250,217,61,1)',
                         lineStyle: {
-                            color: "rgba(250,217,61,0.75)",
-                            width:1
+                            color: "rgba(250,217,61,1)",
+                            width:2
                         },
                         areaStyle: { 
                             color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{
@@ -155,8 +155,8 @@ export default class Ten extends Component {
                     normal: {
                         color:'rgba(255,80,124,1)',
                         lineStyle: {
-                            color: "rgba(255,80,124,0.75)",
-                            width:1
+                            color: "rgba(255,80,124,1)",
+                            width:2
                         },
                         areaStyle: { 
                             color: new echarts.graphic.LinearGradient(0, 1, 0, 0, [{

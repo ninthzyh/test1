@@ -22,39 +22,44 @@ export default class Two extends Component {
         // }
         trigger: 'axis',
         axisPointer: {            // 坐标轴指示器，坐标轴触发有效
-            type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+          type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
         }
-    },
-    legend: {
+      },
+      animation: true,
+      animationDuration: 1500,
+      animationEasing: 'ElasticEase',
+      animationDurationUpdate: 1500,
+      animationEasingUpdate: 'ElasticEase',
+      legend: {
         data: ['市容市貌', '渣土运输'],
-        textStyle:{
-            width:48,
-            height:13,
-            fontsize:12,
-            fontfamily:'Microsoft YaHei',
-            fontweight:400,
-            color:'#9FCEFF',
-            lineheight:16,
-            },
-        icon:'rect',
-        orient:'vertical',
-        itemWidth:14,
-        itemHeight:14,
+        textStyle: {
+          width: 48,
+          height: 13,
+          fontsize: 12,
+          fontfamily: 'Microsoft YaHei',
+          fontweight: 400,
+          color: '#9FCEFF',
+          lineheight: 16,
+        },
+        icon: 'rect',
+        orient: 'vertical',
+        itemWidth: 14,
+        itemHeight: 14,
         itemGap: 15,
-        right:3,
+        right: 3,
         top: 0,
 
-    },
-    grid: {
-      top: 70,
-      left: 28,
-      right: 0,
-      bottom: 20,
-    },
-    xAxis: 
-        {
-          type: 'category',
-          axisLine: {
+      },
+      grid: {
+        top: 70,
+        left: 28,
+        right: 0,
+        bottom: 20,
+      },
+      xAxis:
+      {
+        type: 'category',
+        axisLine: {
           // lineStyle: {
           //   color: '#134C78',
           //   width: 1,    
@@ -72,76 +77,76 @@ export default class Two extends Component {
           },
         },
         data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
-        },
-    yAxis: {
-      type: 'value',
-      max : 88,
-      min : 0,
-      interval : 22, //刻度间隔
-      // axisLine: {
-      //   lineStyle: {
-      //     color: '#134C78',
-      //     width: 1,    
-      //   }
-      // },
-      axisLine: {
-        show: false
       },
-      axisLabel: {
+      yAxis: {
+        type: 'value',
+        max: 88,
+        min: 0,
+        interval: 22, //刻度间隔
+        // axisLine: {
+        //   lineStyle: {
+        //     color: '#134C78',
+        //     width: 1,    
+        //   }
+        // },
+        axisLine: {
+          show: false
+        },
+        axisLabel: {
+          show: true,
+          textStyle: {
+            color: "rgba(237,237,237,1)",
+            fontSize: 11,
+          },
+        },
+        axisTick: {
+          show: false
+        },
         show: true,
-        textStyle: {
-          color: "rgba(237,237,237,1)",
-          fontSize: 11,
-        },
-      },
-      axisTick: {
-        show: false
-      },
-      show: true,
-      splitLine: {
-        show: true,
-        lineStyle: {
-          color: '#134C78',
-          type: 'dashed'//背景线设置为虚线
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: '#134C78',
+            type: 'dashed'//背景线设置为虚线
+          }
         }
-      }
-    },
-    series: [
+      },
+      series: [
         {
-            name: '市容市貌',
-            type: 'bar',
-            barWidth: 12.9,
-            data: [33, 72, 60, 66, 60, 58, 50],
-            itemStyle: {
+          name: '市容市貌',
+          type: 'bar',
+          barWidth: 12.9,
+          data: [33, 72, 60, 66, 60, 58, 50],
+          itemStyle: {
             normal: {
-                color: new echarts.graphic.LinearGradient(
-                    0, 0, 0, 1,
-                    [
-                        {offset: 0, color: '#23E4FA'}, 
-                        {offset: 1, color: '#24E5FB'},                 
-                    ]
-                )
-            },   
+              color: new echarts.graphic.LinearGradient(
+                0, 0, 0, 1,
+                [
+                  { offset: 0, color: '#23E4FA' },
+                  { offset: 1, color: '#24E5FB' },
+                ]
+              )
             },
+          },
         },
         {
-            name: '渣土运输',
-            type: 'bar',
-            barWidth: 12.9,
-            data: [70, 88, 71, 74, 71, 64, 54],
-            itemStyle: {
+          name: '渣土运输',
+          type: 'bar',
+          barWidth: 12.9,
+          data: [70, 88, 71, 74, 71, 64, 54],
+          itemStyle: {
             normal: {
-                color: new echarts.graphic.LinearGradient(
-                    0, 0, 0, 1,
-                    [
-                        {offset: 1, color: '#0090FD'},
-                        {offset: 0, color: '#008FFC'},
-                    ]
-                ) 
-            },  
+              color: new echarts.graphic.LinearGradient(
+                0, 0, 0, 1,
+                [
+                  { offset: 1, color: '#0090FD' },
+                  { offset: 0, color: '#008FFC' },
+                ]
+              )
             },
+          },
         }
-    ]
+      ]
     }
   };
 
@@ -159,7 +164,7 @@ export default class Two extends Component {
           <span className={TwoChartStyle.title5}> 65辆</span>
         </div>
         <div className={TwoChartStyle.chart}>
-          <ReactEcharts style={{ width: '100%', height: '100%' ,top:-48}} option={this.getOption()} />
+          <ReactEcharts style={{ width: '100%', height: '100%', top: -48 }} option={this.getOption()} />
         </div>
       </div>
     );
