@@ -22,6 +22,13 @@ export default class Six extends Component {
                     // desc:"河南省濮阳市濮阳县文留镇34号",
                     // time:"2020-05-05 11：38：29"
                 },
+                {
+                    image:news2Img,
+                    type:"施工工地-文明施工",
+                    address:"河南省濮阳市濮阳县文留镇34号河南省濮阳市濮阳县文留镇34号河南省濮阳市濮阳县文留镇34号",
+                    // desc:"河南省濮阳市濮阳县文留镇34号",
+                    // time:"2020-05-05 11：38：29"
+                },
             ]
         }
     }
@@ -51,9 +58,9 @@ export default class Six extends Component {
         return (
             <div className={SixStyle.sixContainer}>
                 <ChartHeader title={title}/>
-                <div className={SixStyle.infoBox}>
+                <marquee className={SixStyle.infoBox}   direction='up' scrollamount='4' height='20%' width="100%" >
                     {this.getList(this.state.list)}
-                </div>
+                </marquee>
                 
             </div>
 

@@ -44,7 +44,7 @@ export default class extends Component {
     render() {
         return <>
             <ChartHeader title='社会安全' />
-            <div className={EmergencyStyle.content} style={{margin:'10% 0'}}>
+            <div className={EmergencyStyle.content} style={{display: 'flex',justifyContent: 'center',flexDirection: 'column',marginTop:13}}>
                 <div className={EmergencyStyle.five}>
                     {this.listTop()}
                 </div>

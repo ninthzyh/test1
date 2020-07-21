@@ -12,6 +12,8 @@ import Six from './Six.js'
 import Four from './four/Four'
 import Five from './Five/Five.js'
 import Nine from './nine/Nine'
+import ManagerStyle from "../../manager/Manager.module.scss";
+import FiveChart from "../../manager/widget/fiveChart/FiveChart";
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +22,7 @@ class Index extends Component {
         }
     }
     componentDidMount() {
-        // this.showChange();
+        this.showChange();
     }
 
     showChange = () => {
@@ -38,7 +40,12 @@ class Index extends Component {
         return (
             <div className={SocietyStyle.container}>
                 <OneMap/>
-                <div className={SocietyStyle.leftWrapper}>
+                <div style={!show ? { display: 'none' } : {}} className={this.getClassName(!show, 'Left')}>
+                    <div className={SocietyStyle.item}><One/></div>
+                    <div className={SocietyStyle.item}><Two /></div>
+                    <div className={SocietyStyle.item}><Three /></div>
+                </div>
+                <div style={show ? { display: 'none' } : {}} className={this.getClassName(show, 'Left')}>
                     <div className={SocietyStyle.item}><One/></div>
                     <div className={SocietyStyle.item}><Two /></div>
                     <div className={SocietyStyle.item}><Three /></div>

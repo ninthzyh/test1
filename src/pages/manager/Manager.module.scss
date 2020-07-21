@@ -124,10 +124,9 @@ $twoIcon: #f3d952,
 
 }
 .threeWrapper {
-    height: 50%;
     text-align: center;
     padding: 10px 0;
-    margin-top: 10px;
+    margin-top: 15px;
     display: flex;
     justify-content: space-around;
 
@@ -212,6 +211,7 @@ $twoIcon: #f3d952,
                 $i: index($twoIcon, $c);
 
                 .number#{$i} {
+                    transform: scale(0.80);
                     width: 14px;
                     height: 14px;
                     border-radius: 50%;
@@ -219,7 +219,6 @@ $twoIcon: #f3d952,
                     text-align: center;
                     background-color: $c;
                     color: #000000;
-                    font-weight: 700;
                     margin-right: 10px;
                 }
             }

@@ -21,7 +21,14 @@ import shoppingData from '../../assets/json/PuYang_Shopping.json';
 import cateringData from '../../assets/json/PuYang_Catering.json';
 import graduationData from '../../assets/json/PuYang_Graduation.json';
 import { Popup } from 'react-map-gl';
-import './societyPopup.css'
+import './societyPopup.css';
+
+
+let buildingMaterial = {
+  id: "building",
+  //ambient: 0.5,
+  diffuse: 0.3,
+}
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -95,9 +102,9 @@ export default class OneMap extends Component {
     setInterval(() => {
       this.setState({
         columnVisible: !this.state.columnVisible
-       // columnVisible: true
+        // columnVisible: true
       });
-    }, 6000)
+    }, 8000)
 
   }
   //组件从DOM中移除之前调用
@@ -121,9 +128,9 @@ export default class OneMap extends Component {
     return (
       this.state.cateringData.map((value, index) => {
         return <Popup className={`societyCateringName popup${index + 1}`}
-          longitude={value.coor[0]}
-          latitude={value.coor[1]}
-          altitude={value.customer*5}
+          longitude={value.location[0]}
+          latitude={value.location[1]}
+          altitude={value.review_count*0.5 }
           closeButton={false}
           visible={true}
           key={index}
@@ -140,7 +147,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyGraduationName popup${index + 1}`}
           longitude={value.coor[0]}
           latitude={value.coor[1]}
-          altitude={value.total*0.41}
+          altitude={value.total * 0.41}
           closeButton={false}
           visible={true}
           key={index}
@@ -174,7 +181,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyMedicalName popup${index + 1}`}
           longitude={value.coor[0]}
           latitude={value.coor[1]}
-          altitude={value.patient}
+          altitude={value.staff}
           closeButton={false}
           visible={true}
           key={index}
@@ -197,15 +204,15 @@ export default class OneMap extends Component {
     return (
       this.state.cateringData.map((value, index) => {
         return <Popup className={`societyCatering popup${index + 1}`}
-          longitude={value.coor[0]}
-          latitude={value.coor[1]}
+          longitude={value.location[0]}
+          latitude={value.location[1]}
           closeButton={false}
           visible={true}
           key={index}
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-      <div className='societyContent' >{`当日接待顾客 ${value.customer}人`}</div>
+          <div className='societyContent' >{`当月接待顾客 ${value.review_count}人`}</div>
         </Popup>
       })
     )
@@ -256,8 +263,8 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >{`当日接待患者 ${value.patient}人`}</div>
-          <div className='societyContent' >{`当日接待重症患者 ${value.severe}人`}</div>
+          <div className='societyContent' >{`在职员工 ${value.staff}人`}</div>
+          <div className='societyContent1' >{`开放床位 ${value.beds}张`}</div>
         </Popup>
       })
     )
@@ -270,16 +277,19 @@ export default class OneMap extends Component {
     const columnLayers = [new ColumnLayer({
       id: 'puyang_medical',
       data: this.state.medicalData,
-      diskResolution: 4,
+      diskResolution: 40,
       radius: 50,
       extruded: true,
+      material:buildingMaterial,
       elevationScale: 1,
       intensity: 0.1,
       getPosition: d => d.coor,
-      getFillColor: [55,232,122],
-      getElevation: d=>d.patient,
+      getFillColor: [55, 232, 122],
+      getElevation: d => d.staff,
       transitions: {
         getElevation: {
+
+          enter: (value) => [0],
           duration: 3000,
           onEnd: value => {
             this.setState({
@@ -291,20 +301,20 @@ export default class OneMap extends Component {
               titleVisible: false
             })
           },
-          enter: () => [0]
         },
       },
     }),
     new ColumnLayer({
       id: 'puyang_graduation',
       data: this.state.graduationData,
-      diskResolution: 4,
+      diskResolution: 40,
       radius: 50,
       extruded: true,
       elevationScale: 0.4,
+      material:buildingMaterial,
       getPosition: d => d.coor,
-      getFillColor: [100,231,255],
-      getElevation: d=>d.total,
+      getFillColor: [100, 231, 255],
+      getElevation: d => d.total,
       transitions: {
         getElevation: {
           duration: 3000,
@@ -316,45 +326,40 @@ export default class OneMap extends Component {
     new ColumnLayer({
       id: 'puyang_shopping',
       data: this.state.shoppingData,
-      diskResolution: 4,
+      diskResolution: 40,
       radius: 50,
       extruded: true,
+      material:buildingMaterial,
       elevationScale: 1,
       getPosition: d => d.coor,
-      getFillColor: [255,231,100],
-      getElevation: d=>d.customer,
+      getFillColor: [255, 231, 100],
+      getElevation: d => d.customer,
       transitions: {
         getElevation: {
           duration: 3000,
           enter: () => [0]
         },
       },
-      pickable: true,
-      onHover: ({ object }) => {
-        console.log(object)
-      }
     }),
-      new ColumnLayer({
-        id: 'puyang_catering',
-        data: this.state.cateringData,
-        diskResolution: 4,
-        radius: 50,
-        extruded: true,
-        elevationScale: 5,
-        getPosition: d => d.coor,
-        getFillColor: [255,149,97],
-        getElevation:d=>d.customer,
-        transitions: {
-          getElevation: {
-            duration: 3000,
-            enter: () => [0]
-          },
+    new ColumnLayer({
+      id: 'puyang_catering',
+      data: this.state.cateringData,
+      diskResolution: 40,
+      radius: 50,
+      extruded: true,
+      elevationScale: 0.5,
+      material:buildingMaterial,
+      getPosition: d => d.location,
+      getFillColor: [255, 149, 97],
+      getElevation: d => d.review_count,
+      transitions: {
+        getElevation: {
+          duration: 3000,
+          easing: (t => t),
+          enter: () => [50, 0]
         },
-        pickable: true,
-        onHover: ({ object }) => {
-          console.log(object)
-        }
-      })
+      },
+    })
     ]
     const baseLayers = [
       new PathLayer({

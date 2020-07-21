@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import AffairsStyle from '../Affairs.module.scss'
 import ChartHeader from "../../../components/ChartHeader/ChartHeader"
-
+import CountUp from 'react-countup';
 /*
 疫情实时数据
 */
@@ -37,7 +37,9 @@ class One extends Component {
             this.state.nowInfo.map((item, index) => {
                 return (
                     <div className={AffairsStyle.infoItem} key={index}>
-                        <div className={AffairsStyle.itemNumber} style={{color:colorArr[index]}}>{item.count}</div>
+                        <div  className={AffairsStyle.itemNumber} style={{color:colorArr[index]}}>
+                        <CountUp delay={1} end={Number(item.count)} />
+                        </div>
                         <div className={AffairsStyle.itemName}>{item.name}</div>
                     </div>
                 )
