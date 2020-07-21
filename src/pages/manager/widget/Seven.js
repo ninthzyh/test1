@@ -5,7 +5,7 @@ import { Icon } from 'antd';
 import CountUp from 'react-countup';
 const countUpProps = {
     star: 0,
-    duration: 10,
+    duration: 9,
     decimals: 0,
     useEasing: true,
     useGrouping: true,
