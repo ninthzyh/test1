@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import ReactEcharts from 'echarts-for-react'
 import style from './Three.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader'
 import { Row, Col } from 'antd'
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/line'
 
 export default class Three extends Component {
   constructor(props) {
@@ -120,10 +121,14 @@ export default class Three extends Component {
           data: [23, 40, 50, 69, 78],
         },
       ],
+      animationDuration: 4000,
     }
     return blackRedListOption
   }
-
+  componentDidMount() {
+    let chart = echarts.init(this.ID)
+    chart.setOption(this.getBlackRedListOption())
+  }
   render() {
     const title = '新农村建设'
     return (
@@ -180,12 +185,10 @@ export default class Three extends Component {
             </Row>
           </div>
           <div className={style.bottom}>
-            <ReactEcharts
-              option={this.getBlackRedListOption()}
-              notMerge={true}
-              lazyUpdate={true}
+            <div
+              ref={(ID) => (this.ID = ID)}
               style={{ width: '100%', height: '100%' }}
-            />
+            ></div>
           </div>
         </div>
       </div>
