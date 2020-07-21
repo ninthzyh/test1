@@ -133,7 +133,7 @@ export default class extends Component {
                 },
 
             ],
-            animationDuration: 4000
+            animationDuration: 3000
         };
         return option
     }

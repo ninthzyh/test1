@@ -17,6 +17,7 @@ export default class ProgressInfo extends Component {
               '0%': '#596AFF',
               '100%': '#34F4EA',
             }}
+            status="active"
             trailColor={'#34F4EA'}
             strokeWidth={6}
             percent={item.progress}

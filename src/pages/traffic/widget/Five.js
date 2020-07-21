@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import TrafficStyle from '../Traffic.module.scss';
 import ChartHeader from '../../../components/ChartHeader/ChartHeader';
-import ReactEcharts from 'echarts-for-react';
-import * as echarts from 'echarts'; //导入 echarts 模块
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/line'
+// import ReactEcharts from 'echarts-for-react';
+// import * as echarts from 'echarts'; //导入 echarts 模块
 
 export default class Five extends Component {
     constructor(props) {
@@ -116,17 +118,13 @@ export default class Five extends Component {
                 },
             ],
             grid: {
-                bottom: '3%',
-                top: '36%',
+                bottom: '8%',
+                top: '32%',
                 right: '7%',
                 left: '2%',
                 containLabel: true
             },
-            // animation:  true,
-            // animationDuration: 3000, 
-            // animationEasing: 'quinticInOut',
-            // animationDurationUpdate: 3000,
-            // animationEasingUpdate: 'quinticInOut',
+            animationDuration: 3000,
             dataset: { source: dataSource },
             color: ['#47C8FF', '#2C00BB', '#FFC900', '#00FF5A', '#FF00FF', '#FA0029'],
             xAxis: {
@@ -192,7 +190,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -203,7 +201,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -214,7 +212,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -225,7 +223,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -236,7 +234,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -247,7 +245,7 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 2
+                                width: window.lineWidth
                             }
                         }
                     },
@@ -256,15 +254,20 @@ export default class Five extends Component {
         }
     };
 
+    componentDidMount() {
+        let chart = echarts.init(this.ID)
+        chart.setOption(this.getOption(this.state.data))
+    }
 
     render() {
         return (
             <>
                 <ChartHeader title='交通违章事件' />
                 <div className={TrafficStyle.content}>
-                    <ReactEcharts
+                    <div ref={ID => this.ID = ID} style={{ width: '100%', height: '120%' }}></div>
+                    {/* <ReactEcharts
                         option={this.getOption(this.state.data)}
-                        style={{ width: '100%', height: '120%' }} />
+                        style={{ width: '100%', height: '120%' }} /> */}
                 </div>
             </>
         )

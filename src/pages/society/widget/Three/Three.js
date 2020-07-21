@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import ReactEcharts from 'echarts-for-react'
 import style from './Three.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader'
 import { Row, Col } from 'antd'
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/line'
 
 export default class Three extends Component {
   constructor(props) {
@@ -75,7 +76,7 @@ export default class Three extends Component {
         axisLine: {
           lineStyle: {
             color: 'rgba(155,155,155,0.45)',
-            width: 1,
+            width: 0.5,
           },
         },
         data: ['2016年', '2017年', '2018年', '2019年', '2020年'],
@@ -93,7 +94,7 @@ export default class Three extends Component {
         axisLine: {
           lineStyle: {
             color: 'rgba(155,155,155,0.45)',
-            width: 1,
+            width: 0.5,
           },
         },
         splitLine: {
@@ -110,13 +111,24 @@ export default class Three extends Component {
           name: '近五年城镇化率',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [23, 40, 50, 69, 78],
         },
       ],
+      animationDuration: 4000,
     }
     return blackRedListOption
   }
-
+  componentDidMount() {
+    let chart = echarts.init(this.ID)
+    chart.setOption(this.getBlackRedListOption())
+  }
   render() {
     const title = '新农村建设'
     return (
@@ -173,12 +185,10 @@ export default class Three extends Component {
             </Row>
           </div>
           <div className={style.bottom}>
-            <ReactEcharts
-              option={this.getBlackRedListOption()}
-              notMerge={true}
-              lazyUpdate={true}
+            <div
+              ref={(ID) => (this.ID = ID)}
               style={{ width: '100%', height: '100%' }}
-            />
+            ></div>
           </div>
         </div>
       </div>

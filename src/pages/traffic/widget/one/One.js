@@ -25,9 +25,9 @@ export default class One extends Component {
                 bottom: '16%',
             },
             animation: true,
-            animationDuration: 3000,
+            animationDuration: 2000,
             animationEasing: 'quinticInOut',
-            animationDurationUpdate: 3000,
+            animationDurationUpdate: 2000,
             animationEasingUpdate: 'quinticInOut',
             color: '#0091FF',
             xAxis: {

@@ -26,10 +26,10 @@ export default class Two extends Component {
         }
       },
       animation: true,
-      animationDuration: 1500,
-      animationEasing: 'ElasticEase',
-      animationDurationUpdate: 1500,
-      animationEasingUpdate: 'ElasticEase',
+      animationDuration: 1000,
+      animationEasing: 'quinticInOut',
+      animationDurationUpdate: 1000,
+      animationEasingUpdate: 'quinticInOut',
       legend: {
         data: ['市容市貌', '渣土运输'],
         textStyle: {

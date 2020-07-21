@@ -5,7 +5,7 @@ import { StaticMap } from 'react-map-gl';
 import mapboxgl from 'mapbox-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
-import DeckGL from '@deck.gl/react';
+import DeckGL, { FlyToInterpolator } from "deck.gl";
 import { GeoJsonLayer, PathLayer } from '@deck.gl/layers';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
 // import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
@@ -22,7 +22,8 @@ import cateringData from '../../assets/json/PuYang_Catering.json';
 import graduationData from '../../assets/json/PuYang_Graduation.json';
 import { Popup } from 'react-map-gl';
 import './societyPopup.css';
-
+import pathImg from "assets/images/path.png";
+import { changeMapboxLanguage } from "../../untils/MapUtils";
 
 let buildingMaterial = {
   id: "building",
@@ -32,7 +33,6 @@ let buildingMaterial = {
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
-const imgUrl = 'http://localhost:3000/img';
 var map;
 const ambientLight = new AmbientLight({
   color: [255, 255, 255],
@@ -76,13 +76,88 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.0461258,
-  latitude: 35.77430715,
-  zoom: 13.2,
-  pitch: 45,
-  bearing: 48//方位
+  longitude: 115.055,
+  latitude: 35.752,
+  zoom: 12.5,
+  pitch: 50,
+  bearing: 50,
 };
-
+const viewStates = [
+  // 濮阳县整体视角-1
+  {
+    longitude: 115.031,
+    latitude: 35.719,
+    zoom: 14,
+    pitch: 50,
+    bearing: 320, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县局部视角-1
+  {
+    longitude: 115.033071,
+    latitude: 35.714462,
+    zoom: 14.2,
+    pitch: 60,
+    bearing: 50,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县整体视角-2
+  {
+    longitude: 115.036,
+    latitude: 35.715,
+    zoom: 13.5,
+    pitch: 50,
+    bearing: 150, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },    
+  // 龙华区整体视角-1
+  {
+    longitude: 115.051,
+    latitude: 35.753,
+    zoom: 13,
+    pitch: 50,
+    bearing: 160, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },  
+  // 龙华区整体视角-2
+  {
+    longitude: 115.050,
+    latitude: 35.773,
+    zoom: 13,
+    pitch: 40,
+    bearing: 340, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳区域整体视角-1
+  {
+    longitude: 115.045,
+    latitude: 35.752,
+    zoom: 12.5,
+    pitch: 50,
+    bearing: 330,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },            
+  // 濮阳区域整体视角-2
+  {
+    longitude: 115.055,
+    latitude: 35.752,
+    zoom: 12.5,
+    pitch: 50,
+    bearing: 50,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },  
+  
+];
+var index_viewState = 0;
+var timerView = null;
+var timerColumnView = null;
 export default class OneMap extends Component {
   constructor(props) {
     super(props);
@@ -90,7 +165,8 @@ export default class OneMap extends Component {
       time: 0,
       opacity: 1,
       columnVisible: true,
-      titleVisible: false
+      titleVisible: false,
+      initViewState: INITIAL_VIEW_STATE,
     };
   }
   componentWillMount() {
@@ -99,13 +175,24 @@ export default class OneMap extends Component {
   }
   //组件第一次渲染后调用
   componentDidMount() {
-    setInterval(() => {
+    setTimeout(() => {
+      this.setState({
+        initViewState: viewStates[(viewStates.length - 1).toString()]
+      });
+    timerColumnView = setInterval(() => {
       this.setState({
         columnVisible: !this.state.columnVisible
         // columnVisible: true
       });
-    }, 8000)
-
+    }, 7000)
+    timerView = setInterval(() => {
+      if (index_viewState > viewStates.length - 1) {
+        index_viewState = 0;
+      }
+      this.setState({ initViewState: viewStates[index_viewState] });
+      index_viewState += 1;
+    }, 14000);
+  }, 5000);
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -374,7 +461,7 @@ export default class OneMap extends Component {
         id: 'path',
         data: this.state.roadData,
         getPath: d => d.geometry.coordinates[0],
-        image: imgUrl + '/path.png',
+        image: pathImg,
         getWidth: 4,
         speed: 1.2,
       }),
@@ -423,6 +510,7 @@ export default class OneMap extends Component {
     map.addControl(new MapboxLanguage({
       defaultLanguage: 'zh'
     }));
+    changeMapboxLanguage(map);
   }
 
   render() {
@@ -437,7 +525,8 @@ export default class OneMap extends Component {
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
-          initialViewState={INITIAL_VIEW_STATE}
+          // initialViewState={INITIAL_VIEW_STATE}
+          initialViewState={this.state.initViewState}
           viewState={viewState}
           controller={true}
         >
