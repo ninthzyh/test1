@@ -122,8 +122,8 @@ export default class Five extends Component {
                 left: '2%',
                 containLabel: true
             },
-            // animation: true,
-            // animationDuration: 3000,
+            // animation:  true,
+            // animationDuration: 3000, 
             // animationEasing: 'quinticInOut',
             // animationDurationUpdate: 3000,
             // animationEasingUpdate: 'quinticInOut',
