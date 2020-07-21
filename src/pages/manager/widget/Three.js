@@ -4,7 +4,7 @@ import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 import CountUp from 'react-countup';
 const countUpProps = {
     star: 0,
-    duration: 6,
+    duration: 5,
     decimals: 0,
     useEasing: true,
     useGrouping: true,
@@ -37,7 +37,7 @@ export default class extends Component {
             return <div className={ManagerStyle.itemImg} key={itemIndex}>
                 <div className={ManagerStyle[itemImg.line]}> </div>
                 <div className={ManagerStyle[`threeImg${itemIndex + 1}`]}></div>
-                <div className={ManagerStyle.iconNum}><CountUp end={itemImg.num} suffix='' {...countUpProps}/><span>{itemImg.iconUnit}</span></div>
+                <div className={ManagerStyle.iconNum}><CountUp delay={1} end={itemImg.num} {...countUpProps}/><span>{itemImg.iconUnit}</span></div>
                 <div className={ManagerStyle.iconText}>{itemImg.title}</div>
             </div>
         })
