@@ -102,6 +102,11 @@ export default class extends Component {
     // 绘制图表
     myChart.setOption({
       color: color,
+      animation: true,
+      animationDuration: 4000,
+      animationEasing: 'linear',
+      animationDurationUpdate:4000,
+      animationEasingUpdate: 'linear',
       title: {
         text: '城市建设',
         top: '48%',

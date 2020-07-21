@@ -75,7 +75,7 @@ export default class Three extends Component {
         axisLine: {
           lineStyle: {
             color: 'rgba(155,155,155,0.45)',
-            width: 1,
+            width: 0.5,
           },
         },
         data: ['2016年', '2017年', '2018年', '2019年', '2020年'],
@@ -93,7 +93,7 @@ export default class Three extends Component {
         axisLine: {
           lineStyle: {
             color: 'rgba(155,155,155,0.45)',
-            width: 1,
+            width: 0.5,
           },
         },
         splitLine: {
@@ -110,6 +110,13 @@ export default class Three extends Component {
           name: '近五年城镇化率',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [23, 40, 50, 69, 78],
         },
       ],

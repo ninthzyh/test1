@@ -21,7 +21,7 @@ class One extends Component {
             },
             color: ['rgba(79, 117, 248, 1)', 'rgba(199, 77, 118, 1)', 'rgba(255, 198, 71, 1)'],
             legend: {
-                x: 'center',      //可设定图例在左、右、居中
+                x: 'center',//可设定图例在左、右、居中
                 y: '10%',
                 data: [
                     {
@@ -116,7 +116,8 @@ class One extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                color: 'rgba(79, 117, 248, 1)'
+                                color: 'rgba(79, 117, 248, 1)',
+                                width: window.lineWidth,
                             }
                         }
                     },
@@ -129,7 +130,8 @@ class One extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                color: 'rgba(199, 77, 118, 1)'
+                                color: 'rgba(199, 77, 118, 1)',
+                                width: window.lineWidth,
                             }
                         }
                     },
@@ -142,7 +144,8 @@ class One extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                color: 'rgba(255, 198, 71, 1)'
+                                color: 'rgba(255, 198, 71, 1)',
+                                width: window.lineWidth,
                             }
                         }
                     },

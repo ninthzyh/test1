@@ -6,44 +6,44 @@ import echarts from 'echarts';
 class Four extends Component {
     constructor(props) {
         super(props)
-        this.companyList=[
-                {
-                    name: "企业总数",
-                    count: 46386,
-                    progress: 87
-                },
-                {
-                    name: "纳税A级企业数",
-                    count: 36982,
-                    progress: 70
-                },
-                {
-                    name: "保险公司网点数",
-                    count: 4,
-                    progress: 10
-                },
-                {
-                    name: "个体工商数",
-                    count: 110,
-                    progress: 35
-                },
-                {
-                    name: "银行网点数",
-                    count: 45,
-                    progress: 17
-                },
-                {
-                    name: "担保公司数",
-                    count: 1,
-                    progress: 4
-                },
-                {
-                    name: "高新技术认证企业",
-                    count: 7,
-                    progress: 10
-                }
-            ]
-        
+        this.companyList = [
+            {
+                name: "企业总数",
+                count: 46386,
+                progress: 87
+            },
+            {
+                name: "纳税A级企业数",
+                count: 36982,
+                progress: 70
+            },
+            {
+                name: "保险公司网点数",
+                count: 4,
+                progress: 10
+            },
+            {
+                name: "个体工商数",
+                count: 110,
+                progress: 35
+            },
+            {
+                name: "银行网点数",
+                count: 45,
+                progress: 17
+            },
+            {
+                name: "担保公司数",
+                count: 1,
+                progress: 4
+            },
+            {
+                name: "高新技术认证企业",
+                count: 7,
+                progress: 10
+            }
+        ]
+
     }
     componentDidMount() {
         this.init();
@@ -51,30 +51,32 @@ class Four extends Component {
     init() {
         let yArrayLeft = [];
         let yArrayRight = [];
-        let yProgress = []
+        let yProgress = [];
+        let bgArr = [];
         // let yArrayLeft = this.companyList.map(item=>{
         //     array.push(item.name);
         //     return array;
         // })
-        for(let item of this.companyList){
+        for (let item of this.companyList) {
             yArrayLeft.push(item.name);
             yArrayRight.push(item.count);
-            yProgress.push(item.progress)
+            yProgress.push(item.progress);
+            bgArr.push(100);
         }
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('traffic_four'));
         let option = {
             grid: {
-                left: '2%',
-                right: '2%',
-                bottom: '0',
-                top: '5%',
+                top: '2%',
+                bottom: -15,
+                right: 10,
+                left: -70,
                 containLabel: true
             },
             animation: true,
-            animationDuration: 1000,
+            animationDuration: 3000,
             animationEasing: 'quadraticInOut',
-            animationDurationUpdate: 1000,
+            animationDurationUpdate: 3000,
             animationEasingUpdate: 'quadraticInOut',
             tooltip: {
                 trigger: 'axis',
@@ -97,8 +99,10 @@ class Four extends Component {
                 inverse: true,
                 axisLabel: {
                     show: true,
+                    align: 'left',
+                    margin: 110,
                     textStyle: {
-                        color: '#fff'
+                        color: '#fff',
                     },
                 },
                 splitLine: {
@@ -120,7 +124,7 @@ class Four extends Component {
                 axisLabel: {
                     textStyle: {
                         color: '#3ED5DE',
-                        fontSize: '12'
+                        fontSize: '12',
                     },
                     formatter: function (value) {
                         if (value >= 10000) {
@@ -138,7 +142,7 @@ class Four extends Component {
                 zlevel: 1,
                 itemStyle: {
                     normal: {
-                        barBorderRadius: 0,
+                        
                         color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
                             offset: 0,
                             color: 'rgb(57,89,255,1)'
@@ -146,6 +150,7 @@ class Four extends Component {
                             offset: 1,
                             color: 'rgb(46,200,207,1)'
                         }]),
+                        barBorderRadius: 0,
                     },
                 },
                 barWidth: 5,
@@ -157,10 +162,16 @@ class Four extends Component {
                 barWidth: 5,
                 barGap: '-100%',
                 // data:  yArrayRight,
-                // data: [5000, 5000, 5000, 5000, 5000,5000,5000],
+                data: bgArr,
                 itemStyle: {
                     normal: {
-                        color: 'rgba(24,31,68,1)',
+                        color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [{
+                            offset: 0,
+                            color: 'rgb(57,89,255,0.3)'
+                        }, {
+                            offset: 1,
+                            color: 'rgb(46,200,207,0.3)'
+                        }]),
                         barBorderRadius: 0,
                     }
                 },
