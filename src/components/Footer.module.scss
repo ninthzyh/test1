@@ -5,7 +5,9 @@
 }
 
 .FooterPage{
-    background: linear-gradient(90deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.3) 60%, rgba(17, 17, 17, 1) 100%);
+    // background: linear-gradient(90deg, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.3) 60%, rgba(17, 17, 17, 1) 100%);
+    background: url(~img/footer/footer.png) no-repeat;
+    background-size: 100% 100%;
     height: vw(50);
     z-index: 2;
     padding:0;
