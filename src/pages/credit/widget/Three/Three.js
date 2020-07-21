@@ -75,12 +75,26 @@ export default class Three extends Component {
           name: '红榜总数',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [3, 9, 27],
         },
         {
           name: '黑榜总数',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [2, 18, 22],
         },
       ],
@@ -154,18 +168,39 @@ export default class Three extends Component {
           name: '经济纠纷判决',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [45, 95, 65],
         },
         {
           name: '土地或房产判决',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [5, 10, 5],
         },
         {
           name: '企业强制执行资产',
           symbol: 'none',
           type: 'line',
+          itemStyle: {
+            normal: {
+              lineStyle: {
+                width: window.lineWidth,
+              },
+            },
+          },
           data: [20, 30, 15],
         },
       ],
