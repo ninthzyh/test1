@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactEcharts from 'echarts-for-react'
 import style from './Three.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader'
 import { Row, Col } from 'antd'
@@ -35,6 +36,7 @@ export default class Three extends Component {
           color: '#C74D76',
         },
       ],
+      circleNum: 0,
     }
   }
   state = {}
@@ -126,8 +128,19 @@ export default class Three extends Component {
     return blackRedListOption
   }
   componentDidMount() {
-    let chart = echarts.init(this.ID)
-    chart.setOption(this.getBlackRedListOption())
+    //let chart = echarts.init(this.ID)
+    //chart.setOption(this.getBlackRedListOption())
+
+    let timeCircl = setInterval(() => {
+      if (this.state.circleNum < 550) {
+        this.state.circleNum += 50
+        this.setState({
+          circleNum: this.state.circleNum,
+        })
+      } else {
+        clearInterval(timeCircl)
+      }
+    }, 5)
   }
   render() {
     const title = '新农村建设'
@@ -150,6 +163,8 @@ export default class Three extends Component {
                           <circle
                             fill="none"
                             stroke={item.color}
+                            transform="rotate(-90 100 100)"
+                            strokeDasharray={this.state.circleNum + ',720'}
                             strokeWidth="15"
                             strokeMiterlimit="10"
                             cx="100"
@@ -185,10 +200,12 @@ export default class Three extends Component {
             </Row>
           </div>
           <div className={style.bottom}>
-            <div
-              ref={(ID) => (this.ID = ID)}
+            <ReactEcharts
+              option={this.getBlackRedListOption()}
+              notMerge={true}
+              lazyUpdate={true}
               style={{ width: '100%', height: '100%' }}
-            ></div>
+            />
           </div>
         </div>
       </div>
