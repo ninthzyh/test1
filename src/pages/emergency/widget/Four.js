@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactEcharts from "echarts-for-react";
 import AffairsStyle from '../../affairs/Affairs.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 import echarts from 'echarts/lib/echarts';
@@ -20,24 +21,24 @@ export default class extends Component {
                 bottom: '10%',
                 top: '20%'
             },
-            legend: {
-                top: '5%',
+            legend:{
+                top:'5%',
                 right: 0,
-                data: [
+                data:[
                     {
-                        name: '直接经济损失',
-                        icon: 'line',
-                        textStyle: {
-                            color: '#C9D0D5',
-                        }
-                    },
-                    {
-                        name: '受灾人次',
-                        icon: 'line',
-                        textStyle: {
-                            color: '#C9D0D5',
-                        }
-                    }],
+                    name: '直接经济损失',
+                    icon: 'line',
+                    textStyle:{
+                        color: '#C9D0D5',
+                    }
+                },
+                {
+                    name:'受灾人次',
+                    icon: 'line',
+                    textStyle:{
+                        color: '#C9D0D5',
+                    }
+                }],
             },
             xAxis: [{
                 type: 'category',
@@ -47,11 +48,11 @@ export default class extends Component {
                     show: true,
                     lineStyle: {
                         width: 1,
-                        color: "rgba(255,255,255,1)",
+                         color: "rgba(255,255,255,1)",
                         type: "solid"
                     },
                 },
-                axisTick: {
+                axisTick:{
                     show: false
                 },
                 axisLabel: {
@@ -81,45 +82,45 @@ export default class extends Component {
                     },
                 },
                 splitLine: {
-                    show: false
+                    show:false
                 }
             }],
             series: [
-                {
-                    name: '直接经济损失',
-                    type: 'bar',
-                    showBackground: true,
-                    backgroundStyle: {
-                        color: {
-                            colorStops: [{
+            {
+                name: '直接经济损失',
+                type: 'bar',
+                showBackground: true,
+                backgroundStyle: {
+                    color: {
+                        colorStops: [{
                                 offset: 0, color: 'rgba(89, 106, 255,0.38)'
                             }, {
-                                offset: 0, color: 'rgba(52, 244, 234,0.12)'
+                                offset: 0, color: 'rgba(52, 244, 234,0.12)' 
                             }],
-                        }
-
-                    },
-                    itemStyle: {
-
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(
-                                0, 1, 0, 0,
-                                [
-                                    { offset: 0, color: 'rgba(89, 106, 255, 1)' },
-                                    { offset: 1, color: 'rgba(52, 244, 234, 1)' }
-
-                                ]
-                            )
-                        }
-                    },
-                    barMaxWidth: 20,
-                    label: {
+                    }
+                        
+                },
+                itemStyle: {
+        
+                                normal: {
+                                    color: new echarts.graphic.LinearGradient(
+                                        0, 1, 0, 0,
+                                        [
+                                            { offset: 0, color: 'rgba(89, 106, 255, 1)' },
+                                            { offset: 1, color: 'rgba(52, 244, 234, 1)' }
+        
+                                        ]
+                                    )
+                                }
+                            },
+                            barMaxWidth: 20,
+                            label: {
                         show: true,
                         position: 'top',
                         color: '#fff'
 
                     },
-                    data: [120, 200, 150, 80, 70],
+                            data: [120, 200, 150, 80, 70],
                 },
                 {
                     name: '受灾人次',
@@ -130,7 +131,7 @@ export default class extends Component {
                             colorStops: [{
                                 offset: 0, color: 'rgba(235, 100, 255,0.38)'
                             }, {
-                                offset: 1, color: 'rgba(235, 100, 255,0.12)'
+                                offset: 1, color: 'rgba(235, 100, 255,0.12)' 
                             }],
                         }
                     },
@@ -138,10 +139,9 @@ export default class extends Component {
                         color: '#EB64FF',
                         width: window.lineWidth
                     },
-                    data: [90, 150, 140, 210, 90],
+                    data: [ 90, 150, 140, 210, 90],
                 }
-            ],
-            animationDuration: 4000
+            ]
         }
         return option
     }
@@ -150,15 +150,7 @@ export default class extends Component {
             <>
                 <ChartHeader title='服务人次年度趋势图' />
                 <div className={AffairsStyle.content}>
-<<<<<<< HEAD
-                    <ReactEcharts
-                        option={this.getOption()}
-                        // notMerge={true}
-                        // lazyUpdate={true}
-                        style={{ width: '100%', height: '100%' }} />
-=======
                     <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
->>>>>>> 76adbe1d3afbe499be15a44be932b362a0af9f7a
                 </div>
 
 
