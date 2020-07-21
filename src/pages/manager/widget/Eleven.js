@@ -64,6 +64,7 @@ export default class extends Component {
                                 '0%': '#0C97FC',
                                 '100%': '#18FFFF',
                             }}
+                            status="active"
                             className={ManagerStyle.progress}
                             strokeWidth={6}
                             percent={item.percent}
