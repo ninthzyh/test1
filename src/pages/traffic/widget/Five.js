@@ -122,10 +122,10 @@ export default class Five extends Component {
                 left: '2%',
                 containLabel: true
             },
-            // animation: true,
-            // animationDuration: 5000,
+            // animation:  true,
+            // animationDuration: 3000, 
             // animationEasing: 'quinticInOut',
-            // animationDurationUpdate: 5000,
+            // animationDurationUpdate: 3000,
             // animationEasingUpdate: 'quinticInOut',
             dataset: { source: dataSource },
             color: ['#47C8FF', '#2C00BB', '#FFC900', '#00FF5A', '#FF00FF', '#FA0029'],
@@ -192,17 +192,10 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
                 },
                 {
                     type: 'line',
@@ -210,17 +203,10 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
                 },
                 {
                     type: 'line',
@@ -228,17 +214,10 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
                 },
                 {
                     type: 'line',
@@ -246,17 +225,10 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
                 },
                 {
                     type: 'line',
@@ -264,17 +236,10 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
                 },
                 {
                     type: 'line',
@@ -282,17 +247,10 @@ export default class Five extends Component {
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                width: 1
+                                width: 2
                             }
                         }
                     },
-                    markline: {
-                        animation: true,
-                        animationDuration: 25000,
-                        animationEasing: 'quinticInOut',
-                        animationDurationUpdate: 1000,
-                        animationEasingUpdate: 'quinticInOut',
-                    }
                 },
             ]
         }

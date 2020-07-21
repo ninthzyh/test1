@@ -55,6 +55,11 @@ export default class FiveChart extends Component {
       tooltip: {
         trigger: 'axis'
       },
+      // animation:  true,
+      // animationDuration: 3000, 
+      // animationEasing: 'quinticInOut',
+      // animationDurationUpdate: 3000,
+      // animationEasingUpdate: 'quinticInOut',
       xAxis: {
         axisTick: {
           show: false
@@ -69,7 +74,7 @@ export default class FiveChart extends Component {
         axisLine: {
           lineStyle: {
             color: 'rgba(155,155,155,0.45)',
-            width: 1,    
+            width: 1,
           }
         },
         data: Times
@@ -88,7 +93,7 @@ export default class FiveChart extends Component {
         axisLine: {
           lineStyle: {
             color: 'rgba(155,155,155,0.45)',
-            width: 1,  
+            width: 1,
           }
         },
         splitLine: {
