@@ -58,7 +58,7 @@ export default class Six extends Component {
         return (
             <div className={SixStyle.sixContainer}>
                 <ChartHeader title={title}/>
-                <marquee className={SixStyle.infoBox}   direction='up' scrollamount='4' height='20%' width="100%" >
+                <marquee className={SixStyle.infoBox}   direction='up' scrollamount='3' height='20%' width="100%" >
                     {this.getList(this.state.list)}
                 </marquee>
                 

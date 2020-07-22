@@ -75,8 +75,8 @@ const INITIAL_VIEW_STATE = {
 const viewStates = [
   // 市场监督
   {
-    longitude: 115.030,
-    latitude: 35.7076,
+    longitude: 115.026,
+    latitude: 35.706,
     zoom: 15,
     pitch: 50,
     bearing: 60,
@@ -95,8 +95,8 @@ const viewStates = [
   },  
   // 税务局
   {
-    longitude: 115.064,
-    latitude: 35.781,
+    longitude: 115.0274868,
+    latitude:  35.71218135,
     zoom: 15,
     pitch: 50,
     bearing: 340,
@@ -138,7 +138,6 @@ export default class OneMap extends Component {
       this.setState({ initViewState: viewStates[index_viewState] });
       index_viewState += 1;
     }, 10000);
-    console.log(viewStates[index_viewState])
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -251,7 +250,7 @@ export default class OneMap extends Component {
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
-          // initialViewState={INITIAL_VIEW_STATE}
+
           initialViewState={this.state.initViewState}
           viewState={viewState}
           controller={true}
@@ -270,6 +269,7 @@ export default class OneMap extends Component {
               longitude={115.026}
               latitude={35.706}
               altitude={80}
+              offsetLeft={100}
               closeButton={false}
               visible={true}
               dynamicPosition={false}
@@ -284,9 +284,10 @@ export default class OneMap extends Component {
               <div className='content'> 版权变更办理数 <span className='number'> 4</span></div>
             </Popup>
             <Popup className={'credit creditPopup2'}
-              longitude={ 115.064}
-              latitude={35.779}
+              longitude={  115.0274868}
+              latitude={ 35.71218135}
               altitude={80}
+              offsetLeft={100}
               closeButton={false}
               visible={true}
               dynamicPosition={false}
@@ -302,6 +303,7 @@ export default class OneMap extends Component {
               longitude={ 115.029}
               latitude={35.763}
               altitude={80}
+              offsetLeft={100}
               closeButton={false}
               visible={true}
               dynamicPosition={false}

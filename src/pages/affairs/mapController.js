@@ -275,7 +275,7 @@ export default class OneMap extends Component {
         [254, 237, 177],
         [254, 173, 84],
         [209, 55, 78]],
-        getPosition: d => d.geometry.coordinates,
+        getPosition: d => d.geometry.coordinates[0],
         getWeight: d => { return Math.floor(Math.random() * (200 - 40 + 1) + 40) },
       }),
 
@@ -367,44 +367,44 @@ export default class OneMap extends Component {
 
     const displayContent = [
       {
-        coor: [115.0195982, 35.75112835],
+        coor: [115.0249652,35.71459193],
         branch: '不动产',
       },
       {
-        coor: [115.01207, 35.70646],
+        coor: [115.0119124,35.70597031],
         branch: '公安',
       },
       {
-        coor: [115.02, 35.779],
+        coor: [115.0244634,35.71045408],
         branch: '民政',
       },
       {
-        coor: [115.021, 35.73],
+        coor: [115.0262039,35.70595046],
         branch: '工商',
       }, 
       {
-        coor: [115.064040, 35.756332],
+        coor: [115.0036801,35.71364739],
         branch: '人社',
       },
       {
-        coor: [115.08628, 35.76303],
+        coor: [115.0274868,35.71218135],
         branch: '税务',
       },
       {
-        coor: [115.03675, 35.7240146],
-        branch: '消防',
+        coor: [115.0261693,35.71213981],
+        branch: '法院',
       },
       {
-        coor: [115.029, 35.706],
-        branch: '建行',
+        coor: [115.0415158,35.72398069],
+        branch: '教育局',
       },
       {
-        coor: [115.05, 35.772],
-        branch: '公积金',
+        coor: [115.0233671,35.71174646],
+        branch: '财政局',
       },
       {
-        coor: [115.023, 35.761],
-        branch: '建行',
+        coor: [115.0242608,35.71335535],
+        branch: '监察局',
       },
     ]
 

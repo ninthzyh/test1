@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactEcharts from 'echarts-for-react'
 import style from './Three.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader'
 import { Row, Col } from 'antd'
@@ -12,29 +13,30 @@ export default class Three extends Component {
       data: [
         {
           name: '新建设路',
-          num: '200',
+          num: '21',
           unit: '条',
           color: '#FFC647',
         },
         {
           name: '新建设路',
-          num: '800',
+          num: '26',
           unit: '公里',
           color: '#36EEEB',
         },
         {
           name: '新增集中供暖',
-          num: '2900',
+          num: '210万',
           unit: '平方米',
           color: '#596AFF',
         },
         {
           name: '新建卫生室',
-          num: '10',
+          num: '60',
           unit: '个',
           color: '#C74D76',
         },
       ],
+      circleNum:  0,
     }
   }
   state = {}
@@ -42,8 +44,8 @@ export default class Three extends Component {
     let blackRedListOption = {
       grid: {
         top: '20%',
-        left: '10%',
-        right: '3%',
+        left: '11%',
+        right: '7%',
         bottom: 18,
       },
       tooltip: {
@@ -53,7 +55,7 @@ export default class Three extends Component {
       legend: {
         data: ['近五年城镇化率'],
         icon: 'line',
-        left: 'right',
+        right: '7%',
         itemWidth: 10,
         textStyle: {
           fontSize: 11,
@@ -109,16 +111,14 @@ export default class Three extends Component {
       series: [
         {
           name: '近五年城镇化率',
-          symbol: 'none',
-          type: 'line',
+          type: 'bar',
+          barWidth: 13,
           itemStyle: {
             normal: {
-              lineStyle: {
-                width: window.lineWidth,
-              },
-            },
+              color: '#008CFF'
+            }
           },
-          data: [23, 40, 50, 69, 78],
+          data: [38.1, 39, 40.2, 41.7, 43.8],
         },
       ],
       animationDuration: 4000,
@@ -126,8 +126,19 @@ export default class Three extends Component {
     return blackRedListOption
   }
   componentDidMount() {
-    let chart = echarts.init(this.ID)
-    chart.setOption(this.getBlackRedListOption())
+    //let chart = echarts.init(this.ID)
+    //chart.setOption(this.getBlackRedListOption())
+
+    let timeCircl = setInterval(() => {
+      if (this.state.circleNum < 550) {
+        this.state.circleNum += 50
+        this.setState({
+          circleNum: this.state.circleNum,
+        })
+      } else {
+        clearInterval(timeCircl)
+      }
+    }, 5)
   }
   render() {
     const title = '新农村建设'
@@ -150,6 +161,8 @@ export default class Three extends Component {
                           <circle
                             fill="none"
                             stroke={item.color}
+                            transform="rotate(-90 100 100)"
+                            strokeDasharray={this.state.circleNum + ',720'}
                             strokeWidth="15"
                             strokeMiterlimit="10"
                             cx="100"
@@ -185,10 +198,12 @@ export default class Three extends Component {
             </Row>
           </div>
           <div className={style.bottom}>
-            <div
-              ref={(ID) => (this.ID = ID)}
+            <ReactEcharts
+              option={this.getBlackRedListOption()}
+              notMerge={true}
+              lazyUpdate={true}
               style={{ width: '100%', height: '100%' }}
-            ></div>
+            />
           </div>
         </div>
       </div>

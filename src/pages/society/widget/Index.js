@@ -7,7 +7,6 @@ import One from './One/One'
 import Two from './Two/Two.js'
 import Seven from './Seven.js'
 import Three from './Three/Three.js'
-import 'animate.css';
 import Six from './Six.js'
 import Four from './four/Four'
 import Five from './Five/Five.js'

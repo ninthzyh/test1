@@ -68,6 +68,7 @@ class HeaderTop extends Component {
     };
 
     render() {
+<<<<<<< HEAD
         const { PayIncrease, PayDecrease } = this.props;
         return (
             <div className={HeaderStyle.HeaderPage}>
@@ -75,6 +76,19 @@ class HeaderTop extends Component {
                     <div className={HeaderStyle.logoBox} ></div>
                     <div className={HeaderStyle.titleBox}>
                         <div className={HeaderStyle.title} >{this.state.name}</div>
+=======
+        const { PayIncrease, PayDecrease, className } = this.props;
+        return (<div className={`${className} ${HeaderStyle.HeaderPage}`}>
+            <div className={HeaderStyle.leftBox} ><span className={HeaderStyle.logoBox}></span></div>
+            <div className={HeaderStyle.rightBox} >
+                <span className={HeaderStyle.weatherpicBox}></span>
+                <span className={HeaderStyle.dateBox}>{this.state.date}</span>
+                <span className={HeaderStyle.weekBox}>{this.state.week}</span>
+                <span className={HeaderStyle.temperatureBox}>{window.weather.temperature}</span>
+                <span className={HeaderStyle.weatherBox}>{window.weather.weathername}</span>
+            </div> 
+            {<div className={HeaderStyle.headLine} ></div> }
+>>>>>>> f9fca5bb403b4c194c1b8dfa2d854f1f91541187
 
                     </div>
                     <div className={HeaderStyle.rightBox} >

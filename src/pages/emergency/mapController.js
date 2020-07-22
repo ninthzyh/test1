@@ -50,21 +50,16 @@ const pointLightRight = new PointLight({
 });
 
 const emergencyPointLight = new PointLight({
-  color: [255,255,0],
+  color: [255, 255, 0],
   intensity: 10.0,
-  position: [115.033669,35.763893000000003,200]
+  position: [115.033669, 35.763893000000003, 200],
 });
 
 const hospitalPointLight = new PointLight({
-  color: [0,255,0],
+  color: [0, 255, 0],
   intensity: 0.2,
-  position: [115.050518,35.760787999999998,1000]
+  position: [115.050518, 35.760787999999998, 1000],
 });
-
-// const directionalLight = new DirectionalLight({
-//   color: [255, 0, 0],
-//   position: []
-// })
 
 const lightingEffect = new LightingEffect({
   ambientLight,
@@ -77,6 +72,13 @@ const material = {
   shininess: 8,
   specularColor: [60, 64, 70], //高光颜色
 };
+
+const govPosition = [
+  {
+    x: 115.023,
+    y: 35.713,
+  },
+];
 
 const DEFAULT_THEME = {
   buildingColor: [74, 80, 87],
@@ -105,102 +107,101 @@ const scanImgs = [
   hospitalImg,
   firecontrolImg,
   policeImg,
-  hospitalImg,
   weatherImg,
-  policeImg,
   residentImg,
 ];
 
 const INITIAL_VIEW_STATE = {
-  //濮阳中心坐标位置
-  longitude: 115.036,
-  latitude: 35.736,
-  zoom: 13,
-  pitch: 58,
-  bearing: 60, //方位
+  //濮阳县政府地理位置
+  longitude: 115.023,
+  latitude: 35.713,
+  zoom: 16.5,
+  pitch: 50,
+  bearing: 0, //方位
 };
+// const INITIAL_VIEW_STATE = {
+//   //濮阳县政府地理位置
+//   longitude: 115.026,
+//   latitude: 35.718,
+//   zoom: 13.5,
+//   pitch: 55,
+//   bearing: 10, //方位
+// };
+
 const viewStates = [
-  // 事故地点
+  // 濮阳县视角-事故地点
   {
     longitude: 115.0304,
-    latitude: 35.7128,
+    latitude: 35.7118,
     zoom: 14,
     pitch: 55,
     bearing: 110,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
-  // 事故地点，俯瞰视角
+  // 濮阳县视角-事故地点-俯瞰视角
   {
-    longitude: 115.02607,
-    latitude: 35.714062,
-    zoom: 14,
+    longitude: 115.02927,
+    latitude: 35.7118,
+    zoom: 13.8,
     pitch: 0,
     bearing: 100,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
-  // 濮阳县人民医院
+  // 濮阳县事故地点
   {
-    longitude: 115.032,
-    latitude: 35.7058,
-    zoom: 15,
-    pitch: 58,
-    bearing: 10,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 濮阳县消防大队
-  {
-    longitude: 115.03675266957364,
-    latitude: 35.724014677616225,
-    zoom: 15,
-    pitch: 58,
-    bearing: 260,
+    longitude: 115.01846156785787,
+    latitude: 35.722862130110052,
+    zoom: 14.5,
+    pitch: 45,
+    bearing: 140,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
   // 濮阳县公安局
   {
-    longitude: 115.01207175600501,
-    latitude: 35.706462793571056,
-    zoom: 14.5,
-    pitch: 40,
+    longitude: 115.01527175600501,
+    latitude: 35.707862793571056,
+    zoom: 14.7,
+    pitch: 50,
     bearing: 60,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
-  // 濮阳市人民医院
+  // 濮阳县人民医院
   {
-    longitude: 115.03228,
-    latitude: 35.747326,
-    zoom: 13.7,
+    longitude: 115.019,
+    latitude: 35.711,
+    zoom: 14,
     pitch: 58,
-    bearing: 120,
+    bearing: 290,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
-  // 濮阳市公安局
+  // 濮阳县消防大队
   {
-    longitude: 115.01559322149822,
-    latitude: 35.74715,
-    zoom: 13.7,
+    longitude: 115.0289266957364,
+    latitude: 35.726014677616225,
+    zoom: 14.7,
     pitch: 58,
-    bearing: 250,
+    bearing: 330,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
+
   {
-    //濮阳中心坐标位置
-    longitude: 115.036,
-    latitude: 35.736,
-    zoom: 13,
-    pitch: 58,
-    bearing: 60, //方位
+    //濮阳县视角
+    longitude: 115.026,
+    latitude: 35.718,
+    zoom: 13.5,
+    pitch: 55,
+    bearing: 10, //方位
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
 ];
+
 var index_viewState = 0;
 export default class OneMap extends Component {
   constructor(props) {
@@ -256,21 +257,18 @@ export default class OneMap extends Component {
         image: arcImg,
         speed: 0.8,
       }),
-      // new HeatmapLayer({
-      //   id: 'heatmaplayer',
-      //   data: this.state.bufferEmeData,
-      //   intensity: 1.5,
-      //   radiusPixels: 80,
-      //   colorRange: [[1, 152, 189],
-      //   [73, 227, 206],
-      //   [216, 254, 181],
-      //   [254, 237, 177],
-      //   [254, 173, 84],
-      //   [209, 55, 78]],
-      //   getPosition: d => [d.geometry.x, d.geometry.y],
-      //   getWeight: d => d.attributes.pNumber,
-      // }),
-
+      // 濮阳县政府
+      new ScatterpointLayer({
+        id: "pointGov",
+        data: govPosition,
+        getPosition: (d) => [d.x, d.y],
+        getLineWidth: 10,
+        getRadius: 500,
+        getLineColor: [255, 132, 50],
+        speed: 1.2,
+        stroked: true,
+        filled: false,
+      }),
       // 城市道路图层-path
       new PathLayer({
         id: "pathlayer",
@@ -316,17 +314,6 @@ export default class OneMap extends Component {
         material: theme.material,
         opacity: 0.6,
       }),
-      // 城市行政区域图层
-      // new GeoJsonLayer({
-      //   id: "county-Layer",
-      //   data: this.state.countyData,
-      //   stroked: true,
-      //   filled: false,
-      //   extruded: false,
-      //   lineWidthMinPixels: 2,
-      //   getLineColor: [255, 255, 0],
-      //   getLineWidth: 2,
-      // }),
     ];
     // 城市应急点-球体
     this.state.pointEmeData.map((value, index) => {
@@ -346,13 +333,14 @@ export default class OneMap extends Component {
     return baseLayers;
   }
   _onLoad(e) {
-    let box = document.getElementsByClassName('mapboxgl-map')[0].parentNode
-    box.style.zIndex = '';
+    let box = document.getElementsByClassName("mapboxgl-map")[0].parentNode;
+    box.style.zIndex = "";
     map = e.target;
     changeMapboxLanguage(map);
   }
 
   render() {
+    let size = 40;
     const {
       viewState,
       mapStyle = "mapbox://styles/mapbox/navigation-guidance-night-v4",
@@ -364,7 +352,8 @@ export default class OneMap extends Component {
         <DeckGL
           layers={this._renderLayers()}
           effects={theme.effects}
-          initialViewState={this.state.initViewState} //{INITIAL_VIEW_STATE} //
+          // initialViewState={INITIAL_VIEW_STATE}
+          initialViewState={this.state.initViewState}
           viewState={viewState}
           controller={true}
         >
@@ -378,6 +367,17 @@ export default class OneMap extends Component {
             mapboxApiAccessToken={MAPBOX_TOKEN}
             onLoad={this._onLoad}
           >
+            <Popup
+              className={`emergency popupEmergencyGov`}
+              longitude={115.023}
+              latitude={35.713}
+              altitude={10}
+              closeButton={false}
+              dynamicPosition={true}
+              sortByDepth={true}
+            >
+              <div className="fontEmergencyGov">濮阳县政府</div>
+            </Popup>
             {
               <Fragment>
                 {this.state.pointEmeData.map((value, index) => {

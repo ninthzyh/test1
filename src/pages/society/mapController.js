@@ -76,8 +76,8 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.055,
-  latitude: 35.752,
+  longitude: 115.035,
+  latitude: 35.702,
   zoom: 12.5,
   pitch: 50,
   bearing: 50,
@@ -85,17 +85,17 @@ const INITIAL_VIEW_STATE = {
 const viewStates = [
   // 濮阳县整体视角-1
   {
-    longitude: 115.031,
+    longitude: 115.021,
     latitude: 35.719,
-    zoom: 14,
-    pitch: 50,
+    zoom: 13,
+    pitch: 30,
     bearing: 320, //方位
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
   // 濮阳县局部视角-1
   {
-    longitude: 115.033071,
+    longitude: 115.000071,
     latitude: 35.714462,
     zoom: 14.2,
     pitch: 60,
@@ -112,7 +112,7 @@ const viewStates = [
     bearing: 150, //方位
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
-  },    
+  },
   // 龙华区整体视角-1
   {
     longitude: 115.051,
@@ -122,7 +122,7 @@ const viewStates = [
     bearing: 160, //方位
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
-  },  
+  },
   // 龙华区整体视角-2
   {
     longitude: 115.050,
@@ -142,18 +142,18 @@ const viewStates = [
     bearing: 330,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
-  },            
+  },
   // 濮阳区域整体视角-2
   {
     longitude: 115.055,
-    latitude: 35.752,
+    latitude: 35.52,
     zoom: 12.5,
     pitch: 50,
     bearing: 50,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
-  },  
-  
+  },
+
 ];
 var index_viewState = 0;
 var timerView = null;
@@ -179,20 +179,20 @@ export default class OneMap extends Component {
       this.setState({
         initViewState: viewStates[(viewStates.length - 1).toString()]
       });
-    timerColumnView = setInterval(() => {
-      this.setState({
-        columnVisible: !this.state.columnVisible
-        // columnVisible: true
-      });
-    }, 7000)
-    timerView = setInterval(() => {
-      if (index_viewState > viewStates.length - 1) {
-        index_viewState = 0;
-      }
-      this.setState({ initViewState: viewStates[index_viewState] });
-      index_viewState += 1;
-    }, 14000);
-  }, 5000);
+      timerColumnView = setInterval(() => {
+        this.setState({
+          columnVisible: !this.state.columnVisible
+          // columnVisible: true
+        });
+      }, 7000)
+      timerView = setInterval(() => {
+        if (index_viewState > viewStates.length - 1) {
+          index_viewState = 0;
+        }
+        this.setState({ initViewState: viewStates[index_viewState] });
+        index_viewState += 1;
+      }, 14000);
+    }, 5000);
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -217,7 +217,7 @@ export default class OneMap extends Component {
         return <Popup className={`societyCateringName popup${index + 1}`}
           longitude={value.location[0]}
           latitude={value.location[1]}
-          altitude={value.review_count*0.5 }
+          altitude={value.review_count * 0.5}
           closeButton={false}
           visible={true}
           key={index}
@@ -367,7 +367,7 @@ export default class OneMap extends Component {
       diskResolution: 40,
       radius: 50,
       extruded: true,
-      material:buildingMaterial,
+      material: buildingMaterial,
       elevationScale: 1,
       intensity: 0.1,
       getPosition: d => d.coor,
@@ -398,7 +398,7 @@ export default class OneMap extends Component {
       radius: 50,
       extruded: true,
       elevationScale: 0.4,
-      material:buildingMaterial,
+      material: buildingMaterial,
       getPosition: d => d.coor,
       getFillColor: [100, 231, 255],
       getElevation: d => d.total,
@@ -416,7 +416,7 @@ export default class OneMap extends Component {
       diskResolution: 40,
       radius: 50,
       extruded: true,
-      material:buildingMaterial,
+      material: buildingMaterial,
       elevationScale: 1,
       getPosition: d => d.coor,
       getFillColor: [255, 231, 100],
@@ -435,7 +435,7 @@ export default class OneMap extends Component {
       radius: 50,
       extruded: true,
       elevationScale: 0.5,
-      material:buildingMaterial,
+      material: buildingMaterial,
       getPosition: d => d.location,
       getFillColor: [255, 149, 97],
       getElevation: d => d.review_count,

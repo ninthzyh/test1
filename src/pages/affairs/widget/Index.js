@@ -5,7 +5,6 @@ import One from './One.js';
 import Two from './Two';
 import Seven from './Seven';
 import Three from './Three';
-import 'animate.css';
 import Fives from './Fives/Fives.js'
 import SixChart from './sixChart/SixChart';
 import Eight from './Eight';
@@ -39,7 +38,7 @@ class Index extends Component {
     render() {
         const { show } = this.state;
         return (
-            <div className={AffairsStyle.container}>
+            <div className={`${AffairsStyle.container} animate__animated animate__backInDown`}>
                 <OneMap/>
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
                     <div className={AffairsStyle.item}><One/></div>

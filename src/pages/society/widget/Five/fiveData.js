@@ -10,6 +10,11 @@ export const fiveList = {
 				type: 'cross'
 			}
 		},
+		animation: true,
+		animationDuration: 1500,
+		animationEasing: 'exponentialOut',
+		animationDurationUpdate: 1500,
+		animationEasingUpdate: 'cubicOut',
 		xAxis: [
 			{
 				type: 'category',
@@ -139,5 +144,5 @@ export const fiveList = {
 		]
 	}
 }
-fiveList.option.series[2].data = fiveList.option.series[2].data.map((x, i) => [40 + i * 100, x])
-fiveList.option.series[3].data = fiveList.option.series[3].data.map((x, i) => [60 + i * 100, x])
+fiveList.option.series[2].data = fiveList.option.series[2].data.map((x, i) => [43 + i * 100, x])
+fiveList.option.series[3].data = fiveList.option.series[3].data.map((x, i) => [58 + i * 100, x])
