@@ -28,6 +28,10 @@ import policeImg from "assets/images/police_color.png";
 import weatherImg from "assets/images/weather_color.png";
 import "./emergencyPopup.css";
 import { changeMapboxLanguage } from "../../untils/MapUtils";
+import medicalData from "assets/json/PuYang_medical.json";
+import policeData from "assets/json/Puyang_Police.json";
+import policeIcon from "img/emergency/police.png";
+import medicalIcon from "img/emergency/hospital.png";
 
 // Set your mapbox token here
 const MAPBOX_TOKEN =
@@ -115,18 +119,10 @@ const INITIAL_VIEW_STATE = {
   //濮阳县政府地理位置
   longitude: 115.023,
   latitude: 35.713,
-  zoom: 16.5,
+  zoom: 15.5,
   pitch: 50,
   bearing: 0, //方位
 };
-// const INITIAL_VIEW_STATE = {
-//   //濮阳县政府地理位置
-//   longitude: 115.026,
-//   latitude: 35.718,
-//   zoom: 13.5,
-//   pitch: 55,
-//   bearing: 10, //方位
-// };
 
 const viewStates = [
   // 濮阳县视角-事故地点
@@ -223,6 +219,8 @@ export default class OneMap extends Component {
       pointEmeData,
       lineEmeData,
       bufferEmeData,
+      medicalData,
+      policeData,
     });
   }
   //组件第一次渲染后调用
@@ -246,6 +244,35 @@ export default class OneMap extends Component {
   _renderLayers() {
     const { theme = DEFAULT_THEME } = this.props;
     const baseLayers = [
+      new IconLayer({
+        id: "medical_icon",
+        data: this.state.medicalData,
+        iconMapping: {
+          marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
+        },
+        iconAtlas: medicalIcon,
+        sizeScale: 3,
+        getIcon: (d) => "marker",
+        getPosition: (d) => [d.coor[0], d.coor[1], 80],
+        getSize: (d) => {
+          return 10;
+        },
+      }),
+
+      new IconLayer({
+        id: "police_icon",
+        data: this.state.policeData,
+        iconMapping: {
+          marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
+        },
+        iconAtlas: policeIcon,
+        sizeScale: 3,
+        getIcon: (d) => "marker",
+        getPosition: (d) => [d.coor[0], d.coor[1], 80],
+        getSize: (d) => {
+          return 10;
+        },
+      }),
       // 应急道路空中连线
       new ArcLayerExt({
         id: "arclayerext",
@@ -262,8 +289,8 @@ export default class OneMap extends Component {
         id: "pointGov",
         data: govPosition,
         getPosition: (d) => [d.x, d.y],
-        getLineWidth: 10,
-        getRadius: 500,
+        getLineWidth: 30,
+        getRadius: 300,
         getLineColor: [255, 132, 50],
         speed: 1.2,
         stroked: true,
@@ -293,8 +320,8 @@ export default class OneMap extends Component {
         id: "pointone",
         data: this.state.pointEmeData,
         getPosition: (d) => [d.geometry.x, d.geometry.y],
-        getLineWidth: 50,
-        getRadius: 500,
+        getLineWidth: 30,
+        getRadius: 300,
         getLineColor: (d) => scatterPointColors[d.attributes.Type],
         speed: 1.0,
         stroked: true,
@@ -324,7 +351,7 @@ export default class OneMap extends Component {
           getPosition: (d) => [d.geometry.x, d.geometry.y],
           image: scanImgs[index],
           imageNoise: depthImg,
-          getRadius: 500,
+          getRadius: 300,
           speed: 0.3,
           getBlendColor: (d) => scanColors[d.attributes.Type],
         })
