@@ -33,15 +33,16 @@ class FooterBottom extends Component {
         let footerData = window.menubar;
         let itemList = [];
         for (let i = 0; i < footerData.length; i++) {
-            itemList.push(<li key={i}
-                index={i} onClick={this.setCurrentIndex}
-            ><span className={FooterStyle.FooterList} className={this.state.currentIndex === i ? `${FooterStyle.FooterActive} ${FooterStyle.FooterList}` : FooterStyle.FooterList} onClick={() => this.jumpTo(footerData[i])}>{footerData[i].name}</span>   <span className={FooterStyle.FooterVerLine}></span></li>);
+            itemList.push(<li key={i} onClick={this.setCurrentIndex}>
+                <span className={this.state.currentIndex === i ? `${FooterStyle.FooterActive}` : FooterStyle.FooterList} onClick={() => this.jumpTo(footerData[i])}>{footerData[i].name}</span>
+                {/*<span className={FooterStyle.FooterVerLine}/>*/}
+            </li>);
         }
         return (<Footer className={FooterStyle.FooterPage}>
             <ul className={FooterStyle.FooterListBox}>
                 {itemList}
             </ul>
-
+            <span className={FooterStyle.logo}/>
         </Footer>);
     }
 }
