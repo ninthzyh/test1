@@ -4,12 +4,11 @@ $text-color:rgb(128, 0, 96);
 
 .container{
     height: 100%;
-    overflow: hidden;
     .Wrapper {
         background-repeat: no-repeat;
         background-size: 100% 100%;
         z-index: 2;
-        height: 99%;
+        height: 100%;
         width: 23%;
         position: absolute;
         top: 0;
