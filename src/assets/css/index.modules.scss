@@ -5,20 +5,25 @@ $text-color:rgb(128, 0, 96);
 .container{
     height: 100%;
     overflow: hidden;
-    .leftWrapper {
-        background-image: url('~img/leftBg.png');
+    .Wrapper {
         background-repeat: no-repeat;
         background-size: 100% 100%;
         z-index: 2;
         height: 99%;
         width: 23%;
-        float: left;
-        position: relative;
+        position: absolute;
+        top: 0;
+        padding: 122px 0 50px 0;
+    }
+    .leftWrapper{
+        @extend .Wrapper;
+        left: 0;
+        background-image: url('~img/leftBg.png');
     }
     .rightWrapper {
-        @extend .leftWrapper;
+        @extend .Wrapper;
+        right: 0;
         background-image: url('~img/rightBg.png');
-        float: right;
     }
 
     .item {
