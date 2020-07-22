@@ -15,7 +15,7 @@ class Index extends Component {
     render() {
         return (
             <div className={EmergencyStyle.container}>
-                 {/* <OneMap></OneMap> */}
+                 <OneMap></OneMap>
                 <div className={EmergencyStyle.leftWrapper}>
                     <div className={EmergencyStyle.item}><One /></div>
                     <div className={EmergencyStyle.item}><Two />
