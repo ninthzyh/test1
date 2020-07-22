@@ -14,7 +14,7 @@ export default class Two extends Component {
       grid: {
         left: '15%',
         top: '25%',
-        bottom: '15%',
+        bottom: '18%',
         right: '10%',
       },
       // tooltip: {
