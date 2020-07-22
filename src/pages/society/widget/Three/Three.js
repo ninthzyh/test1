@@ -13,25 +13,25 @@ export default class Three extends Component {
       data: [
         {
           name: '新建设路',
-          num: '200',
+          num: '21',
           unit: '条',
           color: '#FFC647',
         },
         {
           name: '新建设路',
-          num: '800',
+          num: '26',
           unit: '公里',
           color: '#36EEEB',
         },
         {
           name: '新增集中供暖',
-          num: '2900',
+          num: '210万',
           unit: '平方米',
           color: '#596AFF',
         },
         {
           name: '新建卫生室',
-          num: '10',
+          num: '60',
           unit: '个',
           color: '#C74D76',
         },
@@ -44,8 +44,8 @@ export default class Three extends Component {
     let blackRedListOption = {
       grid: {
         top: '20%',
-        left: '10%',
-        right: '3%',
+        left: '11%',
+        right: '7%',
         bottom: 18,
       },
       tooltip: {
@@ -55,7 +55,7 @@ export default class Three extends Component {
       legend: {
         data: ['近五年城镇化率'],
         icon: 'line',
-        left: 'right',
+        right: '7%',
         itemWidth: 10,
         textStyle: {
           fontSize: 11,
@@ -111,16 +111,14 @@ export default class Three extends Component {
       series: [
         {
           name: '近五年城镇化率',
-          symbol: 'none',
-          type: 'line',
+          type: 'bar',
+          barWidth: 13,
           itemStyle: {
             normal: {
-              lineStyle: {
-                width: window.lineWidth,
-              },
-            },
+              color: '#008CFF'
+            }
           },
-          data: [23, 40, 50, 69, 78],
+          data: [38.1, 39, 40.2, 41.7, 43.8],
         },
       ],
       animationDuration: 4000,
