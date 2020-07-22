@@ -73,11 +73,11 @@ const ICON_MAPPING = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.0236,
-  latitude: 35.7141,
-  zoom: 14,
-  pitch: 60,
-  bearing: 55 //方位
+  longitude: 115.14788412822952, 
+  latitude: 35.56490312212928,
+  zoom: 10,
+  pitch: 0,
+  bearing: 0 //方位
 };
 
 const viewStates = [
@@ -97,7 +97,7 @@ const viewStates = [
     latitude: 35.7043,
     zoom: 16,
     pitch: 60,
-    bearing: 40,
+    bearing: 50,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
   },
@@ -107,7 +107,7 @@ const viewStates = [
     latitude: 35.7174,
     zoom: 16,
     pitch: 60,
-    bearing: 45,
+    bearing: 35,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
   },
@@ -117,10 +117,22 @@ const viewStates = [
     latitude: 35.7273,
     zoom: 16,
     pitch: 60,
-    bearing: 45,
+    bearing: 60,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
   }
+];
+
+const gridViews = [
+  { longitude: 114.98496692302777, latitude: 35.549818918362 },
+  { longitude: 115.02344412632888, latitude: 35.71446457709015 },
+  { longitude: 115.00838741953089, latitude: 35.38967108094388 },
+  { longitude: 115.14041056927918, latitude: 35.44734870065756 },
+  { longitude: 115.15244856633261, latitude: 35.56851616252171 },
+  { longitude: 115.15968824524693, latitude: 35.71518123981599 },
+  { longitude: 115.28404586708022, latitude: 35.7553418812761 },
+  { longitude: 115.27998117030916, latitude: 35.52160249062064 },
+  { longitude: 115.30608454896971, latitude: 35.69493031493384 }
 ];
 
 var index_viewState = 0;
@@ -142,6 +154,7 @@ export default class OneMap extends Component {
   }
   //组件第一次渲染后调用
   componentDidMount() {
+   
     setTimeout(() => {
       this.setState({
         initViewState: viewStates[(viewStates.length - 1).toString()]
@@ -158,7 +171,7 @@ export default class OneMap extends Component {
           })
         }
       }, 10000);
-    }, 2000);
+    }, 5000);
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -198,7 +211,8 @@ export default class OneMap extends Component {
         getElevation: 30,
         getLineColor: [255, 255, 255],
         getLineWidth: 1000,
-        opacity:0.05
+        opacity:0.05,
+        pickable: true
       }),
       new PathLayer({
         id: 'pathlayer',
@@ -224,7 +238,7 @@ export default class OneMap extends Component {
         extruded: true,
         lineWidthMinPixels: 2,
         elevationScale: 1,
-        getElevation: d => d.properties.height,
+        getElevation: d => d.properties.height*Math.random()*2,
         getFillColor: theme.buildingColor,
         material: theme.material,
         opacity: 0.3
@@ -254,44 +268,17 @@ export default class OneMap extends Component {
         getLineColor: theme.borderColor,
         getLineWidth: 2,
       }),
-      // new IconLayer({
-      //   id: 'iconlayer',
-      //   data: viewStates,
-      //   pickable: true,
-      //   // iconAtlas: 'img/manager/grid' + index.toString() +'.png',
-      //   // iconMapping: ICON_MAPPING,
-      //   getIcon: d => ({
-      //     url: 'img/manager/grid9.png',
-      //     width: 128,
-      //     height: 128,
-      //     x: 0,
-      //     y: 0
-      //   }),
-      //   // getIcon: d => 'marker',
-      //   sizeScale: 15,
-      //   getPosition: d => [d.longitude,d.latitude],
-      //   getSize: d => 15,
-      //   getColor: d => theme.scatterGridColor
-      // })
     ];
-    viewStates.map((value, index) => {
+    gridViews.map((value, index) => {
       let iconlayer = new IconLayer({
         id: 'iconlayer' + index.toString(),
         data: [value],
         pickable: true,
         iconAtlas: 'img/manager/grid' + (index + 1).toString() + '.png',
         iconMapping: ICON_MAPPING,
-        // getIcon: d => ({
-        //   url: 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/website/icon-atlas.png',
-        //   width: 128,
-        //   height: 128,
-        //   x: 0,
-        //   y: 0
-        // }),
         getIcon: d => 'marker',
-        sizeScale: 15,
         getPosition: d => [d.longitude, d.latitude],
-        getSize: d => 15,
+        getSize: d => 150,
         getColor: d => theme.scatterGridColor,
         visible: this.state.iconVisible
       });
@@ -307,6 +294,7 @@ export default class OneMap extends Component {
     map = e.target;
     changeMapboxLanguage(map);
     map.on('zoom',()=>{
+      console.log(map.getZoom() + '---' + map.getCenter());
       if (map.getZoom() > 14){
         this.setState({scaVisible: true, iconVisible: false});
         for (let i=0; i< popEnties.length; i++){
@@ -314,14 +302,14 @@ export default class OneMap extends Component {
           popentity.style.display = 'block';
         }
       }else{
-        // popEnties.style.display = 'none';
         for (let j=0; j< popEnties.length; j++){
           let popentity = popEnties[j];
           popentity.style.display = 'none';
         }
         this.setState({scaVisible: false, iconVisible: true});
       }
-    })
+    });
+
   }
 
   _onWebGLInitialized(gl){
@@ -342,6 +330,7 @@ export default class OneMap extends Component {
         viewState={viewState}
         controller={true}
         onWebGLInitialized = {this._onWebGLInitialized}
+        // getTooltip = {({object})=> object && `${h3ToGeo(object.hex)}`}
       >
         <StaticMap
           reuseMaps

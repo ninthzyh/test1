@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import FooterStyle from './Footer.module.scss'
 import { Layout, } from 'antd';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
 const { Footer } = Layout;
 
 class FooterBottom extends Component {
@@ -10,38 +9,33 @@ class FooterBottom extends Component {
         super(props);
         this.state = {
             currentIndex: 0,
-        }
-        this.setCurrentIndex = this.setCurrentIndex.bind(this)
-        this.jumpTo = this.jumpTo.bind(this);
+        };
+        this.footerData = window.menubar;
     }
-    setCurrentIndex(event) {
+
+    componentDidMount() {
+        const item = this.footerData.findIndex(item=>item.path.indexOf(this.props.history.location.pathname) !== -1);
+        this.setState({
+            currentIndex: item
+        })
+    }
+
+    setCurrentIndex = (event) => {
         this.setState({
             currentIndex: parseInt(event.currentTarget.getAttribute('index'), 10)
         })
-    }
-    jumpTo = (menu) => {
-        window.open(menu.path);
-        // this.props.history.push(menu.path);
-        // if (menu.type === "inner") {
-        //     window.open(menu.path);
-        //     // this.props.history.push(menu.path);
-        // } else {
-        //     window.open(menu.path, '_blank');
-        // }
-    }
-    render() {
-        let footerData = window.menubar;
-        let itemList = [];
-        for (let i = 0; i < footerData.length; i++) {
-            itemList.push(<li key={i}
-                index={i} onClick={this.setCurrentIndex}
-            ><span className={FooterStyle.FooterList} className={this.state.currentIndex === i ? `${FooterStyle.FooterActive} ${FooterStyle.FooterList}` : FooterStyle.FooterList} onClick={() => this.jumpTo(footerData[i])}>{footerData[i].name}</span>   <span className={FooterStyle.FooterVerLine}></span></li>);
-        }
-        return (<Footer className={FooterStyle.FooterPage}>
-            <ul className={FooterStyle.FooterListBox}>
-                {itemList}
-            </ul>
+    };
 
+    render() {
+        return (<Footer className={`${FooterStyle.FooterPage} ${this.props.className}`}>
+            <ul className={FooterStyle.FooterListBox}>
+                {
+                    this.footerData.map((item,i)=><li key={i} onClick={this.setCurrentIndex}>
+                        <span className={this.state.currentIndex === i ? `${FooterStyle.FooterActive}` : FooterStyle.FooterList} onClick={() => window.open(item.path)}>{item.name}</span>
+                    </li>)
+                }
+            </ul>
+            <span className={FooterStyle.logo}/>
         </Footer>);
     }
 }

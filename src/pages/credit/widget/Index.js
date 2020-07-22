@@ -7,7 +7,6 @@ import Six from "./Six";
 import Four from './four/FourAnimate'
 import Three from './Three/Three.js'
 import RedAndBlockList from './redAndBlockList/RedAndBlockList.js'
-import 'animate.css';
 class Index extends Component {
     constructor(props) {
         super(props);
