@@ -20,12 +20,11 @@ class Home extends React.Component {
   render() {
     const route = this.state.route;
     return <Layout className="layout" style={{ height: '100%'}}>
-      <Header hasMenu={true} />
-
+      <Header className='animate__animated animate__backInDown' hasMenu={true} />
       <Content style={{ height: '100%' }} id="Content">
         {renderRoutes(route.children)}
       </Content>
-      <Footer history={this.props.history} />
+      <Footer className='animate__animated animate__backInUp' history={this.props.history} />
     </Layout>
   }
 }

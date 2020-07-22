@@ -7,7 +7,8 @@ import { Switch, HashRouter } from 'react-router-dom';
 import routes from 'route/routes';
 import { renderRoutes } from 'react-router-config';
 import { Provider } from 'react-redux';
-import store from 'store/index'
+import store from 'store/index';
+import "animate.css";
 
 
 ReactDOM.render(

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'animate.css';
 import $ from 'jquery';
 import styles from './FarenBlackList.module.scss'
 class FarenBlackList extends Component {

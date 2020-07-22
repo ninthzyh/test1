@@ -38,8 +38,8 @@ class HeaderTop extends Component {
     };
 
     render() {
-        const { PayIncrease, PayDecrease } = this.props;
-        return (<div className={HeaderStyle.HeaderPage}>
+        const { PayIncrease, PayDecrease, className } = this.props;
+        return (<div className={`${className} ${HeaderStyle.HeaderPage}`}>
             <div className={HeaderStyle.leftBox} ><span className={HeaderStyle.logoBox}></span></div>
             <div className={HeaderStyle.rightBox} >
                 <span className={HeaderStyle.weatherpicBox}></span>
