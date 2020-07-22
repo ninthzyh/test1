@@ -36,7 +36,7 @@ export default class Three extends Component {
           color: '#C74D76',
         },
       ],
-      circleNum: 0,
+      circleNum:  0,
     }
   }
   state = {}
