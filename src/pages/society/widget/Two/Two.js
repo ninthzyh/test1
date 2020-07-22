@@ -41,7 +41,7 @@ export default class Two extends Component {
         color: '#59588D',
         data: ['2016年', '2017年', '2018年', '2019年', '2020年'],
         axisLabel: {
-          color: '#FFFFFF',
+          color:  '#FFFFFF',
           textStyle: {
             fontSize: 12
           },
