@@ -20,42 +20,9 @@ export default class extends Component {
             },
             grid: {
                 left: '20%',
-                bottom: '15%'
+                bottom: '15%',
+                top:'25%',
             },
-            // legend: {
-            //     top: '5%',
-            //     right: 0,
-            //     type: 'scroll',
-            //     data: [
-            //         {
-            //             name: '农村居民人均可支配增长率',
-            //             icon: 'line',
-            //             textStyle: {
-            //                 color: '#fff',
-            //             }
-            //         },
-            //         {
-            //             name: '城镇居民人均可支配增长率',
-            //             icon: 'line',
-            //             textStyle: {
-            //                 color: '#fff',
-            //             }
-            //         },
-            //         {
-            //             name: '农村居民可支配收入',
-            //             icon: 'bar',
-            //             textStyle: {
-            //                 color: '#fff',
-            //             }
-            //         },
-            //         {
-            //             name: '城镇居民可支配收入',
-            //             icon: 'bar',
-            //             textStyle: {
-            //                 color: '#fff',
-            //             }
-            //         }],
-            // },
             xAxis: [{
                 type: 'category',
                 data: ['2018', '2019', '2020'],
@@ -228,7 +195,7 @@ export default class extends Component {
                 type: 'text',
                 z: 100,
                 left: 'center',
-                top: '85%',
+                top: '90%',
                 style: {
                     fill: '#fff',
                     text: '同比增长 11.9%',
@@ -239,7 +206,7 @@ export default class extends Component {
                 type: 'text',
                 z: 100,
                 left: 'center',
-                top: '15%',
+                top: '5%',
                 style: {
                     fill: '#00FFD1',
                     text: '占一般公共预算支出比重',
@@ -259,6 +226,7 @@ export default class extends Component {
 
             }],
             series: [{
+                radius: '60%',
                 type: 'liquidFill',
                 center: ['50%', '50%'],
                 data: [0.7],
@@ -294,14 +262,12 @@ export default class extends Component {
         return <>
             <ChartHeader />
             <div className={SocietyStyle.content}>
-                {/* <div className={SocietyStyle.fiveLegend}>
-                    <div className={SocietyStyle.brokenLineWrapFive}>
-                        <div className={SocietyStyle.line}><span></span><span>城镇居民人均可支配增长率</span></div>
-                        <div className={SocietyStyle.line}><span></span><span>农村居民人均可支配增长率</span></div>
-                        <div className={SocietyStyle.rect}><span></span><span>城镇居民可支配收入</span></div>
-                        <div className={SocietyStyle.rect}><span></span><span>农村居民可支配收入</span></div>
-                    </div>
-                </div> */}
+                <div className={SocietyStyle.fiveLegend}>
+                        <div className={SocietyStyle.legendItem}><span className={SocietyStyle.lineY}></span><span>城镇居民人均可支配增长率</span></div>
+                        <div className={SocietyStyle.legendItem}><span className={SocietyStyle.lineG}></span><span>农村居民人均可支配增长率</span></div>
+                        <div className={SocietyStyle.legendItem}><span className={SocietyStyle.rectG}></span><span>城镇居民可支配收入</span></div>
+                        <div className={SocietyStyle.legendItem}><span className={SocietyStyle.rectB}></span><span>农村居民可支配收入</span></div>
+                </div>
                 <div className={SocietyStyle.fiveChart}>
 
                     <div className={SocietyStyle.left}>

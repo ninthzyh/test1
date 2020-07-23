@@ -4,13 +4,11 @@ import ChartHeader from "components/ChartHeader/ChartHeader"
 import ReactEcharts from 'echarts-for-react';
 const top = [
     {
-        // pic: require("img/society/house.png"),
         name: "养老机构数",
         num: 23,
         color: 'rgba(239,168,8,1)'
     },
     {
-        // pic: require("img/society/bed.png"),
         name: "床位总数",
         num: '1115',
         color: 'rgba(45,153,137,1)'
@@ -24,8 +22,6 @@ class Four extends Component {
     iconList = () => {
         return top.map((itemImg, itemIndex) => {
             return <div className={FourStyle.itemImg} key={itemIndex}>
-
-                {/* <img src={itemImg.pic} className={FourStyle.pic} /> */}
                 <div className={FourStyle[`fourImg${itemIndex + 1}`]}></div>
                 <span className={FourStyle.name}>{itemImg.name}</span>
                 <span className={FourStyle.num}>{itemImg.num}</span>
@@ -34,14 +30,12 @@ class Four extends Component {
     }
     getOption(list) {
         return {
-            grid: {
-                top: '100%'
-            },
             series: [
                 {
                     name: '',
                     type: 'pie',
                     radius: '80%',
+                    top:'20%',
                     center: ['50%', '50%'],
                     color: ['#08E3F8', '#FFC647',],
                     roseType: 'radius',
@@ -66,15 +60,11 @@ class Four extends Component {
                             rich: {
                                 b: {
                                     fontSize: 20,
-                                    // fontFamily: 'PingFangSC-Medium,PingFang SC',
-                                    // fontWeight: 500,
                                     lineHeight: 28
 
                                 },
                                 a: {
                                     fontSize: 12,
-                                    // fontFamily: 'PingFangSC-Medium,PingFang SC',
-                                    // fontWeight: 400,
                                     lineHeight: 17
                                 }
                             }
@@ -98,7 +88,7 @@ class Four extends Component {
                             <span className={FourStyle.text}>居民养老保险参保人数</span>
                             <span className={FourStyle.num}>700万</span>
                         </div>
-                        < ReactEcharts style={{ height: '100%', paddingTop: '10px' }} option={this.getOption(list)} />
+                        < ReactEcharts style={{ height: '100%' }} option={this.getOption(list)} />
                     </div>
                 </div>
             </div>
