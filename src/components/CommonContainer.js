@@ -1,4 +1,4 @@
-import React, { Component, cloneElement } from 'react'
+import React, { Component } from 'react'
 import VisitorCount from "components/VisitorCount";
 
 export default class CommonContainer extends Component {
