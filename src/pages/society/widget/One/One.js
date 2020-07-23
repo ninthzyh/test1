@@ -19,41 +19,48 @@ class One extends Component {
             tooltip: {
                 trigger: 'axis'
             },
-            color: ['rgba(79, 117, 248, 1)', 'rgba(199, 77, 118, 1)', 'rgba(255, 198, 71, 1)'],
-            legend: {
-                x: 'center',//可设定图例在左、右、居中
-                y: '10%',
-                data: [
-                    {
-                        name: '失业人员再就业人数',
-                        textStyle: {
-                            fontSize: 10,
-                            fontWeight: 'bolder',
-                            color: '#fff'
-                        },
-                        icon: 'line'
+            color: ['rgba(255,198,71, 1)', 'rgba(79,117,248, 1)', 'rgba(199,77,118, 1)'],
+            legend: [
+                {
+                    icon: 'line',
+                    itemWidth: 25,
+                    left: 23,
+                    top: 11,
+                    textStyle: {
+                        fontsize: 12,
+                        fontfamily: 'Microsoft YaHei',
+                        fontweight: 400,
+                        color: '#fff'
                     },
-                    {
-                        name: '新增就业人数',
-                        textStyle: {
-                            fontSize: 10,
-                            fontWeight: 'bolder',
-                            color: '#fff'
-                        },
-                        icon: 'line'
+                    data: ['失业人员再就业人数']
+                },
+                {
+                    icon: 'line',
+                    itemWidth: 25,
+                    left: 200,
+                    top: 11,
+                    textStyle: {
+                        fontsize: 12,
+                        fontfamily: 'Microsoft YaHei',
+                        fontweight: 400,
+                        color: '#fff'
                     },
-                    {
-                        name: '就业农村劳动力转移就业人数',
-                        textStyle: {
-                            fontSize: 10,
-                            fontWeight: 'bolder',
-                            color: '#fff'
-                        },
-                        icon: 'line'
-                    }
-                ]
-                // data: ['近五年失业人员再就业人数', '近五年新增就业人数', '就业农村劳动力转移就业人数']
-            },
+                    data: ['就业农村劳动力转移就业人数']
+                },
+                {
+                    icon: 'line',
+                    itemWidth: 25,
+                    left: 150,
+                    top: 32,
+                    textStyle: {
+                        fontsize: 12,
+                        fontfamily: 'Microsoft YaHei',
+                        fontweight: 400,
+                        color: '#fff'
+                    },
+                    data: ['新增就业人数']
+                }
+            ],
             xAxis: {
                 type: 'category',
                 axisTick: {
@@ -75,15 +82,15 @@ class One extends Component {
                     }
 
                 },
-                data: ['2016年', '2017年', '2018年', '2019年', '2012年']
+                data: ['2016年', '2017年', '2018年', '2019年', '2020年']
             },
             yAxis: {
                 // name: '数量',
                 type: 'value',
                 position: 'left',
-                max: 1000,
-                min: 0,
-                splitNumber: 5,
+                // max: 1000,
+                // min: 0,
+                // splitNumber: 5,
                 nameTextStyle: {
                     color: '#fff',
                     fontSize: 10,
@@ -112,25 +119,11 @@ class One extends Component {
                     name: '失业人员再就业人数',
                     type: 'line',
                     symbol: 'none',
-                    data: [120, 132, 101, 134, 90],
+                    data: [2985, 4200, 4700, 5380, 3700],
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                color: 'rgba(79, 117, 248, 1)',
-                                width: window.lineWidth,
-                            }
-                        }
-                    },
-                },
-                {
-                    name: '新增就业人数',
-                    type: 'line',
-                    symbol: 'none',
-                    data: [400, 182, 190, 600, 900],
-                    itemStyle: {
-                        normal: {
-                            lineStyle: {
-                                color: 'rgba(199, 77, 118, 1)',
+                                color: 'rgba(255,198,71, 1)',
                                 width: window.lineWidth,
                             }
                         }
@@ -140,16 +133,31 @@ class One extends Component {
                     name: '就业农村劳动力转移就业人数',
                     type: 'line',
                     symbol: 'none',
-                    data: [300, 500, 700, 710, 810],
+                    data: [5200, 6000, 6000, 5300, 10000],
                     itemStyle: {
                         normal: {
                             lineStyle: {
-                                color: 'rgba(255, 198, 71, 1)',
+                                color: 'rgba(79,117,248, 1)',
                                 width: window.lineWidth,
                             }
                         }
                     },
                 },
+                {
+                    name: '新增就业人数',
+                    type: 'line',
+                    symbol: 'none',
+                    data: [14095, 60000, 12000, 10580, 13500],
+                    itemStyle: {
+                        normal: {
+                            lineStyle: {
+                                color: 'rgba(199,77,118, 1)',
+                                width: window.lineWidth,
+                            }
+                        }
+                    },
+                },
+               
             ]
         };
         return option

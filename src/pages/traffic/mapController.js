@@ -15,7 +15,7 @@ import buildData from "assets/json/PuYang_Buildings.geojson";
 import countyData from "assets/json/PuYang_County.geojson";
 import arcData from "assets/json/PuYang_arc.json";
 import targetPos from "assets/json/PuYang_TargetPositions.json";
-import roadHeatmap from "assets/json/PuYang_Road_Points.geojson";
+import roadHeatmap from "assets/json/PuYang_Road_Points.json";
 import governmentData from "../../assets/json/Puyang_Government.json";
 import { Popup } from "react-map-gl";
 import "./trafficPopup.css";
@@ -63,23 +63,69 @@ const DEFAULT_THEME = {
   material,
   effects: [lightingEffect],
 };
-
-const INITIAL_VIEW_STATE = {
-  //濮阳中心坐标位置
-  longitude: 115.041,
-  latitude: 35.745,
-  zoom: 12.5,
-  pitch: 40,
-  bearing: 60, //方位
-};
-const viewStates = [
-  // 濮阳县整体视角-1
+const govPosition = [
   {
-    longitude: 115.031,
-    latitude: 35.719,
-    zoom: 14,
-    pitch: 50,
-    bearing: 320, //方位
+    x: 115.023,
+    y: 35.713,
+  },
+];
+const INITIAL_VIEW_STATE = {
+  //濮阳县政府地理位置
+  longitude: 115.023,
+  latitude: 35.713,
+  zoom: 15.5,
+  pitch: 50,
+  bearing: 0, //方位
+};
+
+const viewStates = [
+  // 濮阳县整体视角
+  {
+    longitude: 115.021,
+    latitude: 35.711,
+    zoom: 13.5,
+    pitch: 40,
+    bearing: 40, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 交通拥堵-挥公大道"
+  {
+    longitude: 115.0165,
+    latitude: 35.6985,
+    zoom: 17,
+    pitch: 40,
+    bearing: 40, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县转场视角-1
+  {
+    longitude: 115.0262,
+    latitude: 35.7109,
+    zoom: 13.7,
+    pitch: 40,
+    bearing: 330,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 交通拥堵-红旗路
+  {
+    longitude: 115.028,
+    latitude: 35.712,
+    zoom: 17,
+    pitch: 30,
+    bearing: 270, //方位
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 濮阳县转场视角-2
+  {
+    longitude: 115.0262,
+    latitude: 35.7109,
+    zoom: 13.7,
+    pitch: 40,
+    bearing: 330,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
@@ -89,17 +135,17 @@ const viewStates = [
     latitude: 35.72,
     zoom: 17,
     pitch: 50,
-    bearing: 316,
+    bearing: 320, //方位
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
-  // 交通拥堵-红旗路
+  // 濮阳县转场视角-3
   {
-    longitude: 115.02,
-    latitude: 35.712,
-    zoom: 17.5,
+    longitude: 115.0292,
+    latitude: 35.715,
+    zoom: 13.7,
     pitch: 50,
-    bearing: 95,
+    bearing: 230,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
@@ -107,89 +153,29 @@ const viewStates = [
   {
     longitude: 115.021,
     latitude: 35.73,
-    zoom: 17.5,
-    pitch: 50,
-    bearing: 250,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 濮阳县整体视角-2
-  {
-    longitude: 115.031,
-    latitude: 35.719,
-    zoom: 13.5,
-    pitch: 50,
-    bearing: 235,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 龙华区整体视角-1
-  {
-    longitude: 115.044,
-    latitude: 35.76,
-    zoom: 13.5,
-    pitch: 50,
-    bearing: 160, //方位
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 连环车祸-京开大道
-  {
-    longitude: 115.029,
-    latitude: 35.749,
-    zoom: 17.5,
-    pitch: 50,
-    bearing: 150, //方位
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 交通拥堵-黄河东路
-  {
-    longitude: 115.069,
-    latitude: 35.769,
     zoom: 17,
-    pitch: 20,
-    bearing: 10, //方位
+    pitch: 44,
+    bearing: 250, //方位
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
-  // 追尾事故-黄河中路
+  // 濮阳县转场视角-4
   {
-    longitude: 115.02,
-    latitude: 35.772,
+    longitude: 115.0242,
+    latitude: 35.7138,
+    zoom: 13.7,
+    pitch: 45,
+    bearing: 155,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
+  // 追尾事故-濮上南路
+  {
+    longitude: 114.999,
+    latitude: 35.705,
     zoom: 17,
-    pitch: 20,
-    bearing: 10, //方位
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 龙华区整体视角-2
-  {
-    longitude: 115.044,
-    latitude: 35.767,
-    zoom: 13,
-    pitch: 40,
-    bearing: 320, //方位
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 濮阳整体视角-1
-  {
-    longitude: 115.041,
-    latitude: 35.745,
-    zoom: 12,
-    pitch: 0,
-    bearing: 0, //方位
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 濮阳整体视角-2
-  {
-    longitude: 115.041,
-    latitude: 35.745,
-    zoom: 12.5,
-    pitch: 40,
-    bearing: 60, //方位
+    pitch: 45,
+    bearing: 330,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
@@ -271,8 +257,8 @@ export default class OneMap extends Component {
       new HeatmapLayer({
         id: "heatmaplayer",
         data: this.state.roadHeatmap,
-        intensity: 3,
-        radiusPixels: 50,
+        intensity: 4,
+        radiusPixels: 60,
         colorRange: [
           [49, 157, 62],
           [77, 185, 95],
@@ -283,10 +269,22 @@ export default class OneMap extends Component {
           [227, 12, 12],
         ],
         opacity: 0.4,
-        getPosition: (d) => d.geometry.coordinates[0],
+        getPosition: (d) => [d.geometry.x, d.geometry.y],
         getWeight: (d) => {
           return Math.floor(Math.random() * (500 - 300 + 1) + 300);
         },
+      }),
+      // 濮阳县政府
+      new ScatterpointLayer({
+        id: "pointGov",
+        data: govPosition,
+        getPosition: (d) => [d.x, d.y],
+        getLineWidth: 30,
+        getRadius: 300,
+        getLineColor: [255, 132, 50],
+        speed: 1.2,
+        stroked: true,
+        filled: false,
       }),
       new ScatterpointLayer({
         data: this.state.targetPos,
@@ -294,7 +292,7 @@ export default class OneMap extends Component {
         getPosition: (d) => d.position,
         speed: 0.8,
         getColor: [255, 255, 0],
-        getLineWidth: 60,
+        getLineWidth: 40,
       }),
       new GeoJsonLayer({
         id: "building-layer",
@@ -343,34 +341,28 @@ export default class OneMap extends Component {
         accidentTime: "(07-17 17:50)",
       },
       {
-        coor: [115.029, 35.749],
-        road: "京开大道",
-        accident: "连环车祸",
-        accidentTime: "(07-13 8:20)",
-      },
-      {
-        coor: [115.02, 35.772],
-        road: "黄河中路",
+        coor: [114.999, 35.7055],
+        road: "濮上南路",
         accident: "追尾事故",
         accidentTime: "(07-12 7:40)",
       },
     ];
     const displayCongestion = [
       {
-        coor: [115.021, 35.73],
+        coor: [115.0205, 35.7298],
         road: "解放大道",
         accident: "交通拥堵",
         accidentTime: "(07-17 17:50)",
       },
       {
-        coor: [115.02, 35.712],
+        coor: [115.028, 35.712],
         road: "红旗路",
         accident: "交通拥堵",
         accidentTime: "(07-13 8:20)",
       },
       {
-        coor: [115.069, 35.769],
-        road: "黄河东路",
+        coor: [115.0165, 35.6985],
+        road: "挥公大道",
         accident: "交通拥堵",
         accidentTime: "(07-12 7:40)",
       },
@@ -395,6 +387,17 @@ export default class OneMap extends Component {
             mapboxApiAccessToken={MAPBOX_TOKEN}
             onLoad={this._onLoad}
           >
+            <Popup
+              className={`traffic popupTrafficGov`}
+              longitude={115.023}
+              latitude={35.713}
+              altitude={10}
+              closeButton={false}
+              dynamicPosition={true}
+              sortByDepth={true}
+            >
+              <div className="fontTrafficGov">濮阳县政府</div>
+            </Popup>
             {displayAccident.map((value, index) => {
               return (
                 <Popup

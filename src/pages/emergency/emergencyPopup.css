@@ -1,8 +1,15 @@
 .emergency .mapboxgl-popup-content {
   width: 240px;
   height: 294px;
+  /* margin: 10% 10%;
+  padding: 10px 0px 55px 0px !important; */
 }
-
+.popupEmergencyGov .mapboxgl-popup-content {
+  width: 240px;
+  height: 218px;
+  background: url("~img/icon_gov.png") no-repeat;
+  color: RGB(255, 132, 50);
+}
 .popupEmergency1 .mapboxgl-popup-content {
   background: url("~img/emergency/icon_hospital.png") no-repeat;
   color: RGB(0, 255, 0);
@@ -16,20 +23,13 @@
   color: RGB(35, 170, 255);
 }
 .popupEmergency4 .mapboxgl-popup-content {
-  background: url("~img/emergency/icon_hospital.png") no-repeat;
-  color: RGB(0, 255, 0);
-}
-.popupEmergency5 .mapboxgl-popup-content {
   background: url("~img/emergency/icon_weather.png") no-repeat;
   color: RGB(255, 255, 0);
 }
-.popupEmergency6 .mapboxgl-popup-content {
-  background: url("~img/emergency/icon_police.png") no-repeat;
-  color: RGB(35, 170, 255);
-}
-.popupEmergency7 .mapboxgl-popup-content {
+
+.popupEmergency5 .mapboxgl-popup-content {
   background: url("~img/emergency/icon_resident.png") no-repeat;
-  color: RGB(255, 132, 50);
+  color: RGB(255, 0, 0);
 }
 .fontEmergency {
   font-size: 16px;
@@ -38,4 +38,12 @@
   letter-spacing: 1px;
   text-align: center;
   margin: 9% auto;
+}
+.fontEmergencyGov {
+  font-size: 18px;
+  font-family: PingFang SC;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 1px auto;
 }
