@@ -45,7 +45,7 @@ export default class Three extends Component {
             width: 1,
           },
         },
-        data: ['', '2020年第一季度', ''],
+        data: ['19年四季度', '20年一季度', '20年二季度'],
       },
       yAxis: {
         type: 'value',
@@ -83,7 +83,7 @@ export default class Three extends Component {
               },
             },
           },
-          data: [3, 9, 27],
+          data: [17, 18, 14],
         },
         {
           name: '黑榜总数',
@@ -96,7 +96,7 @@ export default class Three extends Component {
               },
             },
           },
-          data: [2, 18, 22],
+          data: [23, 23, 23],
         },
       ],
       animationDuration: 4000,
@@ -126,7 +126,7 @@ export default class Three extends Component {
       },
       xAxis: {
         type: 'category',
-        data: ['2018', '2019', '2020'],
+        data: ['2014', '2015', '2016', '2017', '2018', '2019', '2020'],
         axisLabel: {
           show: true,
           textStyle: {
@@ -177,7 +177,7 @@ export default class Three extends Component {
               },
             },
           },
-          data: [45, 95, 65],
+          data: [20,29,42,45,50, 52, 40],
         },
         {
           name: '土地或房产判决',
@@ -190,7 +190,7 @@ export default class Three extends Component {
               },
             },
           },
-          data: [5, 10, 5],
+          data: [1,2,1,2,1, 2, 1],
         },
         {
           name: '企业强制执行资产',
@@ -203,7 +203,7 @@ export default class Three extends Component {
               },
             },
           },
-          data: [20, 30, 15],
+          data: [12,9,58,60,43, 26, 15],
         },
       ],
       animationDuration: 4000,
