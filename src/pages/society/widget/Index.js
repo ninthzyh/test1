@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react'
 import SocietyStyle from '../Society.module.scss'
-import OneMap from '../mapController';
-import Eight from './Eight';
+import OneMap from '../mapController' 
+import Eight from './Eight/Eight' 
 import One from './One/One'
 import Two from './Two/Two.js'
 import Seven from './Seven.js'

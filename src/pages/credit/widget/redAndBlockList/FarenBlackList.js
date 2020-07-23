@@ -8,16 +8,16 @@ class FarenBlackList extends Component {
             show: true,
             data: [
                 {
-                    companyName: '河南巨烽生物能源开发有限公司濮阳县分公司',
-                    jieshao: '国家级高新技术企业,河南省节能减排示范企业，长期以来环保处理设施运行正常，污染物排放达到国家标准。',
-                    time: '2017/8/15',
-                    incentive: '优先办理环保行政许可;新建项目需要主要污染物排放指标时，优先调剂使用储备的排污总量指标；对符合相关环保专项资金支持范围的申报项目优先安排资金支持，建议金融机构予以优惠贷款利率,保险机构降低环境污染责任保险费率;优先安排符合环保科研指南的环保科研项目'
+                    companyName: '协能信息系统（濮阳）有限公司',
+                    jieshao: '企业纳税失信',
                 },
                 {
-                    companyName: '河南巨烽生物能源开发有限公司濮阳县分公司',
-                    jieshao: '国家级高新技术企业,河南省节能减排示范企业，长期以来环保处理设施运行正常，污染物排放达到国家标准。',
-                    time: '2017/8/15',
-                    incentive: '优先办理环保行政许可;新建项目需要主要污染物排放指标时，优先调剂使用储备的排污总量指标；对符合相关环保专项资金支持范围的申报项目优先安排资金支持，建议金融机构予以优惠贷款利率,保险机构降低环境污染责任保险费率;优先安排符合环保科研指南的环保科研项目'
+                    companyName: '濮阳市佳一家食品有限公司',
+                    jieshao: '生产经营失信',
+                },
+                {
+                    companyName: '濮阳县国庆路宏济堂大药房',
+                    jieshao: '生产经营失信',
                 },
             ]
         }
@@ -75,9 +75,9 @@ class FarenBlackList extends Component {
                             return (
                                 <li key={index}>
                                     <div className={styles.companyName}><span>名称:</span><span>{item.companyName}</span></div>
-                                    <div className={styles.jieshao}><span>介绍:</span><span>{item.jieshao}</span></div>
-                                    <div className={styles.time}><span>发布时间:</span><span>{item.time}</span></div>
-                                    <div className={styles.incentive}><span>激励措施:</span><span>{item.incentive}</span></div>
+                                    <div className={styles.jieshao}><span>简介:</span><span>{item.jieshao}</span></div>
+                                    {/* <div className={styles.time}><span>发布时间:</span><span>{item.time}</span></div>
+                                    <div className={styles.incentive}><span>激励措施:</span><span>{item.incentive}</span></div> */}
                                 </li>
                             )
                         })

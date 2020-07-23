@@ -37,7 +37,7 @@ const bottom = [
 export default class extends Component {
   iconList = () => {
     return top.map((itemImg, itemIndex) => {
-      return <div className={SocietyStyle.itemImg} key={itemIndex} style={{ color: itemImg.color }}>
+      return <div className={SocietyStyle.itemImg} key={itemIndex} style={{ color: itemImg.color}}>
         <div>
           <img src={itemImg.pic} className={SocietyStyle.pic} />
           <div className={SocietyStyle.name}>{itemImg.name}</div>
@@ -62,7 +62,7 @@ export default class extends Component {
     return (
       <div className={SocietyStyle.six}>
         <ChartHeader title="城市建设" />
-        <div className={SocietyStyle.content} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+        <div className={SocietyStyle.content}>
           <div className={SocietyStyle.text}>近一年新增城市建设数量</div>
           <div className={SocietyStyle.sixWrapper}>
             {this.iconList()}

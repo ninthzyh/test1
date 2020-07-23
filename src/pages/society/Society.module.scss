@@ -26,49 +26,59 @@
   }
 }
 .six {
-  .text{
-    margin: 10px 0 0 40px;
-    font-size:14px;
-    font-family:PingFangSC-Regular,PingFang SC;
-    font-weight:400;
-    color:rgba(40,152,234,1);
-    line-height:20px;
-  }
-  .sixWrapper {
-    text-align: center;
-    padding: 10px 0;
-    margin-top:10px ;
+  height:100%;
+  .content{
     display: flex;
+    height: calc(100% - 50px);
+    flex-direction: column;
     justify-content: space-around;
-    .itemImg {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-        .pic{
-            width:46px;
-            height:38px; 
-          }
-        .name{
-          font-size:14px;
-          font-family:PingFangSC-Regular,PingFang SC;
-          font-weight:400;
-          line-height:16px;
-          margin-top: 8px;
-        }
-        .num{
-          margin-left: 10px;
-          font-size:24px;
-          font-family:PingFangSC-Medium,PingFang SC;
-          font-weight:500;
-          line-height:33px;
-          .unit{
-            @extend .num;
-            margin-left: 0px;
-            font-size:14px;
-          }
-          
-        }
-     }
+    .text{
+      margin: 20px 0 0 40px;
+      font-size:14px;
+      font-family:PingFangSC-Regular,PingFang SC;
+      font-weight:400;
+      color:rgba(40,152,234,1);
+      line-height:20px;
     }
+    .sixWrapper {
+      text-align: center;
+      padding: 10px 0;
+      margin-top:10px ;
+      display: flex;
+      justify-content: center;
+      padding-left: 60px;
+      .itemImg {
+          margin-left: -25px;
+          display: flex;
+          align-items: center;
+          // justify-content: center;
+          width: 80%;
+          text-align: center;
+          .pic{
+              width:46px;
+              height:38px; 
+            }
+          .name{
+            font-size:14px;
+            font-family:PingFangSC-Regular,PingFang SC;
+            font-weight:400;
+            line-height:16px;
+            margin-top: 8px;
+          }
+          .num{
+            margin-left: 10px;
+            font-size:24px;
+            font-family:PingFangSC-Medium,PingFang SC;
+            font-weight:500;
+            line-height:33px;
+            .unit{
+              @extend .num;
+              margin-left: 0px;
+              font-size:14px;
+            }
+            
+          }
+       }
+    }
+  }
 }

@@ -8,39 +8,39 @@ class Four extends Component {
         super(props)
         this.companyList = [
             {
-                name: "企业总数",
-                count: 46386,
-                progress: 87
+                name:"企业总数",
+                count: 613,
+                progress:61.3
             },
             {
-                name: "纳税A级企业数",
-                count: 36982,
-                progress: 70
+                name:"纳税A级企业数",
+                count: 5,
+                progress:0.5
             },
             {
-                name: "保险公司网点数",
-                count: 4,
-                progress: 10
-            },
-            {
-                name: "个体工商数",
-                count: 110,
-                progress: 35
-            },
-            {
-                name: "银行网点数",
+                name:"保险公司网点数",
                 count: 45,
-                progress: 17
+                progress:4.5
             },
             {
-                name: "担保公司数",
+                name:"个体工商数",
+                count: 982,
+                progress:98.2
+            },
+            {
+                name:"银行网点数",
+                count: 110,
+                progress:11
+            },
+            {
+                name:"担保公司数",
                 count: 1,
-                progress: 4
+                progress:0.1
             },
             {
-                name: "高新技术认证企业",
+                name:"高新技术认证企业",
                 count: 7,
-                progress: 10
+                progress:0.7
             }
         ]
 
@@ -181,7 +181,7 @@ class Four extends Component {
         myChart.setOption(option)
     }
     render() {
-        const title = '智慧金融';
+        const title = '总体概览';
         return (
             <div className={FourStyle.fourContainer}>
                 <ChartHeader title={title} />
