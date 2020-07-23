@@ -21,10 +21,11 @@ export default class CommonContainer extends Component {
         let { children, size = 3} = this.props;
         let childList = [...children];
         if(!childList || !childList.length)return ;
-        const {length} = childList;
+        let {length} = children;
         if(length%6 !== 0){
             childList.splice(6,0,...childList.slice(0,3));
         }
+        length = childList.length;
         const result = [...new Array(Math.ceil(length/size))].map((item,index) =>{
             const position = index % 2 === 0 ? 'Left' : 'Right';
             // 前一半先展示  后一半隐藏   到达切换时间后反转过来
