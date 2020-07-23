@@ -104,15 +104,15 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator(),
   },    
   // 起始视角
-  {
-    longitude: 115.037,
-    latitude: 35.744,
-    zoom: 12.5,
-    pitch: 50,
-    bearing: 330,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },  
+  // {
+  //   longitude: 115.037,
+  //   latitude: 35.744,
+  //   zoom: 12.5,
+  //   pitch: 50,
+  //   bearing: 330,
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator(),
+  // },  
 ];
 var index_viewState = 0;
 export default class OneMap extends Component {

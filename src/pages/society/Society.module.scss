@@ -1,13 +1,15 @@
 @import 'assets/css/index.modules.scss';
 
 
-.eight{
+.eight {
   height: 100%;
-  .eightContainer{
+
+  .eightContainer {
     display: flex;
     flex-direction: column;
     height: calc(100% - 50px);
     padding: 0 20px;
+
     >div {
       flex: 1;
       display: flex;
@@ -15,9 +17,11 @@
       align-items: center;
       height: 50%;
       color: #ffffff;
-      >div{
+
+      >div {
         padding-left: 15px;
-        .title{
+
+        .title {
           text-align: center;
         }
       }
@@ -25,50 +29,77 @@
     }
   }
 }
+
 .six {
-  .text{
+  .text {
     margin: 10px 0 0 40px;
-    font-size:14px;
-    font-family:PingFangSC-Regular,PingFang SC;
-    font-weight:400;
-    color:rgba(40,152,234,1);
-    line-height:20px;
+    font-size: 14px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
+    color: rgba(40, 152, 234, 1);
+    line-height: 20px;
   }
+
   .sixWrapper {
     text-align: center;
     padding: 10px 0;
-    margin-top:10px ;
+    margin-top: 10px;
     display: flex;
     justify-content: space-around;
+
     .itemImg {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 80%;
-        .pic{
-            width:46px;
-            height:38px; 
-          }
-        .name{
-          font-size:14px;
-          font-family:PingFangSC-Regular,PingFang SC;
-          font-weight:400;
-          line-height:16px;
-          margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+
+      .pic {
+        width: 46px;
+        height: 38px;
+      }
+
+      .name {
+        font-size: 14px;
+        font-family: PingFangSC-Regular, PingFang SC;
+        font-weight: 400;
+        line-height: 16px;
+        margin-top: 8px;
+      }
+
+      .num {
+        margin-left: 10px;
+        font-size: 24px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        line-height: 33px;
+
+        .unit {
+          @extend .num;
+          margin-left: 0px;
+          font-size: 14px;
         }
-        .num{
-          margin-left: 10px;
-          font-size:24px;
-          font-family:PingFangSC-Medium,PingFang SC;
-          font-weight:500;
-          line-height:33px;
-          .unit{
-            @extend .num;
-            margin-left: 0px;
-            font-size:14px;
-          }
-          
-        }
-     }
+
+      }
     }
+  }
+}
+// .fiveLegend{
+//   .line{}
+//   .rect{}
+// }
+.fiveChart {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  padding-top: 10px;
+  
+  .left {
+    width: 60%;
+    height: 100%;
+  }
+
+  .right {
+    width: 40%;
+    height: 100%;
+  }
 }

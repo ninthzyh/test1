@@ -1,69 +1,74 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 import SocietyStyle from '../Society.module.scss';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
 import 'echarts/lib/chart/bar';
-export default class extends Component{
-    componentDidMount(){
+import 'echarts-liquidfill/src/liquidFill.js'
+
+export default class extends Component {
+    componentDidMount() {
         let chart = echarts.init(this.ID)
         chart.setOption(this.getOption())
+        let liquidChart = echarts.init(this.IDL)
+        liquidChart.setOption(this.getLiquidOption())
     }
     getOption = () => {
-        let option =   {
+        let option = {
             tooltip: {
                 trigger: 'axis',
             },
             grid: {
-                bottom: '10%',
-                top: '20%'
+                left: '20%',
+                bottom: '15%'
             },
-            legend:{
-                top:'5%',
-                right: 0,
-                data:[
-                    {
-                    name: '农村居民人均可支配增长率',
-                    icon: 'line',
-                    textStyle:{
-                        color: '#fff',
-                    }
-                },
-                {
-                    name:'城镇居民人均可支配增长率',
-                    icon: 'line',
-                    textStyle:{
-                        color: '#fff',
-                    }
-                },
-                {
-                    name: '农村居民可支配收入',
-                    icon: 'bar',
-                    textStyle:{
-                        color: '#fff',
-                    }
-                },
-                {
-                    name:'城镇居民可支配收入',
-                    icon: 'bar',
-                    textStyle:{
-                        color: '#fff',
-                    }
-                }],
-            },
+            // legend: {
+            //     top: '5%',
+            //     right: 0,
+            //     type: 'scroll',
+            //     data: [
+            //         {
+            //             name: '农村居民人均可支配增长率',
+            //             icon: 'line',
+            //             textStyle: {
+            //                 color: '#fff',
+            //             }
+            //         },
+            //         {
+            //             name: '城镇居民人均可支配增长率',
+            //             icon: 'line',
+            //             textStyle: {
+            //                 color: '#fff',
+            //             }
+            //         },
+            //         {
+            //             name: '农村居民可支配收入',
+            //             icon: 'bar',
+            //             textStyle: {
+            //                 color: '#fff',
+            //             }
+            //         },
+            //         {
+            //             name: '城镇居民可支配收入',
+            //             icon: 'bar',
+            //             textStyle: {
+            //                 color: '#fff',
+            //             }
+            //         }],
+            // },
             xAxis: [{
                 type: 'category',
                 data: ['2018', '2019', '2020'],
-                
+                boundaryGap: ['120%', '120%'],
                 axisLine: {
                     show: true,
                     lineStyle: {
                         width: 1,
-                         color: "rgba(255,255,255,1)",
+                        color: "rgba(255,255,255,1)",
                         type: "solid"
                     },
                 },
-                axisTick:{
+                axisTick: {
                     show: false
                 },
                 axisLabel: {
@@ -77,81 +82,88 @@ export default class extends Component{
                 },
             }],
             yAxis: [{
+                name: '数量',
                 nameTextStyle: {
                     color: '#4B8CD3'
                 },
                 type: 'value',
                 axisLabel: {
-                    show: false,
+                    show: true,
+                },
+                axisTick: {
+                    show: false
                 },
                 axisLine: {
-                    show: true,
+                    show: false,
                     lineStyle: {
-                        color: "rgba(255,255,255,.1	)",
+                        color: "rgba(255,255,255,1	)",
                         width: 1,
                         type: "solid"
                     },
                 },
                 splitLine: {
-                    show:false
-                }
+                    show: true,
+                    lineStyle: {
+                        color: 'rgba(63, 64, 75, .3)',
+                    }
+                },
             }],
             series: [
-            {
-                name: '城镇居民可支配收入',
-                type: 'bar',
-                itemStyle: {
-        
-                                normal: {
-                                    barBorderRadius: [10,10,0,0],
-                                    color: new echarts.graphic.LinearGradient(
-                                        0,  0, 0,1,
-                                        [
-                                            { offset: 0, color: 'rgba(255,207,51,1)' },
-                                            { offset: 1, color: 'rgba(242,192,65,0.05)' }
-        
-                                        ]
-                                    )
-                                }
-                            },
-                            barMaxWidth: 20,
-                            data: [150, 80, 70],
+                {
+                    name: '城镇居民可支配收入',
+                    type: 'bar',
+                    itemStyle: {
+
+                        normal: {
+                            barBorderRadius: [10, 10, 0, 0],
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    { offset: 0, color: 'rgba(255,207,51,1)' },
+                                    { offset: 1, color: 'rgba(242,192,65,0.05)' }
+
+                                ]
+                            )
+                        }
+                    },
+                    barMaxWidth: 8,
+                    data: [150, 80, 70],
                 },
                 {
-                name: '农村居民可支配收入',
-                type: 'bar',
-                itemStyle: {
-                                normal: {
-                                    barBorderRadius: [10,10,0,0],
-                                    color: new echarts.graphic.LinearGradient(
-                                        0,  0, 0,1,
-                                        [
-                                            { offset: 0, color: 'rgba(47,95,255,1)' },
-                                            { offset: 1, color: 'rgba(0,38,255,0.28)' }
-        
-                                        ]
-                                    )
-                                },
-                            },
-                            barMaxWidth: 20,
-                            data: [250, 180, 170],
+                    name: '农村居民可支配收入',
+                    type: 'bar',
+                    itemStyle: {
+                        normal: {
+                            barBorderRadius: [10, 10, 0, 0],
+                            color: new echarts.graphic.LinearGradient(
+                                0, 0, 0, 1,
+                                [
+                                    { offset: 0, color: 'rgba(47,95,255,1)' },
+                                    { offset: 1, color: 'rgba(0,38,255,0.28)' }
+
+                                ]
+                            )
+                        },
+                    },
+                    barMaxWidth: 8,
+                    data: [250, 180, 170],
                 },
-                
+
                 {
                     name: '城镇居民人均可支配增长率',
                     type: 'line',
-                    symbolSize: 10,
-                     symbol: 'circle',
+                    symbolSize: 5,
+                    symbol: 'circle',
                     areaStyle: {
                         color: {
-                                x: 0,
-                                y: 0,
-                                x2: 0,
-                                y2: 1,
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
                             colorStops: [{
                                 offset: 0, color: 'rgba(244,156,52,0.38)'
                             }, {
-                                offset: 1, color: 'rgba(244,156,52, 0.12)' 
+                                offset: 1, color: 'rgba(244,156,52, 0.12)'
                             }],
                         }
                     },
@@ -159,7 +171,7 @@ export default class extends Component{
                         color: '#F49C34',
                         width: window.lineWidth
                     },
-                    itemStyle:{
+                    itemStyle: {
                         color: '#F49C34',
                     },
                     data: [150, 80, 70],
@@ -168,17 +180,17 @@ export default class extends Component{
                     name: '农村居民人均可支配增长率',
                     type: 'line',
                     symbol: 'circle',
-                    symbolSize: 10,
+                    symbolSize: 5,
                     areaStyle: {
                         color: {
-                                x: 0,
-                                y: 0,
-                                x2: 0,
-                                y2: 1,
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
                             colorStops: [{
                                 offset: 0, color: 'rgba(78,252,220,0.38)'
                             }, {
-                                offset: 1, color: 'rgba(226,97,199,0.12)' 
+                                offset: 1, color: 'rgba(226,97,199,0.12)'
                             }],
                         }
                     },
@@ -186,7 +198,7 @@ export default class extends Component{
                         color: '#4EFCDC',
                         width: window.lineWidth
                     },
-                    itemStyle:{
+                    itemStyle: {
                         color: '#4EFCDC',
                     },
                     data: [250, 180, 170],
@@ -195,12 +207,111 @@ export default class extends Component{
         }
         return option
     }
-    render(){
+    getLiquidOption = () => {
+        let option = {
+            graphic: [{
+                type: 'group',
+                left: 'center',
+                top: '50%',
+                children: [{
+                    type: 'text',
+                    z: 100,
+                    left: 'center',
+                    top: 'middle',
+                    style: {
+                        fill: '#fff',
+                        text: '民生支出\n\n  56亿元',
+                        font: '13px Microsoft YaHei'
+                    }
+                }]
+            }, {
+                type: 'text',
+                z: 100,
+                left: 'center',
+                top: '85%',
+                style: {
+                    fill: '#fff',
+                    text: '同比增长 11.9%',
+                    font: '13px Microsoft YaHei'
+                }
+
+            }, {
+                type: 'text',
+                z: 100,
+                left: 'center',
+                top: '15%',
+                style: {
+                    fill: '#00FFD1',
+                    text: '占一般公共预算支出比重',
+                    font: '13px Microsoft YaHei'
+                }
+
+            }, {
+                type: 'text',
+                z: 100,
+                left: 'center',
+                top: '35%',
+                style: {
+                    fill: '#fff',
+                    text: '70%',
+                    font: '18px Microsoft YaHei'
+                }
+
+            }],
+            series: [{
+                type: 'liquidFill',
+                center: ['50%', '50%'],
+                data: [0.7],
+                name: 'Liquid Fill',
+                backgroundStyle: {
+                    color: 'rgba(255,255,255,0)',
+                },
+                itemStyle: {
+                    color: '#05846D',
+                    borderWidth: '1px',
+                    borderColor: '#05846D',
+                },
+                outline: {
+                    show: true,
+                    borderDistance: 4,
+                    itemStyle: {
+                        color: 'none',
+                        borderColor: '#05846D',
+                        borderWidth: 4,
+                    }
+                },
+                label: {
+                    normal: {
+                        formatter: '',
+                    }
+                }
+            }]
+        };
+
+        return option
+    }
+    render() {
         return <>
-        <ChartHeader />
-        <div className={SocietyStyle.content}>
-            <div ref={ID => this.ID = ID} style={{width: '100%', height: '100%'}}></div>
-        </div>
+            <ChartHeader />
+            <div className={SocietyStyle.content}>
+                {/* <div className={SocietyStyle.fiveLegend}>
+                    <div className={SocietyStyle.brokenLineWrapFive}>
+                        <div className={SocietyStyle.line}><span></span><span>城镇居民人均可支配增长率</span></div>
+                        <div className={SocietyStyle.line}><span></span><span>农村居民人均可支配增长率</span></div>
+                        <div className={SocietyStyle.rect}><span></span><span>城镇居民可支配收入</span></div>
+                        <div className={SocietyStyle.rect}><span></span><span>农村居民可支配收入</span></div>
+                    </div>
+                </div> */}
+                <div className={SocietyStyle.fiveChart}>
+
+                    <div className={SocietyStyle.left}>
+                        <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
+                    </div>
+                    <div className={SocietyStyle.right}>
+                        <div ref={IDL => this.IDL = IDL} style={{ width: '100%', height: '100%' }}></div>
+                    </div>
+                </div>
+            </div>
         </>
     }
 }
