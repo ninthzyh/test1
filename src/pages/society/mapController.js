@@ -24,13 +24,19 @@ import { Popup } from 'react-map-gl';
 import './societyPopup.css';
 import pathImg from "assets/images/path.png";
 import { changeMapboxLanguage } from "../../untils/MapUtils";
+import ScatterpointLayer from "components/scatterpoint-layer/scatterpoint-layer";
 
 let buildingMaterial = {
   id: "building",
   //ambient: 0.5,
   diffuse: 0.3,
 }
-
+const govPosition = [
+  {
+    x: 115.023,
+    y: 35.713,
+  },
+];
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
 var map;
@@ -76,84 +82,65 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.095,
-  latitude: 35.612,
-  zoom: 10.5,
+
+
+
+  longitude: 115.027892,
+  latitude:35.710381,
+  zoom: 13.5,
   pitch: 50,
-  bearing: -80,
+  bearing: -35,
+
+
 };
 const viewStates = [
   // 濮阳县整体视角-1
-
-  // 濮阳县局部视角-1
+ 
   {
-    longitude: 114.99999,
-    latitude: 35.704462,
-    zoom: 14.2,
-    pitch: 60,
-    bearing: 150,
+    longitude: 115.0199,
+    latitude: 35.710,
+    zoom: 13.5,
+    pitch: 90,
+    bearing: 0,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
+  // {
+  //   longitude: 115.021,
+  //   latitude: 35.719,
+  //   zoom: 13,
+  //   pitch: 80,
+  //   bearing: 320, //方位
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator(),
+  // },
   {
-    longitude: 115.021,
-    latitude: 35.719,
-    zoom: 13,
-    pitch: 80,
-    bearing: 320, //方位
+    longitude:  115.030369,
+    latitude:35.702569,
+    zoom: 13.2 ,
+    pitch: 90,
+    bearing: 150, //方位
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
-  // // 濮阳县整体视角-2
   // {
-  //   longitude: 115.036,
-  //   latitude: 35.715,
-  //   zoom: 13.5,
+  //   longitude: 115.027892,
+  //   latitude: 35.710381,
+  //   zoom: 10.5,
   //   pitch: 50,
-  //   bearing: 150, //方位
+  //   bearing: -80,
   //   transitionDuration: 5000,
   //   transitionInterpolator: new FlyToInterpolator(),
   // },
-  // // 龙华区整体视角-1
-  // {
-  //   longitude: 115.051,
-  //   latitude: 35.753,
-  //   zoom: 13,
-  //   pitch: 50,
-  //   bearing: 160, //方位
-  //   transitionDuration: 5000,
-  //   transitionInterpolator: new FlyToInterpolator(),
-  // },
-  // // 龙华区整体视角-2
-  // {
-  //   longitude: 115.050,
-  //   latitude: 35.773,
-  //   zoom: 13,
-  //   pitch: 40,
-  //   bearing: 340, //方位
-  //   transitionDuration: 5000,
-  //   transitionInterpolator: new FlyToInterpolator(),
-  // },
-  // // 濮阳区域整体视角-1
-  // {
-  //   longitude: 115.045,
-  //   latitude: 35.752,
-  //   zoom: 12.5,
-  //   pitch: 50,
-  //   bearing: 330,
-  //   transitionDuration: 5000,
-  //   transitionInterpolator: new FlyToInterpolator(),
-  // },
-  // // 濮阳区域整体视角-2
-  // {
-  //   longitude: 115.055,
-  //   latitude: 35.52,
-  //   zoom: 12.5,
-  //   pitch: 50,
-  //   bearing: 50,
-  //   transitionDuration: 5000,
-  //   transitionInterpolator: new FlyToInterpolator(),
-  // },
+  {
+    longitude:   115.1419287,
+    latitude:  35.6255544,
+    zoom: 10.5,
+    pitch: 50,
+    bearing: -80,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
 
 ];
 var index_viewState = 0;
@@ -183,17 +170,16 @@ export default class OneMap extends Component {
       timerColumnView = setInterval(() => {
         this.setState({
           columnVisible: !this.state.columnVisible
-          // columnVisible: true
         });
-      }, 4000)
+      }, 6000)
       timerView = setInterval(() => {
         if (index_viewState > viewStates.length - 1) {
           index_viewState = 0;
         }
         this.setState({ initViewState: viewStates[index_viewState] });
         index_viewState += 1;
-      }, 7000);
-    }, 5000);
+      }, 12000);
+    }, 6000);
   }
   //组件从DOM中移除之前调用
   componentWillUnmount() {
@@ -450,6 +436,17 @@ export default class OneMap extends Component {
     })
     ]
     const baseLayers = [
+      new ScatterpointLayer({
+        id: "pointGov",
+        data: govPosition,
+        getPosition: (d) => [d.x, d.y],
+        getLineWidth: 30,
+        getRadius: 300,
+        getLineColor: [255, 132, 50],
+        speed: 1.2,
+        stroked: true,
+        filled: false,
+      }),
       new PathLayer({
         id: 'pathlayer',
         data: this.state.roadData,
@@ -547,6 +544,17 @@ export default class OneMap extends Component {
             {
               !this.state.columnVisible && this.showContent()
             }
+            <Popup
+              className={`traffic popupTrafficGov`}
+              longitude={115.023}
+              latitude={35.713}
+              altitude={10}
+              closeButton={false}
+              dynamicPosition={false}
+              sortByDepth={true}
+            >
+              <div className="fontTrafficGov">濮阳县政府</div>
+            </Popup>
           </StaticMap>
         </DeckGL>
 

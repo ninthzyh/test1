@@ -7,20 +7,25 @@ opacity:1;
 border-radius:4px;  
 }
 .creditPopup1 .mapboxgl-popup-content{
-width:281px;
-height:274px; 
+width:247px;
+height:253px; 
 background:url("~img/credit/marketFrame.png") no-repeat;
 }
 .creditPopup2 .mapboxgl-popup-content{
 width:264px;
-height:238px; 
+height:209px; 
 background:url("~img/credit/revenueFrame.png") no-repeat;
 }
 .creditPopup3 .mapboxgl-popup-content{
-width:264px;
-height:224px;
-background:url("~img/credit/patentFrame.png") no-repeat;
+width:206px;
+height:147px;
+background:url("~img/credit/court.png") no-repeat;
 }
+.creditPopup4 .mapboxgl-popup-content{
+  width:217px;
+  height:168px;
+  background:url("~img/credit/utilities.png") no-repeat;
+  }
 .title{
   width:auto;
   height:20px;
@@ -33,7 +38,7 @@ background:url("~img/credit/patentFrame.png") no-repeat;
 }
 .creditPopup1 .underline{
 margin-left: 20px;
-width:234px;
+width:207px;
 height:1px;
 background:rgba(5,221,255,1);
 }
@@ -45,10 +50,16 @@ background:rgba(5,221,255,1);
 }
 .creditPopup3 .underline{
 margin-left: 20px;
-width:216px;
+width:166px;
 height:1px;
 background:rgba(5,221,255,1);
 }
+.creditPopup4 .underline{
+  margin-left: 20px;
+  width:177px;
+  height:1px;
+  background:rgba(5,221,255,1);
+  }
 .creditPopup1 .content{
 padding: 5px  0px 15px 20px;
 }
@@ -56,8 +67,11 @@ padding: 5px  0px 15px 20px;
 padding: 5px  0px 15px 20px;
 }
 .creditPopup3 .content{
-padding: 5px  0px 21px 20px;
+padding: 2px  0px 0px 20px;
 }
+.creditPopup4 .content{
+  padding: 2px  0px 21px 20px;
+  }
 .content{
 width:auto;
 height:12px;
@@ -68,14 +82,33 @@ color:rgba(255,255,255,1);
 line-height:24px;
 }
 .number{
+  width:9px;
+  height:12px;
+  font-size:16px;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(105,244,254,1);
+  line-height:24px;
+  text-align: right;
+}
+.creditPopup1 .number{
 padding-left: 30px;
 position:absolute;
 left: 147px;
-width:9px;
-height:12px;
-font-size:16px;
-font-family:PingFang SC;
-font-weight:400;
-color:rgba(105,244,254,1);
-line-height:24px;
+}
+
+.creditPopup2 .number{
+  padding-left: 30px;
+  position:absolute;
+  left: 138px;
+}
+.creditPopup3 .number{
+  padding-left: 30px;
+  position:absolute;
+  left: 115px;
+}
+.creditPopup4 .number{
+  padding-left: 30px;
+  position:absolute;
+  left: 115px;
 }
