@@ -1,0 +1,40 @@
+.EightContainer {
+    height: 100%;
+    width: 100%;
+    .Eight {
+        display: flex;
+        height: calc(100% - 50px);
+        width: 90%;
+        flex-direction: column;
+        justify-content: space-around;
+        .container {
+            display: flex;
+            padding-top: 10px;
+            font-family: PingFangSC-Regular,PingFang SC;
+            .title {
+                font-size:14px;
+                font-weight:400;
+                color: #ffffff;
+                line-height: 20px;
+                padding:2px 5px 2px 20px;
+                flex: 1 0 76px;
+            }
+            .title1 {
+                font-size:14px;
+                font-weight:400;
+                color: #ffffff;
+                line-height: 20px;
+                padding: 0 2px;
+                flex: 1 0 76px;
+            }
+            .value {
+                font-size:20px;
+                font-weight:Medium;
+                text-align: right ;
+                color: #08EFD3FF;
+                flex: 1 0 30px;
+            }
+        }
+    }
+
+}
