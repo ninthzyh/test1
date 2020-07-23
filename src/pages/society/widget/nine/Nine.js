@@ -24,7 +24,7 @@ class Nine extends Component {
         return (
             <div className={NineStyle.nineContainer}>
                 <ChartHeader title='教育设施建设' />
-                <div className={NineStyle.six}>
+                <div className={NineStyle.nine}>
                     <div className={NineStyle.title}>近一年新增教育设施数量</div>
                 {
                     this.data.map((item,  index)=><div key={item.title} className={NineStyle.container}>
