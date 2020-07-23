@@ -45,12 +45,13 @@
       padding: 10px 0;
       margin-top:10px ;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
+      padding-left: 60px;
       .itemImg {
           margin-left: -25px;
           display: flex;
           align-items: center;
-          justify-content: center;
+          // justify-content: center;
           width: 80%;
           text-align: center;
           .pic{
