@@ -4,13 +4,13 @@ import ChartHeader from "components/ChartHeader/ChartHeader"
 import ReactEcharts from 'echarts-for-react';
 const top = [
     {
-        pic: require("img/society/six1.png"),
+        // pic: require("img/society/house.png"),
         name: "养老机构数",
         num: 23,
         color: 'rgba(239,168,8,1)'
     },
     {
-        pic: require("img/society/six2.png"),
+        // pic: require("img/society/bed.png"),
         name: "床位总数",
         num: '1115',
         color: 'rgba(45,153,137,1)'
@@ -24,26 +24,31 @@ class Four extends Component {
     iconList = () => {
         return top.map((itemImg, itemIndex) => {
             return <div className={FourStyle.itemImg} key={itemIndex}>
-                <div>
-                    <img src={itemImg.pic} className={FourStyle.pic} />
-                    <span className={FourStyle.name}>{itemImg.name}</span>
-                    <span className={FourStyle.num} style={{ color: itemImg.color }}>{itemImg.num}</span></div>
+
+                {/* <img src={itemImg.pic} className={FourStyle.pic} /> */}
+                <div className={FourStyle[`fourImg${itemIndex + 1}`]}></div>
+                <span className={FourStyle.name}>{itemImg.name}</span>
+                <span className={FourStyle.num}>{itemImg.num}</span>
             </div>
         })
     }
     getOption(list) {
         return {
+            grid: {
+                top: '100%'
+            },
             series: [
                 {
                     name: '',
                     type: 'pie',
                     radius: '80%',
-                    center: ['50%', '70%'],
+                    center: ['50%', '50%'],
                     color: ['#08E3F8', '#FFC647',],
                     roseType: 'radius',
                     data: list,
                     label: {
-                        normal:{
+                        position: 'outside',
+                        normal: {
                             show: true,
                             // position: 'outer',
                             color: '#ddd',
@@ -53,7 +58,7 @@ class Four extends Component {
                                     // return '{a|params.data.num}'
                                     // '{b|这段文本采用样式b}这段用默认样式{x|这段用样式x}'
                                     //return "{a|" + params.name + "}\n{b|" + params.data.num + "}"
-                                    return '{a| '+ params.name +'} \n' + '{b| ' +params.data.num+'}';
+                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.data.num + '}';
                                 } else {
                                     return '';
                                 }
@@ -62,14 +67,14 @@ class Four extends Component {
                                 b: {
                                     fontSize: 20,
                                     // fontFamily: 'PingFangSC-Medium,PingFang SC',
-                                    fontWeight: 500,
+                                    // fontWeight: 500,
                                     lineHeight: 28
-                                    
+
                                 },
                                 a: {
                                     fontSize: 12,
                                     // fontFamily: 'PingFangSC-Medium,PingFang SC',
-                                    fontWeight: 400,
+                                    // fontWeight: 400,
                                     lineHeight: 17
                                 }
                             }
@@ -85,15 +90,15 @@ class Four extends Component {
             <div className={FourStyle.fourContainer}>
                 <ChartHeader title='养老服务' />
                 <div className={FourStyle.content}>
-                    <div className={FourStyle.top}>
-                        {this.iconList()}
-                    </div>
-                    <div className={FourStyle.middle}>
-                        <span className={FourStyle.text}>居民养老保险参保人数</span>
-                        <span className={FourStyle.num}>700万</span>
-                    </div>
-                    <div className={FourStyle.bottom}>
-                        < ReactEcharts style={{ height: '100%' }} option={this.getOption(list)} />
+                    <div className={FourStyle.wrap}>
+                        <div className={FourStyle.top}>
+                            {this.iconList()}
+                        </div>
+                        <div className={FourStyle.middle}>
+                            <span className={FourStyle.text}>居民养老保险参保人数</span>
+                            <span className={FourStyle.num}>700万</span>
+                        </div>
+                        < ReactEcharts style={{ height: '100%', paddingTop: '10px' }} option={this.getOption(list)} />
                     </div>
                 </div>
             </div>

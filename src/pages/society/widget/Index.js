@@ -9,7 +9,9 @@ import Seven from './Seven.js'
 import Three from './Three/Three.js'
 import Six from './Six.js'
 import Four from './four/Four'
-import Five from './Five/Five.js'
+import Five from './Five';
+// import Five from './Five/Five.js'
+
 import Nine from './nine/Nine'
 import ManagerStyle from "../../manager/Manager.module.scss";
 import FiveChart from "../../manager/widget/fiveChart/FiveChart";

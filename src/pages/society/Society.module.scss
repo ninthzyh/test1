@@ -1,13 +1,15 @@
 @import 'assets/css/index.modules.scss';
 
 
-.eight{
+.eight {
   height: 100%;
-  .eightContainer{
+
+  .eightContainer {
     display: flex;
     flex-direction: column;
     height: calc(100% - 50px);
     padding: 0 20px;
+
     >div {
       flex: 1;
       display: flex;
@@ -15,9 +17,11 @@
       align-items: center;
       height: 50%;
       color: #ffffff;
-      >div{
+
+      >div {
         padding-left: 15px;
-        .title{
+
+        .title {
           text-align: center;
         }
       }
@@ -25,6 +29,7 @@
     }
   }
 }
+
 .six {
   height:100%;
   .content{
@@ -80,5 +85,25 @@
           }
        }
     }
+  }
+}
+// .fiveLegend{
+//   .line{}
+//   .rect{}
+// }
+.fiveChart {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  padding-top: 10px;
+  
+  .left {
+    width: 60%;
+    height: 100%;
+  }
+
+  .right {
+    width: 40%;
+    height: 100%;
   }
 }

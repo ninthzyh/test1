@@ -26,6 +26,7 @@
         a:active{
             color:rgba(5, 222, 255, 1);
         }
+        &
         li{
             display: inline-block;
             color:#CACCD2;
@@ -41,6 +42,9 @@
                     width:0;
                 }
             }
+            &.active{
+                flex: 0 1 vw(140);
+            }
             .FooterList{
                 text-align: center;
                 width: 100%;
@@ -52,6 +56,7 @@
                 margin:0 vw(5);
             }
             .FooterActive{
+                font-size:vw(22);
                 color:#ffffff;
                 @extend .FooterList;
                 background:url('~img/footer/activeBg.png') no-repeat;
