@@ -36,7 +36,7 @@ export default class Three extends Component {
           color: '#C74D76',
         },
       ],
-      circleNum:  0,
+      circleNum: 0,
     }
   }
   state = {}
@@ -49,7 +49,14 @@ export default class Three extends Component {
         bottom: 18,
       },
       tooltip: {
-        trigger: 'axis',
+        trigger: 'axis',//坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。只有设置了这个参数才会出现竖直的线条
+        formatter: function (params) {
+          var result = params[0].name + "<br>";
+          params.forEach(function (item) {
+            result += item.marker + " " + item.seriesName.substring(3, 7) + " : " + item.value + "%</br>";
+          });
+          return result;
+        },
       },
       color: ['#FFC647'],
       legend: {
