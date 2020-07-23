@@ -52,12 +52,12 @@ export const oneList = {
 		},
 		{
 			name:'农业农村局',
-			redAnnouncement:2,
+			redAnnouncement:1,
 			blackAnnouncement:''
 		},
 		{
 			name:'房地产管理局',
-			redAnnouncement:1,
+			redAnnouncement:2,
 			blackAnnouncement:''
 		},
 		{

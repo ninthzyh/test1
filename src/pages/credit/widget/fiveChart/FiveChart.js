@@ -10,22 +10,22 @@ export default class FiveChart extends Component {
     super(props);
     this.state = {
       TimesData: ['2017', '2018', '2019', '2020'],
-      countsData: [19, 32, 88, 64],
+      countsData: [0, 3000, 8320, 23205],
       nowInfo: [
         {
-          "count": "21",
+          "count": "35",
           "name": "连接委办局"
         },
         {
-          "count": "243432",
+          "count": "2345639",
           "name": "共享交换条数"
         },
         {
-          "count": "0",
+          "count": "34525",
           "name": "服务企业次数"
         },
         {
-          "count": "0",
+          "count": "15min",
           "name": "次均业务办理时间"
         }
       ]
@@ -48,11 +48,22 @@ export default class FiveChart extends Component {
 
   getOption = (Times, counts) => {
     return {
+      title: {
+        left: 'center',
+        bottom:-5,
+        text: '服务企业次数年趋势',
+        textStyle: {
+          color: "rgba(255,255,255,1)",
+          fontSize: 13,
+          fontFamily:'Source Han Sans SC',
+          fontWeight:400,
+        },
+      },
       grid: {
         top: '5%',
         left: '15%',
         right: '4%',
-        bottom: 16,
+        bottom: 40,
       },
       tooltip: {
         trigger: 'axis'
@@ -121,7 +132,7 @@ export default class FiveChart extends Component {
   render() {
     return (
       <div className={FiveChartStyle.fiveMain}>
-        <ChartHeader title='服务企业次数历史累计趋势' />
+        <ChartHeader title='智慧金融' />
         <div className={FiveChartStyle.infoItemBox}>
           {this.showInfo()}
         </div>
