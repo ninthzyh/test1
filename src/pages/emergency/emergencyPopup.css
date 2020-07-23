@@ -7,7 +7,7 @@
 .popupEmergencyGov .mapboxgl-popup-content {
   width: 240px;
   height: 218px;
-  background: url("~img/emergency/icon_gov.png") no-repeat;
+  background: url("~img/icon_gov.png") no-repeat;
   color: RGB(255, 132, 50);
 }
 .popupEmergency1 .mapboxgl-popup-content {
@@ -40,10 +40,10 @@
   margin: 9% auto;
 }
 .fontEmergencyGov {
-  font-size: 16px;
+  font-size: 18px;
   font-family: PingFang SC;
   font-weight: 800;
   letter-spacing: 1px;
   text-align: center;
-  margin: 2px auto;
+  margin: 1px auto;
 }

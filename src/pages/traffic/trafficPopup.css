@@ -1,49 +1,62 @@
-.trafficAccident .mapboxgl-popup-content{
-  width:215px;
-  height:56px;
-  background:url("~img/traffic/accidentPopup.png") no-repeat;
+.trafficAccident .mapboxgl-popup-content {
+  width: 215px;
+  height: 56px;
+  background: url("~img/traffic/accidentPopup.png") no-repeat;
   padding: 8px 10px 15px;
 }
-.trafficAccident{
-
-height:14px;
-font-size:14px;
-font-family:Source Han Sans SC;
-font-weight:500;
-color:rgba(255,255,255,1);
-position: relative;
-    left: 45px;
+.popupTrafficGov .mapboxgl-popup-content {
+  width: 240px;
+  height: 218px;
+  background: url("~img/icon_gov.png") no-repeat;
+  color: RGB(255, 132, 50);
 }
-.accidentTime{
-  width:73px;
-  height:14px;
-  font-size:13px;
-  font-family:Source Han Sans SC;
-  font-weight:300;
-  color:rgba(255,255,255,1);
+.trafficAccident {
+  height: 14px;
+  font-size: 14px;
+  font-family: Source Han Sans SC;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  position: relative;
+  left: 45px;
+}
+.accidentTime {
+  width: 73px;
+  height: 14px;
+  font-size: 13px;
+  font-family: Source Han Sans SC;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 1);
   margin-left: 5px;
 }
-.accidentRoad{
-  width:74px;
-  height:13px;
-  font-size:13px;
-  font-family:Source Han Sans SC;
-  font-weight:300;
-  color:rgba(255,255,255,1);
+.accidentRoad {
+  width: 74px;
+  height: 13px;
+  font-size: 13px;
+  font-family: Source Han Sans SC;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 1);
   position: relative;
-    left: 45px;
-    top: 5px;
+  left: 45px;
+  top: 5px;
 }
 
-.trafficIcon .mapboxgl-popup-content{
-  width:29px;
-  height:37px;
-  background:url("~img/traffic/congestionPopup.png") no-repeat;
+.trafficIcon .mapboxgl-popup-content {
+  width: 29px;
+  height: 37px;
+  background: url("~img/traffic/congestionPopup.png") no-repeat;
   margin: 8px 10px 10px 4px;
 }
-.trafficCongestion .mapboxgl-popup-content{
-  width:215px;
-  height:56px;
-  background:url("~img/traffic/congestionPopup.png") no-repeat;
+.trafficCongestion .mapboxgl-popup-content {
+  width: 215px;
+  height: 56px;
+  background: url("~img/traffic/congestionPopup.png") no-repeat;
   padding: 8px 10px 15px;
+}
+.fontTrafficGov {
+  font-size: 18px;
+  font-family: PingFang SC;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 1px auto;
 }

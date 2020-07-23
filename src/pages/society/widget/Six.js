@@ -1,155 +1,76 @@
 import React, { Component } from 'react'
-import echarts from 'echarts'
 import SocietyStyle from '../Society.module.scss';
 import ChartHeader from '../../../components/ChartHeader/ChartHeader';
-
+const top = [
+  {
+    pic: require("img/society/six1.png"),
+    name: "游乐园",
+    num: 5,
+    unit: "个",
+    color: 'rgba(83,240,217,1)'
+  },
+  {
+    pic: require("img/society/six2.png"),
+    name: "绿地面积",
+    num: '60万',
+    unit: "平方米",
+    color: 'rgba(54,171,96,1)'
+  },
+]
+const bottom = [
+  {
+    pic: require("img/society/six3.png"),
+    name: "足球场",
+    num: 8,
+    unit: "个",
+    color: 'rgba(126,207,78,1)'
+  },
+  {
+    pic: require("img/society/six4.png"),
+    name: "市民健身中心",
+    num: 12,
+    unit: "个",
+    color: 'rgba(252,137,2,1)'
+  },
+]
 
 export default class extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {}
-  }
-  componentDidMount() {
-    let number = [
-      {
-        name: '新增市民建设中心数\n23',
-        value: 50,
-      },
-      {
-        name: '新增足球场数\n23',
-        value: 10,
-      },
-      {
-        name: '新增绿地面积\n23',
-        value: 15,
-      },
-      {
-        name: '新增游乐园数\n23',
-        value: 25,
-      },
-    ]
-
-    let data = []
-    let color = ['#006CED', '#FFE000', '#FF5B00', '#00FFFF']
-    for (let i = 0; i < number.length; i++) {
-      data.push(
-        {
-          value: number[i].value,
-          name: number[i].name,
-          itemStyle: {
-            normal: {
-              borderWidth: 1,
-              shadowBlur: 20,
-              borderColor: color[i],
-              shadowColor: color[i],
-            },
-          },
-        },
-        {
-          value: 2,
-          name: '',
-          itemStyle: {
-            normal: {
-              label: {
-                show: false,
-              },
-              labelLine: {
-                show: false,
-              },
-              color: 'rgba(0, 0, 0, 0)',
-              borderColor: 'rgba(0, 0, 0, 0)',
-              borderWidth: 0,
-            },
-          },
-        }
-      )
-    }
-    let seriesOption = [
-      {
-        name: '',
-        type: 'pie',
-        clockWise: false,
-        radius: [60, 70],
-        center: ['50%', '50%'],
-        hoverAnimation: true,
-        itemStyle: {
-          normal: {
-            label: {
-              show: true,
-              fontsize: 8,
-              position: 'outer',
-              formatter: function (params) {
-                if (params.name !== '') {
-                  return params.name
-                } else {
-                  return ''
-                }
-              },
-            },
-            labelLine: {
-              length: 20,
-              length2: 10,
-              show: true,
-              color: '#00ffff',
-            },
-          },
-        },
-        data: data,
-      },
-    ]
-    // 基于准备好的dom，初始化echarts实例
-    let myChart = echarts.init(this.refs.urbanConstruction)
-    // 绘制图表
-    myChart.setOption({
-      color: color,
-      animation: true,
-      animationDuration: 4000,
-      animationEasing: 'linear',
-      animationDurationUpdate:4000,
-      animationEasingUpdate: 'linear',
-      title: {
-        text: '城市建设',
-        top: '48%',
-        textAlign: 'center',
-        left: '49%',
-        textStyle: {
-          color: '#78F2FF',
-          fontSize: 14,
-          fontWeight: '400',
-        },
-      },
-      grid: {
-        top: '50%',
-      },
-      graphic: {
-        elements: [
-          {
-            type: 'image',
-            z: 3,
-            style: {
-              width: 200,
-              height: 200,
-            },
-            left: 'center',
-            top: 'center',
-            position: [50, 50],
-          },
-        ],
-      },
-      tooltip: {
-        show: false,
-      },
-      toolbox: {
-        show: false,
-      },
-      series: seriesOption,
+  iconList = () => {
+    return top.map((itemImg, itemIndex) => {
+      return <div className={SocietyStyle.itemImg} key={itemIndex} style={{ color: itemImg.color }}>
+        <div>
+          <img src={itemImg.pic} className={SocietyStyle.pic} />
+          <div className={SocietyStyle.name}>{itemImg.name}</div>
+        </div>
+        <div className={SocietyStyle.num}>{itemImg.num}<span className={SocietyStyle.unit}>{itemImg.unit}</span></div>
+      </div>
     })
   }
+  iconList2 = () => {
+    return bottom.map((itemImg, itemIndex) => {
+      return <div className={SocietyStyle.itemImg} key={itemIndex} style={{ color: itemImg.color }}>
+        <div>
+          <img src={itemImg.pic} className={SocietyStyle.pic} />
+          <div className={SocietyStyle.name}>{itemImg.name}</div>
+        </div>
+        <div className={SocietyStyle.num}>{itemImg.num}<span className={SocietyStyle.unit}>{itemImg.unit}</span></div>
+      </div>
+    })
+  }
+
   render() {
     return (
       <div className={SocietyStyle.six}>
         <ChartHeader title="城市建设" />
-        <div ref="urbanConstruction" className={SocietyStyle.content}></div>
+        <div className={SocietyStyle.content} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+          <div className={SocietyStyle.text}>近一年新增城市建设数量</div>
+          <div className={SocietyStyle.sixWrapper}>
+            {this.iconList()}
+          </div>
+          <div className={SocietyStyle.sixWrapper}>
+            {this.iconList2()}
+          </div>
+        </div>
       </div>
     )
   }

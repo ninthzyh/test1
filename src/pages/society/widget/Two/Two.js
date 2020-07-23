@@ -1,60 +1,145 @@
-import React, { Component } from 'react'
-import TwoStyle from './Two.module.scss'
-import ChartHeader from 'components/ChartHeader/ChartHeader'
-import ProgressInfo from './ProgressInfo'
+import React, { Component } from 'react';
+import ChartHeader from '../../../../components/ChartHeader/ChartHeader';
+import ReactEcharts from "echarts-for-react";
+import echarts from 'echarts/lib/echarts';
+import styles from './Two.module.scss';
 
-class Two extends Component {
+export default class Two extends Component {
   constructor(props) {
-    super(props)
-    this.state = {
-      companyList: [
-        {
-          name: '医疗',
-          count: '21.2%',
-          progress: 87,
-          color: '#F45B5B',
-        },
-        {
-          name: '住房',
-          count: '16.4%',
-          progress: 70,
-          color: '#05DEFF',
-        },
-        {
-          name: '出行',
-          count: '12.5%',
-          progress: 55,
-          color: '#05DEFF',
-        },
-        {
-          name: '服务',
-          count: '10.5%',
-          progress: 45,
-          color: '#FFFFFF',
-        },
-        {
-          name: '卫生',
-          count: '9.3%',
-          progress: 35,
-          color: '#FFFFFF',
-        },
-      ],
-    }
+    super(props);
+    this.state = {}
   }
-  showCompatList() {
-    return this.state.companyList.map((item, index) => {
-      return <ProgressInfo item={item} key={index} />
-    })
+
+  getOption = () => {
+    const option = {
+      grid: {
+        left: '15%',
+        top: '25%',
+        bottom: '18%',
+        right: '10%',
+      },
+      tooltip: {
+        trigger: 'axis',//坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。只有设置了这个参数才会出现竖直的线条
+        formatter: function (params) {
+          // 移除重复的数据
+          for (var i = 0; i < params.length; i++) {
+            for (var j = params.length - 1; j > i; j--) {
+              if (params[j].data == params[i].data) {
+                params.splice(j, 1);
+                break;
+              }
+            }
+          }
+          // 
+          var result = params[0].name + "<br>";
+          params.forEach(function (item) {
+            result += item.marker + " " + item.seriesName.substring(3,6) + " : " + item.value + "%</br>";
+          });
+          return result;
+        },
+      },
+      color: ['#1FFFF3'],
+      legend: [
+        {
+          icon: 'line',
+          itemWidth: 25,
+          left: '39%',
+          top: 11,
+          textStyle: {
+            fontsize: 12,
+            fontfamily: 'Microsoft YaHei',
+            fontweight: 400,
+            color: '#fff'
+          },
+          data: ['近五年失业率']
+        }
+      ],
+      xAxis: [{
+        type: 'category',
+        color: '#59588D',
+        data: ['2016年', '2017年', '2018年', '2019年', '2020年'],
+        axisLabel: {
+          color: '#FFFFFF',
+          textStyle: {
+            fontSize: 12
+          },
+        },
+        axisLine: {
+          lineStyle: {
+            color: 'rgba(107,107,107,0.37)',
+          }
+        },
+        axisTick: {
+          show: false
+        },
+      }],
+      yAxis: [{
+        axisLabel: {
+          formatter: '{value}%',
+          color: '#FFFFFF',
+          textStyle: {
+            fontSize: 10
+          },
+        },
+        max: 3.0,
+        min: 2.0,
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+        splitLine: {
+          lineStyle: {
+            color: '#3F404B',
+            type: 'solid',
+          }
+        }
+      }],
+      series: [
+        {
+          name: '近五年失业率',
+          type: 'line',
+          data: [2.7, 2.8, 2.8, 2.9, 2.9],
+          smooth: false,
+          symbol: 'none',
+          lineStyle: {
+            color: '#1FFFF3',
+            width: window.lineWidth,
+          }
+        },
+        {
+          type: 'bar',
+          data: [2.7, 2.8, 2.8, 2.9, 2.9],
+          barWidth: 13,
+          itemStyle: {
+            normal: {
+              color:
+                new echarts.graphic.LinearGradient(
+                  0, 0, 0, 1,
+                  [
+                    { offset: 1, color: 'rgba(242,192,65,0.05)' },
+                    { offset: 0, color: 'rgba(255,207,51,1)' },
+                  ]),
+              barBorderRadius: 7
+            },
+          },
+        }
+      ]
+    };
+    return option
   }
   render() {
-    const title = '民生关注话题Top5'
-    return (
-      <div className={TwoStyle.TwoContainer}>
-        <ChartHeader title={title} />
-        <div className={TwoStyle.itemBox}>{this.showCompatList()}</div>
+    return (<div className={styles.TwoPage}>
+      <ChartHeader title='就业统计' />
+      <div className={styles.echartsBox}>
+        <ReactEcharts
+          option={this.getOption()}
+          notMerge={true}
+          lazyUpdate={true}
+          style={{ width: '100%', height: '110%' }} />
       </div>
-    )
+    </div>);
   }
 }
 
-export default Two

@@ -1,24 +1,11 @@
-@import 'assets/css/index.modules.scss';
-.TwoContainer {
-  height: 100%;
-  .itemBox {
-    padding: 13px 25px 13px 19px;
-    height: calc(100% - 49px);
+@charset 'utf-8';
+.TwoPage{
+    width:100%;
+    height:100%;
+    box-sizing:border-box;
     display: flex;
-    flex-direction: column;
-    .progressInfo {
-      font-size: 10px;
-      font-weight: 300;
-      opacity: 0.7;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      .name {
-        color: rgba(254, 254, 254, 1);
-      }
-      .count {
-        text-align: right;
-      }
+    flex-direction:column;
+    .echartsBox{
+        flex:  1;
     }
-  }
 }
