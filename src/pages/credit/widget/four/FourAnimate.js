@@ -78,17 +78,17 @@ class Four extends Component {
             animationEasing: 'quadraticInOut',
             animationDurationUpdate: 3000,
             animationEasingUpdate: 'quadraticInOut',
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'none'
-                },
-                formatter: function (params) {
-                    return params[0].name + '<br/>' +
-                        "<span style='display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:rgba(36,207,233,0.9)'></span>" +
-                        params[0].seriesName + ' : ' + Number((params[0].value)).toLocaleString() + ' <br/>'
-                }
-            },
+            // tooltip: {
+            //     trigger: 'axis',
+            //     axisPointer: {
+            //         type: 'none'
+            //     },
+            //     formatter: function (params) {
+            //         return params[0].name + '<br/>' +
+            //             "<span style='display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:rgba(36,207,233,0.9)'></span>" +
+            //             params[0].seriesName + ' : ' + Number((params[0].value)).toLocaleString() + ' <br/>'
+            //     }
+            // },
             // backgroundColor: 'rgb(20,28,52)',
             xAxis: {
                 show: false,

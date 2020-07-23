@@ -14,24 +14,27 @@ $rightBottom:46px;
         width:262px;
         height:161px;
         left:-30px;
-        top:-40px; 
+        top:-20px; 
         background:url('~img/header/logo.png');   
+        background-size: 70%, 70%;
+        background-repeat: no-repeat;
         z-index:99;
         }
     .centerBox{  
         width:100%;
         height:122px;
         position:relative;
-        background:url('~img/header/head1.png');  
+        background:url('~img/header/head.png');  
         background-size: 100% 100%;
         background-repeat:no-repeat;
         
         }
     .titleBox{
         margin:0px;
-        padding:0px;
+        padding:0px;   
+        z-index:99;
         .title{
-            width:800px;
+            width:740px;
             height:40px;
             position: absolute;
             left:0px; 
@@ -39,10 +42,11 @@ $rightBottom:46px;
             right:0px; 
             margin: auto;
             // letter-spacing:2px;
-            font-size:42px;
-            font-family:'SourceHanSansSC-Medium';     
-            font-weight:500;
-            color:rgba(137,250,255,1); 
+            font-size:40px;
+            font-family:'SourceHanSerifCN-Heavy';     
+            font-weight:800;
+            color:rgba(223,242,244,1);
+            opacity:0.8;
         }
     }
   .rightBox{
@@ -52,7 +56,7 @@ $rightBottom:46px;
       z-index:99;
       .weatherpicBox{
           position:absolute;
-          right:55px;
+          right:60px;
           top:8px; 
           width:90px;
           height:90px;
@@ -69,8 +73,9 @@ $rightBottom:46px;
           width:100px;
           height:14px;
           font-size:13px;
-          font-family:'SourceHanSansSC-Regular';
-          color:rgba(223,241,243,1);
+          font-family:'NotoSansHans-Medium';
+          font-weight: 400;
+          color:rgba(223,242,244,1);
           opacity:0.8;
           }
       .weekBox{ 
@@ -78,11 +83,11 @@ $rightBottom:46px;
           right:155px;
           top: $rightTop; 
           width:80px;
-          height:23px;
-          font-size:24px;
-          font-weight: bold;
-          font-family:'SourceHanSansSC-Bold';
-          color:rgba(223,241,243,1);
+          height:22px;
+          font-size:22px;
+          font-family:'NotoSansHans-Medium';
+          font-weight: 500;
+          color:rgba(223,242,244,1);
           opacity:0.8;
           } 
       .temperatureBox{ 
@@ -91,10 +96,10 @@ $rightBottom:46px;
           top: $rightTop; 
           width:55px;
           height:21px;
-          font-size:24px;
-          font-weight: bold;
-          font-family:'SourceHanSansSC-Bold';
-          color:rgba(223,241,243,1);
+          font-size:22px;
+          font-family:'NotoSansHans-Medium';
+          font-weight: 500;
+          color:rgba(223,242,244,1);
           opacity:0.8;
           }  
       .weatherBox{ 
@@ -104,8 +109,9 @@ $rightBottom:46px;
           width:54px;
           height:14px;
           font-size:13px;
-          font-family:'SourceHanSansSC-Regular';
-          color:rgba(223,241,243,1);
+          font-family:'NotoSansHans-Medium';
+          font-weight: 400;
+          color:rgba(223,242,244,1);
           opacity:0.8;
           }
 

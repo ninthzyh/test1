@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import AffairsStyle from '../Affairs.module.scss'
 import ChartHeader from "../../../components/ChartHeader/ChartHeader"
-import CountUp from 'react-countup';
 /*
 疫情实时数据
 */
@@ -12,19 +11,19 @@ class One extends Component {
         this.state = {
             nowInfo: [
                 {
-                    "count": "8034",
+                    "count": "100%",
                     "name": "绿码率"
                 },
                 {
-                    "count": "572",
+                    "count": "100%",
                     "name": "口罩佩戴率"
                 },
                 {
-                    "count": "7",
+                    "count": "100%",
                     "name": "消毒率"
                 },
                 {
-                    "count": "1797",
+                    "count": "100%",
                     "name": "体温检测率"
                 },
             ]
@@ -38,7 +37,7 @@ class One extends Component {
                 return (
                     <div className={AffairsStyle.infoItem} key={index}>
                         <div  className={AffairsStyle.itemNumber} style={{color:colorArr[index]}}>
-                        <CountUp delay={1} end={Number(item.count)} />
+                        {item.count}
                         </div>
                         <div className={AffairsStyle.itemName}>{item.name}</div>
                     </div>
@@ -47,7 +46,7 @@ class One extends Component {
         )
     }
     render() {
-        const title = '当日疫情服务';
+        const title = '政务大厅防疫措施';
         return (
             <div className={AffairsStyle.oneContainer}>
                 <ChartHeader title={title}/>

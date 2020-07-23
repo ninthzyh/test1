@@ -148,7 +148,7 @@ export default class extends Component {
     render() {
         return (
             <>
-                <ChartHeader title='服务人次年度趋势图' />
+                <ChartHeader title='财产损失情况' />
                 <div className={AffairsStyle.content}>
                     <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
                 </div>

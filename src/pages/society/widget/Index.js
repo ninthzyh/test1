@@ -5,12 +5,13 @@ import One from './One/One';
 import Two from './Two/Two.js';
 import Three from './Three/Three.js';
 import Four from './four/Four';
-import Five from './Five/Five.js';
+import Five from './Five';
 import Six from './Six.js';
 import Seven from './Seven.js';
 import Eight from './Eight/Eight';
 import Nine from './nine/Nine';
 import CommonContainer from "components/CommonContainer";
+
 class Index extends Component {
     render() {
         return (
