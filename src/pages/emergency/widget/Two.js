@@ -35,10 +35,10 @@ export default class Two extends Component {
         // animationDurationUpdate: 100000,
         // animationEasingUpdate: 'quadraticInOut',
         grid: {
-            bottom: '1%',
-            top: '15%',
-            right:'3%',
-            left:'8%',
+            bottom: '0',
+            top: '18%',
+            right:'8%',
+            left:'4%',
             containLabel: true
         },
         xAxis: {
@@ -54,7 +54,7 @@ export default class Two extends Component {
                     fontSize: 12,
                     opacity:0.5
                 },
-                //rotate:50,
+                // rotate:-30,
             },
             axisTick:{
                 show: false,

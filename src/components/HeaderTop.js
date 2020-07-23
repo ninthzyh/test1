@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import HeaderStyle from './Header.module.scss'
-import { connect } from 'react-redux';
 
-class HeaderTop extends Component {
+export default class HeaderTop extends Component {
     constructor(props) {
         super(props);
         let today = new Date(),
@@ -14,6 +13,7 @@ class HeaderTop extends Component {
             name: '濮阳县智慧城市运行监测子系统-城市管理',
         }
     }
+
     componentDidMount() {
         const titleMap = {
             '#/index/traffic': '濮阳县智慧城市运行监测子系统-交通出行',
@@ -36,7 +36,6 @@ class HeaderTop extends Component {
                     <div className={HeaderStyle.logoBox} />
                     <div className={HeaderStyle.titleBox}>
                         <div className={HeaderStyle.title} >{this.state.name}</div>
-
                     </div>
                     <div className={HeaderStyle.rightBox} >
                         <span className={HeaderStyle.weatherpicBox} />
@@ -50,21 +49,3 @@ class HeaderTop extends Component {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        tiger: state
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        PayIncrease: () => {
-            dispatch({ type: "涨工资" })
-        },
-        PayDecrease: () => {
-            dispatch({ type: "扣工资" })
-        }
-    }
-}
-// export default HeaderTop;
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderTop);

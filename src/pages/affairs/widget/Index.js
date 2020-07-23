@@ -14,6 +14,7 @@ import Eleven from './Eleven';
 import Twelve from './Twelve.js';
 import Nine from './Nine';
 import VisitorCount from "components/VisitorCount";
+// import CommonContainer from "components/CommonContainer";
 class Index extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +39,7 @@ class Index extends Component {
     render() {
         const { show } = this.state;
         return (
-            <div className={`${AffairsStyle.container} animate__animated animate__backInDown`}>
+            <div className={AffairsStyle.container}>
                 <OneMap/>
                 <div style={!show ? {display: 'none'} : {}} className={this.getClassName(!show,'Left')}>
                     <div className={AffairsStyle.item}><One/></div>

@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react'
 import SocietyStyle from '../Society.module.scss'
-import OneMap from '../mapController';
-import Eight from './Eight';
+import OneMap from '../mapController' 
+import Eight from './Eight/Eight' 
 import One from './One/One'
 import Two from './Two/Two.js'
 import Seven from './Seven.js'
@@ -23,7 +23,7 @@ class Index extends Component {
         }
     }
     componentDidMount() {
-        // this.showChange();
+        this.showChange();
     }
 
     showChange = () => {
@@ -40,7 +40,7 @@ class Index extends Component {
         const { show } = this.state;
         return (
             <div className={SocietyStyle.container}>
-                {/* <OneMap/> */}
+                <OneMap/>
                 <div style={!show ? { display: 'none' } : {}} className={this.getClassName(!show, 'Left')}>
                     <div className={SocietyStyle.item}><One/></div>
                     <div className={SocietyStyle.item}><Two /></div>
