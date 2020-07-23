@@ -29,6 +29,7 @@ export default  class Eight extends React.Component {
         unit: '万人'
     }
 ];
+
     render() {
         return (
             <div className={EightStyle.EightContainer}>
