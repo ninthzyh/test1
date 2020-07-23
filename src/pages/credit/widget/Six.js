@@ -25,8 +25,8 @@ export default class extends Component {
         setTimeout(()=>{
             let {top} = this.state;
             top -= 1;
-            if(top <= parent - img - p - 50){
-                top = 0
+            if(top <= -img - p){
+                top = parent
             }
             this.setState({
                 top
