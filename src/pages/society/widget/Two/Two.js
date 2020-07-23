@@ -9,6 +9,7 @@ export default class Two extends Component {
     super(props);
     this.state = {}
   }
+
   getOption = () => {
     const option = {
       grid: {
@@ -17,9 +18,26 @@ export default class Two extends Component {
         bottom: '18%',
         right: '10%',
       },
-      // tooltip: {
-      //   trigger: 'axis',
-      // },
+      tooltip: {
+        trigger: 'axis',//坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。只有设置了这个参数才会出现竖直的线条
+        formatter: function (params) {
+          // 移除重复的数据
+          for (var i = 0; i < params.length; i++) {
+            for (var j = params.length - 1; j > i; j--) {
+              if (params[j].data == params[i].data) {
+                params.splice(j, 1);
+                break;
+              }
+            }
+          }
+          // 
+          var result = params[0].name + "<br>";
+          params.forEach(function (item) {
+            result += item.marker + " " + item.seriesName.substring(3,6) + " : " + item.value + "%</br>";
+          });
+          return result;
+        },
+      },
       color: ['#1FFFF3'],
       legend: [
         {
@@ -41,7 +59,7 @@ export default class Two extends Component {
         color: '#59588D',
         data: ['2016年', '2017年', '2018年', '2019年', '2020年'],
         axisLabel: {
-          color:  '#FFFFFF',
+          color: '#FFFFFF',
           textStyle: {
             fontSize: 12
           },
@@ -80,6 +98,17 @@ export default class Two extends Component {
       }],
       series: [
         {
+          name: '近五年失业率',
+          type: 'line',
+          data: [2.7, 2.8, 2.8, 2.9, 2.9],
+          smooth: false,
+          symbol: 'none',
+          lineStyle: {
+            color: '#1FFFF3',
+            width: window.lineWidth,
+          }
+        },
+        {
           type: 'bar',
           data: [2.7, 2.8, 2.8, 2.9, 2.9],
           barWidth: 13,
@@ -95,17 +124,6 @@ export default class Two extends Component {
               barBorderRadius: 7
             },
           },
-        },
-        {
-          name: '近五年失业率',
-          type: 'line',
-          data: [2.7, 2.8, 2.8, 2.9, 2.9],
-          smooth: false,
-          symbol: 'none',
-          lineStyle: {
-            color: '#1FFFF3',
-            width: window.lineWidth,
-          }
         }
       ]
     };
