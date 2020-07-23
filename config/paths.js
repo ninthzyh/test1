@@ -77,7 +77,6 @@ module.exports = {
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   appPages: resolveApp('pages'),
-  appStore: resolveApp('src/store'),
   appAssets: resolveApp('src/assets'),
   appRoute: resolveApp('src/route'),
   appComponents: resolveApp('src/components'),
