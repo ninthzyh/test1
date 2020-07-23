@@ -10,27 +10,27 @@ class Four extends Component {
             companyList:[
                 {
                     name:"企业总数",
-                    count: 46386,
+                    count: 613,
                     progress:87
                 },
                 {
                     name:"纳税A级企业数",
-                    count: 36982,
+                    count: 5,
                     progress:70
                 },
                 {
                     name:"保险公司网点数",
-                    count: 4,
+                    count: 45,
                     progress:10
                 },
                 {
                     name:"个体工商数",
-                    count: 110,
+                    count: 982,
                     progress:35
                 },
                 {
                     name:"银行网点数",
-                    count: 45,
+                    count: 110,
                     progress:17
                 },
                 {
