@@ -3,68 +3,37 @@ import NineStyle from './Nine.module.scss'
 import ChartHeader from "components/ChartHeader/ChartHeader"
 import ReactEcharts from 'echarts-for-react';
 class Nine extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            list: [
-                { value: 1567, name: '近一年新建幼儿园数' },
-                { value: 1467, name: '近一年新增学位数' },
-                { value: 1367, name: '近一年改建中小学数' }
-            ]
-        }
-    }
-    getOption(list) {
-        const dataArr = [];
-        for(let i in list) {
-            dataArr.push(list[i]);
-        }
-        return {
-            tooltip: {
-                trigger: 'item',
-                formatter: '{a} <br/>{b} : {c} ({d}%)'
-            },
-            legend: {
-                type: 'scroll',
-                orient: 'vertical',
-                right: '10%',
-                top: '45%',
-                itemGap:15,
-                data: dataArr,
-                textStyle:{//图例文字的样式
-                    color:'#fff',
-                    
-                }
-            },
-            series: [
-                {
-                    name: '访问来源',
-                    type: 'pie',
-                    radius: '50%',
-                    center: ['33%', '50%'],
-                    color: ['#6648FF', '#FFA243', '#16CEB9'],
-                    roseType: 'radius',
-                    data: list,
-                    label: {
-                        formatter: '{c}人',
-                        color:'#FFFFFF',
-                    },
-                    emphasis: {
-                        itemStyle: {
-                            shadowBlur: 10,
-                            shadowOffsetX: 0,
-                            shadowColor: 'rgba(0, 0, 0, 0.5)'
-                        }
-                    }
-                }
-            ]
-        }
-    }
+    data=[{
+        pic:require("img/society/nine1.png"),
+        title:'新建、改扩建幼儿园数',
+        num: 9,
+        color:'rgba(244,234,42,1)'
+    },{
+        pic:require("img/society/nine2.png"),
+        title:'新增学位数',
+        num: 8000,
+        color:'rgba(4,99,250,1)'
+    },{
+        pic:require("img/society/nine3.png"),
+        title:'新增学校数',
+        num: 17,
+        color:'rgba(5,222,255,1)'
+    }];
 
     render() {
         return (
             <div className={NineStyle.nineContainer}>
                 <ChartHeader title='教育设施建设' />
-                <ReactEcharts  style={{ width: '100%', height: '80%' }} option={this.getOption(this.state.list)} />
+                <div className={NineStyle.nine}>
+                    <div className={NineStyle.title}>近一年新增教育设施数量</div>
+                {
+                    this.data.map((item,  index)=><div key={item.title} className={NineStyle.container}>
+                        <img src={item.pic} className={NineStyle.pic}/>
+                        <div className={NineStyle.title}>{item.title}</div>
+                        <div className={NineStyle.num} style={{ color: item.color }}>{item.num}</div>
+                    </div>)
+                }
+                </div>
 
             </div>
 

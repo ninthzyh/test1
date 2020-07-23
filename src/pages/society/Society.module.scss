@@ -1,13 +1,15 @@
 @import 'assets/css/index.modules.scss';
 
 
-.eight{
+.eight {
   height: 100%;
-  .eightContainer{
+
+  .eightContainer {
     display: flex;
     flex-direction: column;
     height: calc(100% - 50px);
     padding: 0 20px;
+
     >div {
       flex: 1;
       display: flex;
@@ -15,9 +17,11 @@
       align-items: center;
       height: 50%;
       color: #ffffff;
-      >div{
+
+      >div {
         padding-left: 15px;
-        .title{
+
+        .title {
           text-align: center;
         }
       }
@@ -25,50 +29,136 @@
     }
   }
 }
+
 .six {
-  .text{
-    margin: 10px 0 0 40px;
-    font-size:14px;
-    font-family:PingFangSC-Regular,PingFang SC;
-    font-weight:400;
-    color:rgba(40,152,234,1);
-    line-height:20px;
-  }
-  .sixWrapper {
-    text-align: center;
-    padding: 10px 0;
-    margin-top:10px ;
+  height: 100%;
+
+  .content {
     display: flex;
+    height: calc(100% - 50px);
+    flex-direction: column;
     justify-content: space-around;
-    .itemImg {
+
+    .text {
+      margin: 20px 0 0 40px;
+      font-size: 14px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: rgba(40, 152, 234, 1);
+      line-height: 20px;
+    }
+
+    .sixWrapper {
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      padding-left: 60px;
+
+      .itemImg {
+        margin-left: -25px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        // justify-content: center;
         width: 80%;
-        .pic{
-            width:46px;
-            height:38px; 
-          }
-        .name{
-          font-size:14px;
-          font-family:PingFangSC-Regular,PingFang SC;
-          font-weight:400;
-          line-height:16px;
+        text-align: center;
+
+        .pic {
+          width: 46px;
+          height: 38px;
+        }
+
+        .name {
+          font-size: 14px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          line-height: 16px;
           margin-top: 8px;
         }
-        .num{
+
+        .num {
           margin-left: 10px;
-          font-size:24px;
-          font-family:PingFangSC-Medium,PingFang SC;
-          font-weight:500;
-          line-height:33px;
-          .unit{
+          font-size: 24px;
+          font-family: PingFangSC-Medium, PingFang SC;
+          font-weight: 500;
+          line-height: 33px;
+
+          .unit {
             @extend .num;
             margin-left: 0px;
-            font-size:14px;
+            font-size: 14px;
           }
-          
+
         }
-     }
+      }
     }
+  }
+}
+
+.fiveLegend {
+  display: flex;
+  color: #fff;
+  white-space: nowrap;
+  width: 100%;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  height: 23%;
+  padding-top: 7px;
+  font-size: 12px;
+  .legendItem{
+    width: 45%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .lineBase {
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    margin-right: 2px;
+  }
+
+  .rectBase {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 2px;
+  }
+
+  .lineY {
+    @extend .lineBase;
+    background: #F49C34;
+  }
+
+  .lineG {
+    @extend .lineBase;
+    background: #4EFCDC;
+  }
+
+  .rectB {
+    @extend .rectBase;
+    border: 2px solid #2B97FF;
+  }
+
+  .rectG {
+    @extend .rectBase;
+    border: 2px solid #56F4EC;
+  }
+}
+
+.fiveChart {
+  display: flex;
+  justify-content: space-around;
+  height: 77%;
+
+  .left {
+    width: 60%;
+    // height: 100%;
+  }
+
+  .right {
+    width: 40%;
+    // height: 100%;
+  }
 }

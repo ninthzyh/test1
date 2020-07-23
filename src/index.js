@@ -6,19 +6,15 @@ import * as serviceWorker from './serviceWorker';
 import { Switch, HashRouter } from 'react-router-dom';
 import routes from 'route/routes';
 import { renderRoutes } from 'react-router-config';
-import { Provider } from 'react-redux';
-import store from 'store/index';
 import "animate.css";
 
 
 ReactDOM.render(
-    <Provider store={store}>
-            <HashRouter>
-                <Switch>
-                    {renderRoutes(routes)}
-                </Switch>
-            </HashRouter>
-    </Provider>
+    <HashRouter>
+        <Switch>
+            {renderRoutes(routes)}
+        </Switch>
+    </HashRouter>
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
