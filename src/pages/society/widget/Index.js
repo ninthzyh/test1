@@ -9,7 +9,9 @@ import Seven from './Seven.js'
 import Three from './Three/Three.js'
 import Six from './Six.js'
 import Four from './four/Four'
-import Five from './Five/Five.js'
+import Five from './Five';
+// import Five from './Five/Five.js'
+
 import Nine from './nine/Nine'
 import ManagerStyle from "../../manager/Manager.module.scss";
 import FiveChart from "../../manager/widget/fiveChart/FiveChart";
@@ -21,7 +23,7 @@ class Index extends Component {
         }
     }
     componentDidMount() {
-        this.showChange();
+        // this.showChange();
     }
 
     showChange = () => {
@@ -38,7 +40,7 @@ class Index extends Component {
         const { show } = this.state;
         return (
             <div className={SocietyStyle.container}>
-                <OneMap/>
+                {/* <OneMap/> */}
                 <div style={!show ? { display: 'none' } : {}} className={this.getClassName(!show, 'Left')}>
                     <div className={SocietyStyle.item}><One/></div>
                     <div className={SocietyStyle.item}><Two /></div>
