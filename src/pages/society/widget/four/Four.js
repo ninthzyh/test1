@@ -10,13 +10,13 @@ const top = [
     },
     {
         name: "床位总数",
-        num: '1115',
+        num: 1115,
         color: 'rgba(45,153,137,1)'
     },
 ]
 const list = [
-    { value: 70, name: '城镇居民养老\n保险参保人数', num: '400万' },
-    { value: 30, name: '城乡居民养老\n保险参保人数', num: '300万' }
+    { value: 12.83, name: '城镇居民养老\n保险参保人数' },
+    { value: 57.73, name: '城乡居民养老\n保险参保人数' }
 ]
 class Four extends Component {
     iconList = () => {
@@ -28,31 +28,71 @@ class Four extends Component {
             </div>
         })
     }
+    // getOption(list) {
+    //     return {
+    //         grid: {
+    //             top: '120%'
+    //         },
+    //         series: [
+    //             {
+    //                 name: '',
+    //                 type: 'pie',
+    //                 radius: '80%',
+    //                 center: ['50%', '50%'],
+    //                 color: ['#08E3F8', '#FFC647',],
+    //                 roseType: 'radius',
+    //                 data: list,
+    //                 label: {
+    //                     position: 'outside',
+    //                     normal: {
+    //                         show: true,
+    //                         color: '#ddd',
+    //                         formatter: function (params) {
+    //                             if (params.name !== '') {
+    //                                 return '{a| ' + params.name + '} \n' + '{b| ' + params.data.num + '}';
+    //                             } else {
+    //                                 return '';
+    //                             }
+    //                         },
+    //                         rich: {
+    //                             b: {
+    //                                 fontSize: 20,
+    //                                 fontWeight: 500,
+    //                                 lineHeight: 28
+
+    //                             },
+    //                             a: {
+    //                                 fontSize: 12,
+    //                                 fontWeight: 400,
+    //                                 lineHeight: 17
+    //                             }
+    //                         }
+    //                     }
+    //                 },
+    //             }
+    //         ]
+    //     }
+    // }
     getOption(list) {
         return {
             series: [
                 {
                     name: '',
                     type: 'pie',
-                    radius: '80%',
-                    top:'20%',
-                    center: ['50%', '50%'],
+                    hoverAnimation: false,
+                    radius: '70%',
+                    center: ['50%', '65%'],
                     color: ['#08E3F8', '#FFC647',],
                     roseType: 'radius',
                     data: list,
                     label: {
-                        position: 'outside',
                         normal: {
                             show: true,
-                            // position: 'outer',
+                            position: 'outer',
                             color: '#ddd',
                             formatter: function (params) {
                                 if (params.name !== '') {
-                                    // return params.name 
-                                    // return '{a|params.data.num}'
-                                    // '{b|这段文本采用样式b}这段用默认样式{x|这段用样式x}'
-                                    //return "{a|" + params.name + "}\n{b|" + params.data.num + "}"
-                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.data.num + '}';
+                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.data.value + '万' + '}';
                                 } else {
                                     return '';
                                 }
@@ -60,12 +100,53 @@ class Four extends Component {
                             rich: {
                                 b: {
                                     fontSize: 20,
+                                    fontWeight: 500,
                                     lineHeight: 28
 
                                 },
                                 a: {
                                     fontSize: 12,
+                                    fontWeight: 400,
                                     lineHeight: 17
+                                }
+                            }
+                        },
+                    },
+                },
+                {
+                    name: '',
+                    type: 'pie',
+                    hoverAnimation: false,
+                    radius: '70%',
+                    center: ['50%', '65%'],
+                    roseType: 'radius',
+                    data: list,
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'inner',
+                            color: '#ddd',
+                            formatter: function (params) {
+                                var percent = 0;
+                                var total = 0;
+                                for (var i = 0; i < list.length; i++) {
+                                    total += list[i].value;
+                                }
+                                percent = ((params.value / total) * 100).toFixed(0);
+                                if (params.name !== '') {
+                                    return percent + '%';
+                                } else {
+                                    return '';
+                                }
+                            },
+                            rich: {
+                                a: {
+                                    fontSize: 14,
+                                    fontFamily: 'PingFangSC- Regular, PingFang SC',
+                                    fontWeight: 400,
+                                    color: 'rgba(255, 255, 255, 1)',
+                                    lineHeight: 20,
+
                                 }
                             }
                         }
@@ -86,7 +167,7 @@ class Four extends Component {
                         </div>
                         <div className={FourStyle.middle}>
                             <span className={FourStyle.text}>居民养老保险参保人数</span>
-                            <span className={FourStyle.num}>700万</span>
+                            <span className={FourStyle.num}>70.56万</span>
                         </div>
                         < ReactEcharts style={{ height: '100%' }} option={this.getOption(list)} />
                     </div>
@@ -99,16 +180,3 @@ class Four extends Component {
 }
 
 export default Four;
-
-//数字字体
-// font-size:20px;
-// font-family:PingFangSC-Medium,PingFang SC;
-// font-weight:500;
-// color:rgba(8,227,248,1);
-// line-height:28px;
-//文字字体
-// font-size:12px;
-// font-family:PingFangSC-Regular,PingFang SC;
-// font-weight:400;
-// color:rgba(8,227,248,1);
-// line-height:17px;
