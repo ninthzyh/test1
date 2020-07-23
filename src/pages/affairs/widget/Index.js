@@ -14,7 +14,7 @@ import Eleven from './Eleven';
 import Twelve from './Twelve.js';
 import Nine from './Nine';
 import VisitorCount from "components/VisitorCount";
-import CommonContainer from "components/CommonContainer";
+// import CommonContainer from "components/CommonContainer";
 class Index extends Component {
     constructor(props) {
         super(props);
