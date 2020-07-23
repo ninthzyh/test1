@@ -11,6 +11,10 @@
   font-family: "NotoSansHans-Medium";
   src: url("~assets/fonts/NotoSansHans-Medium.ttf");
 }
+@font-face {
+  font-family: "SourceHanSerifCN-Heavy";
+  src: url("~assets/fonts/SourceHanSerifCN-Heavy.otf");
+}
 
 body {
   margin: 0;

@@ -360,7 +360,6 @@ module.exports = function (webpackEnv) {
         'untils': paths.appUntils,
         'public': paths.appPublic,
         'img': paths.appImg,
-        'store': paths.appStore,
         'pages':paths.appPages,
         'assets': paths.appAssets,
         'route': paths.appRoute,
