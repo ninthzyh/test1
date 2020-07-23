@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import FooterStyle from './Footer.module.scss'
 import { Layout, } from 'antd';
-import { connect } from 'react-redux';
 const { Footer } = Layout;
 
-class FooterBottom extends Component {
+export default class FooterBottom extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -39,14 +38,3 @@ class FooterBottom extends Component {
         </Footer>);
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        tiger: state
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-// export default FooterBottom;
-export default connect(mapStateToProps, mapDispatchToProps)(FooterBottom);
