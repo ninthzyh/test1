@@ -73,17 +73,17 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.055,
-  latitude: 35.755,
-  zoom: 12,
+  longitude: 115.030,
+  latitude: 35.709,
+  zoom: 12.5,
   pitch: 0,
   bearing: 0 //方位
 };
 
 const viewStates = [
   {
-    longitude: 115.0195982,
-    latitude: 35.75112835,
+    longitude: 115.0259652,
+    latitude: 35.71499193,
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -91,8 +91,8 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.01207,
-    latitude: 35.70646,
+    longitude: 115.0119124,
+    latitude: 35.70597031,
     zoom: 17,
     pitch: 60,
     bearing: 30,
@@ -100,89 +100,89 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.02,
-    latitude: 35.779,
+    longitude: 115.0244634,
+    latitude: 35.71045408,
     zoom: 17,
     pitch: 60,
     bearing: 30,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
   },
+  {
+    longitude: 115.0262039,
+    latitude: 35.70595046,
+    zoom: 17,
+    pitch: 60,
+    bearing: 30,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
+    longitude: 115.0036801,
+    latitude: 35.71364739,
+    zoom: 17,
+    pitch: 60,
+    bearing: 30,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
+    longitude: 115.0274868,
+    latitude: 35.71218135,
+    zoom: 17,
+    pitch: 60,
+    bearing: 30,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
+    longitude: 115.0415158,
+    latitude: 35.72398069,
+    zoom: 17,
+    pitch: 60,
+    bearing: 30,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  // {
+  //   longitude: 115.0261693,
+  //   latitude: 35.71213981,
+  //   zoom: 17,
+  //   pitch: 60,
+  //   bearing: 30,
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator()
+  // },
+  // {
+  //   longitude: 115.0233671,
+  //   latitude:35.71174646,
+  //   zoom: 17,
+  //   pitch: 60,
+  //   bearing: 30,
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator()
+  // },
+  // {
+  //   longitude:115.0263248,
+  //   latitude: 35.71164262,
+  //   zoom: 17,
+  //   pitch: 60,
+  //   bearing: 30,
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator()
+  // },
+  // {
+  //   longitude: 115.0255982,
+  //   latitude: 35.75812835,
+  //   zoom: 14,
+  //   pitch: 60,
+  //   bearing: 25,
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator()
+  // },
   {
     longitude: 115.021,
-    latitude: 35.73,
-    zoom: 17,
-    pitch: 60,
-    bearing: 30,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator()
-  }, 
-  {
-    longitude: 115.064040,
-    latitude: 35.756332,
-    zoom: 17,
-    pitch: 60,
-    bearing: 30,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator()
-  },
-  {
-    longitude: 115.08628,
-    latitude: 35.76303,
-    zoom: 17,
-    pitch: 60,
-    bearing: 30,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator()
-  },
-  {
-    longitude: 115.03675,
-    latitude: 35.7240146,
-    zoom: 17,
-    pitch: 60,
-    bearing: 30,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator()
-  },
-  {
-    longitude: 115.029,
-    latitude: 35.706,
-    zoom: 17,
-    pitch: 60,
-    bearing: 30,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator()
-  },
-  {
-    longitude: 115.05,
-    latitude: 35.772,
-    zoom: 17,
-    pitch: 60,
-    bearing: 30,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator()
-  },
-  {
-    longitude: 115.023,
-    latitude: 35.761,
-    zoom: 17,
-    pitch: 60,
-    bearing: 30,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator()
-  },
-  {
-    longitude: 115.0255982,
-    latitude: 35.75812835,
-    zoom: 14,
-    pitch: 60,
-    bearing: 25,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator()
-  },
-  {
-    longitude: 115.031,
-    latitude: 35.719,
+    latitude: 35.710,
     zoom: 13.5,
     pitch: 50,
     bearing: 55,
@@ -367,45 +367,45 @@ export default class OneMap extends Component {
 
     const displayContent = [
       {
-        coor: [115.0249652,35.71459193],
+        coor: [115.0249652, 35.71459193],
         branch: '不动产',
       },
       {
-        coor: [115.0119124,35.70597031],
+        coor: [115.0119124, 35.70597031],
         branch: '公安',
       },
       {
-        coor: [115.0244634,35.71045408],
+        coor: [115.0244634, 35.71045408],
         branch: '民政',
       },
       {
-        coor: [115.0262039,35.70595046],
+        coor: [115.0262039, 35.70595046],
         branch: '工商',
-      }, 
+      },
       {
-        coor: [115.0036801,35.71364739],
+        coor: [115.0036801, 35.71364739],
         branch: '人社',
       },
       {
-        coor: [115.0274868,35.71218135],
+        coor: [115.0274868, 35.71218135],
         branch: '税务',
       },
       {
-        coor: [115.0261693,35.71213981],
-        branch: '法院',
-      },
-      {
-        coor: [115.0415158,35.72398069],
+        coor: [115.0415158, 35.72398069],
         branch: '教育局',
       },
-      {
-        coor: [115.0233671,35.71174646],
-        branch: '财政局',
-      },
-      {
-        coor: [115.0242608,35.71335535],
-        branch: '监察局',
-      },
+      // {
+      //   coor: [115.0261693,35.71213981],
+      //   branch: '法院',
+      // },
+      // {
+      //   coor: [115.0233671,35.71174646],
+      //   branch: '财政局',
+      // },
+      // {
+      //   coor: [115.0263248,35.71164262],
+      //   branch: '卫生局',
+      // },
     ]
 
     return (

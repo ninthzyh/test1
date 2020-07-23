@@ -76,83 +76,84 @@ const DEFAULT_THEME = {
 
 const INITIAL_VIEW_STATE = {
   //濮阳中心坐标位置 
-  longitude: 115.035,
-  latitude: 35.702,
-  zoom: 12.5,
+  longitude: 115.095,
+  latitude: 35.612,
+  zoom: 10.5,
   pitch: 50,
-  bearing: 50,
+  bearing: -80,
 };
 const viewStates = [
   // 濮阳县整体视角-1
+
+  // 濮阳县局部视角-1
+  {
+    longitude: 114.99999,
+    latitude: 35.704462,
+    zoom: 14.2,
+    pitch: 60,
+    bearing: 150,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator(),
+  },
   {
     longitude: 115.021,
     latitude: 35.719,
     zoom: 13,
-    pitch: 30,
+    pitch: 80,
     bearing: 320, //方位
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator(),
   },
-  // 濮阳县局部视角-1
-  {
-    longitude: 115.000071,
-    latitude: 35.714462,
-    zoom: 14.2,
-    pitch: 60,
-    bearing: 50,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 濮阳县整体视角-2
-  {
-    longitude: 115.036,
-    latitude: 35.715,
-    zoom: 13.5,
-    pitch: 50,
-    bearing: 150, //方位
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 龙华区整体视角-1
-  {
-    longitude: 115.051,
-    latitude: 35.753,
-    zoom: 13,
-    pitch: 50,
-    bearing: 160, //方位
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 龙华区整体视角-2
-  {
-    longitude: 115.050,
-    latitude: 35.773,
-    zoom: 13,
-    pitch: 40,
-    bearing: 340, //方位
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 濮阳区域整体视角-1
-  {
-    longitude: 115.045,
-    latitude: 35.752,
-    zoom: 12.5,
-    pitch: 50,
-    bearing: 330,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
-  // 濮阳区域整体视角-2
-  {
-    longitude: 115.055,
-    latitude: 35.52,
-    zoom: 12.5,
-    pitch: 50,
-    bearing: 50,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
+  // // 濮阳县整体视角-2
+  // {
+  //   longitude: 115.036,
+  //   latitude: 35.715,
+  //   zoom: 13.5,
+  //   pitch: 50,
+  //   bearing: 150, //方位
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator(),
+  // },
+  // // 龙华区整体视角-1
+  // {
+  //   longitude: 115.051,
+  //   latitude: 35.753,
+  //   zoom: 13,
+  //   pitch: 50,
+  //   bearing: 160, //方位
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator(),
+  // },
+  // // 龙华区整体视角-2
+  // {
+  //   longitude: 115.050,
+  //   latitude: 35.773,
+  //   zoom: 13,
+  //   pitch: 40,
+  //   bearing: 340, //方位
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator(),
+  // },
+  // // 濮阳区域整体视角-1
+  // {
+  //   longitude: 115.045,
+  //   latitude: 35.752,
+  //   zoom: 12.5,
+  //   pitch: 50,
+  //   bearing: 330,
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator(),
+  // },
+  // // 濮阳区域整体视角-2
+  // {
+  //   longitude: 115.055,
+  //   latitude: 35.52,
+  //   zoom: 12.5,
+  //   pitch: 50,
+  //   bearing: 50,
+  //   transitionDuration: 5000,
+  //   transitionInterpolator: new FlyToInterpolator(),
+  // },
 
 ];
 var index_viewState = 0;
@@ -164,7 +165,7 @@ export default class OneMap extends Component {
     this.state = {
       time: 0,
       opacity: 1,
-      columnVisible: true,
+      columnVisible: false,
       titleVisible: false,
       initViewState: INITIAL_VIEW_STATE,
     };
@@ -184,14 +185,14 @@ export default class OneMap extends Component {
           columnVisible: !this.state.columnVisible
           // columnVisible: true
         });
-      }, 7000)
+      }, 4000)
       timerView = setInterval(() => {
         if (index_viewState > viewStates.length - 1) {
           index_viewState = 0;
         }
         this.setState({ initViewState: viewStates[index_viewState] });
         index_viewState += 1;
-      }, 14000);
+      }, 7000);
     }, 5000);
   }
   //组件从DOM中移除之前调用
