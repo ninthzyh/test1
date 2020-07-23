@@ -28,7 +28,7 @@ const bottom = [
   {
     pic: require("img/society/six4.png"),
     name: "市民健身中心",
-    num: 12,
+    num: 1,
     unit: "个",
     color: 'rgba(252,137,2,1)'
   },

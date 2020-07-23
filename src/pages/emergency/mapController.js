@@ -251,7 +251,7 @@ export default class OneMap extends Component {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
         iconAtlas: medicalIcon,
-        sizeScale: 3,
+        sizeScale:4,
         getIcon: (d) => "marker",
         getPosition: (d) => [d.coor[0], d.coor[1], 80],
         getSize: (d) => {
