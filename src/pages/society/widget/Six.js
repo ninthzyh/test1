@@ -62,7 +62,7 @@ export default class extends Component {
     return (
       <div className={SocietyStyle.six}>
         <ChartHeader title="城市建设" />
-        <div className={SocietyStyle.content} style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+        <div className={SocietyStyle.content}>
           <div className={SocietyStyle.text}>近一年新增城市建设数量</div>
           <div className={SocietyStyle.sixWrapper}>
             {this.iconList()}
