@@ -37,7 +37,7 @@ const bottom = [
 export default class extends Component {
   iconList = () => {
     return top.map((itemImg, itemIndex) => {
-      return <div className={SocietyStyle.itemImg} key={itemIndex} style={{ color: itemImg.color }}>
+      return <div className={SocietyStyle.itemImg} key={itemIndex} style={{ color: itemImg.color}}>
         <div>
           <img src={itemImg.pic} className={SocietyStyle.pic} />
           <div className={SocietyStyle.name}>{itemImg.name}</div>
