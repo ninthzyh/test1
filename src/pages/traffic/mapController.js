@@ -283,7 +283,7 @@ export default class OneMap extends Component {
           [227, 12, 12],
         ],
         opacity: 0.4,
-        getPosition: (d) => d.geometry.coordinates,
+        getPosition: (d) => d.geometry.coordinates[0],
         getWeight: (d) => {
           return Math.floor(Math.random() * (500 - 300 + 1) + 300);
         },
