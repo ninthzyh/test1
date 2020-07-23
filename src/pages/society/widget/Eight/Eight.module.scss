@@ -2,6 +2,7 @@
     height: 100%;
     width: 100%;
     .Eight {
+        margin-top: 12px;
         display: flex;
         height: calc(100% - 50px);
         width: 90%;
@@ -9,7 +10,6 @@
         justify-content: space-around;
         .container {
             display: flex;
-            padding-top: 10px;
             font-family: PingFangSC-Regular,PingFang SC;
             .title {
                 font-size:14px;
