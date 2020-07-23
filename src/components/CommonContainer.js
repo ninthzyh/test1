@@ -11,7 +11,7 @@ export default class CommonContainer extends Component {
     }
 
     componentDidMount() {
-        if(this.props.change){
+        if(this.props.children > 6){
             this.showChange();
         }
     }
@@ -29,7 +29,7 @@ export default class CommonContainer extends Component {
         const result = [...new Array(Math.ceil(length/size))].map((item,index) =>{
             const position = index % 2 === 0 ? 'Left' : 'Right';
             // 前一半先展示  后一半隐藏   到达切换时间后反转过来
-            const showWrapper = length <= 6 || index < (length/size/2) ? !show : show;
+            const showWrapper = length <= 6 || index < (length/size/2) ? show : !show;
             // 要切换时  第一次进来  切换后才战士的项目  隐藏
             const style = length > 6 && this.firstInit && index >= (length/size/2) ? {display: 'none'} : {};
             return <div key={index} style={style} className={this.getClassName(showWrapper, position)}>{childList.slice(index*size, (index+1)*size)}</div>;
@@ -46,7 +46,7 @@ export default class CommonContainer extends Component {
         },window.interval)
     };
 
-    getClassName = (show,position) => `${this.props.containerStyle[`${position.toLowerCase()}Wrapper`]} ${show ? `animate__animated animate__backOut${position}` : `animate__animated animate__backIn${position}`}`;
+    getClassName = (show,position) => `${this.props.containerStyle[`${position.toLowerCase()}Wrapper`]} ${show ? `animate__animated animate__backIn${position}` : `animate__animated animate__backOut${position}`}`;
 
     render() {
         const {showVisitor, containerStyle, Map} = this.props;

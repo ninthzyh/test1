@@ -17,7 +17,7 @@ import CommonContainer from "components/CommonContainer";
 class Index extends Component {
     render() {
         return (
-            <CommonContainer Map={OneMap} containerStyle={AffairsStyle} showVisitor={true} change={true}>
+            <CommonContainer Map={OneMap} containerStyle={AffairsStyle} showVisitor={true}>
                 <div className={AffairsStyle.item}><One/></div>
                 <div className={AffairsStyle.item}><Two /></div>
                 <div className={AffairsStyle.item}><Three /></div>

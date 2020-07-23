@@ -10,6 +10,7 @@ import DeckGL, { FlyToInterpolator } from 'deck.gl';
 import { GeoJsonLayer, PathLayer, } from '@deck.gl/layers';
 import { HeatmapLayer, IconLayer } from 'deck.gl';
 import PolylineLayer from 'components/polyline-layer/polyline-layer';
+import ScatterpointLayer from "components/scatterpoint-layer/scatterpoint-layer";
 // import ArcLayerExt from 'components/arc-layer/arc-layer-ext';
 // import ScanLayer from 'components/scan-layer/scan-layer';
 import cityData from 'assets/json/PuYang_City.geojson';
@@ -78,9 +79,12 @@ const INITIAL_VIEW_STATE = {
   zoom: 12.5,
   pitch: 0,
   bearing: 0 //方位
+
+
 };
 
 const viewStates = [
+
   {
     longitude: 115.0259652,
     latitude: 35.71499193,
@@ -136,23 +140,23 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
-    longitude: 115.0415158,
-    latitude: 35.72398069,
+    longitude: 115.0659567,
+    latitude: 35.72102259,
     zoom: 17,
     pitch: 60,
     bearing: 30,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
   },
-  // {
-  //   longitude: 115.0261693,
-  //   latitude: 35.71213981,
-  //   zoom: 17,
-  //   pitch: 60,
-  //   bearing: 30,
-  //   transitionDuration: 5000,
-  //   transitionInterpolator: new FlyToInterpolator()
-  // },
+  {
+    longitude: 115.0244634,
+    latitude: 35.71045408,
+    zoom: 15,
+    pitch: 75,
+    bearing: 285,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
   // {
   //   longitude: 115.0233671,
   //   latitude:35.71174646,
@@ -180,19 +184,18 @@ const viewStates = [
   //   transitionDuration: 5000,
   //   transitionInterpolator: new FlyToInterpolator()
   // },
-  {
-    longitude: 115.021,
-    latitude: 35.710,
-    zoom: 13.5,
-    pitch: 50,
-    bearing: 55,
-    transitionDuration: 5000,
-    transitionInterpolator: new FlyToInterpolator(),
-  },
+
 ];
 var index_viewState = 0;
 var timerView = null;
 var timerVisitor = null;
+const govPosition = [
+  {
+    x: 115.023,
+    y: 35.713,
+  },
+];
+
 export default class OneMap extends Component {
   constructor(props) {
     super(props);
@@ -264,6 +267,17 @@ export default class OneMap extends Component {
     } = this.props;
 
     return [
+      new ScatterpointLayer({
+        id: "pointGov",
+        data: govPosition,
+        getPosition: (d) => [d.x, d.y],
+        getLineWidth: 30,
+        getRadius: 300,
+        getLineColor: [255, 132, 50],
+        speed: 1.2,
+        stroked: true,
+        filled: false,
+      }),
       new HeatmapLayer({
         id: 'heatmaplayer',
         data: this.state.heatmapData,
@@ -391,8 +405,8 @@ export default class OneMap extends Component {
         branch: '税务',
       },
       {
-        coor: [115.0415158, 35.72398069],
-        branch: '教育局',
+        coor: [115.0659567, 35.72102259],
+        branch: '违章处理',
       },
       // {
       //   coor: [115.0261693,35.71213981],
@@ -444,12 +458,23 @@ export default class OneMap extends Component {
                   <div className='font'>{index + 1}</div>
                   <div className='font2'>{value.branch}</div>
                   <div>
-                    <div className='font3'>各部门日服务人次</div>
+                    <div className='font3'>日服务人次</div>
                     <div className='font4'>{this.state.visitorCount[index]}</div>
                   </div>
 
                 </Popup>
               })}
+              <Popup
+                className={`traffic popupTrafficGov`}
+                longitude={115.023}
+                latitude={35.713}
+                altitude={10}
+                closeButton={false}
+                dynamicPosition={false}
+                sortByDepth={true}
+              >
+                <div className="fontTrafficGov">濮阳县政府</div>
+              </Popup>
             </Fragment>
           }
         </StaticMap>
