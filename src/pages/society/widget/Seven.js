@@ -20,7 +20,7 @@ export default class Seven extends Component {
             },
             title:{
                 text:'金额',
-                top: 40,
+                top: 42,
                 textStyle: {
                     fontSize: 12,
                     fontFamily: 'PingFangSC-Regular,PingFang SC',
