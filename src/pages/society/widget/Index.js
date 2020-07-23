@@ -15,19 +15,13 @@ import CommonContainer from "components/CommonContainer";
 class Index extends Component {
     render() {
         return (
-            <CommonContainer Map={OneMap} containerStyle={SocietyStyle} change={true}>
+            <CommonContainer Map={OneMap} containerStyle={SocietyStyle}>
                 <div className={SocietyStyle.item}><One/></div>
                 <div className={SocietyStyle.item}><Two /></div>
                 <div className={SocietyStyle.item}><Three /></div>
                 <div className={SocietyStyle.itemRight}><Four/></div>
                 <div className={SocietyStyle.itemRight}><Five/></div>
                 <div className={SocietyStyle.itemRight}><Six/></div>
-                <div className={SocietyStyle.item}><One/></div>
-                <div className={SocietyStyle.item}><Two /></div>
-                <div className={SocietyStyle.item}><Three /></div>
-                <div className={SocietyStyle.itemRight}><Seven /></div>
-                <div className={SocietyStyle.itemRight}><Eight /></div>
-                <div className={SocietyStyle.itemRight}><Nine/></div>
             </CommonContainer>
         );
     }
