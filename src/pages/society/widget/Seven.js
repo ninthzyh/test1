@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SocietyStyle from '../Society.module.scss';
 import ChartHeader from '../../../components/ChartHeader/ChartHeader';
+// import echarts from 'echarts/lib/echarts'
+// import 'echarts/lib/chart/line'
 import ReactEcharts from 'echarts-for-react';
 import * as echarts from 'echarts'; //导入 echarts 模块
 
@@ -8,164 +10,139 @@ export default class Seven extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
         }
     }
 
-    getOption = () => {
+    getOption = ( ) => {
         return {
             tooltip: {
                 trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow',
-                    textStyle: {
-                        color: '#fff'
-                    }
-
-                },
             },
-            animation: true,
-            animationDuration: 1500,
-            animationEasing: 'exponentialOut',
-            animationDurationUpdate: 1500,
-            animationEasingUpdate: 'cubicOut',
-            legend: {
-                data: ['男', '女'],
+            title:{
+                text:'金额',
+                top: 40,
                 textStyle: {
-                    fontsize: 20,
-                    fontfamily: 'PingFangSC-Regular,PingFang SC',
-                    fontweight: 400,
-                    color: '#FFFFFF',
-                    lineheight: 17,
+                    fontSize: 12,
+                    fontFamily: 'PingFangSC-Regular,PingFang SC',
+                    fontWeight: 400,
+                    color: '#4B8CD3',
                 },
-                icon: 'rect',
-                right: '10%',
-                top: '3%',
-                itemWidth: 14,
-                itemHeight: 14,
             },
+            legend: [
+                {
+                    icon: 'line',
+                    itemWidth: 25,
+                    left: 18,
+                    top: 13,
+                    textStyle: {
+                        fontsize: 12,
+                        fontfamily: 'PingFangSC-Regular,PingFang SC',
+                        fontweight: 400,
+                        color: '#FFFFFF',
+                    },
+                    data: ['城镇低保标准（元/年）']
+                },
+                {
+                    icon: 'line',
+                    itemWidth: 25,
+                    left: 205,
+                    top: 13,
+                    textStyle: {
+                        fontsize: 12,
+                        fontfamily: 'PingFangSC-Regular,PingFang SC',
+                        fontweight: 400,
+                        color: '#FFFFFF',
+                    },
+                    data: ['农村低保标准（元/年）']
+                }
+            ],
             grid: {
-                bottom: '1%',
-                top: '15%',
-                right: '5%',
-                left: '5%',
+                bottom: '8%',
+                top: '32%',
+                right: '8%',
+                left: '3%',
                 containLabel: true
             },
-            // calculable: true,
-            xAxis: [{
+            animationDuration: 3000,
+            xAxis: {
                 type: 'category',
-                axisLine: {
-                    lineStyle: {
-                        color: 'rgba(255,255,255,0.1)'
-                    }
-                },
-                splitLine: {
-                    show: false
-                },
-                axisTick: {
-                    show: true
-                },
-                splitArea: {
-                    show: false
-                },
+                data: ['2017年', '2018年', '2019年', '2020年'],
+                boundaryGap: false,
                 axisLabel: {
-                    interval: 0,
-                    color: 'rgba(255,255,255)',
-                    fontSize: 10
-                },
-                data: [
-                    '≤10',
-                    '11-20',
-                    '21-30',
-                    '31-40',
-                    '41-50',
-                    '51-60',
-                    '≥61'],
-            }],
-            yAxis: [{
-                type: 'value',
-                name: '人口数量',
-                nameTextStyle: {
-                    color: '#4B8CD3',
-                    fontSize: 12,
-                    fontfamily: 'PingFangSC-Regular,PingFang SC',
-                    fontWeight: 'bolder'
-                },
-                splitLine: {
-                    show: true,
-                    lineheight: 1,
-                    lineStyle: {
-                        color: 'rgba(255,255,255,0.2)',
-                    }
-                },
-                axisLine: {
-                    show: false
-                },
-                axisTick: {
-                    show: false
-                },
-                axisLabel: {
-                    interval: 0,
-                    color: 'rgba(255,255,255)',
-                    fontSize: 10
-
-                },
-                splitArea: {
-                    show: false
-                },
-
-            }],
-            series: [{
-                name: '男',
-                type: 'bar',
-                stack: '总量',
-                barMaxWidth: 35,
-                label: {
-                    show: true,
-                    position: 'top',
                     textStyle: {
-                        color: '#5967FF',
-                        fontSize: 10,
-                    }
+                        color: '#FFFFFF',
+                        fontFamily: 'PingFangSC-Regular,PingFang SC',
+                        fontStyle: 'normal',
+                        fontweight: 400,
+                        fontSize: 12,
+                    },
                 },
-                itemStyle: {
-                    normal: {
-                        color:
-                        {
-                            type: 'linear',
-                            x: 0,
-                            y: 0,
-                            x2: 0,
-                            y2: 1,
-                            colorStops: [{
-                                offset: 0,
-                                color: 'rgba(89,103,255,1)' // 0% 处的颜色
-                            }, {
-                                offset: 1,
-                                color: 'rgba(89,103,255,0.24)' // 100% 处的颜色
-                            }],
-                            global: false // 缺省为 false
+                axisTick: {
+                    show: true,
+                },
+                axisLine: {
+                    show: false
+                }
+            },
+            yAxis: [
+                {
+                    type: 'value',
+                    // splitNumber: 5,
+                    max: 7000,
+                    min: 3000,
+                    axisLabel: {
+                        textStyle: {
+                            color: '#FFFFFF',
+                            fontFamily: 'PingFangSC-Regular,PingFang SC',
+                            fontStyle: 'normal',
+                            fontweight: 400,
+                            fontSize: 10,
+                        },
+                    },
+                    axisLine: {
+                        show: false
+                    },
+                    axisTick: {
+                        show: false
+                    },
+                    splitLine: {
+                        show: true,
+                        lineStyle: {
+                            color: '#134C78',
+                            type: 'dashed'//背景线设置为虚线
                         }
                     }
-                },
-                data: [570, 550, 530, 480, 300, 240, 310],
-            },
 
-            {
-                name: '女',
-                type: 'bar',
-                stack: '总量',
-                barWidth: 20,
-                label: {
-                    show: true,
-                    position: 'top',
-                    textStyle: {
-                        color: '#EE1C63',
-                        fontSize: 10,
-                    }
-                },
-                itemStyle: {
-                    normal: {
+                }
+            ],
+            series: [
+                {
+                    name: '城镇低保标准（元/年）',
+                    type: 'line',
+                    symbolSize: 0,
+                    areaStyle: {
+                        color: {
+                            colorStops: [{
+                                offset: 0, color: 'rgba(255, 186, 0,0.38)'
+                            }, {
+                                offset: 1, color: 'rgba(255, 186, 0,0.12)'
+                            }],
+                        }
+                    },
+                    lineStyle: {
+                        color: 'rgba(255, 186, 0,0.38)',
+                        width: window.lineWidth
+                    },
+                    itemStyle: {
+                        color: 'rgba(255, 186, 0, 1)',
+                    },
+                    data: [5160, 5640, 6240, 6840],
+                }, 
+                {
+                    name:  '农村低保标准（元/年）',
+                    type: 'line',
+                    symbolSize: 0,
+                    areaStyle: {
                         color: {
                             type: 'linear',
                             x: 0,
@@ -173,30 +150,42 @@ export default class Seven extends Component {
                             x2: 0,
                             y2: 1,
                             colorStops: [{
-                                offset: 0,
-                                color: 'rgba(238,28,99,1)' // 0% 处的颜色
+                                offset: 0, color: 'rgba(45, 215, 96,1)'
                             }, {
-                                offset: 1,
-                                color: 'rgba(238,28,99,0.24)' // 100% 处的颜色
+                                offset: 1, color: 'rgba(45, 215, 96,0)'
                             }],
-                            global: false // 缺省为 false
-                        },
-                        barBorderRadius: 0
-                    }
+                        }
+                    },
+                    lineStyle: {
+                        color: 'rgba(45, 215, 96,1)',
+                        width: window.lineWidth
+                    },
+                    itemStyle: {
+                        color: 'rgba(45, 215, 96,1)',
+                    },
+                    data: [3210, 3450, 3860, 4260],
                 },
-                data: [570, 550, 530, 480, 300, 240, 310]
-            },
-            ]
+
+            ],
         }
     };
 
+    // componentDidMount() {
+    //     let chart = echarts.init(this.ID)
+    //     chart.setOption(this.getOption(this.state.data))
+    // }
 
     render() {
         return (
-            <div className={SocietyStyle.content}>
-                <ChartHeader title='养老服务人员性别年龄分布' />
-                <ReactEcharts style={{ width: '100%', height: '100%', top: '5%' }} option={this.getOption()} />
-            </div>
-        );
+            <>
+                <ChartHeader title='低保标准' />
+                <div className={SocietyStyle.content}>
+                    {/* <div ref={ID => this.ID = ID} style={{ width: '100%', height: '120%' }}></div> */}
+                    <ReactEcharts
+                        option={this.getOption( )}
+                        style={{ width: '100%', height: '120%' }} />
+                </div>
+            </>
+        )
     }
 }
