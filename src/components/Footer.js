@@ -29,7 +29,7 @@ export default class FooterBottom extends Component {
         return (<Footer className={`${FooterStyle.FooterPage} ${this.props.className}`}>
             <ul className={FooterStyle.FooterListBox}>
                 {
-                    this.footerData.map((item,i)=><li key={i} onClick={this.setCurrentIndex}>
+                    this.footerData.map((item,i)=><li key={i} onClick={this.setCurrentIndex} className={this.state.currentIndex === i && FooterStyle.active }>
                         <span className={this.state.currentIndex === i ? `${FooterStyle.FooterActive}` : FooterStyle.FooterList} onClick={() => window.open(item.path)}>{item.name}</span>
                     </li>)
                 }
