@@ -6,7 +6,7 @@
  * @LastEditTime: 2020/7/16
  */
 export const oneList = {
-	title: '当日疫情服务',
+	title: '季度红黑榜',
 	header: [
 		{
 			name:'法人红名单',

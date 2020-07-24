@@ -81,7 +81,7 @@ class Twelve extends Component {
         )
     }
     render() {
-        const title = '信用动态';
+        const title = '最新上报情况';
         const { animate } = this.state;
         return (
             <div className={TwelveStyle.twelveContainer}>
