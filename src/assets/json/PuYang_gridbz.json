@@ -1,0 +1,22 @@
+[
+    {
+      "type": "grid",
+      "longitude": 115.0236,
+      "latitude": 35.7141
+    },
+    {
+      "type": "grid",
+      "longitude": 115.0124,
+      "latitude": 35.7043
+    },
+    {
+      "type": "grid",
+      "longitude": 115.0379,
+      "latitude": 35.7174
+    },
+    {
+      "type": "order",
+      "longitude": 115.0159,
+      "latitude": 35.7273
+    }
+  ]

@@ -215,7 +215,7 @@ class Eight extends Component {
     render() {
         return (<div className={styles.EightPage}>
 
-            <ChartHeader title='月底案件处理率' />
+            <ChartHeader title='月度案件处置率' />
             <div className={styles.echartsContainer}>
                 <div className={styles.echartsBox}>
                     <ReactEcharts
