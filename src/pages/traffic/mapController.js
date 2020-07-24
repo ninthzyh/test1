@@ -402,7 +402,8 @@ export default class OneMap extends Component {
               className={`traffic popupCarStation`}
               longitude={  115.018}
               latitude={35.705}
-              altitude={10}
+              // altitude={100}
+              offsetTop={-100}
               closeButton={false}
               dynamicPosition={false}
               sortByDepth={true}

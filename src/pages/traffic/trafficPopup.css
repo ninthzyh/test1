@@ -11,8 +11,8 @@
   color: RGB(255, 132, 50);
 }
 .popupCarStation .mapboxgl-popup-content {
-  width: 240px;
-  height: 218px;
+  width: 215px;
+  height: 56px;
   background: url("~img/traffic/carStation.png") no-repeat;
   color: RGB(255, 132, 50);
 }
@@ -68,10 +68,10 @@
 }
 .fontCarstation {
   font-size: 18px;
-  font-family: PingFang SC;
-  font-weight: 800;
+  /* font-family: PingFang SC; */
+  /* font-weight: 550; */
   letter-spacing: 1px;
   text-align: center;
-  color:#24ABFF;
-  margin: 18px auto;
+  color: rgba(255, 255, 255, 1);
+  padding: 8px 0px 0px 40px;
 }
