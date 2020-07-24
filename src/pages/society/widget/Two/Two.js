@@ -19,7 +19,7 @@ export default class Two extends Component {
         right: '10%',
       },
       tooltip: {
-        trigger: 'axis',//坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。只有设置了这个参数才会出现竖直的线条
+        trigger: 'axis',//坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用 
         formatter: function (params) {
           // 移除重复的数据
           for (var i = 0; i < params.length; i++) {
