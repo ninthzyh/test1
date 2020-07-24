@@ -99,16 +99,6 @@ export default class Two extends Component {
       series: [
         {
           name: '近五年失业率',
-          type: 'line',
-          data: [2.7, 2.8, 2.8, 2.9, 2.9],
-          smooth: false,
-          symbol: 'none',
-          lineStyle: {
-            color: '#1FFFF3',
-            width: window.lineWidth,
-          }
-        },
-        {
           type: 'bar',
           data: [2.7, 2.8, 2.8, 2.9, 2.9],
           barWidth: 13,
