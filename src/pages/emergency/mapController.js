@@ -428,16 +428,17 @@ export default class OneMap extends Component {
             }
             {
               this.state.medicalData.map((value, index) => {
-                return <Popup className={`societyMedicalName popup${index + 1}`}
+                return <Popup className={`emergencyMedicalName popup${index + 1}`}
                   longitude={value.coor[0]}
                   latitude={value.coor[1]}
-                  altitude={100}
+                  altitude={80}
+                  offsetTop={-20}
                   closeButton={false}
                   visible={true}
                   key={index}
                   dynamicPosition={false}
                 >
-                  <div className='societyNameWrapper'>{value.name}</div>
+                  <div className='emergencyNameWrapper'>{value.name}</div>
                 </Popup>
               })
             }
