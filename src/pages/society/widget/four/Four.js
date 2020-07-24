@@ -28,27 +28,26 @@ class Four extends Component {
             </div>
         })
     }
-
     getOption(list) {
         return {
             series: [
                 {
                     name: '',
                     type: 'pie',
-                    hoverAnimation: false,
-                    radius: '70%',
-                    center: ['50%', '65%'],
+                    radius: '80%',
+                    top:'30%',
+                    center: ['50%', '50%'],
                     color: ['#08E3F8', '#FFC647',],
-                    // roseType: 'radius',
+                    hoverAnimation: false,
                     data: list,
                     label: {
+                        position: 'outside',
                         normal: {
                             show: true,
-                            position: 'outer',
                             color: '#ddd',
                             formatter: function (params) {
                                 if (params.name !== '') {
-                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.value + '万' + '}';
+                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.data.value + '万' +'}';
                                 } else {
                                     return '';
                                 }
@@ -56,26 +55,24 @@ class Four extends Component {
                             rich: {
                                 b: {
                                     fontSize: 20,
-                                    fontWeight: 500,
                                     lineHeight: 28
 
                                 },
                                 a: {
                                     fontSize: 12,
-                                    fontWeight: 400,
                                     lineHeight: 17
                                 }
                             }
-                        },
+                        }
                     },
                 },
                 {
                     name: '',
                     type: 'pie',
+                    top:'30%',
                     hoverAnimation: false,
-                    radius: '70%',
-                    center: ['50%', '65%'],
-                    // roseType: 'radius',
+                    radius: '80%',
+                    center: ['50%', '50%'],
                     data: list,
                     label: {
                         normal: {
@@ -98,8 +95,6 @@ class Four extends Component {
                             rich: {
                                 a: {
                                     fontSize: 14,
-                                    fontFamily: 'PingFangSC- Regular, PingFang SC',
-                                    fontWeight: 400,
                                     color: 'rgba(255, 255, 255, 1)',
                                     lineHeight: 20,
 
@@ -125,7 +120,7 @@ class Four extends Component {
                             <span className={FourStyle.text}>居民养老保险参保人数</span>
                             <span className={FourStyle.num}>70.56万</span>
                         </div>
-                        < ReactEcharts style={{ height: '100%' }} option={this.getOption(list)} />
+                        < ReactEcharts style={{ height: '100%',paddingTop:'10px' }} option={this.getOption(list)} />
                     </div>
                 </div>
             </div>
