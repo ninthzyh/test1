@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,createRef } from 'react';
 import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 import SocietyStyle from '../Society.module.scss';
 import echarts from 'echarts/lib/echarts';
@@ -7,10 +7,15 @@ import 'echarts/lib/chart/bar';
 import 'echarts-liquidfill/src/liquidFill.js'
 
 export default class extends Component {
+    constructor(){
+        super()
+        this.chartRef = createRef()
+        this.chartRefR = createRef()
+    }
     componentDidMount() {
-        let chart = echarts.init(this.ID)
+        let chart = echarts.init(this.chartRef.current)
         chart.setOption(this.getOption())
-        let liquidChart = echarts.init(this.IDL)
+        let liquidChart = echarts.init(this.chartRefR.current)
         liquidChart.setOption(this.getLiquidOption())
     }
     getOption = () => {
@@ -271,10 +276,10 @@ export default class extends Component {
                 <div className={SocietyStyle.fiveChart}>
 
                     <div className={SocietyStyle.left}>
-                        <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
+                        <div ref={this.chartRef} style={{ width: '100%', height: '100%' }}></div>
                     </div>
                     <div className={SocietyStyle.right}>
-                        <div ref={IDL => this.IDL = IDL} style={{ width: '100%', height: '100%' }}></div>
+                        <div ref={this.chartRefR} style={{ width: '100%', height: '100%' }}></div>
                     </div>
                 </div>
             </div>

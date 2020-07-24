@@ -1,13 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component,createRef } from 'react';
 import AffairsStyle from '../Affairs.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/line';
 
 export default class Two extends Component {
-
+    constructor(){
+        super()
+        this.chartRef = createRef()
+    }
     componentDidMount() {
-        let chart = echarts.init(this.ID)
+        let chart = echarts.init(this.chartRef.current)
         chart.setOption(this.getOption())
     }
     getOption = () => {
@@ -124,7 +127,7 @@ export default class Two extends Component {
             <>
                 <ChartHeader title='服务人次年度趋势图' />
                 <div className={AffairsStyle.content}>
-                    <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
+                    <div ref={this.chartRef} style={{ width: '100%', height: '100%' }}></div>
                 </div>
 
 

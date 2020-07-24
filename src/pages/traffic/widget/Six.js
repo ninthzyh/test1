@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component,createRef } from 'react';
 import AffairsStyle from '../../affairs/Affairs.module.scss'
 import ChartHeader from 'components/ChartHeader/ChartHeader';
 import echarts from 'echarts/lib/echarts' 
@@ -6,7 +6,10 @@ import 'echarts/lib/chart/line'
 
 
 export default class extends Component {
-
+    constructor(){
+        super()
+        this.chartRef = createRef()
+    }
     getOption = () => {
         let option = {
             tooltip: {
@@ -138,7 +141,7 @@ export default class extends Component {
         return option
     }
     componentDidMount() {
-        let chart = echarts.init(this.ID)
+        let chart = echarts.init(this.chartRef.current)
         chart.setOption(this.getOption())
     }
     render() {
@@ -146,7 +149,7 @@ export default class extends Component {
             <>
                 <ChartHeader title='公共交通客流量' />
                 <div className={AffairsStyle.content}>
-                    <div ref={ID => this.ID = ID} style={{ width: '100%', height: '100%' }}></div>
+                    <div ref={this.chartRef} style={{ width: '100%', height: '100%' }}></div>
                 </div>
 
 
