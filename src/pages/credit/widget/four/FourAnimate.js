@@ -178,7 +178,7 @@ class Four extends Component {
             },
             ]
         };
-        myChart.setOption(option)
+        myChart.setOption(option);
     }
     render() {
         const title = '总体概览';
