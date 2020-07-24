@@ -179,6 +179,14 @@ class Four extends Component {
             ]
         };
         myChart.setOption(option);
+
+        setInterval(()=>{
+            option.series[0].data = [];
+            option.series[1].data = [];
+            option.series[0].data = yProgress;
+            option.series[1].data = bgArr;
+            myChart.setOption(option,true)
+        },4000)
     }
     render() {
         const title = '总体概览';
