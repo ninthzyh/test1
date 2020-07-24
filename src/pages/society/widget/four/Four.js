@@ -28,6 +28,7 @@ class Four extends Component {
             </div>
         })
     }
+
     getOption(list) {
         return {
             series: [
@@ -47,7 +48,7 @@ class Four extends Component {
                             color: '#ddd',
                             formatter: function (params) {
                                 if (params.name !== '') {
-                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.data.value + '万' + '}';
+                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.value + '万' + '}';
                                 } else {
                                     return '';
                                 }
