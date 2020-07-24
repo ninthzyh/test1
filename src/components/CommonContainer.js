@@ -11,7 +11,7 @@ export default class CommonContainer extends Component {
     }
 
     componentDidMount() {
-        if(this.props.children > 6){
+        if(this.props.children.length > 6){
             this.showChange();
         }
         
