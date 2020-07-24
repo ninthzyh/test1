@@ -39,7 +39,7 @@ class Four extends Component {
                     radius: '70%',
                     center: ['50%', '65%'],
                     color: ['#08E3F8', '#FFC647',],
-                    roseType: 'radius',
+                    // roseType: 'radius',
                     data: list,
                     label: {
                         normal: {
@@ -75,7 +75,7 @@ class Four extends Component {
                     hoverAnimation: false,
                     radius: '70%',
                     center: ['50%', '65%'],
-                    roseType: 'radius',
+                    // roseType: 'radius',
                     data: list,
                     label: {
                         normal: {
