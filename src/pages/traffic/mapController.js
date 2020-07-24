@@ -393,10 +393,21 @@ export default class OneMap extends Component {
               latitude={35.713}
               altitude={10}
               closeButton={false}
-              dynamicPosition={true}
+              dynamicPosition={false}
               sortByDepth={true}
             >
               <div className="fontTrafficGov">濮阳县政府</div>
+            </Popup>
+            <Popup
+              className={`traffic popupCarStation`}
+              longitude={  115.018}
+              latitude={35.705}
+              altitude={10}
+              closeButton={false}
+              dynamicPosition={false}
+              sortByDepth={true}
+            >
+              <div className="fontCarstation">濮阳县客运站</div>
             </Popup>
             {displayAccident.map((value, index) => {
               return (

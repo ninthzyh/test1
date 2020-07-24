@@ -260,7 +260,7 @@ export default class extends Component {
     }
     render() {
         return <>
-            <ChartHeader />
+            <ChartHeader title="财政收入" />
             <div className={SocietyStyle.content}>
                 <div className={SocietyStyle.fiveLegend}>
                         <div className={SocietyStyle.legendItem}><span className={SocietyStyle.lineY}></span><span>城镇居民人均可支配增长率</span></div>

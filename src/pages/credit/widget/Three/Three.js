@@ -222,7 +222,7 @@ export default class Three extends Component {
         <div className={style.headerWrapper}>
           <div className={style.titleWrapper}>
             <div className={style.icon}></div>
-            <div className={style.title1}>黑红榜季度趋势</div>
+            <div className={style.title1}>季度红黑榜趋势</div>
             <div className={style.title2}>法院判决年趋势</div>
           </div>
           <div className={style.rightIconWrapper} onClick={this.click}>

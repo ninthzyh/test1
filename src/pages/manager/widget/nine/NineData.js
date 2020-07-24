@@ -1,6 +1,6 @@
 
 export const nineList = {
-	title:'月度案件处理率',
+	title:'案件高发类型Top5',
 	children:[
 		{
 			ditch:'市容环境',

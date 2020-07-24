@@ -19,7 +19,7 @@ export default class Two extends Component {
         right: '10%',
       },
       tooltip: {
-        trigger: 'axis',//坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用。只有设置了这个参数才会出现竖直的线条
+        trigger: 'axis',//坐标轴触发，主要在柱状图，折线图等会使用类目轴的图表中使用 
         formatter: function (params) {
           // 移除重复的数据
           for (var i = 0; i < params.length; i++) {
@@ -99,16 +99,6 @@ export default class Two extends Component {
       series: [
         {
           name: '近五年失业率',
-          type: 'line',
-          data: [2.7, 2.8, 2.8, 2.9, 2.9],
-          smooth: false,
-          symbol: 'none',
-          lineStyle: {
-            color: '#1FFFF3',
-            width: window.lineWidth,
-          }
-        },
-        {
           type: 'bar',
           data: [2.7, 2.8, 2.8, 2.9, 2.9],
           barWidth: 13,

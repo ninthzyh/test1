@@ -10,6 +10,12 @@
   background: url("~img/icon_gov.png") no-repeat;
   color: RGB(255, 132, 50);
 }
+.popupCarStation .mapboxgl-popup-content {
+  width: 240px;
+  height: 218px;
+  background: url("~img/traffic/carStation.png") no-repeat;
+  color: RGB(255, 132, 50);
+}
 .trafficAccident {
   height: 14px;
   font-size: 14px;
@@ -59,4 +65,13 @@
   letter-spacing: 1px;
   text-align: center;
   margin: 1px auto;
+}
+.fontCarstation {
+  font-size: 18px;
+  font-family: PingFang SC;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-align: center;
+  color:#24ABFF;
+  margin: 18px auto;
 }

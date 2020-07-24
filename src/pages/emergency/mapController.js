@@ -251,7 +251,7 @@ export default class OneMap extends Component {
           marker: { x: 0, y: 0, width: 35, height: 48, mask: false },
         },
         iconAtlas: medicalIcon,
-        sizeScale:4,
+        sizeScale: 4,
         getIcon: (d) => "marker",
         getPosition: (d) => [d.coor[0], d.coor[1], 80],
         getSize: (d) => {
@@ -400,32 +400,46 @@ export default class OneMap extends Component {
               latitude={35.713}
               altitude={10}
               closeButton={false}
-              dynamicPosition={true}
+              dynamicPosition={false}
               sortByDepth={true}
             >
               <div className="fontEmergencyGov">濮阳县政府</div>
             </Popup>
+
             {
-              <Fragment>
-                {this.state.pointEmeData.map((value, index) => {
-                  return (
-                    <Popup
-                      className={`emergency popupEmergency${index + 1}`}
-                      longitude={value.geometry.x}
-                      latitude={value.geometry.y}
-                      altitude={1}
-                      closeButton={false}
-                      visible={true}
-                      key={index}
-                      dynamicPosition={false}
-                    >
-                      <div className="fontEmergency">
-                        {value.attributes.Name}
-                      </div>
-                    </Popup>
-                  );
-                })}
-              </Fragment>
+              this.state.pointEmeData.map((value, index) => {
+                return (
+                  <Popup
+                    className={`emergency popupEmergency${index + 1}`}
+                    longitude={value.geometry.x}
+                    latitude={value.geometry.y}
+                    altitude={1}
+                    closeButton={false}
+                    visible={true}
+                    key={index}
+                    dynamicPosition={false}
+                  >
+                    <div className="fontEmergency">
+                      {value.attributes.Name}
+                    </div>
+                  </Popup>
+                );
+              })
+            }
+            {
+              this.state.medicalData.map((value, index) => {
+                return <Popup className={`societyMedicalName popup${index + 1}`}
+                  longitude={value.coor[0]}
+                  latitude={value.coor[1]}
+                  altitude={100}
+                  closeButton={false}
+                  visible={true}
+                  key={index}
+                  dynamicPosition={false}
+                >
+                  <div className='societyNameWrapper'>{value.name}</div>
+                </Popup>
+              })
             }
           </StaticMap>
         </DeckGL>

@@ -18,8 +18,8 @@ export default class extends Component {
                 trigger: 'axis',
             },
             grid: {
-                bottom: '10%',
-                top: '20%'
+                bottom: '0%',
+                top: '30%'
             },
             legend:{
                 top:'5%',
@@ -32,13 +32,14 @@ export default class extends Component {
                         color: '#C9D0D5',
                     }
                 },
-                {
-                    name:'受灾人次',
-                    icon: 'line',
-                    textStyle:{
-                        color: '#C9D0D5',
-                    }
-                }],
+                // {
+                //     name:'受灾人次',
+                //     icon: 'line',
+                //     textStyle:{
+                //         color: '#C9D0D5',
+                //     }
+                // }
+                ],
             },
             xAxis: [{
                 type: 'category',
@@ -122,25 +123,25 @@ export default class extends Component {
                     },
                             data: [120, 200, 150, 80, 70],
                 },
-                {
-                    name: '受灾人次',
-                    type: 'line',
-                    symbolSize: 0,
-                    areaStyle: {
-                        color: {
-                            colorStops: [{
-                                offset: 0, color: 'rgba(235, 100, 255,0.38)'
-                            }, {
-                                offset: 1, color: 'rgba(235, 100, 255,0.12)' 
-                            }],
-                        }
-                    },
-                    lineStyle: {
-                        color: '#EB64FF',
-                        width: window.lineWidth
-                    },
-                    data: [ 90, 150, 140, 210, 90],
-                }
+                // {
+                //     name: '受灾人次',
+                //     type: 'line',
+                //     symbolSize: 0,
+                //     areaStyle: {
+                //         color: {
+                //             colorStops: [{
+                //                 offset: 0, color: 'rgba(235, 100, 255,0.38)'
+                //             }, {
+                //                 offset: 1, color: 'rgba(235, 100, 255,0.12)' 
+                //             }],
+                //         }
+                //     },
+                //     lineStyle: {
+                //         color: '#EB64FF',
+                //         width: window.lineWidth
+                //     },
+                //     data: [ 90, 150, 140, 210, 90],
+                // }
             ]
         }
         return option
