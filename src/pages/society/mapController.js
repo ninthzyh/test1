@@ -286,7 +286,7 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >{`当月接待顾客 ${value.review_count}人`}</div>
+          <div className='societyContent' >{`当日接待顾客 ${value.review_count} 人`}</div>
         </Popup>
       })
     )
@@ -303,7 +303,7 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >{`全校师生 ${value.total}人`}</div>
+          <div className='societyContent' >{`全校师生 ${value.total} 人`}</div>
         </Popup>
       })
     )
@@ -320,7 +320,7 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >{`当日接待顾客 ${value.customer}人`}</div>
+          <div className='societyContent' >{`当日接待顾客 ${value.customer} 人`}</div>
         </Popup>
       })
     )
@@ -337,8 +337,8 @@ export default class OneMap extends Component {
           dynamicPosition={false}
         >
           <div className='societyTitle' >{value.name}</div>
-          <div className='societyContent' >{`在职员工 ${value.staff}人`}</div>
-          <div className='societyContent1' >{`开放床位 ${value.beds}张`}</div>
+          <div className='societyContent' >{`在职员工 ${value.staff} 人`}</div>
+          <div className='societyContent1' >{`开放床位 ${value.beds} 张`}</div>
         </Popup>
       })
     )

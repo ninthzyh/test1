@@ -336,7 +336,7 @@ export default class OneMap extends Component {
             >
               <div className='title'> 市场监管局</div>
               <div className='underline' />
-              <div className='content'> 当日新增注册企业数 <span className='number'> 4</span></div>
+              <div className='content'> 当日注册企业数 <span className='number'> 4</span></div>
               <div className='content'> 当日工商变更办理数 <span className='number'> 0</span></div>
               <div className='content'> 当日股权出质办理数 <span className='number'> 1</span></div>
               <div className='content'> 当日行政处罚次数 <span className='number'> 0</span></div>
@@ -357,7 +357,7 @@ export default class OneMap extends Component {
               <div className='content'> 当日违法违章纳税人数 <span className='number'>6</span></div>
               <div className='content'> 近一年违法违章纳税人数 <span className='number'> 1791</span></div>
               <div className='content'> 税费欠缴纳人数 <span className='number'> 89</span></div>
-              <div className='content'> 税费欠款额 <span className='number'>11005943</span></div>
+              <div className='content'> 税费欠款额(元) <span className='number'>11005943</span></div>
             </Popup>
             <Popup className={'credit creditPopup3'}
               longitude={115.026151}
@@ -384,7 +384,7 @@ export default class OneMap extends Component {
               <div className='title'>公用事业局</div>
               <div className='underline' />
               <div className='content'> 水费欠缴用户数 <span className='number'> 56</span></div>
-              <div className='content'> 税费欠缴额 <span className='number'> 15001</span></div>
+              <div className='content'> 水费欠缴额(元) <span className='number'> 15001</span></div>
             </Popup>
             <Popup className={'credit creditPopup3'}
               longitude={115.0037099}
@@ -397,7 +397,7 @@ export default class OneMap extends Component {
             >
               <div className='title'>科技局</div>
               <div className='underline' />
-              <div className='content'> 高技术认证企业数 <span className='number'> 7</span></div>
+              <div className='content'> 高新技术认证企业数 <span className='number'> 7</span></div>
 
             </Popup>
           </StaticMap>
