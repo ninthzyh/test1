@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {StaticMap} from 'react-map-gl';
 import mapboxgl  from 'mapbox-gl';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
-import { AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
+import {AmbientLight, PointLight, LightingEffect } from '@deck.gl/core';
 import DeckGL, { FlyToInterpolator } from 'deck.gl';
 import { GeoJsonLayer, PathLayer, IconLayer } from '@deck.gl/layers';
 import { H3HexagonLayer } from '@deck.gl/geo-layers';
@@ -17,9 +17,11 @@ import buildData from 'assets/json/PuYang_Buildings.geojson';
 import countyData from 'assets/json/PuYang_County.geojson';
 import arcData from 'assets/json/PuYang_arc.json';
 import hexagonData from 'assets/json/PuYangCity_WangGe.json';
+import gridbzData from 'assets/json/PuYang_gridbz.json';
 import pathImg from 'assets/images/path.png';
 import './managerPopup.scss';
 import {changeMapboxLanguage} from "../../untils/MapUtils";
+import {polyfill,geoToH3,h3ToGeo} from 'h3-js';
 
 // Set your mapbox token here
 const MAPBOX_TOKEN = 'pk.eyJ1IjoieHl0Y3poIiwiYSI6ImNrOWNzZ3ZidDA3bnMzbGxteng1bWc0OWIifQ.QKsCoDJL6Qg8gjQkK3VCoQ'; // eslint-disable-line
@@ -68,7 +70,7 @@ const DEFAULT_THEME = {
   effects: [lightingEffect]
 };
 const ICON_MAPPING = {
-  marker: {x: 0, y: 0, anchorY:334, width: 198, height: 334, mask: true}
+  marker: {x: 0, y: 0, anchorY:604, width: 326, height: 604, mask: true}
 };
 
 const INITIAL_VIEW_STATE = {
@@ -76,10 +78,10 @@ const INITIAL_VIEW_STATE = {
   longitude: 115.14788412822952, 
   latitude: 35.56490312212928,
   zoom: 10,
-  pitch: 0,
+  pitch: 15,
   bearing: 0 //方位
 };
-
+//视角转换点参数列表
 const viewStates = [
   {
     type: 'grid',
@@ -92,12 +94,30 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
+    longitude: 115.0236,
+    latitude: 35.7141,
+    zoom: 14,
+    pitch: 60,
+    bearing: 60,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
     type: 'grid',
     longitude: 115.0124,
     latitude: 35.7043,
     zoom: 16,
     pitch: 60,
-    bearing: 50,
+    bearing: 40,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
+    longitude: 115.0236,
+    latitude: 35.7141,
+    zoom: 14,
+    pitch: 60,
+    bearing: 150,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
   },
@@ -112,6 +132,15 @@ const viewStates = [
     transitionInterpolator: new FlyToInterpolator()
   },
   {
+    longitude: 115.0236,
+    latitude: 35.7141,
+    zoom: 14,
+    pitch: 60,
+    bearing: 230,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
+  },
+  {
     type: 'order',
     longitude: 115.0159,
     latitude: 35.7273,
@@ -120,9 +149,18 @@ const viewStates = [
     bearing: 60,
     transitionDuration: 5000,
     transitionInterpolator: new FlyToInterpolator()
+  },
+  {
+    longitude: 115.0236,
+    latitude: 35.7141,
+    zoom: 14,
+    pitch: 60,
+    bearing: 330,
+    transitionDuration: 5000,
+    transitionInterpolator: new FlyToInterpolator()
   }
 ];
-
+//网格编号中心位置坐标
 const gridViews = [
   { longitude: 114.98496692302777, latitude: 35.549818918362 },
   { longitude: 115.02344412632888, latitude: 35.71446457709015 },
@@ -132,7 +170,7 @@ const gridViews = [
   { longitude: 115.15968824524693, latitude: 35.71518123981599 },
   { longitude: 115.28404586708022, latitude: 35.7553418812761 },
   { longitude: 115.27998117030916, latitude: 35.52160249062064 },
-  { longitude: 115.30608454896971, latitude: 35.69493031493384 }
+  { longitude: 115.30666462, latitude: 35.6454366 }
 ];
 
 var index_viewState = 0;
@@ -154,7 +192,7 @@ export default class OneMap extends Component {
   }
   //组件第一次渲染后调用
   componentDidMount() {
-   
+
     setTimeout(() => {
       this.setState({
         initViewState: viewStates[(viewStates.length - 1).toString()]
@@ -165,11 +203,6 @@ export default class OneMap extends Component {
         }
         this.setState({ initViewState: viewStates[index_viewState] });
         index_viewState += 1;
-        if (map) {
-          map.on("click", (e) => {
-            console.log(map.getZoom());
-          })
-        }
       }, 10000);
     }, 5000);
   }
@@ -190,7 +223,7 @@ export default class OneMap extends Component {
     businessLayers = [
       new ScatterpointLayer({
         id: 'scatterlayer',
-        data: viewStates,
+        data: gridbzData,
         getPosition: d => [d.longitude, d.latitude],
         getLineWidth: d => 14,
         getRadius: d => 140,
@@ -207,11 +240,11 @@ export default class OneMap extends Component {
         extruded: true,
         elevationScale: 1,
         getHexagon: d => d.hex,
-        getFillColor: d => [0, (1 - d.count / 500) * 220, 200,255],
+        getFillColor: d => [0, (1 - d.count / 500) * 220, 200,255/10],
         getElevation: 30,
-        getLineColor: [255, 255, 255],
+        getLineColor: [40,255,255,255/5],
         getLineWidth: 1000,
-        opacity:0.05,
+        // opacity:0.05,
         pickable: true
       }),
       new PathLayer({
@@ -294,8 +327,8 @@ export default class OneMap extends Component {
     map = e.target;
     changeMapboxLanguage(map);
     map.on('zoom',()=>{
-      console.log(map.getZoom() + '---' + map.getCenter());
-      if (map.getZoom() > 14){
+      // console.log(map.getZoom() + '---' + map.getCenter());
+      if (map.getZoom() > 13){
         this.setState({scaVisible: true, iconVisible: false});
         for (let i=0; i< popEnties.length; i++){
           let popentity = popEnties[i];
