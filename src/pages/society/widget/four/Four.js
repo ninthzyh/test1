@@ -28,51 +28,7 @@ class Four extends Component {
             </div>
         })
     }
-    // getOption(list) {
-    //     return {
-    //         grid: {
-    //             top: '120%'
-    //         },
-    //         series: [
-    //             {
-    //                 name: '',
-    //                 type: 'pie',
-    //                 radius: '80%',
-    //                 center: ['50%', '50%'],
-    //                 color: ['#08E3F8', '#FFC647',],
-    //                 roseType: 'radius',
-    //                 data: list,
-    //                 label: {
-    //                     position: 'outside',
-    //                     normal: {
-    //                         show: true,
-    //                         color: '#ddd',
-    //                         formatter: function (params) {
-    //                             if (params.name !== '') {
-    //                                 return '{a| ' + params.name + '} \n' + '{b| ' + params.data.num + '}';
-    //                             } else {
-    //                                 return '';
-    //                             }
-    //                         },
-    //                         rich: {
-    //                             b: {
-    //                                 fontSize: 20,
-    //                                 fontWeight: 500,
-    //                                 lineHeight: 28
 
-    //                             },
-    //                             a: {
-    //                                 fontSize: 12,
-    //                                 fontWeight: 400,
-    //                                 lineHeight: 17
-    //                             }
-    //                         }
-    //                     }
-    //                 },
-    //             }
-    //         ]
-    //     }
-    // }
     getOption(list) {
         return {
             series: [
@@ -83,7 +39,7 @@ class Four extends Component {
                     radius: '70%',
                     center: ['50%', '65%'],
                     color: ['#08E3F8', '#FFC647',],
-                    roseType: 'radius',
+                    // roseType: 'radius',
                     data: list,
                     label: {
                         normal: {
@@ -92,7 +48,7 @@ class Four extends Component {
                             color: '#ddd',
                             formatter: function (params) {
                                 if (params.name !== '') {
-                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.data.value + '万' + '}';
+                                    return '{a| ' + params.name + '} \n' + '{b| ' + params.value + '万' + '}';
                                 } else {
                                     return '';
                                 }
@@ -119,7 +75,7 @@ class Four extends Component {
                     hoverAnimation: false,
                     radius: '70%',
                     center: ['50%', '65%'],
-                    roseType: 'radius',
+                    // roseType: 'radius',
                     data: list,
                     label: {
                         normal: {

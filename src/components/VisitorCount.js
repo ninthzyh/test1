@@ -14,7 +14,7 @@ export default () => {
         title: '历史至今累计服务总人次：',
         count: '2,234'
     },];
-    return <div className={VisitorStyle.visitor}>
+    return <div className={`animate__animated animate__backInDown ${VisitorStyle.visitor}`}>
         {data.map((item, index)=><div key={index}><span>{item.title}</span><span className={VisitorStyle.number}>{item.count}</span></div>)}
     </div>;
 }

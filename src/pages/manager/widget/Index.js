@@ -18,7 +18,7 @@ import CommonContainer from "components/CommonContainer";
 class Manager extends React.Component {
     render() {
         return (
-            <CommonContainer Map={OneMap} containerStyle={ManagerStyle} change={true}>
+            <CommonContainer Map={OneMap} containerStyle={ManagerStyle}>
                 <div className={ManagerStyle.item}><One /></div>
                 <div className={ManagerStyle.item}><Two /></div>
                 <div className={ManagerStyle.item}><Three /></div>
