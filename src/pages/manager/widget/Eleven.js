@@ -47,7 +47,7 @@ export default class extends Component {
         const { progressData } = this.state;
         return (
             <>
-                <ChartHeader title='社会公众举报' />
+                <ChartHeader title='上报来源Top10' />
                 <div className={ManagerStyle.serviceContainer}>
                     {progressData.map((item, index) => (<div key={index} className={ManagerStyle.serviceWrapper}>
                         <div className={ManagerStyle.before}>
