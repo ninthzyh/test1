@@ -84,8 +84,8 @@ export default class extends Component {
             },
             {
                 name: '增长率/%',
-                min:'dataMin',
-                max:'dataMax',
+                min:8,
+                max:10,
                 nameTextStyle: {
                     color: '#4B8CD3'
                 },
