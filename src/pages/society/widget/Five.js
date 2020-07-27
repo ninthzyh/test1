@@ -259,7 +259,7 @@ export default class extends Component {
                 top: '35%',
                 style: {
                     fill: '#fff',
-                    text: '70%',
+                    text: '84%',
                     font: '18px Microsoft YaHei'
                 }
 
@@ -268,7 +268,7 @@ export default class extends Component {
                 radius: '60%',
                 type: 'liquidFill',
                 center: ['50%', '50%'],
-                data: [0.7],
+                data: [0.84],
                 name: 'Liquid Fill',
                 backgroundStyle: {
                     color: 'rgba(255,255,255,0)',

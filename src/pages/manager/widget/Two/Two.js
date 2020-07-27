@@ -87,7 +87,8 @@ export default class Two extends Component {
         name:"执法次数/次",
         nameTextStyle: {
           color:'rgba(255,255,255,1)',
-          fontSize:10
+          fontSize:10,
+          // align:'left'
       },
         type: 'value',
         max: 88,

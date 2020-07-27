@@ -71,13 +71,16 @@ export default class Ten extends Component {
         },
         yAxis: [
             {
+                name:'案件数量/个',
+                nameTextStyle: {
+                    color:'rgba(255,255,255,1)',
+                    fontSize:10,
+                    align:'left'
+                },
                 type: 'value',
                 splitNumber: 5,
                 axisLabel: {
-                    formatter: function(){
-
-                        return "";
-                    }
+                    show:false
                 },
                 axisLine:{
                     lineStyle:{
