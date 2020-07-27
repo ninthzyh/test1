@@ -25,6 +25,11 @@ export default class Two extends Component {
           type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
         }
       },
+      grid: {
+        left: '20%',
+        bottom: '15%',
+        top:'25%',
+    },
       animation: true,
       animationDuration: 1000,
       animationEasing: 'quinticInOut',
@@ -79,6 +84,11 @@ export default class Two extends Component {
         data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
       },
       yAxis: {
+        name:"执法次数/次",
+        nameTextStyle: {
+          color:'rgba(255,255,255,1)',
+          fontSize:10
+      },
         type: 'value',
         max: 88,
         min: 0,
@@ -164,7 +174,7 @@ export default class Two extends Component {
           <span className={TwoChartStyle.title5}> 65辆</span>
         </div>
         <div className={TwoChartStyle.chart}>
-          <ReactEcharts style={{ width: '100%', height: '100%', top: -48 }} option={this.getOption()} />
+          <ReactEcharts style={{ width: '100%', height: '100%', top: -40, }} option={this.getOption()} />
         </div>
       </div>
     );

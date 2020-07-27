@@ -54,7 +54,9 @@ export default class extends Component {
                 },
             }],
             yAxis: [{
-                name: '数量',
+                name: '数量/万',
+                // min:'dataMin',
+                // max:'dataMax',
                 nameTextStyle: {
                     color: '#4B8CD3'
                 },
@@ -79,7 +81,37 @@ export default class extends Component {
                         color: 'rgba(63, 64, 75, .3)',
                     }
                 },
-            }],
+            },
+            {
+                name: '增长率/%',
+                min:'dataMin',
+                max:'dataMax',
+                nameTextStyle: {
+                    color: '#4B8CD3'
+                },
+                type: 'value',
+                axisLabel: {
+                    show: true,
+                },
+                axisTick: {
+                    show: false
+                },
+                axisLine: {
+                    show: false,
+                    lineStyle: {
+                        color: "rgba(255,255,255,1	)",
+                        width: 1,
+                        type: "solid"
+                    },
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle: {
+                        color: 'rgba(63, 64, 75, .3)',
+                    }
+                },
+            }
+        ],
             series: [
                 {
                     name: '城镇居民可支配收入',
@@ -99,7 +131,7 @@ export default class extends Component {
                         }
                     },
                     barMaxWidth: 8,
-                    data: [150, 80, 70],
+                    data: [2.6, 2.8, 3.05],
                 },
                 {
                     name: '农村居民可支配收入',
@@ -118,7 +150,7 @@ export default class extends Component {
                         },
                     },
                     barMaxWidth: 8,
-                    data: [250, 180, 170],
+                    data: [1.2, 1.31, 1.42],
                 },
 
                 {
@@ -126,6 +158,7 @@ export default class extends Component {
                     type: 'line',
                     symbolSize: 5,
                     symbol: 'circle',
+                    yAxisIndex:1,
                     areaStyle: {
                         color: {
                             x: 0,
@@ -146,13 +179,14 @@ export default class extends Component {
                     itemStyle: {
                         color: '#F49C34',
                     },
-                    data: [150, 80, 70],
+                    data: [9.5, 8.8, 9],
                 }
                 , {
                     name: '农村居民人均可支配增长率',
                     type: 'line',
                     symbol: 'circle',
                     symbolSize: 5,
+                    yAxisIndex:1,
                     areaStyle: {
                         color: {
                             x: 0,
@@ -173,7 +207,7 @@ export default class extends Component {
                     itemStyle: {
                         color: '#4EFCDC',
                     },
-                    data: [250, 180, 170],
+                    data: [9.5, 9.1, 8.8],
                 }
             ]
         }
