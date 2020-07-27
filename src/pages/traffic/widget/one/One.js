@@ -9,7 +9,7 @@ export default class One extends Component {
         super(props);
         this.state = {
             Name: ['红绿灯', '公交站牌', '摄像头', '测速点', '卡口系统', '交通诱导牌', '区间测速', '加油站'],
-            Data: [68, 88, 64, 78, 70, 62, 56, 53],
+            Data: [1175, 146, 2937, 587, 23, 423, 293, 81],
         }
     }
 

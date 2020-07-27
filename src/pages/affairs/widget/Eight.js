@@ -5,7 +5,7 @@ import ChartHeader from '../../../components/ChartHeader/ChartHeader';
 const img = [
     {title: '综合窗口统计出证区',num: 34},
     { title: '结婚登记', num: 10 },
-    { title: '离婚登记', num: 20 }
+    { title: '离婚登记', num: 24 }
 ]
 export default class extends Component {
     iconList = () => {

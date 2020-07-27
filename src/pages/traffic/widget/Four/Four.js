@@ -11,25 +11,25 @@ class Four extends Component {
                 {
                     pic:require("img/traffic/four1.gif"),
                     name:"社会公共停车位",
-                    count: 8769,
+                    count: 3625,
                     unit:"个"
                 },
                 {
                     pic:require("img/traffic/four2.gif"),
                     name:"充电桩",
-                    count: 124,
+                    count: 2846,
                     unit:"个"
                 },
                 {
                     pic:require("img/traffic/four3.gif"),
                     name:"平均停车时长",
-                    count: 24,
+                    count: 15,
                     unit:"h"
                 },
                 {
                     pic:require("img/traffic/four4.gif"),
                     name:"建筑配建停车场",
-                    count: 98,
+                    count: 75,
                     unit:"个"
                 },
             ]

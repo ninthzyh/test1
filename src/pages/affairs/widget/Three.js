@@ -10,11 +10,11 @@ export default class Three extends Component {
     }
     componentDidMount() {
         var number = [{
-            name: '罚款缴纳\n2323人',
-            value: 45
+            name: '罚款缴纳\n856人',
+            value: 65
         }, {
-            name: '出入境自主办理\n2323人\n35%',
-            value: 55
+            name: '出入境自主办理\n445人\n35%',
+            value: 35
 
         }];
 

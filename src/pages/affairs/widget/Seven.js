@@ -14,19 +14,19 @@ export default class RowBar extends Component {
             progressData:[
                 {
                     title:'档案查询',
-                    proportion:'1,034',
+                    proportion:857,
                     percent: 80,
                     img:up
                 },
                 {
                     title:'住房公积金',
-                    proportion:564,
+                    proportion:547,
                     percent: 67,
                     img:decline
                 },
                 {
                     title:'房产局综合受理',
-                    proportion:134,
+                    proportion:239,
                     percent: 50,
                     img:decline
                 }

@@ -6,13 +6,13 @@ import { Col, Row } from 'antd';
 const img = [
     {
         title: '申报个人普票代开',
-        num: 34
+        num: 1683
     }, {
         title: '社保征收',
-        num: 10
+        num: 714
     }, {
         title: '新房契税征收',
-        num: 2121
+        num: 96
     }
 ]
 export default class extends Component {

@@ -125,7 +125,7 @@ export default class Two extends Component {
                         }
                     }
                 },
-                data: [ 6.5, 4.8,  7.6, 3.7, 6.5]
+                data: [ 34, 23,  31, 27, 12]
             },
             {
                 name: '社会安全',
@@ -149,7 +149,7 @@ export default class Two extends Component {
                         }
                     }
                 },
-                data: [6,6.8,5.6,6.8,4.4]
+                data: [26,24,18,25,23]
             },
             {
                 name: '自然灾害',
@@ -173,7 +173,7 @@ export default class Two extends Component {
                         }
                     }
                 },
-                data: [2.5,4.5,3.5,5,3.8]
+                data: [5,1,2,0,1]
             },
             {
                 name: '事故灾害',
@@ -197,7 +197,7 @@ export default class Two extends Component {
                         }
                     }
                 },
-                data: [4.8,3.6,5.2,3.4,4.2]
+                data: [84,76,49,48,36]
             },
         ],
     }

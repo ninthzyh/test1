@@ -25,24 +25,24 @@ class One extends Component {
                         <div className={styles.blockBox}>
                             <div className={styles.iconBox}><img src={yujing} /></div>
                             <div className={styles.name}>预警</div>
-                            <div className={styles.value}>421</div>
+                            <div className={styles.value}>287</div>
                         </div>
                         <div className={styles.blockBox}>
                             <div className={styles.iconBox}><img src={lianwangdanwei} /></div>
                             <div className={styles.name}>联网单位</div>
-                            <div className={styles.value}>3412</div>
+                            <div className={styles.value}>820</div>
                         </div>
                     </div>
                     <div className={styles.bottomBox}>
                         <div className={styles.blockBox} style={{ 'marginLeft': '15%' }}>
                             <div className={styles.iconBox}><img src={shebeiwanhaoshuai} /></div>
                             <div className={styles.name}>设备完好率</div>
-                            <div className={styles.value}>42.9%</div>
+                            <div className={styles.value}>62%</div>
                         </div>
                         <div className={styles.blockBox} style={{ 'marginRight': '15%' }}>
                             <div className={styles.iconBox}><img src={shebeijianguan2} /></div>
                             <div className={styles.name}>监控设备</div>
-                            <div className={styles.value}>629</div>
+                            <div className={styles.value}>739</div>
                         </div>
                     </div>
                 </div>

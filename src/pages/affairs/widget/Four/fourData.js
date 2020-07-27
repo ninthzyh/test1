@@ -6,7 +6,7 @@
  * @LastEditTime: 2020/7/15
  */
 export const fourList = {
-	title:'当前办事渠道排行',
+	title:'当日办事渠道排行',
 	header:['排名','渠道'],
 	children:[
 		{
