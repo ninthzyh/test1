@@ -20,7 +20,7 @@ import hexagonData from 'assets/json/PuYangCity_WangGe.json';
 import gridbzData from 'assets/json/PuYang_gridbz.json';
 import pathImg from 'assets/images/path.png';
 import './managerPopup.scss';
-import {changeMapboxLanguage} from "../../untils/MapUtils";
+import {changeMapboxLanguage} from "untils/MapUtils";
 import {polyfill,geoToH3,h3ToGeo} from 'h3-js';
 
 // Set your mapbox token here
@@ -313,7 +313,8 @@ export default class OneMap extends Component {
         getPosition: d => [d.longitude, d.latitude],
         getSize: d => 150,
         getColor: d => theme.scatterGridColor,
-        visible: this.state.iconVisible
+        visible: this.state.iconVisible,
+        billboard: true
       });
       businessLayers.push(iconlayer);
     });
