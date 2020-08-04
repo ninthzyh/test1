@@ -183,7 +183,8 @@ export default class OneMap extends Component {
       initViewState: INITIAL_VIEW_STATE,
       timer: 5000,
       scaVisible: false,
-      iconVisible: true
+      iconVisible: true,
+      governVisible:false
     };
   }
   componentWillMount() {
@@ -220,6 +221,12 @@ export default class OneMap extends Component {
     const {
       theme = DEFAULT_THEME
     } = this.props;
+    const govPosition = [
+      {
+        x: 115.023,
+        y: 35.713,
+      },
+    ];
     businessLayers = [
       new ScatterpointLayer({
         id: 'scatterlayer',
@@ -291,6 +298,18 @@ export default class OneMap extends Component {
       //   getLineWidth: 2,
       //   // wireframe: true
       // }),
+      new ScatterpointLayer({
+        id: "pointGov",
+        data: govPosition,
+        getPosition: (d) => [d.x, d.y,50],
+        getLineWidth: 30,
+        getRadius: 300,
+        getLineColor: [255, 132, 50],
+        speed: 1.8,
+        stroked: true,
+        filled: false,
+        visible:this.state.governVisible
+      }),
       new GeoJsonLayer({
         id: 'county-Layer',
         data: this.state.countyData,
@@ -330,7 +349,7 @@ export default class OneMap extends Component {
     map.on('zoom',()=>{
       // console.log(map.getZoom() + '---' + map.getCenter());
       if (map.getZoom() > 13){
-        this.setState({scaVisible: true, iconVisible: false});
+        this.setState({scaVisible: true, iconVisible: false,governVisible:true});
         for (let i=0; i< popEnties.length; i++){
           let popentity = popEnties[i];
           popentity.style.display = 'block';
@@ -340,7 +359,7 @@ export default class OneMap extends Component {
           let popentity = popEnties[j];
           popentity.style.display = 'none';
         }
-        this.setState({scaVisible: false, iconVisible: true});
+        this.setState({scaVisible: false, iconVisible: true,governVisible:false});
       }
     });
 
@@ -433,6 +452,9 @@ export default class OneMap extends Component {
               <div className='managerPopup1 static'>7</div>
               <div className='managerPopup1 static'>9</div>
             </Popup>
+
+            
+
             <Popup className={'manager managerPopup2'}
               longitude={115.0159}
               latitude={35.7273}
@@ -450,6 +472,20 @@ export default class OneMap extends Component {
                 <div className='managerPopup2 content'>2020-07-07 11:34:20</div>
               </div>
             </Popup>
+            {this.state.governVisible && <Popup
+                className={`manager popupTrafficGov`}
+                longitude={115.023}
+                latitude={35.713}
+                altitude={10}
+                anchor = {'bottom'}
+                dynamicPosition = {false}
+                sortByDepth = {true}
+                closeButton={false}
+                visible={true}
+                dynamicPosition={false}
+              >
+                <div className="fontTrafficGov">濮阳县政府</div>
+              </Popup>}
             </StaticMap>
       </DeckGL>
     );
