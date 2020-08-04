@@ -545,7 +545,7 @@ export default class OneMap extends Component {
               !this.state.columnVisible && this.showContent()
             }
             <Popup
-              className={`traffic popupTrafficGov`}
+              className={`society popupTrafficGov`}
               longitude={115.023}
               latitude={35.713}
               altitude={10}
