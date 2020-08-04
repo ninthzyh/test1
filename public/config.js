@@ -20,7 +20,7 @@ window.menubar = [
   {
     name: '城市管理',
     type: 'inner',
-    path: window.address + '/#/index/manager',
+    path: '/index/manager',
   },
   {
     name: '生态环境',
@@ -30,12 +30,12 @@ window.menubar = [
   {
     name: '交通出行',
     type: 'inner',
-    path: window.address + '/#/index/traffic',
+    path: '/index/traffic',
   },
   {
     name: '信用体系',
     type: 'inner',
-    path: window.address + '/#/index/credit',
+    path: '/index/credit',
   },
   {
     name: '经济运行',
@@ -45,17 +45,17 @@ window.menubar = [
   {
     name: '社会民生',
     type: 'inner',
-    path: window.address + '/#/index/society',
+    path: '/index/society',
   },
   {
     name: '政府服务',
     type: 'inner',
-    path: window.address + '/#/index/affairs',
+    path: '/index/affairs',
   },
   {
     name: '城市应急',
     type: 'inner',
-    path: window.address + '/#/index/emergency',
+    path: '/index/emergency',
   },
   {
     name: '城市旅游',

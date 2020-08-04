@@ -6,31 +6,26 @@ const { Footer } = Layout;
 export default class FooterBottom extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            currentIndex: 0,
-        };
         this.footerData = window.menubar;
     }
 
-    componentDidMount() {
-        const item = this.footerData.findIndex(item=>item.path.indexOf(this.props.history.location.pathname) !== -1);
-        this.setState({
-            currentIndex: item
-        })
-    }
-
-    setCurrentIndex = (event) => {
-        this.setState({
-            currentIndex: parseInt(event.currentTarget.getAttribute('index'), 10)
-        })
+    changeRouter = (path) => {
+        const {history} = this.props;
+        if(path.indexOf('http') !== -1){
+            window.open(path);
+            return;
+        }
+        history.push(path);
     };
 
     render() {
+        const currentIndex = this.footerData.findIndex(item=>item.path.indexOf(this.props.history.location.pathname) !== -1) || 0;
+
         return (<Footer className={`${FooterStyle.FooterPage} ${this.props.className}`}>
             <ul className={FooterStyle.FooterListBox}>
                 {
-                    this.footerData.map((item,i)=><li key={i} onClick={this.setCurrentIndex} className={this.state.currentIndex === i ? FooterStyle.active : {} }>
-                        <span className={this.state.currentIndex === i ? `${FooterStyle.FooterActive}` : FooterStyle.FooterList} onClick={() => window.open(item.path)}>{item.name}</span>
+                    this.footerData.map((item,i)=><li key={i} className={currentIndex === i ? FooterStyle.active : {} }>
+                        <span className={currentIndex === i ? `${FooterStyle.FooterActive}` : FooterStyle.FooterList} onClick={() => this.changeRouter(item.path)}>{item.name}</span>
                     </li>)
                 }
             </ul>
