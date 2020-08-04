@@ -14,7 +14,7 @@ export default class HeaderTop extends Component {
         }
     }
 
-    componentDidMount() {
+    getName = () => {
         const titleMap = {
             '#/index/traffic': '濮阳县智慧城市运行监测子系统-交通出行',
             '#/index/manager': '濮阳县智慧城市运行监测子系统-城市管理',
@@ -23,10 +23,8 @@ export default class HeaderTop extends Component {
             '#/index/emergency': '濮阳县智慧城市运行监测子系统-城市应急',
             '#/index/society': '濮阳县智慧城市运行监测子系统-社会民生',
         };
-        this.setState({
-            name: titleMap[window.location.hash]
-        })
-    }
+        return titleMap[window.location.hash];
+    };
 
     render() {
         const { className } = this.props;
@@ -35,7 +33,7 @@ export default class HeaderTop extends Component {
                 <div className={HeaderStyle.centerBox} >
                     <div className={HeaderStyle.logoBox} />
                     <div className={HeaderStyle.titleBox}>
-                        <div className={HeaderStyle.title} >{this.state.name}</div>
+                        <div className={HeaderStyle.title} >{this.getName()}</div>
                     </div>
                     <div className={HeaderStyle.rightBox} >
                         <span className={HeaderStyle.weatherpicBox} />
