@@ -12,7 +12,7 @@ export default class FooterBottom extends Component {
     changeRouter = (path) => {
         const {history} = this.props;
         if(path.indexOf('http') !== -1){
-            window.open(path);
+            window.location.href=path;
             return;
         }
         history.push(path);

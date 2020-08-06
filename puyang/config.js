@@ -5,7 +5,7 @@ window.weather = {
 
 window.address = 'http://puyang.gov/city'
 // 图标变化时间间隔 单位：毫秒
-window.interval = 10000
+window.interval = 5000
 
 // 图表折线宽度
 window.lineWidth = 2
