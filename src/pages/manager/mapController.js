@@ -235,7 +235,7 @@ export default class OneMap extends Component {
         getLineWidth: d => 14,
         getRadius: d => 140,
         getLineColor: d => (d.type == 'grid') ? theme.scatterGridColor : theme.scatterOrderColor,
-        speed: 3.0,
+        speed: 0.5,
         visible: this.state.scaVisible
       }),
       new H3HexagonLayer({
@@ -268,7 +268,7 @@ export default class OneMap extends Component {
         getPath: d => d.geometry.coordinates[0],
         image: pathImg,
         getWidth: 4,
-        speed: 1.2,
+        speed: 0.5,
       }),
       new GeoJsonLayer({
         id: 'building-layer',
@@ -305,7 +305,7 @@ export default class OneMap extends Component {
         getLineWidth: 30,
         getRadius: 300,
         getLineColor: [255, 132, 50],
-        speed: 1.8,
+        speed: 0.5,
         stroked: true,
         filled: false,
         visible:this.state.governVisible

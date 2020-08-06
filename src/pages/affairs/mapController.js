@@ -271,10 +271,10 @@ export default class OneMap extends Component {
         id: "pointGov",
         data: govPosition,
         getPosition: (d) => [d.x, d.y],
-        getLineWidth: 30,
+        getLineWidth: 20,
         getRadius: 300,
         getLineColor: [255, 132, 50],
-        speed: 1.2,
+        speed: 0.4,
         stroked: true,
         filled: false,
       }),
@@ -335,7 +335,7 @@ export default class OneMap extends Component {
         getPath: d => d.geometry.coordinates[0],
         image: pathIcon,
         getWidth: 4,
-        speed: 1.2,
+        speed: 0.5,
       }),
 
       new GeoJsonLayer({

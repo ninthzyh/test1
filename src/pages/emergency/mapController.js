@@ -282,7 +282,7 @@ export default class OneMap extends Component {
         getWidth: 3,
         getHeight: 1,
         image: arcImg,
-        speed: 0.8,
+        speed: 0.5,
       }),
       // 濮阳县政府
       new ScatterpointLayer({
@@ -292,7 +292,7 @@ export default class OneMap extends Component {
         getLineWidth: 30,
         getRadius: 300,
         getLineColor: [255, 132, 50],
-        speed: 1.2,
+        speed: 0.5,
         stroked: true,
         filled: false,
       }),
@@ -312,7 +312,7 @@ export default class OneMap extends Component {
         getPath: (d) => d.geometry.coordinates[0],
         image: pathImg,
         getWidth: 4,
-        speed: 1.2,
+        speed: 0.5,
       }),
 
       // 城市应急点-圆圈
@@ -323,7 +323,7 @@ export default class OneMap extends Component {
         getLineWidth: 30,
         getRadius: 300,
         getLineColor: (d) => scatterPointColors[d.attributes.Type],
-        speed: 1.0,
+        speed: 1,
         stroked: true,
         filled: false,
       }),
