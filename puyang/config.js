@@ -3,9 +3,9 @@ window.weather = {
   weathername: '晴间多云',
 }
 
-window.address = 'http://puyang.gov/city'
+window.address = 'http://puyang.gov'
 // 图标变化时间间隔 单位：毫秒
-window.interval = 5000
+window.interval = 10000
 
 // 图表折线宽度
 window.lineWidth = 2
@@ -15,7 +15,7 @@ window.menubar = [
   {
     name: '疫情防控',
     type: 'outer',
-    path: `${window.address}/#/population-insight`,
+    path: `${window.location.origin}/city/#/population-insight`,
   },
   {
     name: '城市管理',
@@ -25,7 +25,7 @@ window.menubar = [
   {
     name: '生态环境',
     type: 'outer',
-    path: `${window.address}/#/ecological-environment`,
+    path: `${window.location.origin}/city/#/ecological-environment`,
   },
   {
     name: '交通出行',
@@ -40,7 +40,7 @@ window.menubar = [
   {
     name: '经济运行',
     type: 'outer',
-    path: `${window.address}/#/economic-operation`,
+    path: `${window.location.origin}/city/#/economic-operation`,
   },
   {
     name: '社会民生',
@@ -60,11 +60,11 @@ window.menubar = [
   {
     name: '城市旅游',
     type: 'outer',
-    path: `${window.address}/#/puyangcitytour`,
+    path: `${window.location.origin}/city/#/puyangcitytour`,
   },
   {
     name: '区块链',
     type: 'outer',
-    path: 'http://10.20.23.21/console/directory/console.html#/HomePage',
+    path: `${window.location.origin}/directory/console.html#/HomePage`,
   },
 ]
