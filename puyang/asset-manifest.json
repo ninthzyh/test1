@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/puyang/static/css/main.3019c47d.chunk.css",
-    "main.js": "/puyang/static/js/main.cde00a2a.chunk.js",
-    "main.js.map": "/puyang/static/js/main.cde00a2a.chunk.js.map",
+    "main.js": "/puyang/static/js/main.a6aa6070.chunk.js",
+    "main.js.map": "/puyang/static/js/main.a6aa6070.chunk.js.map",
     "runtime-main.js": "/puyang/static/js/runtime-main.c40e45f2.js",
     "runtime-main.js.map": "/puyang/static/js/runtime-main.c40e45f2.js.map",
     "static/css/2.2f67f60a.chunk.css": "/puyang/static/css/2.2f67f60a.chunk.css",
     "static/js/2.e034f451.chunk.js": "/puyang/static/js/2.e034f451.chunk.js",
     "static/js/2.e034f451.chunk.js.map": "/puyang/static/js/2.e034f451.chunk.js.map",
     "index.html": "/puyang/index.html",
-    "precache-manifest.411f1ff8f3d14119bc389fa81f6052b0.js": "/puyang/precache-manifest.411f1ff8f3d14119bc389fa81f6052b0.js",
+    "precache-manifest.f2e827c848a116a0292bdddccdbd3136.js": "/puyang/precache-manifest.f2e827c848a116a0292bdddccdbd3136.js",
     "service-worker.js": "/puyang/service-worker.js",
     "static/css/2.2f67f60a.chunk.css.map": "/puyang/static/css/2.2f67f60a.chunk.css.map",
     "static/css/main.3019c47d.chunk.css.map": "/puyang/static/css/main.3019c47d.chunk.css.map",
@@ -48,6 +48,6 @@
     "static/css/2.2f67f60a.chunk.css",
     "static/js/2.e034f451.chunk.js",
     "static/css/main.3019c47d.chunk.css",
-    "static/js/main.cde00a2a.chunk.js"
+    "static/js/main.a6aa6070.chunk.js"
   ]
 }
