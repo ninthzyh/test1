@@ -17,7 +17,7 @@ export default class Home extends React.Component {
 
   render() {
     const route = this.state.route;
-    return <Layout className="layout" style={{ height: '100%',backgroundColor:'#000000'}}>
+    return <Layout className="layout" style={{ height: '100%',backgroundColor:'#3F5F6D'}}>
       <Header className='animate__animated animate__backInDown' hasMenu={true} />
       <Content style={{ height: '100%' }} id="Content">
         {renderRoutes(route.children)}
