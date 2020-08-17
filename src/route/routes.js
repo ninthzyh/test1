@@ -1,11 +1,12 @@
 import Index from '../pages/Index'
 import React from "react";
 import Manager from '../pages/manager/widget/Index'
-import Affairs from '../pages/affairs/widget/Index'
+// import Affairs from '../pages/affairs/widget/Index'
 import Credit from '../pages/credit/widget/Index'
 import Society from '../pages/society/widget/Index'
 import Emergency from '../pages/emergency/widget/Index'
 import Traffic from '../pages/traffic/widget/Index'
+import CommonRender from '../pages/CommonRender'
 import { Redirect } from "react-router-dom";
 
 const routes = [
@@ -14,29 +15,15 @@ const routes = [
     exact: true,
     render: () => <Redirect to={"/index/society"} />
   },
-  // {
-  //   path: "/manager",
-  //   component: Manager
-  // },
-  // {
-  //   path: "/credit",
-  //   component: Manager
-  // },
-  // {
-  //   path: "/credit",
-  //   component: Manager
-  // },
-  // {
-  //   path: "/affairs",
-  //   component: Manager
-  // },
   {
     path: "/index",
     component: Index,
     children: [
       {
         path: "/index/affairs",
-        component: Affairs
+        render(){
+          return <CommonRender configName='affairs'/>
+        }
       },
       {
         path: "/index/credit",
