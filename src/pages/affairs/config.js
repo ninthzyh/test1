@@ -16,6 +16,7 @@ import OneMap from './mapController';
 export default {
     style: AffairsStyle,
     OneMap: OneMap,
+    showVisitor: true,
     children: [
         {
             component: One,
