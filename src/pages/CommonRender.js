@@ -16,6 +16,7 @@ function HOC(WrappedComponent,url) {
 
         getData = async ()=> {
             // 请求
+
         };
 
         render() {
@@ -28,9 +29,12 @@ export default class extends Component {
 
     render() {
         const {style, OneMap, showVisitor, children} = config[this.props.configName];
+        console.log(config[this.props.configName])
         return (
             <CommonContainer Map={OneMap} containerStyle={style} showVisitor={showVisitor}>
                 {children.map((item, index)=>{
+        
+                    
                     const C = HOC(item.component,item.url);
                     return <div key={index} className={style[item.className]}><C /></div>
                 })}

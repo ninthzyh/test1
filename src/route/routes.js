@@ -1,11 +1,5 @@
 import Index from '../pages/Index'
 import React from "react";
-import Manager from '../pages/manager/widget/Index'
-// import Affairs from '../pages/affairs/widget/Index'
-import Credit from '../pages/credit/widget/Index'
-import Society from '../pages/society/widget/Index'
-import Emergency from '../pages/emergency/widget/Index'
-import Traffic from '../pages/traffic/widget/Index'
 import CommonRender from '../pages/CommonRender'
 import { Redirect } from "react-router-dom";
 
@@ -27,23 +21,34 @@ const routes = [
       },
       {
         path: "/index/credit",
-        component: Credit
+        render(){
+          return <CommonRender configName='credit'/>
+        }
+        
       },
       {
         path: "/index/society",
-        component: Society
+        render() {
+          return <CommonRender configName='society'/>
+        }
       },
       {
         path: "/index/manager",
-        component: Manager
+        render(){
+          return <CommonRender configName='manager'/>
+        }
       },
       {
         path: "/index/emergency",
-        component: Emergency
+        render(){
+          return <CommonRender configName='emergency' />
+        }
       },
       {
         path: "/index/traffic",
-        component: Traffic
+        render(){
+          return <CommonRender configName='traffic' />
+        }
       }
     ]
   }
